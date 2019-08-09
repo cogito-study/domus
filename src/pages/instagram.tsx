@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { config, animated, useSpring, useTrail } from 'react-spring'
@@ -115,23 +114,23 @@ type Props = {
 
 const Instagram: React.FunctionComponent<Props> = ({
   data: {
-    instagram: { nodes: instagram },
-  },
+    instagram: { nodes: instagram }
+  }
 }) => {
   const pageAnimation = useSpring({
     config: config.default,
     from: { opacity: 0 },
-    to: { opacity: 1 },
+    to: { opacity: 1 }
   })
 
   const trail = useTrail(instagram.length, {
     config: {
       mass: 1,
       tension: 210,
-      friction: 23,
+      friction: 23
     },
     from: { opacity: 0 },
-    to: { opacity: 1 },
+    to: { opacity: 1 }
   })
 
   return (
@@ -142,15 +141,29 @@ const Instagram: React.FunctionComponent<Props> = ({
           // Grab everything before the first hashtag (because I write my captions like that)
           const post = instagram[index]
           const title = post.caption ? post.caption.split('#')[0] : ''
-          const date = new Date(post.timestamp * 1000).toLocaleDateString('de-DE')
+          const date = new Date(post.timestamp * 1000).toLocaleDateString(
+            'de-DE'
+          )
 
           return (
-            <Item style={style} href={`https://www.instagram.com/p/${post.id}/`} key={post.id}>
+            <Item
+              style={style}
+              href={`https://www.instagram.com/p/${post.id}/`}
+              key={post.id}
+            >
               <Overlay />
               <Img fluid={post.localFile.childImageSharp.fluid} />
-              <Content flexDirection="column" flexWrap="nowrap" justifyContent="space-between">
+              <Content
+                flexDirection="column"
+                flexWrap="nowrap"
+                justifyContent="space-between"
+              >
                 <Title>{title}</Title>
-                <Bottom flexDirection="row" flexWrap="nowrap" justifyContent="space-between">
+                <Bottom
+                  flexDirection="row"
+                  flexWrap="nowrap"
+                  justifyContent="space-between"
+                >
                   <span>
                     <HeartIcon src={Heart} /> {post.likes}
                   </span>
@@ -166,23 +179,3 @@ const Instagram: React.FunctionComponent<Props> = ({
 }
 
 export default Instagram
-
-export const query = graphql`
-  query Instagram {
-    instagram: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 30) {
-      nodes {
-        caption
-        id
-        timestamp
-        likes
-        localFile {
-          childImageSharp {
-            fluid(quality: 100, maxWidth: 600, maxHeight: 600) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    }
-  }
-`

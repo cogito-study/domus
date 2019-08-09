@@ -41,7 +41,8 @@ const Description = styled(animated.div)`
 
 const PButton = styled(Button)<{ color: string }>`
   background: ${props => (props.color === 'white' ? 'black' : props.color)};
-  color: ${props => readableColor(props.color === 'white' ? 'black' : props.color)};
+  color: ${props =>
+    readableColor(props.color === 'white' ? 'black' : props.color)};
 `
 
 type PageProps = {
@@ -84,20 +85,35 @@ type PageProps = {
   }
 }
 
-const Project: React.FunctionComponent<PageProps> = ({ data: { project, images } }) => {
+const Project: React.FunctionComponent<PageProps> = () => {
   const categoryAnimation = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' }
   })
 
-  const titleAnimation = useSpring({ config: config.slow, delay: 300, from: { opacity: 0 }, to: { opacity: 1 } })
-  const descAnimation = useSpring({ config: config.slow, delay: 600, from: { opacity: 0 }, to: { opacity: 1 } })
-  const imagesAnimation = useSpring({ config: config.slow, delay: 800, from: { opacity: 0 }, to: { opacity: 1 } })
+  const titleAnimation = useSpring({
+    config: config.slow,
+    delay: 300,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  })
+  const descAnimation = useSpring({
+    config: config.slow,
+    delay: 600,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  })
+  const imagesAnimation = useSpring({
+    config: config.slow,
+    delay: 800,
+    from: { opacity: 0 },
+    to: { opacity: 1 }
+  })
 
   return (
-    <Layout color={project.color}>
-      <SEO
+    <Layout>
+      {/* <SEO
         pathname={project.slug}
         title={`${project.title_detail} | Jodie`}
         desc={project.desc}
@@ -115,7 +131,11 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
       <Content bg={project.color} py={10}>
         <PBox style={imagesAnimation} px={[6, 6, 8, 10]}>
           {images.nodes.map(image => (
-            <Img alt={image.name} key={image.childImageSharp.fluid.src} fluid={image.childImageSharp.fluid} />
+            <Img
+              alt={image.name}
+              key={image.childImageSharp.fluid.src}
+              fluid={image.childImageSharp.fluid}
+            />
           ))}
         </PBox>
       </Content>
@@ -124,44 +144,9 @@ const Project: React.FunctionComponent<PageProps> = ({ data: { project, images }
         <PButton color={project.color} py={4} px={8}>
           Contact Us
         </PButton>
-      </PBox>
+      </PBox> */}
     </Layout>
   )
 }
 
 export default Project
-
-export const query = graphql`
-  query ProjectTemplate($slug: String!, $images: String!) {
-    project: projectsYaml(slug: { eq: $slug }) {
-      title_detail
-      color
-      category
-      desc
-      slug
-      parent {
-        ... on File {
-          modifiedTime
-          birthTime
-        }
-      }
-      cover {
-        childImageSharp {
-          resize(width: 1200, height: 675, quality: 80) {
-            src
-          }
-        }
-      }
-    }
-    images: allFile(filter: { relativePath: { regex: $images } }, sort: { fields: name, order: ASC }) {
-      nodes {
-        name
-        childImageSharp {
-          fluid(quality: 95, maxWidth: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
-        }
-      }
-    }
-  }
-`

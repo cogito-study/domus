@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { readableColor } from 'polished'
 import { Box, Flex } from '../elements'
 import theme from '../../config/theme'
@@ -227,7 +227,7 @@ interface QueryResult {
 }
 
 const Layout = ({ children, color }: LayoutProps) => {
-  const data: QueryResult = useStaticQuery(query)
+  // const data: QueryResult = useStaticQuery(query)
 
   return (
     <ThemeProvider theme={theme}>
@@ -254,11 +254,11 @@ const Layout = ({ children, color }: LayoutProps) => {
                 flexDirection={['row', 'row', 'row', 'column']}
                 alignItems="flex-start"
               >
-                {data.navigation.nodes.map(item => (
+                {/* {data.navigation.nodes.map(item => (
                   <PartialNavLink to={item.link} key={item.name}>
                     {item.name}
                   </PartialNavLink>
-                ))}
+                ))} */}
               </Nav>
             </Flex>
           </SideBarInner>
@@ -282,14 +282,3 @@ const Layout = ({ children, color }: LayoutProps) => {
 export default Layout
 
 Layout.defaultProps = defaultProps
-
-const query = graphql`
-  query Layout {
-    navigation: allNavigationYaml {
-      nodes {
-        name
-        link
-      }
-    }
-  }
-`

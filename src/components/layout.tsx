@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { readableColor } from 'polished'
-import 'typeface-work-sans'
 import { Box, Flex } from '../elements'
 import theme from '../../config/theme'
 import reset from '../styles/reset'
@@ -21,11 +20,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     border: 0;
     margin: 0;
-    
+
     h1, h2, h3, h4, h5, h6 {
       font-weight: ${theme.fontWeights.bold};
     }
-    
+
     h1 {
       font-size: ${theme.fontSizes[5]};
     }
@@ -44,10 +43,10 @@ const GlobalStyles = createGlobalStyle`
     h6 {
       font-size: ${theme.fontSizes[0]};
     }
-    
+
     @media (max-width: 600px) {
       font-size: 16px;
-      
+
       h1 {
         font-size: ${theme.fontSizes[4]};
       }
@@ -73,7 +72,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: black;
-    font-family: 'Work Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
     background: white;
     font-size: 18px;
   }
@@ -86,14 +85,27 @@ const GlobalStyles = createGlobalStyle`
       color: ${theme.colors.primary};
     }
   }
-  
+
   ${reset}
 `
 
-const isPartiallyActive = ({ isPartiallyCurrent }: { isPartiallyCurrent: boolean }) =>
-  isPartiallyCurrent ? { className: 'navlink-active navlink' } : { className: 'navlink' }
+const isPartiallyActive = ({
+  isPartiallyCurrent
+}: {
+  isPartiallyCurrent: boolean
+}) =>
+  isPartiallyCurrent
+    ? { className: 'navlink-active navlink' }
+    : { className: 'navlink' }
 
-const PartialNavLink = ({ children, to, ...rest }: { children: React.ReactNode; to: string }) => (
+const PartialNavLink = ({
+  children,
+  to,
+  ...rest
+}: {
+  children: React.ReactNode
+  to: string
+}) => (
   <Link getProps={isPartiallyActive} to={to} {...rest}>
     {children}
   </Link>
@@ -178,7 +190,8 @@ const Footer = styled.footer<{ color: string }>`
 
   background: ${props => props.color};
 
-  color: ${props => readableColor(`${props.color}`, `${props.theme.colors.grey}`, '#c3c3c3')};
+  color: ${props =>
+    readableColor(`${props.color}`, `${props.theme.colors.grey}`, '#c3c3c3')};
 
   a {
     color: ${props => readableColor(`${props.color}`)};
@@ -201,7 +214,7 @@ const Footer = styled.footer<{ color: string }>`
 type LayoutProps = { children: React.ReactNode } & typeof defaultProps
 
 const defaultProps = {
-  color: 'white',
+  color: 'white'
 }
 
 interface QueryResult {
@@ -252,8 +265,12 @@ const Layout = ({ children, color }: LayoutProps) => {
           <Main>{children}</Main>
           <Footer color={color}>
             <Box p={[6, 6, 8]} fontSize={0}>
-              Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.<br />
-              <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">Source</a>.
+              Starter by <a href="https://www.lekoarts.de/en">LekoArts</a>.
+              <br />
+              <a href="https://github.com/LekoArts/gatsby-starter-portfolio-jodie">
+                Source
+              </a>
+              .
             </Box>
           </Footer>
         </Wrapper>

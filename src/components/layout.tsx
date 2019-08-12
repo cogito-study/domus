@@ -8,10 +8,6 @@ const GlobalStyles = createGlobalStyle`
   *::after {
     box-sizing: border-box;
   }
-  ::selection {
-    color: white;
-    background-color: #f6993f;
-  }
   html {
     box-sizing: border-box;
     border: 0;

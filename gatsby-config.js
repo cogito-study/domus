@@ -2,6 +2,7 @@ require('dotenv').config({
   path: `.env`
 })
 
+const prismicLinkResolver = require('./src/gatsby/linkResolver')
 const config = require('./config')
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
@@ -26,11 +27,19 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
-    'gatsby-transformer-yaml',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: config.googleAnalyticsID
+      }
+    },
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'domus',
+        accessToken: `${process.env.API_KEY}`,
+        // Get the correct URLs in blog posts
+        linkResolver: () => prismicLinkResolver
       }
     },
     'gatsby-plugin-sharp',
@@ -49,7 +58,6 @@ module.exports = {
         icon: 'src/favicon.png'
       }
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-netlify'
+    'gatsby-plugin-offline'
   ]
 }

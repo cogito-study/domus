@@ -1,10 +1,7 @@
 import React from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { animated, config, useSpring } from 'react-spring'
 import styled from 'styled-components'
-import { animated, useSpring, config } from 'react-spring'
-import Layout from '../components/layout'
-import GridItem from '../components/grid-item'
+import { Layout } from '../components/layout'
 import SEO from '../components/SEO'
 import { ChildImageSharp } from '../types'
 

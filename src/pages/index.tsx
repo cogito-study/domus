@@ -3,21 +3,32 @@ import { H1, Box } from '@cogito-study/alea';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import { Hero } from '../components/sections/hero';
+import { HeroSection } from '../components/sections/hero.section';
+import { IndexQuery } from '../generated/graphql-types';
+import { UseCaseSection } from '../components/sections/use-case.section';
 
-const Index: FunctionComponent = ({ data }: unknown) => {
-  const { motto, subtitle, description } = data.allPrismicHome.edges[0].node.data;
+interface IndexProps {
+  data: IndexQuery;
+}
+
+const Index: FunctionComponent<IndexProps> = ({ data }) => {
+  if (!data.allPrismicHome) return undefined;
+
+  const { node } = data.allPrismicHome.edges[0];
+  console.log(node);
+  const { motto, subtitle, description } = node.data;
 
   return (
     <Layout>
       <SEO />
-      <Hero motto={motto.text} subtitle={subtitle.text} description={description.text}></Hero>
+      <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
+      <UseCaseSection />
     </Layout>
   );
 };
 
 export const query = graphql`
-  {
+  query Index {
     allPrismicHome {
       edges {
         node {
@@ -75,16 +86,6 @@ export const query = graphql`
                     text
                   }
                   subtitle {
-                    text
-                  }
-                  title {
-                    text
-                  }
-                }
-              }
-              ... on PrismicHomeBodyUseCase {
-                primary {
-                  description {
                     text
                   }
                   title {

@@ -1,7 +1,7 @@
-import { Box, theme, ThemeProvider } from '@cogito-study/alea'
-import React, { FunctionComponent } from 'react'
-import { createGlobalStyle } from 'styled-components'
-import reset from '../styles/reset'
+import { Box, theme, ThemeProvider } from '@cogito-study/alea';
+import React, { FunctionComponent } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import reset from '../styles/reset';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   ${reset}
-`
+`;
 
 export const Layout: FunctionComponent = ({ children }) => {
   return (
@@ -35,5 +35,5 @@ export const Layout: FunctionComponent = ({ children }) => {
         <Box>{children}</Box>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};

@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 import { Box, H1, Flex, H4, H3 } from '@cogito-study/alea';
 
-interface HeroProps {
+interface HeroSectionProps {
   motto: string;
   description: string;
   subtitle: string;
 }
 
-export const Hero: FunctionComponent<HeroProps> = ({ motto, description, subtitle }) => (
+export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, subtitle }) => (
   <Flex flexDirection="column" alignItems="center">
     <Flex flexDirection="row">
       <Box>

@@ -3701,6 +3701,46 @@ export type PartnerQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type TryOutQueryVariables = {};
+
+export type TryOutQuery = { __typename?: 'Query' } & {
+  allPrismicHomeBodyTryOut: Maybe<
+    { __typename?: 'PrismicHomeBodyTryOutConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicHomeBodyTryOutEdge' } & {
+          node: { __typename?: 'PrismicHomeBodyTryOut' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicHomeBodyTryOutPrimary' } & {
+                image: Maybe<
+                  { __typename?: 'PrismicHomeBodyTryOutPrimaryImage' } & Pick<
+                    PrismicHomeBodyTryOutPrimaryImage,
+                    'url' | 'alt'
+                  >
+                >;
+                image_description: Maybe<
+                  { __typename?: 'PrismicHomeBodyTryOutPrimaryImage_description' } & Pick<
+                    PrismicHomeBodyTryOutPrimaryImage_Description,
+                    'text'
+                  >
+                >;
+                subtitle: Maybe<
+                  { __typename?: 'PrismicHomeBodyTryOutPrimarySubtitle' } & Pick<
+                    PrismicHomeBodyTryOutPrimarySubtitle,
+                    'text'
+                  >
+                >;
+                title: Maybe<
+                  { __typename?: 'PrismicHomeBodyTryOutPrimaryTitle' } & Pick<PrismicHomeBodyTryOutPrimaryTitle, 'text'>
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
 export type UseCaseQueryVariables = {};
 
 export type UseCaseQuery = { __typename?: 'Query' } & {

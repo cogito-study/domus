@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Flex, Box, H2, H4 } from '@cogito-study/alea';
+import { Flex, H2, H4 } from '@cogito-study/alea';
 import { useStaticQuery, graphql } from 'gatsby';
 import { CustomerQuery } from '../../generated/graphql-types';
 

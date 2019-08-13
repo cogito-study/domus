@@ -3,7 +3,14 @@ import { H1, Box, H2 } from '@cogito-study/alea';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import { HeroSection, FeatureSection, UseCaseSection, CustomerSection, PartnerSection } from '../components/sections';
+import {
+  HeroSection,
+  FeatureSection,
+  UseCaseSection,
+  CustomerSection,
+  PartnerSection,
+  TryOutSection,
+} from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
 
 interface IndexProps {
@@ -29,6 +36,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
       </H2>
       <CustomerSection title={customers_heading.text} />
       <PartnerSection />
+      <TryOutSection />
     </Layout>
   );
 };

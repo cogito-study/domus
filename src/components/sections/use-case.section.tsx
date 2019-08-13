@@ -1,19 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { Flex, Box, H3, Paragraph } from '@cogito-study/alea';
-import { UseCaseQuery, Maybe } from '../../generated/graphql-types';
-
-interface UseCaseProps {
-  title?: Maybe<string>;
-  description?: Maybe<string>;
-}
-
-const UseCase: FunctionComponent<UseCaseProps> = ({ title, description }) => (
-  <Flex flexDirection="column" color="primary" border="2px solid red">
-    <H3 color="primary">{title}</H3>
-    <Paragraph color="grey.dark.3">{description}</Paragraph>
-  </Flex>
-);
+import { Flex, H3, Paragraph } from '@cogito-study/alea';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import { UseCaseQuery } from '../../generated/graphql-types';
 
 export const UseCaseSection = () => {
   const data = useStaticQuery<UseCaseQuery>(graphql`
@@ -35,18 +23,16 @@ export const UseCaseSection = () => {
     }
   `);
 
-  console.log(data);
+  if (!data.allPrismicHomeBodyUseCase) return null;
+
   return (
     <Flex>
-      {data.allPrismicHomeBodyUseCase &&
-        data.allPrismicHomeBodyUseCase.edges.map((node, index) => {
-          const {
-            node: { primary },
-          } = node;
-          if (primary && primary.description && primary.title) {
-            return <UseCase key={index} title={primary.title.text} description={primary.description.text} />;
-          }
-        })}
+      {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
+        <Flex key={index} flexDirection="column" color="primary" border="2px solid red">
+          {primary && primary.title && <H3 color="primary.normal">{primary.title.text}</H3>}
+          {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
+        </Flex>
+      ))}
     </Flex>
   );
 };

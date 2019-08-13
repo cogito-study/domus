@@ -3,7 +3,7 @@ import { H1, Box, H2 } from '@cogito-study/alea';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import { HeroSection, FeatureSection, UseCaseSection, CustomerSection } from '../components/sections';
+import { HeroSection, FeatureSection, UseCaseSection, CustomerSection, PartnerSection } from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
 
 interface IndexProps {
@@ -28,6 +28,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
         {call_to_action.text}
       </H2>
       <CustomerSection title={customers_heading.text} />
+      <PartnerSection />
     </Layout>
   );
 };
@@ -53,51 +54,6 @@ export const query = graphql`
             }
             motto {
               text
-            }
-            body {
-              ... on PrismicHomeBodyCustomer {
-                primary {
-                  name {
-                    text
-                  }
-                }
-              }
-              ... on PrismicHomeBodyFeature {
-                primary {
-                  description {
-                    text
-                  }
-                  title {
-                    text
-                  }
-                }
-              }
-              ... on PrismicHomeBodyPartner {
-                primary {
-                  link {
-                    url
-                  }
-                  name {
-                    text
-                  }
-                }
-              }
-              ... on PrismicHomeBodyTryOut {
-                primary {
-                  image {
-                    url
-                  }
-                  image_description {
-                    text
-                  }
-                  subtitle {
-                    text
-                  }
-                  title {
-                    text
-                  }
-                }
-              }
             }
           }
         }

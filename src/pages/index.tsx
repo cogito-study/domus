@@ -1,11 +1,10 @@
 import React, { FunctionComponent } from 'react';
-import { H1, Box } from '@cogito-study/alea';
+import { H1, Box, H2 } from '@cogito-study/alea';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
-import { HeroSection } from '../components/sections/hero.section';
+import { HeroSection, FeatureSection, UseCaseSection, CustomerSection } from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
-import { UseCaseSection } from '../components/sections/use-case.section';
 
 interface IndexProps {
   data: IndexQuery;
@@ -15,14 +14,20 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
   if (!data.allPrismicHome) return undefined;
 
   const { node } = data.allPrismicHome.edges[0];
-  console.log(node);
-  const { motto, subtitle, description } = node.data;
+  const { motto, subtitle, description, call_to_action, customers_heading } = node.data;
+
+  console.log(call_to_action);
 
   return (
     <Layout>
       <SEO />
       <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
       <UseCaseSection />
+      <FeatureSection />
+      <H2 color="grey.dark.2" textAlign="center">
+        {call_to_action.text}
+      </H2>
+      <CustomerSection title={customers_heading.text} />
     </Layout>
   );
 };

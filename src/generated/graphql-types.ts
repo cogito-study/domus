@@ -3674,24 +3674,6 @@ export type IndexQuery = { __typename?: 'Query' } & {
                                 }
                               >;
                             })
-                          | ({ __typename?: 'PrismicHomeBodyUseCase' } & {
-                              primary: Maybe<
-                                { __typename?: 'PrismicHomeBodyUseCasePrimary' } & {
-                                  description: Maybe<
-                                    { __typename?: 'PrismicHomeBodyUseCasePrimaryDescription' } & Pick<
-                                      PrismicHomeBodyUseCasePrimaryDescription,
-                                      'text'
-                                    >
-                                  >;
-                                  title: Maybe<
-                                    { __typename?: 'PrismicHomeBodyUseCasePrimaryTitle' } & Pick<
-                                      PrismicHomeBodyUseCasePrimaryTitle,
-                                      'text'
-                                    >
-                                  >;
-                                }
-                              >;
-                            })
                       >
                     >
                   >;
@@ -3720,6 +3702,87 @@ export type SeoQuery = { __typename?: 'Query' } & {
             }
         >;
       }
+  >;
+};
+
+export type CustomerQueryVariables = {};
+
+export type CustomerQuery = { __typename?: 'Query' } & {
+  allPrismicHomeBodyCustomer: Maybe<
+    { __typename?: 'PrismicHomeBodyCustomerConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicHomeBodyCustomerEdge' } & {
+          node: { __typename?: 'PrismicHomeBodyCustomer' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicHomeBodyCustomerPrimary' } & {
+                name: Maybe<
+                  { __typename?: 'PrismicHomeBodyCustomerPrimaryName' } & Pick<
+                    PrismicHomeBodyCustomerPrimaryName,
+                    'text'
+                  >
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
+export type FeatureQueryVariables = {};
+
+export type FeatureQuery = { __typename?: 'Query' } & {
+  allPrismicHomeBodyFeature: Maybe<
+    { __typename?: 'PrismicHomeBodyFeatureConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicHomeBodyFeatureEdge' } & {
+          node: { __typename?: 'PrismicHomeBodyFeature' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicHomeBodyFeaturePrimary' } & {
+                description: Maybe<
+                  { __typename?: 'PrismicHomeBodyFeaturePrimaryDescription' } & Pick<
+                    PrismicHomeBodyFeaturePrimaryDescription,
+                    'text'
+                  >
+                >;
+                title: Maybe<
+                  { __typename?: 'PrismicHomeBodyFeaturePrimaryTitle' } & Pick<
+                    PrismicHomeBodyFeaturePrimaryTitle,
+                    'text'
+                  >
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
+export type PartnerQueryVariables = {};
+
+export type PartnerQuery = { __typename?: 'Query' } & {
+  allPrismicHomeBodyPartner: Maybe<
+    { __typename?: 'PrismicHomeBodyPartnerConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicHomeBodyPartnerEdge' } & {
+          node: { __typename?: 'PrismicHomeBodyPartner' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicHomeBodyPartnerPrimary' } & {
+                name: Maybe<
+                  { __typename?: 'PrismicHomeBodyPartnerPrimaryName' } & Pick<PrismicHomeBodyPartnerPrimaryName, 'text'>
+                >;
+                link: Maybe<
+                  { __typename?: 'PrismicHomeBodyPartnerPrimaryLink' } & Pick<PrismicHomeBodyPartnerPrimaryLink, 'url'>
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
   >;
 };
 

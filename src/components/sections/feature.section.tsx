@@ -1,12 +1,12 @@
 import { Flex, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { UseCaseQuery } from '../../generated/graphql-types';
+import { FeatureQuery } from '../../generated/graphql-types';
 
-export const UseCaseSection = () => {
-  const data = useStaticQuery<UseCaseQuery>(graphql`
-    query UseCase {
-      allPrismicHomeBodyUseCase {
+export const FeatureSection = () => {
+  const data = useStaticQuery<FeatureQuery>(graphql`
+    query Feature {
+      allPrismicHomeBodyFeature {
         edges {
           node {
             primary {
@@ -23,13 +23,13 @@ export const UseCaseSection = () => {
     }
   `);
 
-  if (!data.allPrismicHomeBodyUseCase) return null;
+  if (!data.allPrismicHomeBodyFeature) return null;
 
   return (
-    <Flex>
-      {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
-        <Flex key={index} flexDirection="column" border="2px solid red">
-          {primary && primary.title && <H3 color="primary.normal">{primary.title.text}</H3>}
+    <Flex flexDirection="column">
+      {data.allPrismicHomeBodyFeature.edges.map(({ node: { primary } }, index) => (
+        <Flex key={index} flexDirection="row">
+          {primary && primary.title && <H3 color="grey.dark.3">{primary.title.text}</H3>}
           {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
         </Flex>
       ))}

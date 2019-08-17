@@ -2364,6 +2364,47 @@ export enum PrismicHomeBodyFeatureFieldsEnum {
   PrimaryDescriptionRaw = 'primary___description___raw',
   PrimaryDescriptionRawType = 'primary___description___raw___type',
   PrimaryDescriptionRawText = 'primary___description___raw___text',
+  PrimaryImageDimensionsWidth = 'primary___image___dimensions___width',
+  PrimaryImageDimensionsHeight = 'primary___image___dimensions___height',
+  PrimaryImageAlt = 'primary___image___alt',
+  PrimaryImageCopyright = 'primary___image___copyright',
+  PrimaryImageUrl = 'primary___image___url',
+  PrimaryImageLocalFileId = 'primary___image___localFile___id',
+  PrimaryImageLocalFileChildren = 'primary___image___localFile___children',
+  PrimaryImageLocalFileSourceInstanceName = 'primary___image___localFile___sourceInstanceName',
+  PrimaryImageLocalFileAbsolutePath = 'primary___image___localFile___absolutePath',
+  PrimaryImageLocalFileRelativePath = 'primary___image___localFile___relativePath',
+  PrimaryImageLocalFileExtension = 'primary___image___localFile___extension',
+  PrimaryImageLocalFileSize = 'primary___image___localFile___size',
+  PrimaryImageLocalFilePrettySize = 'primary___image___localFile___prettySize',
+  PrimaryImageLocalFileModifiedTime = 'primary___image___localFile___modifiedTime',
+  PrimaryImageLocalFileAccessTime = 'primary___image___localFile___accessTime',
+  PrimaryImageLocalFileChangeTime = 'primary___image___localFile___changeTime',
+  PrimaryImageLocalFileBirthTime = 'primary___image___localFile___birthTime',
+  PrimaryImageLocalFileRoot = 'primary___image___localFile___root',
+  PrimaryImageLocalFileDir = 'primary___image___localFile___dir',
+  PrimaryImageLocalFileBase = 'primary___image___localFile___base',
+  PrimaryImageLocalFileExt = 'primary___image___localFile___ext',
+  PrimaryImageLocalFileName = 'primary___image___localFile___name',
+  PrimaryImageLocalFileRelativeDirectory = 'primary___image___localFile___relativeDirectory',
+  PrimaryImageLocalFileDev = 'primary___image___localFile___dev',
+  PrimaryImageLocalFileMode = 'primary___image___localFile___mode',
+  PrimaryImageLocalFileNlink = 'primary___image___localFile___nlink',
+  PrimaryImageLocalFileUid = 'primary___image___localFile___uid',
+  PrimaryImageLocalFileGid = 'primary___image___localFile___gid',
+  PrimaryImageLocalFileRdev = 'primary___image___localFile___rdev',
+  PrimaryImageLocalFileBlksize = 'primary___image___localFile___blksize',
+  PrimaryImageLocalFileIno = 'primary___image___localFile___ino',
+  PrimaryImageLocalFileBlocks = 'primary___image___localFile___blocks',
+  PrimaryImageLocalFileAtimeMs = 'primary___image___localFile___atimeMs',
+  PrimaryImageLocalFileMtimeMs = 'primary___image___localFile___mtimeMs',
+  PrimaryImageLocalFileCtimeMs = 'primary___image___localFile___ctimeMs',
+  PrimaryImageLocalFileBirthtimeMs = 'primary___image___localFile___birthtimeMs',
+  PrimaryImageLocalFileAtime = 'primary___image___localFile___atime',
+  PrimaryImageLocalFileMtime = 'primary___image___localFile___mtime',
+  PrimaryImageLocalFileCtime = 'primary___image___localFile___ctime',
+  PrimaryImageLocalFileBirthtime = 'primary___image___localFile___birthtime',
+  PrimaryImageLocalFileUrl = 'primary___image___localFile___url',
   PrismicId = 'prismicId',
 }
 
@@ -2391,6 +2432,7 @@ export type PrismicHomeBodyFeaturePrimary = {
   __typename?: 'PrismicHomeBodyFeaturePrimary';
   title?: Maybe<PrismicHomeBodyFeaturePrimaryTitle>;
   description?: Maybe<PrismicHomeBodyFeaturePrimaryDescription>;
+  image?: Maybe<PrismicHomeBodyFeaturePrimaryImage>;
 };
 
 export type PrismicHomeBodyFeaturePrimaryDescription = {
@@ -2424,6 +2466,35 @@ export type PrismicHomeBodyFeaturePrimaryDescriptionRawFilterListInput = {
 export type PrismicHomeBodyFeaturePrimaryFilterInput = {
   title?: Maybe<PrismicHomeBodyFeaturePrimaryTitleFilterInput>;
   description?: Maybe<PrismicHomeBodyFeaturePrimaryDescriptionFilterInput>;
+  image?: Maybe<PrismicHomeBodyFeaturePrimaryImageFilterInput>;
+};
+
+export type PrismicHomeBodyFeaturePrimaryImage = {
+  __typename?: 'PrismicHomeBodyFeaturePrimaryImage';
+  dimensions?: Maybe<PrismicHomeBodyFeaturePrimaryImageDimensions>;
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  localFile?: Maybe<File>;
+};
+
+export type PrismicHomeBodyFeaturePrimaryImageDimensions = {
+  __typename?: 'PrismicHomeBodyFeaturePrimaryImageDimensions';
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicHomeBodyFeaturePrimaryImageDimensionsFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type PrismicHomeBodyFeaturePrimaryImageFilterInput = {
+  dimensions?: Maybe<PrismicHomeBodyFeaturePrimaryImageDimensionsFilterInput>;
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
 };
 
 export type PrismicHomeBodyFeaturePrimaryTitle = {
@@ -3685,12 +3756,12 @@ export type Query = {
   allSite?: Maybe<SiteConnection>;
   prismicHomeBodyUseCase?: Maybe<PrismicHomeBodyUseCase>;
   allPrismicHomeBodyUseCase?: Maybe<PrismicHomeBodyUseCaseConnection>;
+  prismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfile>;
+  allPrismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfileConnection>;
   prismicHomeBodyFeature?: Maybe<PrismicHomeBodyFeature>;
   allPrismicHomeBodyFeature?: Maybe<PrismicHomeBodyFeatureConnection>;
   prismicHomeBodyCustomer?: Maybe<PrismicHomeBodyCustomer>;
   allPrismicHomeBodyCustomer?: Maybe<PrismicHomeBodyCustomerConnection>;
-  prismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfile>;
-  allPrismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfileConnection>;
   prismicHomeBodyPartner?: Maybe<PrismicHomeBodyPartner>;
   allPrismicHomeBodyPartner?: Maybe<PrismicHomeBodyPartnerConnection>;
   prismicHomeBodyTryOut?: Maybe<PrismicHomeBodyTryOut>;
@@ -3854,6 +3925,23 @@ export type QueryAllPrismicHomeBodyUseCaseArgs = {
   limit?: Maybe<Scalars['Int']>;
 };
 
+export type QueryPrismicAboutBodyProfileArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyProfilePrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutBodyProfileArgs = {
+  filter?: Maybe<PrismicAboutBodyProfileFilterInput>;
+  sort?: Maybe<PrismicAboutBodyProfileSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
 export type QueryPrismicHomeBodyFeatureArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -3884,23 +3972,6 @@ export type QueryPrismicHomeBodyCustomerArgs = {
 export type QueryAllPrismicHomeBodyCustomerArgs = {
   filter?: Maybe<PrismicHomeBodyCustomerFilterInput>;
   sort?: Maybe<PrismicHomeBodyCustomerSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-export type QueryPrismicAboutBodyProfileArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  slice_type?: Maybe<StringQueryOperatorInput>;
-  primary?: Maybe<PrismicAboutBodyProfilePrimaryFilterInput>;
-  prismicId?: Maybe<StringQueryOperatorInput>;
-};
-
-export type QueryAllPrismicAboutBodyProfileArgs = {
-  filter?: Maybe<PrismicAboutBodyProfileFilterInput>;
-  sort?: Maybe<PrismicAboutBodyProfileSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4356,6 +4427,8 @@ export enum SitePageFieldsEnum {
   PluginCreatorName = 'pluginCreator___name',
   PluginCreatorVersion = 'pluginCreator___version',
   PluginCreatorPluginOptionsTrackingId = 'pluginCreator___pluginOptions___trackingId',
+  PluginCreatorPluginOptionsRepositoryName = 'pluginCreator___pluginOptions___repositoryName',
+  PluginCreatorPluginOptionsAccessToken = 'pluginCreator___pluginOptions___accessToken',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsDescription = 'pluginCreator___pluginOptions___description',
@@ -4366,8 +4439,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
-  PluginCreatorPluginOptionsRepositoryName = 'pluginCreator___pluginOptions___repositoryName',
-  PluginCreatorPluginOptionsAccessToken = 'pluginCreator___pluginOptions___accessToken',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
   PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
@@ -4557,6 +4628,8 @@ export enum SitePluginFieldsEnum {
   Name = 'name',
   Version = 'version',
   PluginOptionsTrackingId = 'pluginOptions___trackingId',
+  PluginOptionsRepositoryName = 'pluginOptions___repositoryName',
+  PluginOptionsAccessToken = 'pluginOptions___accessToken',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsDescription = 'pluginOptions___description',
@@ -4567,8 +4640,6 @@ export enum SitePluginFieldsEnum {
   PluginOptionsIcon = 'pluginOptions___icon',
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
-  PluginOptionsRepositoryName = 'pluginOptions___repositoryName',
-  PluginOptionsAccessToken = 'pluginOptions___accessToken',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
   SsrApIs = 'ssrAPIs',
@@ -4692,6 +4763,8 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
   trackingId?: Maybe<Scalars['String']>;
+  repositoryName?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -4702,12 +4775,12 @@ export type SitePluginPluginOptions = {
   icon?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
-  repositoryName?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
   trackingId?: Maybe<StringQueryOperatorInput>;
+  repositoryName?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -4718,8 +4791,6 @@ export type SitePluginPluginOptionsFilterInput = {
   icon?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-  repositoryName?: Maybe<StringQueryOperatorInput>;
-  accessToken?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -4838,37 +4909,6 @@ export type CustomerQuery = { __typename?: 'Query' } & {
                 name: Maybe<
                   { __typename?: 'PrismicHomeBodyCustomerPrimaryName' } & Pick<
                     PrismicHomeBodyCustomerPrimaryName,
-                    'text'
-                  >
-                >;
-              }
-            >;
-          };
-        }
-      >;
-    }
-  >;
-};
-
-export type FeatureQueryVariables = {};
-
-export type FeatureQuery = { __typename?: 'Query' } & {
-  allPrismicHomeBodyFeature: Maybe<
-    { __typename?: 'PrismicHomeBodyFeatureConnection' } & {
-      edges: Array<
-        { __typename?: 'PrismicHomeBodyFeatureEdge' } & {
-          node: { __typename?: 'PrismicHomeBodyFeature' } & {
-            primary: Maybe<
-              { __typename?: 'PrismicHomeBodyFeaturePrimary' } & {
-                description: Maybe<
-                  { __typename?: 'PrismicHomeBodyFeaturePrimaryDescription' } & Pick<
-                    PrismicHomeBodyFeaturePrimaryDescription,
-                    'text'
-                  >
-                >;
-                title: Maybe<
-                  { __typename?: 'PrismicHomeBodyFeaturePrimaryTitle' } & Pick<
-                    PrismicHomeBodyFeaturePrimaryTitle,
                     'text'
                   >
                 >;

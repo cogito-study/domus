@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { H1, Box, H2 } from '@cogito-study/alea';
+import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
@@ -28,14 +29,16 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
-      <UseCaseSection />
-      <FeatureSection />
-      <H2 color="grey.dark.2" textAlign="center">
-        {call_to_action.text}
-      </H2>
-      <CustomerSection title={customers_heading.text} />
-      <PartnerSection />
+      <Container>
+        <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
+        <UseCaseSection />
+        <FeatureSection />
+        <H2 color="grey.dark.2" textAlign="center">
+          {call_to_action.text}
+        </H2>
+        <CustomerSection title={customers_heading.text} />
+        <PartnerSection />
+      </Container>
       <TryOutSection />
     </Layout>
   );

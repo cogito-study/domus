@@ -1104,18 +1104,20 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cogito-study/alea@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.4.tgz#0b6a7f2da9dfe136bf2c260f1b7b94ed4e041cd1"
-  integrity sha512-h5UQq8X9IB62vDxVHP2rIi1f0UePG/Gx1BwFAterIxQ7eTesmcLUFKgQOp1KL0g1TAdLgULFl8sFfv1uB2ivIw==
+"@cogito-study/alea@^0.1.4-beta.3":
+  version "0.1.4-beta.3"
+  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.4-beta.3.tgz#262b0817c82144c7c9642a7c923c0d5ee34dee21"
+  integrity sha512-U9/u5R1UnGgF3tYSAb1AmNdI41PBTmnklQrYjtAo4DNpLd3qNlrDuyPyVzMF5qqV2zseVbRdtXrmGYqdjiI0Xg==
   dependencies:
+    "@styled-system/theme-get" "^5.1.0"
+    "@types/styled-components" "4.1.18"
+    "@types/styled-system" "5.0.1"
     react "^16.8.6"
     react-dom "^16.8.6"
-    react-scripts "3.1.0"
+    react-scripts "3.1.1"
     styled-components "^4.3.2"
     styled-system "^5.0.18"
     typeface-nunito-sans "0.0.72"
-    typeface-raleway "0.0.75"
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -1552,6 +1554,13 @@
   dependencies:
     object-assign "^4.1.1"
 
+"@styled-system/core@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@styled-system/core/-/core-5.1.0.tgz#ac70447d913f13981f916b2e93f3b2c909bc9566"
+  integrity sha512-HW2ds0qCbmCeGufu0OjQhQ7w8gBHyUT7eeC6XwXwJm6vvLyclt23ervgdMiLhNF2i41Xu+tYFQnfeREZV9j9IA==
+  dependencies:
+    object-assign "^4.1.1"
+
 "@styled-system/flexbox@^5.0.18":
   version "5.0.18"
   resolved "https://registry.yarnpkg.com/@styled-system/flexbox/-/flexbox-5.0.18.tgz#6cfd87e72b40d4a8b1500ee877ad6cbd6e111029"
@@ -1593,6 +1602,13 @@
   integrity sha512-NNs9Ocph8Inp5QSeEEKOZKjg34VfqPfjRq6C7bBY2XidAYhH+f4k8elMT0YTA0uGNGqC5kmbkuYbyy5NNwvwFA==
   dependencies:
     "@styled-system/core" "^5.0.18"
+
+"@styled-system/theme-get@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@styled-system/theme-get/-/theme-get-5.1.0.tgz#857fa32cadb0a8181f5d5f37e950bf8878358f29"
+  integrity sha512-yaizi+B2Il7+P5P5E69vNKgnJ/gDWdXrtnQZ6+SpuG20VniWSXXBJQl21QqQVyubgUu5z3mIUeYnsRsMDw5QGg==
+  dependencies:
+    "@styled-system/core" "^5.1.0"
 
 "@styled-system/typography@^5.0.18":
   version "5.0.18"
@@ -1932,7 +1948,7 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
 
-"@types/styled-components@^4.1.18":
+"@types/styled-components@4.1.18", "@types/styled-components@^4.1.18":
   version "4.1.18"
   resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.18.tgz#348804fe5a399ae0a46550afaf030085815ad931"
   integrity sha512-VrHkgvjbxQXOw0xWSUckusUUZ4y/jqN1u7kF29ngh0oE6uOrlZHleTgqeUqylQqHQIeQ8MxFb50BRHy8ju5DHg==
@@ -1940,6 +1956,13 @@
     "@types/react" "*"
     "@types/react-native" "*"
     csstype "^2.2.0"
+
+"@types/styled-system@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-5.0.1.tgz#b0af58267e06c5ea18fbe6977fcc5347a56cc847"
+  integrity sha512-LulwelnGe9yU95yDqB+g9uD0gAn1S3KQyWWKXAOl6uwWtd4lS+q+oGlyHENL+m5zYBNbM5Qi1zoYYLelW29/pg==
+  dependencies:
+    csstype "^2.6.4"
 
 "@types/tmp@^0.0.32":
   version "0.0.32"
@@ -4963,6 +4986,11 @@ csstype@^2.2.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.5.tgz#1cd1dff742ebf4d7c991470ae71e12bb6751e034"
   integrity sha512-JsTaiksRsel5n7XwqPAfB0l3TFKdpjW/kgAELf9vrb5adGA7UCPLajKK5s3nFrcFm3Rkyp/Qkgl73ENc1UY3cA==
 
+csstype@^2.6.4:
+  version "2.6.6"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.6.tgz#c34f8226a94bbb10c32cc0d714afdf942291fc41"
+  integrity sha512-RpFbQGUE74iyPgvr46U9t1xoQBM8T4BL8SxrN66Le2xYAPSaDJJKeztV3awugusb3g3G9iL8StmkBBXhcbbXhg==
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -5853,10 +5881,10 @@ eslint-config-react-app@^3.0.0:
   dependencies:
     confusing-browser-globals "^1.0.6"
 
-eslint-config-react-app@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-5.0.0.tgz#b3639e96fccc24eaaa63c92fc2f4358f79f22fb2"
-  integrity sha512-d3hbvu14J1Iy7N+XvrMOMXmw32iIGGIHqg7DK0RqA6UxKOix+Z53fuQ/uf2NqasSse3uHUNB1EvuZ8Iw2bzd3g==
+eslint-config-react-app@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-5.0.1.tgz#5f3d666ba3ee3cb384eb943e260e868f6c72251b"
+  integrity sha512-GYXP3F/0PSHlYfGHhahqnJze8rYKxzXgrzXVqRRd4rDO40ga4NA3aHM7/HKbwceDN0/C1Ij3BoAWFawJgRbXEw==
   dependencies:
     confusing-browser-globals "^1.0.8"
 
@@ -13639,10 +13667,10 @@ react-dev-utils@^4.2.3:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-react-dev-utils@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.2.tgz#14f9a75120513967e13599d4f66d43bced7a3fce"
-  integrity sha512-AHVfRepMzZJyJHCNFAsrAG4El1H5v+27c1XkeDoX6pSmdhT/ZDdAN3Mf7DKYcrbIFlubzVYof6NZDnPBjd0CNA==
+react-dev-utils@^9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-9.0.3.tgz#7607455587abb84599451460eb37cef0b684131a"
+  integrity sha512-OyInhcwsvycQ3Zr2pQN+HV4gtRXrky5mJXIy4HnqrWa+mI624xfYfqGuC9dYbxp4Qq3YZzP8GSGQjv0AgNU15w==
   dependencies:
     "@babel/code-frame" "7.5.5"
     address "1.1.0"
@@ -13663,7 +13691,7 @@ react-dev-utils@^9.0.2:
     loader-utils "1.2.3"
     open "^6.3.0"
     pkg-up "2.0.0"
-    react-error-overlay "^6.0.0"
+    react-error-overlay "^6.0.1"
     recursive-readdir "2.2.2"
     shell-quote "1.6.1"
     sockjs-client "1.3.0"
@@ -13685,10 +13713,10 @@ react-error-overlay@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
 
-react-error-overlay@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.0.tgz#485beca3db57e8ec2d934d4ee598754467229499"
-  integrity sha512-oHf3b1J2Pxu03apiHvP21qBCkj6fG6A3c3ahya3fX0VXEZUTzIRLwZI9eZ/6cuOO+kvnzdVdGBxZlo+Tjh+hfQ==
+react-error-overlay@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.1.tgz#b8d3cf9bb991c02883225c48044cb3ee20413e0f"
+  integrity sha512-V9yoTr6MeZXPPd4nV/05eCBvGH9cGzc52FN8fs0O0TVQ3HYYf1n7EgZVtHbldRq5xU9zEzoXIITjYNIfxDDdUw==
 
 react-fast-compare@^2.0.2:
   version "2.0.4"
@@ -13749,10 +13777,10 @@ react-reconciler@^0.20.0:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
-react-scripts@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.1.0.tgz#f4c4133072908e709a23864ccb49076ccbeb766b"
-  integrity sha512-JuccnZ+mKYhufZSxNoikMMX7KKvpq4dhiyR4jzsKDMJIu0fcdcXvjnBWKNMzRKmeXnmbeCjo1K9N/I57ZYpp4w==
+react-scripts@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-3.1.1.tgz#1796bc92447f3a2d3072c3b71ca99f88d099c48d"
+  integrity sha512-dbjTG9vJC61OI62hIswQYg5xHvwlxDTH6QXz6ICEuA5AqkFQWk1LKl76sk8fVL2WsyumbBc4FErALwKcEV2vNA==
   dependencies:
     "@babel/core" "7.5.5"
     "@svgr/webpack" "4.3.2"
@@ -13769,7 +13797,7 @@ react-scripts@3.1.0:
     dotenv "6.2.0"
     dotenv-expand "4.2.0"
     eslint "^6.1.0"
-    eslint-config-react-app "^5.0.0"
+    eslint-config-react-app "^5.0.1"
     eslint-loader "2.2.1"
     eslint-plugin-flowtype "3.13.0"
     eslint-plugin-import "2.18.2"
@@ -13794,7 +13822,7 @@ react-scripts@3.1.0:
     postcss-preset-env "6.7.0"
     postcss-safe-parser "4.0.1"
     react-app-polyfill "^1.0.2"
-    react-dev-utils "^9.0.2"
+    react-dev-utils "^9.0.3"
     resolve "1.12.0"
     resolve-url-loader "3.1.0"
     sass-loader "7.2.0"
@@ -16249,11 +16277,6 @@ typeface-nunito-sans@0.0.72:
   version "0.0.72"
   resolved "https://registry.yarnpkg.com/typeface-nunito-sans/-/typeface-nunito-sans-0.0.72.tgz#c99198a8d62ebdda0399dbe8cd81586a0976a01c"
   integrity sha512-b58R4movZchZJNe5pWvqMVoJzKRs7GP09iIri4WWQOs9+G+yjoTSIpOUMU2xtLmxuyXUo1F8XhnOHY06kSDhuQ==
-
-typeface-raleway@0.0.75:
-  version "0.0.75"
-  resolved "https://registry.yarnpkg.com/typeface-raleway/-/typeface-raleway-0.0.75.tgz#cc79688aa3175452744ecd19540b54dad153e8f3"
-  integrity sha512-mUvT/klCTGA2HporaIMNY3ap45YxBErxFv/1pv82LhbFdNc3m+6ddfoexP6xxwMZ5yZ2VmDhMqk1yikDEoxU/Q==
 
 typescript@^3.5.3:
   version "3.5.3"

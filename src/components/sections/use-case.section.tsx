@@ -30,7 +30,7 @@ export const UseCaseSection = () => {
   if (!data.allPrismicHomeBodyUseCase) return null;
 
   return (
-    <Flex flexWrap="wrap">
+    <Flex flexWrap="wrap" justifyContent="center">
       {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
         <Flex
           key={index}
@@ -43,7 +43,7 @@ export const UseCaseSection = () => {
           pb={4}
           alignItems="start"
           justifyContent="start"
-          border="4px solid"
+          border={3}
           borderColor="primary.light"
         >
           {primary && primary.icon && <img alt={primary.icon.alt} src={primary.icon.url} />}

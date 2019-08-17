@@ -8,7 +8,7 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, subtitle }) => (
-  <Flex flexDirection="column" alignItems="center">
+  <Flex flexDirection="column" alignItems="center" mt={10} mb={6}>
     <Flex flexDirection="row">
       <Box>
         <H1 color="primary.dark">{motto}</H1>
@@ -21,7 +21,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
     </Flex>
 
     <Box>
-      <H3 color="grey.dark.2">{subtitle}</H3>
+      <H3 mt={9} textAlign="center" color="grey.dark.2">{subtitle}</H3>
     </Box>
   </Flex>
 );

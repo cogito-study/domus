@@ -66,6 +66,9 @@ export const UseCaseSection = () => {
           </Flex>
         </Flex>
       ))}
+      <Button variant={'primary'} maxWidth="150px" mt={4}>
+        try out!
+      </Button>
     </Flex>
   );
 };

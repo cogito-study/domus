@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { H1, Box, H2 } from '@cogito-study/alea';
+import { H1, Box, H2, Flex } from '@cogito-study/alea';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
@@ -13,6 +13,7 @@ import {
   TryOutSection,
 } from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
+import heroBackground from '../herobackground.svg';
 
 interface IndexProps {
   data: IndexQuery;
@@ -29,6 +30,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
   return (
     <Layout>
       <SEO />
+      <img style={{ position: 'absolute', zIndex: -3, width: '100vw' }} src={heroBackground}></img>
       <Container>
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
         <UseCaseSection />

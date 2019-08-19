@@ -1,7 +1,8 @@
-import { Flex, H3, Paragraph, Button } from '@cogito-study/alea';
+import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { UseCaseQuery } from '../../generated/graphql-types';
+import { flex } from 'styled-system';
 
 export const UseCaseSection = () => {
   const data = useStaticQuery<UseCaseQuery>(graphql`
@@ -30,42 +31,58 @@ export const UseCaseSection = () => {
   if (!data.allPrismicHomeBodyUseCase) return null;
 
   return (
-    <Flex flexWrap="wrap" justifyContent="center">
-      {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
-        <Flex
-          key={index}
-          flexDirection="column"
-          maxWidth="276px"
-          mx={2}
-          my={3}
-          px={2}
-          pt={3}
-          pb={4}
-          alignItems="start"
-          justifyContent="start"
-          border={3}
-          borderColor="primary.light"
-        >
-          {primary && primary.icon && <img alt={primary.icon.alt} src={primary.icon.url} />}
-          <Flex mt={1} px={3} flexDirection="column" height="250px" justifyContent="space-between">
-            <Flex flexDirection="column">
+    <Flex flexDirection="column" alignItems="center">
+      <Flex flexWrap="wrap" width={['100%', '70%', '750px', '100%']} justifyContent="center">
+        {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
+          <Flex
+            backgroundColor="white"
+            key={index}
+            flexDirection="column"
+            width={['100%', '100%', '210px', '260px']}
+            mx={[2]}
+            my={3}
+            px={[2,2,2,4]}
+            pb={[4,4,4,6]}
+            pt={[1,1,1,3]}
+            pt={3}
+            alignItems="start"
+            justifyContent="space-between"
+            border={3}
+            borderColor="primary.light"
+          >
+            <Flex flexDirection={['row','row', 'column']} alignItems={["center","center","start"]}>
+              <Box minwudth="90px" width={['90px', '90px', '90px', '110px']}>
+                {primary && primary.icon && <img alt={primary.icon.alt} src={primary.icon.url} width="100%" />}
+              </Box>
+              <Flex height={["56px"]} alignItems="center">
               {primary && primary.title && (
-                <H3 my={1} color="primary.normal">
+                <H3 my={1} mx={[2,2,2,4]} color="primary.normal">
                   {primary.title.text}
                 </H3>
               )}
-              {primary && primary.description && (
-                <Paragraph my={2} color="grey.dark.3">
-                  {primary.description.text}
-                </Paragraph>
-              )}
+              </Flex>
             </Flex>
-            <Button variant={'secondary'} maxWidth="150px" mt={4}>
-              learn more
-            </Button>
+            <Flex
+              mt={1}
+              px={[2,2,2,4]}
+              flexDirection="column"
+              height={['100%', '100%', '220px', '200px']}
+              justifyContent="space-between"
+            >
+              <Flex flexDirection="column">
+                {primary && primary.description && (
+                  <Paragraph my={2} color="grey.dark.3">
+                    {primary.description.text}
+                  </Paragraph>
+                )}
+              </Flex>
+              <Button variant={'secondary'} maxWidth="150px" mt={4}>
+                learn more
+              </Button>
+            </Flex>
           </Flex>
-        </Flex>
-      ))}
+        ))}
+      </Flex>
       <Button variant={'primary'} maxWidth="150px" mt={4}>
         try out!
       </Button>

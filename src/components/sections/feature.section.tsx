@@ -1,4 +1,4 @@
-import { Flex, H3, Paragraph, Button } from '@cogito-study/alea';
+import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { FeatureQuery } from '../../generated/graphql-types';
@@ -30,17 +30,28 @@ export const FeatureSection = () => {
   if (!data.allPrismicHomeBodyFeature) return null;
 
   return (
-    <Flex flexDirection="column">
+    <Flex flexDirection="column" alignItems={['center', 'center', 'space-between']}           mx={[4, 4, 0, 7]}
+    >
       {data.allPrismicHomeBodyFeature.edges.map(({ node: { primary } }, index) => (
         <Flex
           key={index}
-          flexDirection={['column', 'column', 'column', 'row']}
-          alignItems="center"
-          my={[4, 4, 9]}
-          mx={[2]}
+          flexDirection={['column', 'column', 'row', 'row']}
+          alignItems={['center', 'center', 'space-between']}
+          justifyContent={['center', 'center', 'space-between']}
+          my={[4, 8, 7]}
+          width={['100%', '70%', '100%', '100%']}
         >
-          {primary && primary.image && <img alt={primary.image.alt} src={primary.image.url} />}
-          <Flex flexDirection="column" justifyContent="center" maxWidth="470px" ml={[0, 0, 0, 9]} mt={[4, 7, 7, 0]}>
+          {/* Width should be 300px on smaller screens and 400px on desktop */}
+          <Box  width={['300px', '300px', '300px', '400px']}>
+          {primary && primary.image && <img alt={primary.image.alt} src={primary.image.url} width="100%" />}
+          </Box>
+          <Flex
+            flexDirection="column"
+            justifyContent="center"
+            maxWidth={['100%', '100%', '300px', '470px']}
+            ml={[0, 0, 0, 9]}
+            mt={[4, 6, 7, 0]}
+          >
             {primary && primary.title && (
               <H3 my={0} color="grey.dark.3">
                 {primary.title.text}

@@ -4429,6 +4429,8 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsTrackingId = 'pluginCreator___pluginOptions___trackingId',
   PluginCreatorPluginOptionsRepositoryName = 'pluginCreator___pluginOptions___repositoryName',
   PluginCreatorPluginOptionsAccessToken = 'pluginCreator___pluginOptions___accessToken',
+  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
+  PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsDescription = 'pluginCreator___pluginOptions___description',
@@ -4437,8 +4439,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsThemeColor = 'pluginCreator___pluginOptions___theme_color',
   PluginCreatorPluginOptionsDisplay = 'pluginCreator___pluginOptions___display',
   PluginCreatorPluginOptionsIcon = 'pluginCreator___pluginOptions___icon',
-  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
-  PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
   PluginCreatorSsrApIs = 'pluginCreator___ssrAPIs',
@@ -4630,6 +4630,8 @@ export enum SitePluginFieldsEnum {
   PluginOptionsTrackingId = 'pluginOptions___trackingId',
   PluginOptionsRepositoryName = 'pluginOptions___repositoryName',
   PluginOptionsAccessToken = 'pluginOptions___accessToken',
+  PluginOptionsPath = 'pluginOptions___path',
+  PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   PluginOptionsName = 'pluginOptions___name',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsDescription = 'pluginOptions___description',
@@ -4638,8 +4640,6 @@ export enum SitePluginFieldsEnum {
   PluginOptionsThemeColor = 'pluginOptions___theme_color',
   PluginOptionsDisplay = 'pluginOptions___display',
   PluginOptionsIcon = 'pluginOptions___icon',
-  PluginOptionsPath = 'pluginOptions___path',
-  PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
   SsrApIs = 'ssrAPIs',
@@ -4765,6 +4765,8 @@ export type SitePluginPluginOptions = {
   trackingId?: Maybe<Scalars['String']>;
   repositoryName?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
+  path?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
   name?: Maybe<Scalars['String']>;
   short_name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -4773,14 +4775,14 @@ export type SitePluginPluginOptions = {
   theme_color?: Maybe<Scalars['String']>;
   display?: Maybe<Scalars['String']>;
   icon?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
   trackingId?: Maybe<StringQueryOperatorInput>;
   repositoryName?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
+  path?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   short_name?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
@@ -4789,8 +4791,6 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color?: Maybe<StringQueryOperatorInput>;
   display?: Maybe<StringQueryOperatorInput>;
   icon?: Maybe<StringQueryOperatorInput>;
-  path?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
@@ -4909,6 +4909,43 @@ export type CustomerQuery = { __typename?: 'Query' } & {
                 name: Maybe<
                   { __typename?: 'PrismicHomeBodyCustomerPrimaryName' } & Pick<
                     PrismicHomeBodyCustomerPrimaryName,
+                    'text'
+                  >
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
+export type FeatureQueryVariables = {};
+
+export type FeatureQuery = { __typename?: 'Query' } & {
+  allPrismicHomeBodyFeature: Maybe<
+    { __typename?: 'PrismicHomeBodyFeatureConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicHomeBodyFeatureEdge' } & {
+          node: { __typename?: 'PrismicHomeBodyFeature' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicHomeBodyFeaturePrimary' } & {
+                image: Maybe<
+                  { __typename?: 'PrismicHomeBodyFeaturePrimaryImage' } & Pick<
+                    PrismicHomeBodyFeaturePrimaryImage,
+                    'url' | 'alt'
+                  >
+                >;
+                title: Maybe<
+                  { __typename?: 'PrismicHomeBodyFeaturePrimaryTitle' } & Pick<
+                    PrismicHomeBodyFeaturePrimaryTitle,
+                    'text'
+                  >
+                >;
+                description: Maybe<
+                  { __typename?: 'PrismicHomeBodyFeaturePrimaryDescription' } & Pick<
+                    PrismicHomeBodyFeaturePrimaryDescription,
                     'text'
                   >
                 >;

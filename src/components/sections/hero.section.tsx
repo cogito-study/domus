@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Box, H1, Flex, H4, H3 } from '@cogito-study/alea';
+import { Box, Button, H1, Flex, H4, H3 } from '@cogito-study/alea';
 
 interface HeroSectionProps {
   motto: string;
@@ -9,13 +9,14 @@ interface HeroSectionProps {
 
 export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, subtitle }) => (
   <Flex flexDirection="column" alignItems="center" mt={10} mb={6}>
-    <Flex flexDirection="row">
+    <Flex flexDirection={["column","column","column","row"]}>
       <Box>
         <H1 color="primary.dark">{motto}</H1>
       </Box>
       <Flex flexDirection="column">
         <Box>
           <H4 color="grey.dark.3">{description}</H4>
+          <Button>try out!</Button>
         </Box>
       </Flex>
     </Flex>

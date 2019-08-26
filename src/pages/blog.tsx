@@ -1,4 +1,4 @@
-import { Anchor, Box, Button, H3, Paragraph } from '@cogito-study/alea';
+import { Anchor, Box, Button, H1, H2, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Container } from '../components/container';
@@ -22,32 +22,6 @@ const Blog = () => {
               content {
                 text
               }
-              body {
-                ... on PrismicBlogPostBodyHeader1 {
-                  primary {
-                    text {
-                      text
-                    }
-                  }
-                  slice_type
-                }
-                ... on PrismicBlogPostBodyHeader2 {
-                  primary {
-                    text {
-                      text
-                    }
-                  }
-                  slice_type
-                }
-                ... on PrismicBlogPostBodyText {
-                  primary {
-                    text {
-                      text
-                    }
-                  }
-                  slice_type
-                }
-              }
             }
           }
         }
@@ -60,11 +34,14 @@ const Blog = () => {
   return (
     <Layout>
       <Container>
+        <H1 mb={1} mt={2} color="primary.dark">
+          Blog
+        </H1>
         {data.allPrismicBlogPost.edges.map(({ node }) => (
           <Box>
-            <H3 mb={1} mt={2} color="primary.dark">
+            <H2 mb={1} mt={2} color="primary.dark">
               {node.data.title.text}
-            </H3>
+            </H2>
             <img src={node.data.hero_image.url} />
             <Paragraph>{node.data.content.text}</Paragraph>
             <Anchor href={`/blog/${node.slugs[0]}`}><Button>Read more</Button></Anchor>

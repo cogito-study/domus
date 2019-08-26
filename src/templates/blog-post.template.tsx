@@ -4,7 +4,8 @@ import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { BlogPostQuery } from '../generated/graphql-types';
-import { BlogPostSlices } from '../components/slices/blog-post-slices';
+import { BlogPostSlices } from '../components/slices/blog-post.slices';
+import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 
 interface BlogPostProps {
   data: BlogPostQuery;
@@ -18,6 +19,7 @@ const BlogPostTemplate: FunctionComponent<BlogPostProps> = ({ data }) => {
           {data.prismicBlogPost.data.title.text}
         </H1>
         <BlogPostSlices slices={data.prismicBlogPost.data.body} />
+        <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
       </Container>
     </Layout>
   );
@@ -69,6 +71,25 @@ export const query = graphql`
               }
             }
             slice_type
+          }
+          ... on PrismicBlogPostBodyRelatedPosts {
+            slice_type
+            primary {
+              blog_post {
+                slug
+                document {
+                  data {
+                    title {
+                      text
+                    }
+                    hero_image {
+                      url
+                      alt
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

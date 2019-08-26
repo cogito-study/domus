@@ -1,6 +1,6 @@
-import React from 'react'
-import { Layout } from '../components/layout'
-import SEO from '../components/SEO'
+import React from 'react';
+import { Layout } from '../components/layout';
+import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import {
   TeamSection,
@@ -11,21 +11,20 @@ import {
 } from '../components/sections';
 
 const About: FunctionComponent<AboutProps> = ({ data }) => {
-
   const { node } = data.allPrismicAbout.edges[0];
   const { title, subtitle, achievement_header } = node.data;
 
   return (
     <Layout>
-      <SEO/>
-      <TeamSection title={title.text} subtitle={subtitle.text}/>
+      <SEO />
+      <TeamSection title={title.text} subtitle={subtitle.text} />
       <AchievementSection title={achievement_header.text} />
       <CustomerSection title="" />
       <PartnerSection />
       <TryOutSection />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query About {
@@ -49,4 +48,4 @@ export const query = graphql`
     }
   }
 `;
-export default About
+export default About;

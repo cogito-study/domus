@@ -49,8 +49,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
             </Paragraph>
           </Box>
           {primary.icon.url && (
-            <Box order={[1, 0]} ml={[0
-            , 9]} width="180px" height="180px">
+            <Box order={[1, 0]} ml={[0, 9]} width="180px" height="180px">
               <img src={primary.icon.url} />
             </Box>
           )}

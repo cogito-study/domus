@@ -286,6 +286,97 @@ export enum FileFieldsEnum {
   Ctime = 'ctime',
   Birthtime = 'birthtime',
   Url = 'url',
+  ChildImageSharpId = 'childImageSharp___id',
+  ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
+  ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
+  ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
+  ChildImageSharpFixedWidth = 'childImageSharp___fixed___width',
+  ChildImageSharpFixedHeight = 'childImageSharp___fixed___height',
+  ChildImageSharpFixedSrc = 'childImageSharp___fixed___src',
+  ChildImageSharpFixedSrcSet = 'childImageSharp___fixed___srcSet',
+  ChildImageSharpFixedSrcWebp = 'childImageSharp___fixed___srcWebp',
+  ChildImageSharpFixedSrcSetWebp = 'childImageSharp___fixed___srcSetWebp',
+  ChildImageSharpFixedOriginalName = 'childImageSharp___fixed___originalName',
+  ChildImageSharpResolutionsBase64 = 'childImageSharp___resolutions___base64',
+  ChildImageSharpResolutionsTracedSvg = 'childImageSharp___resolutions___tracedSVG',
+  ChildImageSharpResolutionsAspectRatio = 'childImageSharp___resolutions___aspectRatio',
+  ChildImageSharpResolutionsWidth = 'childImageSharp___resolutions___width',
+  ChildImageSharpResolutionsHeight = 'childImageSharp___resolutions___height',
+  ChildImageSharpResolutionsSrc = 'childImageSharp___resolutions___src',
+  ChildImageSharpResolutionsSrcSet = 'childImageSharp___resolutions___srcSet',
+  ChildImageSharpResolutionsSrcWebp = 'childImageSharp___resolutions___srcWebp',
+  ChildImageSharpResolutionsSrcSetWebp = 'childImageSharp___resolutions___srcSetWebp',
+  ChildImageSharpResolutionsOriginalName = 'childImageSharp___resolutions___originalName',
+  ChildImageSharpFluidBase64 = 'childImageSharp___fluid___base64',
+  ChildImageSharpFluidTracedSvg = 'childImageSharp___fluid___tracedSVG',
+  ChildImageSharpFluidAspectRatio = 'childImageSharp___fluid___aspectRatio',
+  ChildImageSharpFluidSrc = 'childImageSharp___fluid___src',
+  ChildImageSharpFluidSrcSet = 'childImageSharp___fluid___srcSet',
+  ChildImageSharpFluidSrcWebp = 'childImageSharp___fluid___srcWebp',
+  ChildImageSharpFluidSrcSetWebp = 'childImageSharp___fluid___srcSetWebp',
+  ChildImageSharpFluidSizes = 'childImageSharp___fluid___sizes',
+  ChildImageSharpFluidOriginalImg = 'childImageSharp___fluid___originalImg',
+  ChildImageSharpFluidOriginalName = 'childImageSharp___fluid___originalName',
+  ChildImageSharpFluidPresentationWidth = 'childImageSharp___fluid___presentationWidth',
+  ChildImageSharpFluidPresentationHeight = 'childImageSharp___fluid___presentationHeight',
+  ChildImageSharpSizesBase64 = 'childImageSharp___sizes___base64',
+  ChildImageSharpSizesTracedSvg = 'childImageSharp___sizes___tracedSVG',
+  ChildImageSharpSizesAspectRatio = 'childImageSharp___sizes___aspectRatio',
+  ChildImageSharpSizesSrc = 'childImageSharp___sizes___src',
+  ChildImageSharpSizesSrcSet = 'childImageSharp___sizes___srcSet',
+  ChildImageSharpSizesSrcWebp = 'childImageSharp___sizes___srcWebp',
+  ChildImageSharpSizesSrcSetWebp = 'childImageSharp___sizes___srcSetWebp',
+  ChildImageSharpSizesSizes = 'childImageSharp___sizes___sizes',
+  ChildImageSharpSizesOriginalImg = 'childImageSharp___sizes___originalImg',
+  ChildImageSharpSizesOriginalName = 'childImageSharp___sizes___originalName',
+  ChildImageSharpSizesPresentationWidth = 'childImageSharp___sizes___presentationWidth',
+  ChildImageSharpSizesPresentationHeight = 'childImageSharp___sizes___presentationHeight',
+  ChildImageSharpOriginalWidth = 'childImageSharp___original___width',
+  ChildImageSharpOriginalHeight = 'childImageSharp___original___height',
+  ChildImageSharpOriginalSrc = 'childImageSharp___original___src',
+  ChildImageSharpResizeSrc = 'childImageSharp___resize___src',
+  ChildImageSharpResizeTracedSvg = 'childImageSharp___resize___tracedSVG',
+  ChildImageSharpResizeWidth = 'childImageSharp___resize___width',
+  ChildImageSharpResizeHeight = 'childImageSharp___resize___height',
+  ChildImageSharpResizeAspectRatio = 'childImageSharp___resize___aspectRatio',
+  ChildImageSharpResizeOriginalName = 'childImageSharp___resize___originalName',
+  ChildImageSharpParentId = 'childImageSharp___parent___id',
+  ChildImageSharpParentParentId = 'childImageSharp___parent___parent___id',
+  ChildImageSharpParentParentChildren = 'childImageSharp___parent___parent___children',
+  ChildImageSharpParentChildren = 'childImageSharp___parent___children',
+  ChildImageSharpParentChildrenId = 'childImageSharp___parent___children___id',
+  ChildImageSharpParentChildrenChildren = 'childImageSharp___parent___children___children',
+  ChildImageSharpParentInternalContent = 'childImageSharp___parent___internal___content',
+  ChildImageSharpParentInternalContentDigest = 'childImageSharp___parent___internal___contentDigest',
+  ChildImageSharpParentInternalDescription = 'childImageSharp___parent___internal___description',
+  ChildImageSharpParentInternalFieldOwners = 'childImageSharp___parent___internal___fieldOwners',
+  ChildImageSharpParentInternalIgnoreType = 'childImageSharp___parent___internal___ignoreType',
+  ChildImageSharpParentInternalMediaType = 'childImageSharp___parent___internal___mediaType',
+  ChildImageSharpParentInternalOwner = 'childImageSharp___parent___internal___owner',
+  ChildImageSharpParentInternalType = 'childImageSharp___parent___internal___type',
+  ChildImageSharpChildren = 'childImageSharp___children',
+  ChildImageSharpChildrenId = 'childImageSharp___children___id',
+  ChildImageSharpChildrenParentId = 'childImageSharp___children___parent___id',
+  ChildImageSharpChildrenParentChildren = 'childImageSharp___children___parent___children',
+  ChildImageSharpChildrenChildren = 'childImageSharp___children___children',
+  ChildImageSharpChildrenChildrenId = 'childImageSharp___children___children___id',
+  ChildImageSharpChildrenChildrenChildren = 'childImageSharp___children___children___children',
+  ChildImageSharpChildrenInternalContent = 'childImageSharp___children___internal___content',
+  ChildImageSharpChildrenInternalContentDigest = 'childImageSharp___children___internal___contentDigest',
+  ChildImageSharpChildrenInternalDescription = 'childImageSharp___children___internal___description',
+  ChildImageSharpChildrenInternalFieldOwners = 'childImageSharp___children___internal___fieldOwners',
+  ChildImageSharpChildrenInternalIgnoreType = 'childImageSharp___children___internal___ignoreType',
+  ChildImageSharpChildrenInternalMediaType = 'childImageSharp___children___internal___mediaType',
+  ChildImageSharpChildrenInternalOwner = 'childImageSharp___children___internal___owner',
+  ChildImageSharpChildrenInternalType = 'childImageSharp___children___internal___type',
+  ChildImageSharpInternalContent = 'childImageSharp___internal___content',
+  ChildImageSharpInternalContentDigest = 'childImageSharp___internal___contentDigest',
+  ChildImageSharpInternalDescription = 'childImageSharp___internal___description',
+  ChildImageSharpInternalFieldOwners = 'childImageSharp___internal___fieldOwners',
+  ChildImageSharpInternalIgnoreType = 'childImageSharp___internal___ignoreType',
+  ChildImageSharpInternalMediaType = 'childImageSharp___internal___mediaType',
+  ChildImageSharpInternalOwner = 'childImageSharp___internal___owner',
+  ChildImageSharpInternalType = 'childImageSharp___internal___type',
 }
 
 export type FileFilterInput = {
@@ -327,6 +418,7 @@ export type FileFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
+  childImageSharp?: Maybe<ImageSharpFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -924,6 +1016,807 @@ export enum PotraceTurnPolicy {
   TurnpolicyMajority = 'TURNPOLICY_MAJORITY',
 }
 
+export type PrismicAbout = Node & {
+  __typename?: 'PrismicAbout';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  type?: Maybe<Scalars['String']>;
+  href?: Maybe<Scalars['String']>;
+  first_publication_date?: Maybe<Scalars['Date']>;
+  last_publication_date?: Maybe<Scalars['Date']>;
+  slugs?: Maybe<Array<Maybe<Scalars['String']>>>;
+  lang?: Maybe<Scalars['String']>;
+  data?: Maybe<PrismicAboutData>;
+  prismicId?: Maybe<Scalars['String']>;
+  dataString?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutFirst_Publication_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutLast_Publication_DateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyAchievements = Node & {
+  __typename?: 'PrismicAboutBodyAchievements';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  slice_type?: Maybe<Scalars['String']>;
+  primary?: Maybe<PrismicAboutBodyAchievementsPrimary>;
+  prismicId?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyAchievementsConnection = {
+  __typename?: 'PrismicAboutBodyAchievementsConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutBodyAchievementsEdge>;
+  nodes: Array<PrismicAboutBodyAchievements>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<PrismicAboutBodyAchievementsGroupConnection>;
+};
+
+export type PrismicAboutBodyAchievementsConnectionDistinctArgs = {
+  field: PrismicAboutBodyAchievementsFieldsEnum;
+};
+
+export type PrismicAboutBodyAchievementsConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PrismicAboutBodyAchievementsFieldsEnum;
+};
+
+export type PrismicAboutBodyAchievementsEdge = {
+  __typename?: 'PrismicAboutBodyAchievementsEdge';
+  next?: Maybe<PrismicAboutBodyAchievements>;
+  node: PrismicAboutBodyAchievements;
+  previous?: Maybe<PrismicAboutBodyAchievements>;
+};
+
+export enum PrismicAboutBodyAchievementsFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  SliceType = 'slice_type',
+  PrimaryTitle1Html = 'primary___title1___html',
+  PrimaryTitle1Text = 'primary___title1___text',
+  PrimaryTitle1Raw = 'primary___title1___raw',
+  PrimaryTitle1RawType = 'primary___title1___raw___type',
+  PrimaryTitle1RawText = 'primary___title1___raw___text',
+  PrimaryContentHtml = 'primary___content___html',
+  PrimaryContentText = 'primary___content___text',
+  PrimaryContentRaw = 'primary___content___raw',
+  PrimaryContentRawType = 'primary___content___raw___type',
+  PrimaryContentRawText = 'primary___content___raw___text',
+  PrismicId = 'prismicId',
+}
+
+export type PrismicAboutBodyAchievementsFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyAchievementsPrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyAchievementsGroupConnection = {
+  __typename?: 'PrismicAboutBodyAchievementsGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutBodyAchievementsEdge>;
+  nodes: Array<PrismicAboutBodyAchievements>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyAchievementsPrimary = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimary';
+  title1?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1>;
+  content?: Maybe<PrismicAboutBodyAchievementsPrimaryContent>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContent = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryContent';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrimaryContentRaw>>>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyAchievementsPrimaryContentRawFilterListInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentRaw = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryContentRaw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentRawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyAchievementsPrimaryContentRawFilterInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryFilterInput = {
+  title1?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1FilterInput>;
+  content?: Maybe<PrismicAboutBodyAchievementsPrimaryContentFilterInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1 = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrimaryTitle1Raw>>>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1FilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1RawFilterListInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1Raw = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1Raw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1RawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1RawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1RawFilterInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrismicAboutBodyProfileUnion =
+  | PrismicAboutBodyAchievements
+  | PrismicAboutBodyProfile;
+
+export type PrismicAboutBodyAchievementsSortInput = {
+  fields?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type PrismicAboutBodyProfile = Node & {
+  __typename?: 'PrismicAboutBodyProfile';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  slice_type?: Maybe<Scalars['String']>;
+  primary?: Maybe<PrismicAboutBodyProfilePrimary>;
+  prismicId?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyProfileConnection = {
+  __typename?: 'PrismicAboutBodyProfileConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutBodyProfileEdge>;
+  nodes: Array<PrismicAboutBodyProfile>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<PrismicAboutBodyProfileGroupConnection>;
+};
+
+export type PrismicAboutBodyProfileConnectionDistinctArgs = {
+  field: PrismicAboutBodyProfileFieldsEnum;
+};
+
+export type PrismicAboutBodyProfileConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PrismicAboutBodyProfileFieldsEnum;
+};
+
+export type PrismicAboutBodyProfileEdge = {
+  __typename?: 'PrismicAboutBodyProfileEdge';
+  next?: Maybe<PrismicAboutBodyProfile>;
+  node: PrismicAboutBodyProfile;
+  previous?: Maybe<PrismicAboutBodyProfile>;
+};
+
+export enum PrismicAboutBodyProfileFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  SliceType = 'slice_type',
+  PrimaryNameHtml = 'primary___name___html',
+  PrimaryNameText = 'primary___name___text',
+  PrimaryNameRaw = 'primary___name___raw',
+  PrimaryNameRawType = 'primary___name___raw___type',
+  PrimaryNameRawText = 'primary___name___raw___text',
+  PrimaryPositionHtml = 'primary___position___html',
+  PrimaryPositionText = 'primary___position___text',
+  PrimaryPositionRaw = 'primary___position___raw',
+  PrimaryPositionRawType = 'primary___position___raw___type',
+  PrimaryPositionRawText = 'primary___position___raw___text',
+  PrimaryImageDimensionsWidth = 'primary___image___dimensions___width',
+  PrimaryImageDimensionsHeight = 'primary___image___dimensions___height',
+  PrimaryImageAlt = 'primary___image___alt',
+  PrimaryImageCopyright = 'primary___image___copyright',
+  PrimaryImageUrl = 'primary___image___url',
+  PrimaryImageLocalFileId = 'primary___image___localFile___id',
+  PrimaryImageLocalFileChildren = 'primary___image___localFile___children',
+  PrimaryImageLocalFileSourceInstanceName = 'primary___image___localFile___sourceInstanceName',
+  PrimaryImageLocalFileAbsolutePath = 'primary___image___localFile___absolutePath',
+  PrimaryImageLocalFileRelativePath = 'primary___image___localFile___relativePath',
+  PrimaryImageLocalFileExtension = 'primary___image___localFile___extension',
+  PrimaryImageLocalFileSize = 'primary___image___localFile___size',
+  PrimaryImageLocalFilePrettySize = 'primary___image___localFile___prettySize',
+  PrimaryImageLocalFileModifiedTime = 'primary___image___localFile___modifiedTime',
+  PrimaryImageLocalFileAccessTime = 'primary___image___localFile___accessTime',
+  PrimaryImageLocalFileChangeTime = 'primary___image___localFile___changeTime',
+  PrimaryImageLocalFileBirthTime = 'primary___image___localFile___birthTime',
+  PrimaryImageLocalFileRoot = 'primary___image___localFile___root',
+  PrimaryImageLocalFileDir = 'primary___image___localFile___dir',
+  PrimaryImageLocalFileBase = 'primary___image___localFile___base',
+  PrimaryImageLocalFileExt = 'primary___image___localFile___ext',
+  PrimaryImageLocalFileName = 'primary___image___localFile___name',
+  PrimaryImageLocalFileRelativeDirectory = 'primary___image___localFile___relativeDirectory',
+  PrimaryImageLocalFileDev = 'primary___image___localFile___dev',
+  PrimaryImageLocalFileMode = 'primary___image___localFile___mode',
+  PrimaryImageLocalFileNlink = 'primary___image___localFile___nlink',
+  PrimaryImageLocalFileUid = 'primary___image___localFile___uid',
+  PrimaryImageLocalFileGid = 'primary___image___localFile___gid',
+  PrimaryImageLocalFileRdev = 'primary___image___localFile___rdev',
+  PrimaryImageLocalFileBlksize = 'primary___image___localFile___blksize',
+  PrimaryImageLocalFileIno = 'primary___image___localFile___ino',
+  PrimaryImageLocalFileBlocks = 'primary___image___localFile___blocks',
+  PrimaryImageLocalFileAtimeMs = 'primary___image___localFile___atimeMs',
+  PrimaryImageLocalFileMtimeMs = 'primary___image___localFile___mtimeMs',
+  PrimaryImageLocalFileCtimeMs = 'primary___image___localFile___ctimeMs',
+  PrimaryImageLocalFileBirthtimeMs = 'primary___image___localFile___birthtimeMs',
+  PrimaryImageLocalFileAtime = 'primary___image___localFile___atime',
+  PrimaryImageLocalFileMtime = 'primary___image___localFile___mtime',
+  PrimaryImageLocalFileCtime = 'primary___image___localFile___ctime',
+  PrimaryImageLocalFileBirthtime = 'primary___image___localFile___birthtime',
+  PrimaryImageLocalFileUrl = 'primary___image___localFile___url',
+  PrismicId = 'prismicId',
+}
+
+export type PrismicAboutBodyProfileFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyProfilePrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyProfileGroupConnection = {
+  __typename?: 'PrismicAboutBodyProfileGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutBodyProfileEdge>;
+  nodes: Array<PrismicAboutBodyProfile>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyProfilePrimary = {
+  __typename?: 'PrismicAboutBodyProfilePrimary';
+  name?: Maybe<PrismicAboutBodyProfilePrimaryName>;
+  position?: Maybe<PrismicAboutBodyProfilePrimaryPosition>;
+  image?: Maybe<PrismicAboutBodyProfilePrimaryImage>;
+};
+
+export type PrismicAboutBodyProfilePrimaryFilterInput = {
+  name?: Maybe<PrismicAboutBodyProfilePrimaryNameFilterInput>;
+  position?: Maybe<PrismicAboutBodyProfilePrimaryPositionFilterInput>;
+  image?: Maybe<PrismicAboutBodyProfilePrimaryImageFilterInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryImage = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryImage';
+  dimensions?: Maybe<PrismicAboutBodyProfilePrimaryImageDimensions>;
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  localFile?: Maybe<File>;
+};
+
+export type PrismicAboutBodyProfilePrimaryImageDimensions = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryImageDimensions';
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicAboutBodyProfilePrimaryImageDimensionsFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryImageFilterInput = {
+  dimensions?: Maybe<PrismicAboutBodyProfilePrimaryImageDimensionsFilterInput>;
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryName = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryName';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyProfilePrimaryNameRaw>>>;
+};
+
+export type PrismicAboutBodyProfilePrimaryNameFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyProfilePrimaryNameRawFilterListInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryNameRaw = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryNameRaw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyProfilePrimaryNameRawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryNameRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyProfilePrimaryNameRawFilterInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryPosition = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryPosition';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyProfilePrimaryPositionRaw>>>;
+};
+
+export type PrismicAboutBodyProfilePrimaryPositionFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyProfilePrimaryPositionRawFilterListInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryPositionRaw = {
+  __typename?: 'PrismicAboutBodyProfilePrimaryPositionRaw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutBodyProfilePrimaryPositionRawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutBodyProfilePrimaryPositionRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyProfilePrimaryPositionRawFilterInput>;
+};
+
+export type PrismicAboutBodyProfileSortInput = {
+  fields?: Maybe<Array<Maybe<PrismicAboutBodyProfileFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type PrismicAboutConnection = {
+  __typename?: 'PrismicAboutConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutEdge>;
+  nodes: Array<PrismicAbout>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<PrismicAboutGroupConnection>;
+};
+
+export type PrismicAboutConnectionDistinctArgs = {
+  field: PrismicAboutFieldsEnum;
+};
+
+export type PrismicAboutConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: PrismicAboutFieldsEnum;
+};
+
+export type PrismicAboutData = {
+  __typename?: 'PrismicAboutData';
+  title?: Maybe<PrismicAboutDataTitle>;
+  subtitle?: Maybe<PrismicAboutDataSubtitle>;
+  body?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrismicAboutBodyProfileUnion>>>;
+};
+
+export type PrismicAboutDataFilterInput = {
+  title?: Maybe<PrismicAboutDataTitleFilterInput>;
+  subtitle?: Maybe<PrismicAboutDataSubtitleFilterInput>;
+};
+
+export type PrismicAboutDataSubtitle = {
+  __typename?: 'PrismicAboutDataSubtitle';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutDataSubtitleRaw>>>;
+};
+
+export type PrismicAboutDataSubtitleFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutDataSubtitleRawFilterListInput>;
+};
+
+export type PrismicAboutDataSubtitleRaw = {
+  __typename?: 'PrismicAboutDataSubtitleRaw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutDataSubtitleRawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutDataSubtitleRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutDataSubtitleRawFilterInput>;
+};
+
+export type PrismicAboutDataTitle = {
+  __typename?: 'PrismicAboutDataTitle';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutDataTitleRaw>>>;
+};
+
+export type PrismicAboutDataTitleFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutDataTitleRawFilterListInput>;
+};
+
+export type PrismicAboutDataTitleRaw = {
+  __typename?: 'PrismicAboutDataTitleRaw';
+  type?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutDataTitleRawFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutDataTitleRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutDataTitleRawFilterInput>;
+};
+
+export type PrismicAboutEdge = {
+  __typename?: 'PrismicAboutEdge';
+  next?: Maybe<PrismicAbout>;
+  node: PrismicAbout;
+  previous?: Maybe<PrismicAbout>;
+};
+
+export enum PrismicAboutFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Type = 'type',
+  Href = 'href',
+  FirstPublicationDate = 'first_publication_date',
+  LastPublicationDate = 'last_publication_date',
+  Slugs = 'slugs',
+  Lang = 'lang',
+  DataTitleHtml = 'data___title___html',
+  DataTitleText = 'data___title___text',
+  DataTitleRaw = 'data___title___raw',
+  DataTitleRawType = 'data___title___raw___type',
+  DataTitleRawText = 'data___title___raw___text',
+  DataSubtitleHtml = 'data___subtitle___html',
+  DataSubtitleText = 'data___subtitle___text',
+  DataSubtitleRaw = 'data___subtitle___raw',
+  DataSubtitleRawType = 'data___subtitle___raw___type',
+  DataSubtitleRawText = 'data___subtitle___raw___text',
+  PrismicId = 'prismicId',
+  DataString = 'dataString',
+}
+
+export type PrismicAboutFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  href?: Maybe<StringQueryOperatorInput>;
+  first_publication_date?: Maybe<DateQueryOperatorInput>;
+  last_publication_date?: Maybe<DateQueryOperatorInput>;
+  slugs?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<PrismicAboutDataFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+  dataString?: Maybe<StringQueryOperatorInput>;
+};
+
+export type PrismicAboutGroupConnection = {
+  __typename?: 'PrismicAboutGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<PrismicAboutEdge>;
+  nodes: Array<PrismicAbout>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type PrismicAboutSortInput = {
+  fields?: Maybe<Array<Maybe<PrismicAboutFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type PrismicHome = Node & {
   __typename?: 'PrismicHome';
   id: Scalars['ID'];
@@ -1086,6 +1979,47 @@ export enum PrismicHomeBodyCustomerFieldsEnum {
   PrimaryNameRaw = 'primary___name___raw',
   PrimaryNameRawType = 'primary___name___raw___type',
   PrimaryNameRawText = 'primary___name___raw___text',
+  PrimaryIconDimensionsWidth = 'primary___icon___dimensions___width',
+  PrimaryIconDimensionsHeight = 'primary___icon___dimensions___height',
+  PrimaryIconAlt = 'primary___icon___alt',
+  PrimaryIconCopyright = 'primary___icon___copyright',
+  PrimaryIconUrl = 'primary___icon___url',
+  PrimaryIconLocalFileId = 'primary___icon___localFile___id',
+  PrimaryIconLocalFileChildren = 'primary___icon___localFile___children',
+  PrimaryIconLocalFileSourceInstanceName = 'primary___icon___localFile___sourceInstanceName',
+  PrimaryIconLocalFileAbsolutePath = 'primary___icon___localFile___absolutePath',
+  PrimaryIconLocalFileRelativePath = 'primary___icon___localFile___relativePath',
+  PrimaryIconLocalFileExtension = 'primary___icon___localFile___extension',
+  PrimaryIconLocalFileSize = 'primary___icon___localFile___size',
+  PrimaryIconLocalFilePrettySize = 'primary___icon___localFile___prettySize',
+  PrimaryIconLocalFileModifiedTime = 'primary___icon___localFile___modifiedTime',
+  PrimaryIconLocalFileAccessTime = 'primary___icon___localFile___accessTime',
+  PrimaryIconLocalFileChangeTime = 'primary___icon___localFile___changeTime',
+  PrimaryIconLocalFileBirthTime = 'primary___icon___localFile___birthTime',
+  PrimaryIconLocalFileRoot = 'primary___icon___localFile___root',
+  PrimaryIconLocalFileDir = 'primary___icon___localFile___dir',
+  PrimaryIconLocalFileBase = 'primary___icon___localFile___base',
+  PrimaryIconLocalFileExt = 'primary___icon___localFile___ext',
+  PrimaryIconLocalFileName = 'primary___icon___localFile___name',
+  PrimaryIconLocalFileRelativeDirectory = 'primary___icon___localFile___relativeDirectory',
+  PrimaryIconLocalFileDev = 'primary___icon___localFile___dev',
+  PrimaryIconLocalFileMode = 'primary___icon___localFile___mode',
+  PrimaryIconLocalFileNlink = 'primary___icon___localFile___nlink',
+  PrimaryIconLocalFileUid = 'primary___icon___localFile___uid',
+  PrimaryIconLocalFileGid = 'primary___icon___localFile___gid',
+  PrimaryIconLocalFileRdev = 'primary___icon___localFile___rdev',
+  PrimaryIconLocalFileBlksize = 'primary___icon___localFile___blksize',
+  PrimaryIconLocalFileIno = 'primary___icon___localFile___ino',
+  PrimaryIconLocalFileBlocks = 'primary___icon___localFile___blocks',
+  PrimaryIconLocalFileAtimeMs = 'primary___icon___localFile___atimeMs',
+  PrimaryIconLocalFileMtimeMs = 'primary___icon___localFile___mtimeMs',
+  PrimaryIconLocalFileCtimeMs = 'primary___icon___localFile___ctimeMs',
+  PrimaryIconLocalFileBirthtimeMs = 'primary___icon___localFile___birthtimeMs',
+  PrimaryIconLocalFileAtime = 'primary___icon___localFile___atime',
+  PrimaryIconLocalFileMtime = 'primary___icon___localFile___mtime',
+  PrimaryIconLocalFileCtime = 'primary___icon___localFile___ctime',
+  PrimaryIconLocalFileBirthtime = 'primary___icon___localFile___birthtime',
+  PrimaryIconLocalFileUrl = 'primary___icon___localFile___url',
   PrismicId = 'prismicId',
 }
 
@@ -1112,10 +2046,40 @@ export type PrismicHomeBodyCustomerGroupConnection = {
 export type PrismicHomeBodyCustomerPrimary = {
   __typename?: 'PrismicHomeBodyCustomerPrimary';
   name?: Maybe<PrismicHomeBodyCustomerPrimaryName>;
+  icon?: Maybe<PrismicHomeBodyCustomerPrimaryIcon>;
 };
 
 export type PrismicHomeBodyCustomerPrimaryFilterInput = {
   name?: Maybe<PrismicHomeBodyCustomerPrimaryNameFilterInput>;
+  icon?: Maybe<PrismicHomeBodyCustomerPrimaryIconFilterInput>;
+};
+
+export type PrismicHomeBodyCustomerPrimaryIcon = {
+  __typename?: 'PrismicHomeBodyCustomerPrimaryIcon';
+  dimensions?: Maybe<PrismicHomeBodyCustomerPrimaryIconDimensions>;
+  alt?: Maybe<Scalars['String']>;
+  copyright?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  localFile?: Maybe<File>;
+};
+
+export type PrismicHomeBodyCustomerPrimaryIconDimensions = {
+  __typename?: 'PrismicHomeBodyCustomerPrimaryIconDimensions';
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type PrismicHomeBodyCustomerPrimaryIconDimensionsFilterInput = {
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type PrismicHomeBodyCustomerPrimaryIconFilterInput = {
+  dimensions?: Maybe<PrismicHomeBodyCustomerPrimaryIconDimensionsFilterInput>;
+  alt?: Maybe<StringQueryOperatorInput>;
+  copyright?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  localFile?: Maybe<FileFilterInput>;
 };
 
 export type PrismicHomeBodyCustomerPrimaryName = {
@@ -2554,6 +3518,12 @@ export type Query = {
   allPrismicHomeBodyTryOut?: Maybe<PrismicHomeBodyTryOutConnection>;
   prismicHome?: Maybe<PrismicHome>;
   allPrismicHome?: Maybe<PrismicHomeConnection>;
+  prismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfile>;
+  allPrismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfileConnection>;
+  prismicAbout?: Maybe<PrismicAbout>;
+  allPrismicAbout?: Maybe<PrismicAboutConnection>;
+  prismicAboutBodyAchievements?: Maybe<PrismicAboutBodyAchievements>;
+  allPrismicAboutBodyAchievements?: Maybe<PrismicAboutBodyAchievementsConnection>;
 };
 
 export type QueryImageSharpArgs = {
@@ -2615,6 +3585,7 @@ export type QueryFileArgs = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
+  childImageSharp?: Maybe<ImageSharpFilterInput>;
 };
 
 export type QueryAllFileArgs = {
@@ -2793,6 +3764,63 @@ export type QueryPrismicHomeArgs = {
 export type QueryAllPrismicHomeArgs = {
   filter?: Maybe<PrismicHomeFilterInput>;
   sort?: Maybe<PrismicHomeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryPrismicAboutBodyProfileArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyProfilePrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutBodyProfileArgs = {
+  filter?: Maybe<PrismicAboutBodyProfileFilterInput>;
+  sort?: Maybe<PrismicAboutBodyProfileSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryPrismicAboutArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  href?: Maybe<StringQueryOperatorInput>;
+  first_publication_date?: Maybe<DateQueryOperatorInput>;
+  last_publication_date?: Maybe<DateQueryOperatorInput>;
+  slugs?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<PrismicAboutDataFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+  dataString?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutArgs = {
+  filter?: Maybe<PrismicAboutFilterInput>;
+  sort?: Maybe<PrismicAboutSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryPrismicAboutBodyAchievementsArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyAchievementsPrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutBodyAchievementsArgs = {
+  filter?: Maybe<PrismicAboutBodyAchievementsFilterInput>;
+  sort?: Maybe<PrismicAboutBodyAchievementsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3571,6 +4599,27 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+export type AboutQueryVariables = {};
+
+export type AboutQuery = { __typename?: 'Query' } & {
+  allPrismicAbout: Maybe<
+    { __typename?: 'PrismicAboutConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutEdge' } & {
+          node: { __typename?: 'PrismicAbout' } & Pick<PrismicAbout, 'lang'> & {
+              data: Maybe<
+                { __typename?: 'PrismicAboutData' } & {
+                  title: Maybe<{ __typename?: 'PrismicAboutDataTitle' } & Pick<PrismicAboutDataTitle, 'text'>>;
+                  subtitle: Maybe<{ __typename?: 'PrismicAboutDataSubtitle' } & Pick<PrismicAboutDataSubtitle, 'text'>>;
+                }
+              >;
+            };
+        }
+      >;
+    }
+  >;
+};
+
 export type IndexQueryVariables = {};
 
 export type IndexQuery = { __typename?: 'Query' } & {
@@ -3617,6 +4666,37 @@ export type SeoQuery = { __typename?: 'Query' } & {
             }
         >;
       }
+  >;
+};
+
+export type AchievementQueryVariables = {};
+
+export type AchievementQuery = { __typename?: 'Query' } & {
+  allPrismicAboutBodyAchievements: Maybe<
+    { __typename?: 'PrismicAboutBodyAchievementsConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutBodyAchievementsEdge' } & {
+          node: { __typename?: 'PrismicAboutBodyAchievements' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicAboutBodyAchievementsPrimary' } & {
+                title1: Maybe<
+                  { __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1' } & Pick<
+                    PrismicAboutBodyAchievementsPrimaryTitle1,
+                    'text'
+                  >
+                >;
+                content: Maybe<
+                  { __typename?: 'PrismicAboutBodyAchievementsPrimaryContent' } & Pick<
+                    PrismicAboutBodyAchievementsPrimaryContent,
+                    'text'
+                  >
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
   >;
 };
 
@@ -3691,6 +4771,43 @@ export type PartnerQuery = { __typename?: 'Query' } & {
                 >;
                 link: Maybe<
                   { __typename?: 'PrismicHomeBodyPartnerPrimaryLink' } & Pick<PrismicHomeBodyPartnerPrimaryLink, 'url'>
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
+export type TeamQueryVariables = {};
+
+export type TeamQuery = { __typename?: 'Query' } & {
+  allPrismicAboutBodyProfile: Maybe<
+    { __typename?: 'PrismicAboutBodyProfileConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutBodyProfileEdge' } & {
+          node: { __typename?: 'PrismicAboutBodyProfile' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicAboutBodyProfilePrimary' } & {
+                image: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryImage' } & Pick<
+                    PrismicAboutBodyProfilePrimaryImage,
+                    'url'
+                  >
+                >;
+                name: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryName' } & Pick<
+                    PrismicAboutBodyProfilePrimaryName,
+                    'text'
+                  >
+                >;
+                position: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryPosition' } & Pick<
+                    PrismicAboutBodyProfilePrimaryPosition,
+                    'text'
+                  >
                 >;
               }
             >;

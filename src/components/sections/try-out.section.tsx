@@ -66,7 +66,7 @@ export const TryOutSection = () => {
                       {subtitle.text}
                     </Paragraph>
                   )}
-                  <Button variant={'primary'} maxWidth="150px" mt={4}>
+                  <Button variant='primary' maxWidth="150px" mt={4}>
                     try out!
                   </Button>
                 </Flex>

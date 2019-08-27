@@ -50,7 +50,7 @@ export const FeatureSection = () => {
             flexDirection="column"
             justifyContent="center"
             maxWidth={['100%', '100%', '300px', '470px']}
-            ml={index % 2 == 1 ?[0]: [0, 0, 0, 9]}
+            ml={index % 2 == 1 ? [0] : [0, 0, 0, 9]}
             mt={[4, 6, 7, 0]}
           >
             {primary && primary.title && (
@@ -59,7 +59,7 @@ export const FeatureSection = () => {
               </H3>
             )}
             {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
-            <Button variant={'secondary'} maxWidth="150px" mt={4}>
+            <Button variant='secondary' maxWidth="150px" mt={4}>
               learn more
             </Button>
           </Flex>

@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-pages-about-tsx","path":"/about/","webpackCompilationHash":"9a316a5e7142ed585dcc","result":{"data":{"allPrismicAbout":{"edges":[{"node":{"lang":"en-us","data":{"title":{"text":"About us"},"subtitle":{"text":"The team of Cogito"},"achievement_header":{"text":"Achievements"}}}}]}},"pageContext":{"isCreatedByStatefulCreatePages":true}}}

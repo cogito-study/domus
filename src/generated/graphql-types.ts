@@ -1224,6 +1224,16 @@ export enum PrismicAboutBodyAchievementsFieldsEnum {
   PrimaryIconLocalFileCtime = 'primary___icon___localFile___ctime',
   PrimaryIconLocalFileBirthtime = 'primary___icon___localFile___birthtime',
   PrimaryIconLocalFileUrl = 'primary___icon___localFile___url',
+  PrimaryTitle1Html = 'primary___title1___html',
+  PrimaryTitle1Text = 'primary___title1___text',
+  PrimaryTitle1Raw = 'primary___title1___raw',
+  PrimaryTitle1RawType = 'primary___title1___raw___type',
+  PrimaryTitle1RawText = 'primary___title1___raw___text',
+  PrimaryContentHtml = 'primary___content___html',
+  PrimaryContentText = 'primary___content___text',
+  PrimaryContentRaw = 'primary___content___raw',
+  PrimaryContentRawType = 'primary___content___raw___type',
+  PrimaryContentRawText = 'primary___content___raw___text',
   PrismicId = 'prismicId',
 }
 
@@ -1269,11 +1279,33 @@ export type PrismicAboutBodyAchievementsPrimaryDescriptionFilterInput = {
 
 export type PrismicAboutBodyAchievementsPrimaryDescriptionRaw = {
   __typename?: 'PrismicAboutBodyAchievementsPrimaryDescriptionRaw';
+
+  title1?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1>;
+  content?: Maybe<PrismicAboutBodyAchievementsPrimaryContent>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContent = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryContent';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrimaryContentRaw>>>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentFilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyAchievementsPrimaryContentRawFilterListInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryContentRaw = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryContentRaw';
   type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
 };
 
 export type PrismicAboutBodyAchievementsPrimaryDescriptionRawFilterInput = {
+
+export type PrismicAboutBodyAchievementsPrimaryContentRawFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   text?: Maybe<StringQueryOperatorInput>;
 };
@@ -1331,17 +1363,44 @@ export type PrismicAboutBodyAchievementsPrimaryNameFilterInput = {
 
 export type PrismicAboutBodyAchievementsPrimaryNameRaw = {
   __typename?: 'PrismicAboutBodyAchievementsPrimaryNameRaw';
+export type PrismicAboutBodyAchievementsPrimaryContentRawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyAchievementsPrimaryContentRawFilterInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryFilterInput = {
+  title1?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1FilterInput>;
+  content?: Maybe<PrismicAboutBodyAchievementsPrimaryContentFilterInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1 = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1';
+  html?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  raw?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrimaryTitle1Raw>>>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1FilterInput = {
+  html?: Maybe<StringQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  raw?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1RawFilterListInput>;
+};
+
+export type PrismicAboutBodyAchievementsPrimaryTitle1Raw = {
+  __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1Raw';
   type?: Maybe<Scalars['String']>;
   text?: Maybe<Scalars['String']>;
 };
 
 export type PrismicAboutBodyAchievementsPrimaryNameRawFilterInput = {
+export type PrismicAboutBodyAchievementsPrimaryTitle1RawFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   text?: Maybe<StringQueryOperatorInput>;
 };
 
 export type PrismicAboutBodyAchievementsPrimaryNameRawFilterListInput = {
   elemMatch?: Maybe<PrismicAboutBodyAchievementsPrimaryNameRawFilterInput>;
+export type PrismicAboutBodyAchievementsPrimaryTitle1RawFilterListInput = {
+  elemMatch?: Maybe<PrismicAboutBodyAchievementsPrimaryTitle1RawFilterInput>;
 };
 
 export type PrismicAboutBodyAchievementsPrismicAboutBodyProfileUnion =
@@ -1715,6 +1774,12 @@ export type PrismicAboutDataFilterInput = {
   title?: Maybe<PrismicAboutDataTitleFilterInput>;
   subtitle?: Maybe<PrismicAboutDataSubtitleFilterInput>;
   achievement_header?: Maybe<PrismicAboutDataAchievement_HeaderFilterInput>;
+  body?: Maybe<Array<Maybe<PrismicAboutBodyAchievementsPrismicAboutBodyProfileUnion>>>;
+};
+
+export type PrismicAboutDataFilterInput = {
+  title?: Maybe<PrismicAboutDataTitleFilterInput>;
+  subtitle?: Maybe<PrismicAboutDataSubtitleFilterInput>;
 };
 
 export type PrismicAboutDataSubtitle = {
@@ -3772,6 +3837,12 @@ export type Query = {
   allPrismicAboutBodyAchievements?: Maybe<PrismicAboutBodyAchievementsConnection>;
   prismicAbout?: Maybe<PrismicAbout>;
   allPrismicAbout?: Maybe<PrismicAboutConnection>;
+  prismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfile>;
+  allPrismicAboutBodyProfile?: Maybe<PrismicAboutBodyProfileConnection>;
+  prismicAbout?: Maybe<PrismicAbout>;
+  allPrismicAbout?: Maybe<PrismicAboutConnection>;
+  prismicAboutBodyAchievements?: Maybe<PrismicAboutBodyAchievements>;
+  allPrismicAboutBodyAchievements?: Maybe<PrismicAboutBodyAchievementsConnection>;
 };
 
 export type QueryImageSharpArgs = {
@@ -4034,6 +4105,7 @@ export type QueryAllPrismicHomeArgs = {
 };
 
 export type QueryPrismicAboutBodyAchievementsArgs = {
+export type QueryPrismicAboutBodyProfileArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -4046,6 +4118,13 @@ export type QueryPrismicAboutBodyAchievementsArgs = {
 export type QueryAllPrismicAboutBodyAchievementsArgs = {
   filter?: Maybe<PrismicAboutBodyAchievementsFilterInput>;
   sort?: Maybe<PrismicAboutBodyAchievementsSortInput>;
+  primary?: Maybe<PrismicAboutBodyProfilePrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutBodyProfileArgs = {
+  filter?: Maybe<PrismicAboutBodyProfileFilterInput>;
+  sort?: Maybe<PrismicAboutBodyProfileSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4069,6 +4148,23 @@ export type QueryPrismicAboutArgs = {
 export type QueryAllPrismicAboutArgs = {
   filter?: Maybe<PrismicAboutFilterInput>;
   sort?: Maybe<PrismicAboutSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+export type QueryPrismicAboutBodyAchievementsArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slice_type?: Maybe<StringQueryOperatorInput>;
+  primary?: Maybe<PrismicAboutBodyAchievementsPrimaryFilterInput>;
+  prismicId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type QueryAllPrismicAboutBodyAchievementsArgs = {
+  filter?: Maybe<PrismicAboutBodyAchievementsFilterInput>;
+  sort?: Maybe<PrismicAboutBodyAchievementsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -4847,6 +4943,27 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+export type AboutQueryVariables = {};
+
+export type AboutQuery = { __typename?: 'Query' } & {
+  allPrismicAbout: Maybe<
+    { __typename?: 'PrismicAboutConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutEdge' } & {
+          node: { __typename?: 'PrismicAbout' } & Pick<PrismicAbout, 'lang'> & {
+              data: Maybe<
+                { __typename?: 'PrismicAboutData' } & {
+                  title: Maybe<{ __typename?: 'PrismicAboutDataTitle' } & Pick<PrismicAboutDataTitle, 'text'>>;
+                  subtitle: Maybe<{ __typename?: 'PrismicAboutDataSubtitle' } & Pick<PrismicAboutDataSubtitle, 'text'>>;
+                }
+              >;
+            };
+        }
+      >;
+    }
+  >;
+};
+
 export type IndexQueryVariables = {};
 
 export type IndexQuery = { __typename?: 'Query' } & {
@@ -4893,6 +5010,37 @@ export type SeoQuery = { __typename?: 'Query' } & {
             }
         >;
       }
+  >;
+};
+
+export type AchievementQueryVariables = {};
+
+export type AchievementQuery = { __typename?: 'Query' } & {
+  allPrismicAboutBodyAchievements: Maybe<
+    { __typename?: 'PrismicAboutBodyAchievementsConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutBodyAchievementsEdge' } & {
+          node: { __typename?: 'PrismicAboutBodyAchievements' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicAboutBodyAchievementsPrimary' } & {
+                title1: Maybe<
+                  { __typename?: 'PrismicAboutBodyAchievementsPrimaryTitle1' } & Pick<
+                    PrismicAboutBodyAchievementsPrimaryTitle1,
+                    'text'
+                  >
+                >;
+                content: Maybe<
+                  { __typename?: 'PrismicAboutBodyAchievementsPrimaryContent' } & Pick<
+                    PrismicAboutBodyAchievementsPrimaryContent,
+                    'text'
+                  >
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
   >;
 };
 
@@ -4973,6 +5121,43 @@ export type PartnerQuery = { __typename?: 'Query' } & {
                 >;
                 link: Maybe<
                   { __typename?: 'PrismicHomeBodyPartnerPrimaryLink' } & Pick<PrismicHomeBodyPartnerPrimaryLink, 'url'>
+                >;
+              }
+            >;
+          };
+        }
+      >;
+    }
+  >;
+};
+
+export type TeamQueryVariables = {};
+
+export type TeamQuery = { __typename?: 'Query' } & {
+  allPrismicAboutBodyProfile: Maybe<
+    { __typename?: 'PrismicAboutBodyProfileConnection' } & {
+      edges: Array<
+        { __typename?: 'PrismicAboutBodyProfileEdge' } & {
+          node: { __typename?: 'PrismicAboutBodyProfile' } & {
+            primary: Maybe<
+              { __typename?: 'PrismicAboutBodyProfilePrimary' } & {
+                image: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryImage' } & Pick<
+                    PrismicAboutBodyProfilePrimaryImage,
+                    'url'
+                  >
+                >;
+                name: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryName' } & Pick<
+                    PrismicAboutBodyProfilePrimaryName,
+                    'text'
+                  >
+                >;
+                position: Maybe<
+                  { __typename?: 'PrismicAboutBodyProfilePrimaryPosition' } & Pick<
+                    PrismicAboutBodyProfilePrimaryPosition,
+                    'text'
+                  >
                 >;
               }
             >;

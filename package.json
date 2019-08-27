@@ -17,7 +17,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@cogito-study/alea": "^0.1.4-beta.3",
+    "@cogito-study/alea": "0.1.4-beta.5",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.13.51",
     "gatsby-image": "^2.2.8",

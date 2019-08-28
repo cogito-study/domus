@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { TryOutQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
+import { EmailInput } from './email-input';
 
 export const TryOutSection = () => {
   const data = useStaticQuery<TryOutQuery>(graphql`
@@ -66,9 +67,15 @@ export const TryOutSection = () => {
                       {subtitle.text}
                     </Paragraph>
                   )}
-                  <Button variant='primary' maxWidth="150px" mt={4}>
-                    try out!
-                  </Button>
+                  <Flex flexDirection="row" mt={4}>
+                    <EmailInput
+                      placeholder={'Enter your e-mail'}
+                      help={'By clicking "try out!" your agree to our Privacy Policy.'}
+                    />
+                    <Button variant="primary" ml={4} maxWidth="150px">
+                      try out!
+                    </Button>
+                  </Flex>
                 </Flex>
               </Flex>
             </Container>

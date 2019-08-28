@@ -6,7 +6,6 @@ interface BlogPostSliceProps {
 }
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
-  console.log(slices);
   return (
     <>
       {slices.map(({ primary, slice_type }) => {

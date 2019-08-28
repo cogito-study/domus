@@ -10,6 +10,6 @@ jobs:
       with:
         args: . --ext .ts,.tsx
     - name: build
-      uses: nuxt/actions-yarn@master
+      uses: jzweifel/gatsby-cli-github-action@master
       with:
-        args: run build
+        args: build

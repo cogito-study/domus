@@ -1,17 +1,10 @@
+import { H2 } from '@cogito-study/alea';
+import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { H1, Box, H2, Flex } from '@cogito-study/alea';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
+import { CustomerSection, FeatureSection, HeroSection, PartnerSection, TryOutSection, UseCaseSection } from '../components/sections';
 import SEO from '../components/SEO';
-import { graphql } from 'gatsby';
-import {
-  HeroSection,
-  FeatureSection,
-  UseCaseSection,
-  CustomerSection,
-  PartnerSection,
-  TryOutSection,
-} from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
 
 interface IndexProps {

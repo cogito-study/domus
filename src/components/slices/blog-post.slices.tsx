@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Box, H3, H2, Paragraph } from '@cogito-study/alea';
 
 interface BlogPostSliceProps {
-  slices: Array<any>;
+  slices: any[];
 }
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {

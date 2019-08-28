@@ -38,8 +38,8 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
       <H2 color="grey.dark.3" mt={9} mb={7}>
         {title}
       </H2>
-      {data.allPrismicAboutBodyAchievements.edges.map(({ node: { primary } }) => (
-        <Flex flexDirection={['column', 'row']} alignItems="center" mb={7}>
+      {data.allPrismicAboutBodyAchievements.edges.map(({ node: { primary } }, index) => (
+        <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index} >
           <Box order={[2, 0]} maxWidth="600px">
             <H3 color="grey.dark.2" mt={0} mb={5}>
               {primary.name.text}

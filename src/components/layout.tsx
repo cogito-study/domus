@@ -2,6 +2,7 @@ import { Box, theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
+import { NavBar } from './nav-bar';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -63,6 +64,7 @@ export const Layout: FunctionComponent = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
+        <NavBar />
         <Box>{children}</Box>
       </>
     </ThemeProvider>

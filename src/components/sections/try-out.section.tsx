@@ -68,8 +68,8 @@ export const TryOutSection = () => {
                   )}
                   <Flex flexDirection="row" mt={4}>
                     <TextInput
-                      placeholder={'Enter your e-mail'}
-                      help={'By clicking "try out!" your agree to our Privacy Policy.'}
+                      placeholder="Enter your e-mail"
+                      help='By clicking "try out!" your agree to our Privacy Policy.'
                       icon={<EmailIcon />}
                     />
                     <Button variant="primary" ml={4} maxWidth="150px">

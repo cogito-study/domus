@@ -18,8 +18,8 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
           <H4 color="grey.dark.3">{description}</H4>
           <Flex flexDirection="row">
             <TextInput
-              placeholder={'Enter your e-mail'}
-              help={'By clicking "try out!" your agree to our Privacy Policy.'}
+              placeholder="Enter your e-mail"
+              help='By clicking "try out!" your agree to our Privacy Policy.'
               icon={<EmailIcon />}
             ></TextInput>
             <Button ml={4}>try out!</Button>

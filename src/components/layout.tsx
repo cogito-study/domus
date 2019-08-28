@@ -22,8 +22,39 @@ const GlobalStyles = createGlobalStyle`
     font-family: '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
     background: white;
     font-size: 18px;
+    background-image: url('/background/pattern.svg'),
+                      url('/background/top-left.svg'),
+                      url('/background/top-right.svg'),
+                      url('/background/bottom-right.svg'),
+                      url('/background/bottom-left.svg');
+    background-position: left,
+                         left 100px,
+                         right 100px,
+                         right 1200px,
+                         left 2000px;
+    background-repeat: repeat-y,
+                       no-repeat,
+                       no-repeat,
+                       no-repeat,
+                       no-repeat;
   }
-
+  @media only screen and (max-width: ${theme.breakpoints[0]}) {
+    body {
+      background-image: url('/background/pattern.svg'),
+                        url('/background/top-right.svg'),
+                        url('/background/bottom-right.svg'),
+                        url('/background/bottom-left.svg');
+      background-position: left,
+                           right 100px,
+                           right 1200px,
+                           left 2000px;
+      background-repeat: repeat-y,
+                         no-repeat,
+                         no-repeat,
+                         no-repeat;
+    }
+  }
+  
   ${reset}
 `;
 

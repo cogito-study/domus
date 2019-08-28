@@ -13,7 +13,6 @@ import {
   TryOutSection,
 } from '../components/sections';
 import { IndexQuery } from '../generated/graphql-types';
-import heroBackground from '../herobackground.svg';
 
 interface IndexProps {
   data: IndexQuery;
@@ -30,7 +29,6 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <img style={{ position: 'absolute', zIndex: -3, width: '100vw' }} src={heroBackground}></img>
       <Container>
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
         <UseCaseSection />

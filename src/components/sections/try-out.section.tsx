@@ -1,9 +1,8 @@
-import { Flex, H2, Paragraph, Button } from '@cogito-study/alea';
+import { Flex, H2, Paragraph, Button, TextInput, EmailIcon } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { TryOutQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
-import { EmailInput } from './email-input';
 
 export const TryOutSection = () => {
   const data = useStaticQuery<TryOutQuery>(graphql`
@@ -68,9 +67,10 @@ export const TryOutSection = () => {
                     </Paragraph>
                   )}
                   <Flex flexDirection="row" mt={4}>
-                    <EmailInput
+                    <TextInput
                       placeholder={'Enter your e-mail'}
                       help={'By clicking "try out!" your agree to our Privacy Policy.'}
+                      icon={<EmailIcon />}
                     />
                     <Button variant="primary" ml={4} maxWidth="150px">
                       try out!

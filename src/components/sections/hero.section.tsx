@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Box, Button, H1, Flex, H4, H3 } from '@cogito-study/alea';
-import { EmailInput } from './email-input';
+import { Box, Button, H1, Flex, H4, H3, TextInput, EmailIcon } from '@cogito-study/alea';
 
 interface HeroSectionProps {
   motto: string;
@@ -18,10 +17,11 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
         <Box>
           <H4 color="grey.dark.3">{description}</H4>
           <Flex flexDirection="row">
-            <EmailInput
+            <TextInput
               placeholder={'Enter your e-mail'}
               help={'By clicking "try out!" your agree to our Privacy Policy.'}
-            ></EmailInput>
+              icon={<EmailIcon />}
+            ></TextInput>
             <Button ml={4}>try out!</Button>
           </Flex>
         </Box>

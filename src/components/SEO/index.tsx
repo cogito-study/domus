@@ -1,10 +1,8 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
-import Facebook from './facebook'
-import Twitter from './twitter'
-
-type Props = {} & typeof defaultProps
+import React from 'react';
+import Helmet from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import Facebook from './facebook';
+import Twitter from './twitter';
 
 const defaultProps = {
   title: '',
@@ -16,10 +14,30 @@ const defaultProps = {
     birthTime: '',
   },
   individual: false,
-}
+};
+
+type Props = {} & typeof defaultProps;
 
 const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
-  const { site } = useStaticQuery(query)
+  const { site } = useStaticQuery(graphql`
+    query SEO {
+      site {
+        buildTime(formatString: "YYYY-MM-DD")
+        siteMetadata {
+          siteUrl
+          defaultTitle: titleAlt
+          defaultDescription: description
+          defaultBanner: logo
+          headline
+          siteLanguage
+          ogLanguage
+          author
+          twitter
+          facebook
+        }
+      }
+    }
+  `);
 
   const {
     buildTime,
@@ -35,14 +53,14 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
       twitter,
       facebook,
     },
-  } = site
+  } = site;
 
   const seo = {
     title: title || defaultTitle,
     description: desc || defaultDescription,
     image: `${siteUrl}${banner || defaultBanner}`,
     url: `${siteUrl}${pathname || ''}`,
-  }
+  };
 
   // schema.org in JSONLD format
   // https://developers.google.com/search/docs/guides/intro-structured-data
@@ -80,7 +98,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
       '@type': 'ImageObject',
       url: `${siteUrl}${defaultBanner}`,
     },
-  }
+  };
 
   // Initial breadcrumb list
 
@@ -117,9 +135,9 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
       },
       position: 4,
     },
-  ]
+  ];
 
-  let schemaArticle = null
+  let schemaArticle = null;
 
   if (individual) {
     schemaArticle = {
@@ -158,7 +176,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         url: seo.image,
       },
       mainEntityOfPage: seo.url,
-    }
+    };
     // Push current blogpost into breadcrumb list
     itemListElement.push({
       '@type': 'ListItem',
@@ -167,7 +185,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         name: seo.title,
       },
       position: 5,
-    })
+    });
   }
 
   const breadcrumb = {
@@ -176,7 +194,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
     description: 'Breadcrumbs list',
     name: 'Breadcrumbs',
     itemListElement,
-  }
+  };
 
   return (
     <>
@@ -201,29 +219,9 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
       />
       <Twitter title={seo.title} image={seo.image} desc={seo.description} username={twitter} />
     </>
-  )
-}
+  );
+};
 
-export default SEO
+export default SEO;
 
-SEO.defaultProps = defaultProps
-
-const query = graphql`
-  query SEO {
-    site {
-      buildTime(formatString: "YYYY-MM-DD")
-      siteMetadata {
-        siteUrl
-        defaultTitle: titleAlt
-        defaultDescription: description
-        defaultBanner: logo
-        headline
-        siteLanguage
-        ogLanguage
-        author
-        twitter
-        facebook
-      }
-    }
-  }
-`
+SEO.defaultProps = defaultProps;

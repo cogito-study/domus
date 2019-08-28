@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 
 interface RelatedBlogPostSlicesProps {
-  slices: Array<any>;
+  slices: any[];
 }
 
 export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps> = ({ slices }) => {

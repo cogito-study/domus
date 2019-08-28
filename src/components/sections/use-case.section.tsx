@@ -2,7 +2,6 @@ import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { UseCaseQuery } from '../../generated/graphql-types';
-import { flex } from 'styled-system';
 
 export const UseCaseSection = () => {
   const data = useStaticQuery<UseCaseQuery>(graphql`

@@ -1,4 +1,4 @@
-export type ChildImageSharp = {
+export interface ChildImageSharp {
   childImageSharp: {
     fluid: {
       aspectRatio: number

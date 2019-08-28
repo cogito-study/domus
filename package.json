@@ -11,7 +11,7 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "generate": "graphql-codegen",
-    "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
+    "lint": "eslint . --ext .ts,.tsx --ignore-path .eslintignore",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write content/**/*.yaml",
     "type-check": "tsc --noEmit",

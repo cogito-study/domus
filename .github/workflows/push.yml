@@ -9,11 +9,7 @@ jobs:
         uses: stefanoeb/eslint-action@master
         with:
           args: . --ext .ts,.tsx
-      - name: install-dependencies
-        uses: nuxt/actions-yarn@master
-        with:
-          args: install
       - name: build
-        uses: jzweifel/gatsby-cli-github-action@master
+        uses: kiralybalint/gatsby-cli-github-action@master
         with:
           args: build

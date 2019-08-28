@@ -13,3 +13,5 @@ jobs:
         uses: kiralybalint/gatsby-cli-github-action@master
         with:
           args: build
+        env:
+          API_KEY: ${{ secrets.API_KEY }}

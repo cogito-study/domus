@@ -3,7 +3,14 @@ import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
-import { CustomerSection, FeatureSection, HeroSection, PartnerSection, TryOutSection, UseCaseSection } from '../components/sections';
+import {
+  CustomerSection,
+  FeatureSection,
+  HeroSection,
+  PartnerSection,
+  TryOutSection,
+  UseCaseSection,
+} from '../components/sections';
 import SEO from '../components/SEO';
 import { IndexQuery } from '../generated/graphql-types';
 

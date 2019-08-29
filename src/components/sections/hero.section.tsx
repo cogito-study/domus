@@ -16,13 +16,15 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
       <Flex flexDirection="column">
         <Box>
           <H4 color="grey.dark.3">{description}</H4>
-          <Flex flexDirection="row">
+          <Flex flexDirection={['column', 'row']}>
             <TextInput
               placeholder="Enter your e-mail"
               help='By clicking "try out!" your agree to our Privacy Policy.'
               icon={<EmailIcon />}
             ></TextInput>
-            <Button ml={4}>try out!</Button>
+            <Button ml={[0, 4]} mt={[2, 0]} maxWidth="280px">
+              try out!
+            </Button>
           </Flex>
         </Box>
       </Flex>

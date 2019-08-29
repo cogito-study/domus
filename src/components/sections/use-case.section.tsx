@@ -38,9 +38,9 @@ export const UseCaseSection = () => {
             key={index}
             flexDirection="column"
             width={['100%', '100%', '210px', '260px']}
-            mx={2}
+            mx={[0, 2]}
             my={3}
-            px={[2, 2, 2, 4]}
+            px={[0, 2, 2, 4]}
             pb={[4, 4, 4, 6]}
             pt={[1, 1, 1, 3]}
             alignItems="start"
@@ -74,14 +74,14 @@ export const UseCaseSection = () => {
                   </Paragraph>
                 )}
               </Flex>
-              <Button variant='secondary' maxWidth="150px" mt={4}>
+              <Button variant="secondary" maxWidth="150px" mt={4}>
                 learn more
               </Button>
             </Flex>
           </Flex>
         ))}
       </Flex>
-      <Button variant='primary' maxWidth="150px" mt={4}>
+      <Button variant="primary" maxWidth="150px" mt={4}>
         try out!
       </Button>
     </Flex>

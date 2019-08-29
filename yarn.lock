@@ -819,7 +819,7 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cogito-study/alea@^0.1.6":
+"@cogito-study/alea@^0.1.7":
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.7.tgz#d33d7893ea77773b6994cb819503f6f57e2f4ee7"
   integrity sha512-RG7X6RmCYXUg1ku48c1u9vbtFUaLywK6IGwEmK+vE/xcF+v/F56F1VNjpi6jAH577ChQLZ0A6ZamZGJn+yNy1g==

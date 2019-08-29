@@ -54,12 +54,12 @@ export const FeatureSection = () => {
             mt={[4, 6, 7, 0]}
           >
             {primary && primary.title && (
-              <H3 my={0} color="grey.dark.3">
+              <H3 my={3} color="grey.dark.3">
                 {primary.title.text}
               </H3>
             )}
             {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
-            <Button variant='secondary' maxWidth="150px" mt={4}>
+            <Button variant="secondary" maxWidth="150px" mt={4}>
               learn more
             </Button>
           </Flex>

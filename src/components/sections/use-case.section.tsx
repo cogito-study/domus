@@ -45,8 +45,8 @@ export const UseCaseSection = () => {
             pt={[1, 1, 1, 3]}
             alignItems="start"
             justifyContent="space-between"
-            border={3}
-            borderColor="primary.light"
+            border={2}
+            borderColor="primary.dark"
           >
             <Flex flexDirection={['row', 'row', 'column']} alignItems={['center', 'center', 'start']}>
               <Box minWidth="90px" width={['90px', '90px', '90px', '110px']}>
@@ -54,7 +54,7 @@ export const UseCaseSection = () => {
               </Box>
               <Flex height={'56px'} alignItems="center">
                 {primary && primary.title && (
-                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.normal">
+                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.dark">
                     {primary.title.text}
                   </H3>
                 )}

@@ -31,7 +31,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
     </Flex>
 
     <Box>
-      <H3 mt={9} textAlign="center" color="grey.dark.2">
+      <H3 mt={9} textAlign="center" color="grey.dark.3">
         {subtitle}
       </H3>
     </Box>

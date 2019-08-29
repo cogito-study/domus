@@ -66,13 +66,13 @@ export const TryOutSection = () => {
                       {subtitle.text}
                     </Paragraph>
                   )}
-                  <Flex flexDirection="row" mt={4}>
+                  <Flex flexDirection={['column', 'row']}>
                     <TextInput
                       placeholder="Enter your e-mail"
                       help='By clicking "try out!" your agree to our Privacy Policy.'
                       icon={<EmailIcon />}
                     />
-                    <Button variant="primary" ml={4} maxWidth="150px">
+                    <Button ml={[0, 4]} mt={[2, 0]} maxWidth="280px">
                       try out!
                     </Button>
                   </Flex>

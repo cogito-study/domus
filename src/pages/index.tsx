@@ -1,4 +1,4 @@
-import { H2 } from '@cogito-study/alea';
+import { H3 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
@@ -33,9 +33,9 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
         <UseCaseSection />
         <FeatureSection />
-        <H2 color="grey.dark.2" textAlign="center">
+        <H3 color="grey.dark.2" textAlign="center">
           {call_to_action.text}
-        </H2>
+        </H3>
         <CustomerSection title={customers_heading.text} />
         <PartnerSection />
       </Container>

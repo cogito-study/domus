@@ -1,5 +1,8 @@
-on: push
-name: lint and build
+name: lint-and-build
+on:
+  push:
+    branches:
+      - '*'
 jobs:
   lint-and-build:
     runs-on: ubuntu-latest
@@ -10,8 +13,6 @@ jobs:
         with:
           args: . --ext .ts,.tsx
       - name: build
-        uses: kiralybalint/gatsby-cli-github-action@master
+        uses: nuxt/actions-yarn@master
         with:
-          args: build
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
+          args: run build

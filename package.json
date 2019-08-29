@@ -15,6 +15,7 @@
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write content/**/*.yaml",
     "type-check": "tsc --noEmit",
+    "now-build": "yarn run build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {

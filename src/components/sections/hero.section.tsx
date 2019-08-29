@@ -29,7 +29,6 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
         </Box>
       </Flex>
     </Flex>
-
     <Box maxWidth="600px">
       <H4 mt={10} textAlign="center" color="grey.dark.2">
         {subtitle}

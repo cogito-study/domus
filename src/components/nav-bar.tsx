@@ -36,15 +36,15 @@ export const NavBar: FunctionComponent<NavBarProps> = () => {
             </svg>
           </Flex>
         </a>
-        {Object.keys(pages).map((p, index) => (
+        {Object.keys(pages).map((pageName, index) => (
           <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
             <Anchor
-              href={pages[p]}
-              color={window.location.pathname === pages[p] ? 'primary.normal' : 'grey.dark.1'}
+              href={pages[pageName]}
+              color={window.location.pathname === pages[pageName] ? 'primary.normal' : 'grey.dark.1'}
               hoverColor="grey.dark.4"
               fontWeight="bold"
             >
-              {p}
+              {pageName}
             </Anchor>
           </Box>
         ))}

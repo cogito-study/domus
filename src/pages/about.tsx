@@ -15,14 +15,14 @@ const About: FunctionComponent<AboutProps> = ({ data }) => {
   const { title, subtitle, achievement_header } = node.data;
 
   return (
-    <Layout>
+    <>
       <SEO />
       <TeamSection title={title.text} subtitle={subtitle.text} />
       <AchievementSection title={achievement_header.text} />
       <CustomerSection title="" />
       <PartnerSection />
       <TryOutSection />
-    </Layout>
+    </>
   );
 };
 

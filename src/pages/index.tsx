@@ -25,7 +25,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
   console.log(call_to_action);
 
   return (
-    <Layout>
+    <>
       <SEO />
       <Container>
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
@@ -38,7 +38,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
       </Container>
       <PartnerSection />
       <TryOutSection />
-    </Layout>
+    </>
   );
 };
 

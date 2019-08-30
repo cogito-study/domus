@@ -33,7 +33,7 @@
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.2.5",
-    "graphql": "^14.5.3",
+    "graphql": "^14.5.4",
     "polished": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

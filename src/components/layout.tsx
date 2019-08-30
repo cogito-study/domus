@@ -2,6 +2,7 @@ import { Box, theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
+import { FooterSection } from './sections/footer.section';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -64,6 +65,7 @@ export const Layout: FunctionComponent = ({ children }) => {
       <>
         <GlobalStyles />
         <Box>{children}</Box>
+        <FooterSection />
       </>
     </ThemeProvider>
   );

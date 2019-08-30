@@ -819,10 +819,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cogito-study/alea@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.7.tgz#d33d7893ea77773b6994cb819503f6f57e2f4ee7"
-  integrity sha512-RG7X6RmCYXUg1ku48c1u9vbtFUaLywK6IGwEmK+vE/xcF+v/F56F1VNjpi6jAH577ChQLZ0A6ZamZGJn+yNy1g==
+"@cogito-study/alea@^0.1.9":
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.9.tgz#828084907203633c290a5d45093d455915da9319"
+  integrity sha512-n818OdkES9n4EzZQPUwGbJqARwLZ0AUdoKItjDpWVsnUW8H86vhgL/n9HMDTWkGKQ7H3yHiVMdmARO5O/+Jrvw==
   dependencies:
     "@styled-system/theme-get" "5.1.1"
     "@types/styled-components" "4.1.18"
@@ -833,6 +833,7 @@
     styled-components "4.3.2"
     styled-system "5.1.1"
     typeface-nunito-sans "0.0.72"
+    typeface-raleway "^0.0.75"
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
@@ -15864,6 +15865,11 @@ typeface-nunito-sans@0.0.72:
   version "0.0.72"
   resolved "https://registry.yarnpkg.com/typeface-nunito-sans/-/typeface-nunito-sans-0.0.72.tgz#c99198a8d62ebdda0399dbe8cd81586a0976a01c"
   integrity sha512-b58R4movZchZJNe5pWvqMVoJzKRs7GP09iIri4WWQOs9+G+yjoTSIpOUMU2xtLmxuyXUo1F8XhnOHY06kSDhuQ==
+
+typeface-raleway@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-raleway/-/typeface-raleway-0.0.75.tgz#cc79688aa3175452744ecd19540b54dad153e8f3"
+  integrity sha512-mUvT/klCTGA2HporaIMNY3ap45YxBErxFv/1pv82LhbFdNc3m+6ddfoexP6xxwMZ5yZ2VmDhMqk1yikDEoxU/Q==
 
 typescript@^3.6.2:
   version "3.6.2"

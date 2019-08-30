@@ -64,7 +64,7 @@ export const Layout: FunctionComponent = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <NavBar />
+        <NavBar theme={theme} />
         <Box>{children}</Box>
       </>
     </ThemeProvider>

@@ -32,7 +32,9 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
   return (
     <Flex my={9} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']}>
       <Box maxWidth="360px">
-        <H2 color="grey.dark.1">{title}</H2>
+        <H2 color="grey.dark.1" mb={8}>
+          {title}
+        </H2>
       </Box>
       <Flex flexDirection={['row']}>
         {data.allPrismicHomeBodyCustomer.edges.map(

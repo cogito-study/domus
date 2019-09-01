@@ -30,22 +30,20 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
   if (!data.allPrismicHomeBodyCustomer) return null;
 
   return (
-    <Flex my={9} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']}>
-      <Box maxWidth="360px">
-        <H2 color="grey.dark.1" mb={8}>
+    <Flex my={7} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']}>
+      <Box maxWidth={['260px', '360px']}>
+        <H2 color="grey.dark.1" mb={[6, 8]}>
           {title}
         </H2>
       </Box>
-      <Flex flexDirection={['row']}>
+      <Flex flexDirection={['row']} justifyContent="center" alignItems="center">
         {data.allPrismicHomeBodyCustomer.edges.map(
           ({ node: { primary } }, index) =>
             primary &&
             primary.name &&
             primary.icon && (
-              <Flex width={['110px', '160px']} flexDirection="column" mx={6} alignItems="center">
-                <Box width={['110px', '160px']}>
-                  <img width="100%" key={index} src={primary.icon.url}></img>
-                </Box>
+              <Flex width={['110px', '110px', '110px', '140px']} flexDirection="column" mx={[5, 6]} alignItems="center">
+                <img width="100%" key={index} src={primary.icon.url}></img>
                 <H4 key={index} color="grey.dark.1" textAlign="center">
                   {primary.name.text}
                 </H4>

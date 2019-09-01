@@ -32,9 +32,9 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
         <UseCaseSection />
         <FeatureSection />
-        <H3 color="grey.dark.2" textAlign="center">
+        {/* <H3 my={[7, 9]} color="grey.dark.2" textAlign="center">
           {call_to_action.text}
-        </H3>
+          </H3>*/}
         <CustomerSection title={customers_heading.text} />
       </Container>
       <PartnerSection />

@@ -39,9 +39,9 @@ export const UseCaseSection = () => {
             width={['100%', '100%', '210px', '260px']}
             mx={[0, 2]}
             my={3}
-            px={[0, 2, 2, 4]}
+            px={[2, 2, 2, 4]}
             pb={[4, 4, 4, 6]}
-            pt={[1, 1, 1, 3]}
+            pt={[2, 2, 2, 3]}
             alignItems="start"
             justifyContent="space-between"
             border={2}

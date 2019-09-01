@@ -38,7 +38,7 @@ export const FeatureSection = () => {
           }
           alignItems={['center', 'center', 'space-between']}
           justifyContent={['center', 'center', 'space-between']}
-          my={[4, 8, 7]}
+          my={[6, 8, 7]}
           width={['100%', '70%', '100%', '100%']}
         >
           {/* Width should be 300px on smaller screens and 400px on desktop on the image */}

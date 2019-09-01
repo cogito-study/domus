@@ -1,11 +1,10 @@
 import { Flex, H2, Paragraph, Button, TextInput, EmailIcon } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { TryOutQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
 
 export const TryOutSection = () => {
-  const data = useStaticQuery<TryOutQuery>(graphql`
+  const data = useStaticQuery<any>(graphql`
     query TryOut {
       allPrismicHomeBodyTryOut {
         edges {

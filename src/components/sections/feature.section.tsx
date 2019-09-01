@@ -1,10 +1,9 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { FeatureQuery } from '../../generated/graphql-types';
 
 export const FeatureSection = () => {
-  const data = useStaticQuery<FeatureQuery>(graphql`
+  const data = useStaticQuery<any>(graphql`
     query Feature {
       allPrismicHomeBodyFeature {
         edges {

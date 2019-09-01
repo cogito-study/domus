@@ -5,10 +5,9 @@ import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
-import { BlogPostQuery } from '../generated/graphql-types';
 
 interface BlogPostProps {
-  data: BlogPostQuery;
+  data: any;
 }
 
 const BlogPostTemplate: FunctionComponent<BlogPostProps> = ({ data }) => {

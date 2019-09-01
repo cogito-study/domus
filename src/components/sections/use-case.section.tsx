@@ -1,10 +1,9 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { UseCaseQuery } from '../../generated/graphql-types';
 
 export const UseCaseSection = () => {
-  const data = useStaticQuery<UseCaseQuery>(graphql`
+  const data = useStaticQuery<any>(graphql`
     query UseCase {
       allPrismicHomeBodyUseCase {
         edges {

@@ -12,10 +12,9 @@ import {
   UseCaseSection,
 } from '../components/sections';
 import SEO from '../components/SEO';
-import { IndexQuery } from '../generated/graphql-types';
 
 interface IndexProps {
-  data: IndexQuery;
+  data: any;
 }
 
 const Index: FunctionComponent<IndexProps> = ({ data }) => {
@@ -37,8 +36,8 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
           {call_to_action.text}
         </H3>
         <CustomerSection title={customers_heading.text} />
-        <PartnerSection />
       </Container>
+      <PartnerSection />
       <TryOutSection />
     </Layout>
   );

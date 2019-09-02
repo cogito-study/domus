@@ -4,7 +4,7 @@ import React from 'react';
 import { Container } from '../container';
 
 export const TryOutSection = () => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query TryOut {
       allPrismicHomeBodyTryOut {
         edges {

@@ -1,7 +1,8 @@
-import { Anchor, Box, Button, Flex } from '@cogito-study/alea';
+import { Anchor, Box, Button, Flex, theme } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 
 const pages: Record<string, string> = {
   PRODUCT: '/',
@@ -14,6 +15,10 @@ const pages: Record<string, string> = {
 const NavbarContainerLarge = styled(Flex)`
   @media (max-width: 1023px) {
     display: none;
+  }
+
+  .active {
+    color: ${theme.colors.primary.normal};
   }
 `;
 
@@ -37,22 +42,21 @@ export const NavBar: FunctionComponent = () => {
       >
         <Flex alignItems="center">
           <Link to="/">
-            <Flex ml={8} mr={8} mt={3} mb={3}>
+            <Flex mx={8} my={3}>
               <img src="/logos/logo.svg"></img>
             </Flex>
           </Link>
           {Object.keys(pages).map((pageName, index) => (
             <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
-              <Link to={pages[pageName]} activeClassName="active">
-                <Anchor
-                  href={pages[pageName]}
-                  color={'grey.dark.1'} // TODO ezt majd cserélni kell
-                  hoverColor="grey.dark.4"
-                  fontWeight="bold"
-                >
-                  {pageName}
-                </Anchor>
-              </Link>
+              <StyledGatsbyLink
+                to={pages[pageName]}
+                activeClassName="active"
+                color={'grey.dark.1'}
+                hoverColor="grey.dark.4"
+                fontWeight="bold"
+              >
+                {pageName}
+              </StyledGatsbyLink>
             </Box>
           ))}
         </Flex>
@@ -73,7 +77,7 @@ export const NavBar: FunctionComponent = () => {
         style={{ position: 'fixed', top: 0, width: '100%' }}
       >
         <Link to="/">
-          <Flex ml={8} mr={8} mt={3} mb={3}>
+          <Flex mx={8} my={3}>
             <img src="/logos/logo.svg"></img>
           </Flex>
         </Link>

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 export const FeatureSection = () => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Feature {
       allPrismicHomeBodyFeature {
         edges {

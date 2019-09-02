@@ -1,7 +1,6 @@
 import { Anchor, Box, Button, Flex } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { CogitoLogo, MenuLogo } from './logos';
 import { Link } from 'gatsby';
 
 const pages: Record<string, string> = {
@@ -37,9 +36,11 @@ export const NavBar: FunctionComponent = () => {
         style={{ position: 'fixed', top: 0, width: '98%' }}
       >
         <Flex alignItems="center">
-          <a href="/">
-            <CogitoLogo />
-          </a>
+          <Link to="/">
+            <Flex ml={8} mr={8} mt={3} mb={3}>
+              <img src="/logos/logo.svg"></img>
+            </Flex>
+          </Link>
           {Object.keys(pages).map((pageName, index) => (
             <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
               <Link to={pages[pageName]} activeClassName="active">
@@ -71,11 +72,13 @@ export const NavBar: FunctionComponent = () => {
         backgroundColor="white"
         style={{ position: 'fixed', top: 0, width: '100%' }}
       >
-        <a href="/">
-          <CogitoLogo />
-        </a>
+        <Link to="/">
+          <Flex ml={8} mr={8} mt={3} mb={3}>
+            <img src="/logos/logo.svg"></img>
+          </Flex>
+        </Link>
         <Box mr={4}>
-          <MenuLogo />
+          <img src="/logos/menu.svg"></img>
         </Box>
       </NavbarContainerSmall>
     </>

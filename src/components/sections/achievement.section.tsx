@@ -8,7 +8,7 @@ interface AchievementSectionProps {
 }
 
 export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({ title }) => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Achievement {
       allPrismicAboutBodyAchievements {
         edges {

@@ -1,20 +1,23 @@
-import { Anchor, Flex } from '@cogito-study/alea';
+import { Anchor, Flex, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { PartnerQuery } from '../../generated/graphql-types';
 
 export const PartnerSection = () => {
-  const data = useStaticQuery<PartnerQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query Partner {
       allPrismicHomeBodyPartner {
         edges {
           node {
             primary {
-              name {
-                text
+              logo {
+                url
+                alt
               }
               link {
                 url
+              }
+              name {
+                text
               }
             }
           }
@@ -25,15 +28,19 @@ export const PartnerSection = () => {
 
   if (!data.allPrismicHomeBodyPartner) return null;
   return (
-    <Flex>
-      {data.allPrismicHomeBodyPartner.edges.map(({ node: { primary } }, index) => {
-        if (primary && primary.link && primary.name)
-          return (
-            <Anchor key={index} href={primary.link.url}>
-              {primary.name.text}
-            </Anchor>
-          );
-      })}
+    <Flex justifyContent="center" py={4} backgroundColor="white">
+      <Flex width={['300px', '100%']} justifyContent="center" flexWrap="wrap">
+        {data.allPrismicHomeBodyPartner.edges.map(({ node: { primary } }, index) => {
+          if (primary && primary.link && primary.name)
+            return (
+              <Anchor key={index} href={primary.link.url} mx={4}>
+                <Box width={['110px', '100px', '150px']}>
+                  <img width="100%" src={primary.logo.url} alt={primary.name.text}></img>
+                </Box>
+              </Anchor>
+            );
+        })}
+      </Flex>
     </Flex>
   );
 };

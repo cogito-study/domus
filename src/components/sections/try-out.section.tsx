@@ -1,11 +1,10 @@
 import { Flex, H2, Paragraph, Button, TextInput, EmailIcon } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { TryOutQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
 
 export const TryOutSection = () => {
-  const data = useStaticQuery<TryOutQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query TryOut {
       allPrismicHomeBodyTryOut {
         edges {
@@ -34,23 +33,23 @@ export const TryOutSection = () => {
   if (!data.allPrismicHomeBodyTryOut) return null;
 
   return (
-    <Flex bg="primary.normal">
+    <Flex bg="primary.dark">
       {data.allPrismicHomeBodyTryOut.edges.map(({ node: { primary } }) => {
         if (primary) {
           const { image, image_description, subtitle, title } = primary;
-
           return (
             <Container>
               <Flex
+                width="100%"
                 flexDirection={['column', 'column', 'column', 'row']}
-                my={6}
-                justifyContent="space-between"
+                my={7}
+                justifyContent="center"
                 alignItems="center"
               >
-                <Flex flexDirection="column" maxWidth="300px">
+                <Flex flexDirection="column" maxWidth="300px" mb={[7, 7, 7, 0]} mr={[0, 0, 0, 8]}>
                   {image && image.url && <img src={image.url} alt={image.alt || ''} />}
                   {image_description && (
-                    <Paragraph my={1} color="grey.light.4" textAlign="center" mr={7}>
+                    <Paragraph my={1} color="grey.light.4" textAlign="center" mt={3}>
                       {image_description.text}
                     </Paragraph>
                   )}
@@ -62,17 +61,17 @@ export const TryOutSection = () => {
                     </H2>
                   )}
                   {subtitle && (
-                    <Paragraph paragraphSize="large" my={2} color="grey.light.4">
+                    <Paragraph mb={3} color="grey.light.4">
                       {subtitle.text}
                     </Paragraph>
                   )}
-                  <Flex flexDirection="row" mt={4}>
+                  <Flex mt={2} flexDirection={['column', 'row']}>
                     <TextInput
                       placeholder="Enter your e-mail"
                       help='By clicking "try out!" your agree to our Privacy Policy.'
                       icon={<EmailIcon />}
                     />
-                    <Button variant="primary" ml={4} maxWidth="150px">
+                    <Button ml={[0, 4]} mt={[2, 0]} maxWidth="280px">
                       try out!
                     </Button>
                   </Flex>

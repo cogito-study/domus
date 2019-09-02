@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Box, H1, H2, H3, Grid, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
-import { TeamQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
 
 interface TeamSectionProps {
@@ -10,7 +9,7 @@ interface TeamSectionProps {
 }
 
 export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtitle }) => {
-  const data = useStaticQuery<TeamQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query Team {
       allPrismicAboutBodyProfile {
         edges {

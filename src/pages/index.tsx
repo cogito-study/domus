@@ -1,14 +1,19 @@
-import { H2 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { Layout } from '../components/layout';
-import { CustomerSection, FeatureSection, HeroSection, PartnerSection, TryOutSection, UseCaseSection } from '../components/sections';
+import {
+  CustomerSection,
+  FeatureSection,
+  HeroSection,
+  PartnerSection,
+  TryOutSection,
+  UseCaseSection,
+} from '../components/sections';
 import SEO from '../components/SEO';
-import { IndexQuery } from '../generated/graphql-types';
 
 interface IndexProps {
-  data: IndexQuery;
+  data: any;
 }
 
 const Index: FunctionComponent<IndexProps> = ({ data }) => {
@@ -26,12 +31,12 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
         <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
         <UseCaseSection />
         <FeatureSection />
-        <H2 color="grey.dark.2" textAlign="center">
+        {/* <H3 my={[7, 9]} color="grey.dark.2" textAlign="center">
           {call_to_action.text}
-        </H2>
+          </H3>*/}
         <CustomerSection title={customers_heading.text} />
-        <PartnerSection />
       </Container>
+      <PartnerSection />
       <TryOutSection />
     </Layout>
   );

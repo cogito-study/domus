@@ -1,10 +1,9 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { UseCaseQuery } from '../../generated/graphql-types';
 
 export const UseCaseSection = () => {
-  const data = useStaticQuery<UseCaseQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query UseCase {
       allPrismicHomeBodyUseCase {
         edges {
@@ -38,15 +37,15 @@ export const UseCaseSection = () => {
             key={index}
             flexDirection="column"
             width={['100%', '100%', '210px', '260px']}
-            mx={2}
+            mx={[0, 2]}
             my={3}
             px={[2, 2, 2, 4]}
             pb={[4, 4, 4, 6]}
-            pt={[1, 1, 1, 3]}
+            pt={[2, 2, 2, 3]}
             alignItems="start"
             justifyContent="space-between"
-            border={3}
-            borderColor="primary.light"
+            border={2}
+            borderColor="primary.dark"
           >
             <Flex flexDirection={['row', 'row', 'column']} alignItems={['center', 'center', 'start']}>
               <Box minWidth="90px" width={['90px', '90px', '90px', '110px']}>
@@ -54,7 +53,7 @@ export const UseCaseSection = () => {
               </Box>
               <Flex height={'56px'} alignItems="center">
                 {primary && primary.title && (
-                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.normal">
+                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.dark">
                     {primary.title.text}
                   </H3>
                 )}
@@ -74,14 +73,14 @@ export const UseCaseSection = () => {
                   </Paragraph>
                 )}
               </Flex>
-              <Button variant='secondary' maxWidth="150px" mt={4}>
+              <Button variant="secondary" maxWidth="150px" mt={4}>
                 learn more
               </Button>
             </Flex>
           </Flex>
         ))}
       </Flex>
-      <Button variant='primary' maxWidth="150px" mt={4}>
+      <Button variant="primary" maxWidth="150px" mt={4}>
         try out!
       </Button>
     </Flex>

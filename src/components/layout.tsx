@@ -20,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     color: black;
     font-family: '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    background: white;
+    background: ${theme.colors.grey.light[4]};
     font-size: 18px;
     background-image: url('/background/pattern.svg'),
                       url('/background/top-left.svg'),

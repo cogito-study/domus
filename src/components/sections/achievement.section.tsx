@@ -1,7 +1,6 @@
 import { Box, Flex, H2, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { AchievementQuery } from '../../generated/graphql-types';
 import { Container } from '../container';
 
 interface AchievementSectionProps {
@@ -9,7 +8,7 @@ interface AchievementSectionProps {
 }
 
 export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({ title }) => {
-  const data = useStaticQuery<AchievementQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query Achievement {
       allPrismicAboutBodyAchievements {
         edges {
@@ -39,7 +38,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
         {title}
       </H2>
       {data.allPrismicAboutBodyAchievements.edges.map(({ node: { primary } }, index) => (
-        <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index} >
+        <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index}>
           <Box order={[2, 0]} maxWidth="600px">
             <H3 color="grey.dark.2" mt={0} mb={5}>
               {primary.name.text}

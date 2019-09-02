@@ -1,10 +1,9 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { FeatureQuery } from '../../generated/graphql-types';
 
 export const FeatureSection = () => {
-  const data = useStaticQuery<FeatureQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query Feature {
       allPrismicHomeBodyFeature {
         edges {
@@ -39,7 +38,7 @@ export const FeatureSection = () => {
           }
           alignItems={['center', 'center', 'space-between']}
           justifyContent={['center', 'center', 'space-between']}
-          my={[4, 8, 7]}
+          my={[6, 8, 7]}
           width={['100%', '70%', '100%', '100%']}
         >
           {/* Width should be 300px on smaller screens and 400px on desktop on the image */}
@@ -54,12 +53,12 @@ export const FeatureSection = () => {
             mt={[4, 6, 7, 0]}
           >
             {primary && primary.title && (
-              <H3 my={0} color="grey.dark.3">
+              <H3 my={3} color="grey.dark.3">
                 {primary.title.text}
               </H3>
             )}
             {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
-            <Button variant='secondary' maxWidth="150px" mt={4}>
+            <Button variant="secondary" maxWidth="150px" mt={4}>
               learn more
             </Button>
           </Flex>

@@ -21,7 +21,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
               placeholder="Enter your e-mail"
               help='By clicking "try out!" your agree to our Privacy Policy.'
               icon={<EmailIcon />}
-            ></TextInput>
+            />
             <Button ml={[0, 4]} mt={[2, 0]} maxWidth="280px">
               try out!
             </Button>

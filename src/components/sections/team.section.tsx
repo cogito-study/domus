@@ -9,7 +9,7 @@ interface TeamSectionProps {
 }
 
 export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtitle }) => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Team {
       allPrismicAboutBodyProfile {
         edges {

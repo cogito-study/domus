@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 export const PartnerSection = () => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Partner {
       allPrismicHomeBodyPartner {
         edges {

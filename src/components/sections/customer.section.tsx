@@ -7,7 +7,7 @@ interface CustomerSectionProps {
 }
 
 export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title }) => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Customer {
       allPrismicHomeBodyCustomer {
         edges {

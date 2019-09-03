@@ -54,7 +54,7 @@ export const ContactSection: FunctionComponent = () => {
             </H1>
             <Flex flexDirection="column" alignItems="center" mb={6}>
               <Box my={2}>
-                <Anchor href="mailto:contact@cogito.study" fontWeight="semibold">
+                <Anchor href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`} fontWeight="semibold">
                   {data.allPrismicContact.nodes[0].data.e_mail.text}
                 </Anchor>
               </Box>

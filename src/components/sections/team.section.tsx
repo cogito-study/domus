@@ -1,8 +1,14 @@
-import React, { FunctionComponent } from 'react';
-import { Box, H1, H2, H3, Grid, Paragraph } from '@cogito-study/alea';
+import { Box, Grid, H1, H2, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
 import { Container } from '../container';
 
+const ProfileImage = styled(Image)`
+  width: 100%;
+  height: 100%;
+`;
 interface TeamSectionProps {
   title: string;
   subtitle: string;
@@ -16,7 +22,14 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
           node {
             primary {
               image {
-                url
+                localFile {
+                  childImageSharp {
+                    fluid(fit: COVER, cropFocus: CENTER, maxHeight: 300) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+                alt
               }
               name {
                 text
@@ -40,8 +53,8 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
       <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr']}>
         {data.allPrismicAboutBodyProfile.edges.map(({ node: { primary } }, index) => (
           <Box key={index}>
-            <Box height={['140px', '140px', '140px', '300px']}>
-              <img src={primary.image.url} width="100%" height="100%" style={{ objectFit: 'cover' }} />
+            <Box height={[140, 140, 140, 300]}>
+              <ProfileImage fluid={primary.image.localFile.childImageSharp.fluid} />
             </Box>
             <H3 mb={1} mt={2} color="primary.dark">
               {primary.name.text}

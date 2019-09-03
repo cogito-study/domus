@@ -69,7 +69,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
                 <StyledGatsbyLink
                   to={pages[pageName]}
                   activeClassName="active"
-                  color={'grey.dark.1'}
+                  color="grey.dark.1"
                   hoverColor="grey.dark.4"
                   fontWeight="bold"
                 >

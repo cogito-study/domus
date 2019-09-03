@@ -53,7 +53,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
         <NavbarContainerLarge
           alignItems="center"
           justifyContent="space-between"
-          border="1px solid"
+          border={1}
           borderColor="primary.light"
           mt={3}
           backgroundColor="white"

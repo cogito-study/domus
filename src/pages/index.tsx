@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
-import { Layout } from '../components/layout';
 import {
   CustomerSection,
   FeatureSection,
@@ -11,18 +10,13 @@ import {
   UseCaseSection,
 } from '../components/sections';
 import SEO from '../components/SEO';
+import { Layout } from '../components/layout';
 
-interface IndexProps {
-  data: any;
-}
-
-const Index: FunctionComponent<IndexProps> = ({ data }) => {
+const Index: FunctionComponent<{ data: any }> = ({ data }) => {
   if (!data.allPrismicHome) return undefined;
 
   const { node } = data.allPrismicHome.edges[0];
-  const { motto, subtitle, description, call_to_action, customers_heading } = node.data;
-
-  console.log(call_to_action);
+  const { motto, subtitle, description, customers_heading } = node.data;
 
   return (
     <Layout>

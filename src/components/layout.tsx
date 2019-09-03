@@ -1,7 +1,8 @@
 import { Box, theme, ThemeProvider } from '@cogito-study/alea';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
+import { NavBar } from './nav-bar';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -37,6 +38,8 @@ const GlobalStyles = createGlobalStyle`
                        no-repeat,
                        no-repeat,
                        no-repeat;
+
+    position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) => (overlayMenuActive ? 'fixed' : 'static')};
   }
   @media only screen and (max-width: ${theme.breakpoints[0]}) {
     body {
@@ -59,10 +62,15 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const Layout: FunctionComponent = ({ children }) => {
+  const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <ThemeProvider theme={theme}>
       <>
-        <GlobalStyles />
+        <GlobalStyles overlayMenuActive={overlayMenuActive} />
+        <NavBar
+          overlayMenuActive={overlayMenuActive}
+          onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
+        />
         <Box>{children}</Box>
       </>
     </ThemeProvider>

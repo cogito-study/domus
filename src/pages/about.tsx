@@ -1,16 +1,16 @@
+import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Layout } from '../components/layout';
-import SEO from '../components/SEO';
-import { graphql } from 'gatsby';
 import {
-  TeamSection,
   AchievementSection,
   CustomerSection,
   PartnerSection,
+  TeamSection,
   TryOutSection,
 } from '../components/sections';
+import SEO from '../components/SEO';
 
-const About: FunctionComponent<AboutProps> = ({ data }) => {
+const About: FunctionComponent<{ data: any }> = ({ data }) => {
   const { node } = data.allPrismicAbout.edges[0];
   const { title, subtitle, achievement_header } = node.data;
 

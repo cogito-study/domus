@@ -6,11 +6,7 @@ import { Layout } from '../components/layout';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 
-interface BlogPostProps {
-  data: any;
-}
-
-const BlogPostTemplate: FunctionComponent<BlogPostProps> = ({ data }) => {
+const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
       <Container>

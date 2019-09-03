@@ -39,11 +39,11 @@ const OverlayMenu = styled(Flex)`
 `;
 
 export const NavBar: FunctionComponent = () => {
-  const medium = useMinimumScreenSize('l');
+  const large = useMinimumScreenSize('l');
   const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <>
-      {medium && (
+      {large && (
         <NavbarContainerLarge
           alignItems="center"
           justifyContent="space-between"
@@ -54,7 +54,7 @@ export const NavBar: FunctionComponent = () => {
         >
           <Flex alignItems="center">
             <Link to="/">
-              <Flex mx={8} my={3}>
+              <Flex mx={7} my={3}>
                 <img src="/logos/logo.svg"></img>
               </Flex>
             </Link>
@@ -80,7 +80,7 @@ export const NavBar: FunctionComponent = () => {
           </Flex>
         </NavbarContainerLarge>
       )}
-      {!medium && (
+      {!large && (
         <NavbarContainerSmall
           alignItems="center"
           justifyContent="space-between"
@@ -110,9 +110,10 @@ export const NavBar: FunctionComponent = () => {
                     <StyledGatsbyLink
                       to={pages[pageName]}
                       activeClassName="active"
-                      color={'grey.dark.1'}
+                      color={'accent.normal'}
                       hoverColor="grey.dark.4"
                       fontWeight="bold"
+                      mb={5}
                     >
                       {pageName}
                     </StyledGatsbyLink>
@@ -120,20 +121,15 @@ export const NavBar: FunctionComponent = () => {
                 ))}
               </Flex>
               <Flex flexDirection="column" style={{ position: 'fixed', bottom: 0 }}>
-                <Button variant="secondary" mb={3}>
+                <Button variant="secondary" mb={4}>
                   log in
                 </Button>
-                <Button mb={3}>try out!</Button>
-                <Flex mb={2}>
-                  <Anchor mr={2}>English</Anchor>
-                  <Anchor mr={2}>Hungarian</Anchor>
-                  <Anchor mr={2}>Romanian</Anchor>
-                </Flex>
+                <Button mb={6}>try out!</Button>
               </Flex>
             </OverlayMenu>
           )}
         </NavbarContainerSmall>
-      )}{' '}
+      )}
     </>
   );
 };

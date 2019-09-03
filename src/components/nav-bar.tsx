@@ -40,9 +40,13 @@ const OverlayMenu = styled(Flex)`
   z-index: -1;
 `;
 
-export const NavBar: FunctionComponent = () => {
+interface NavBarProps {
+  overlayMenuActive: boolean;
+  onMenuButtonClicked: () => void;
+}
+
+export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, overlayMenuActive }) => {
   const large = useMinimumScreenSize('l');
-  const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <>
       {large && (
@@ -95,13 +99,19 @@ export const NavBar: FunctionComponent = () => {
               <img src="/logos/logo.svg"></img>
             </Box>
           </Link>
-          <Box mr={4} onClick={() => setOverlayMenuActive(!overlayMenuActive)}>
+          <Box mr={4} onClick={() => onMenuButtonClicked()}>
             {!overlayMenuActive && <img src="/logos/menu.svg"></img>}
             {overlayMenuActive && <img src="/logos/close.svg"></img>}
           </Box>
           {overlayMenuActive && (
-            <OverlayMenu flexDirection="column" alignItems="center" backgroundColor="white">
-              <Flex flexDirection="column" justifyContent="center" flexGrow={2} alignContent="center">
+            <OverlayMenu
+              flexDirection="column"
+              alignItems="center"
+              backgroundColor="white"
+              justifyContent="space-around"
+              mt={6}
+            >
+              <Flex flexDirection="column" justifyContent="center" alignContent="center">
                 {Object.keys(pages).map((pageName, index) => (
                   <Box key={index} mb={5} textAlign="center">
                     <StyledGatsbyLink
@@ -116,7 +126,7 @@ export const NavBar: FunctionComponent = () => {
                   </Box>
                 ))}
               </Flex>
-              <Flex flexDirection="column" flexGrow={1}>
+              <Flex flexDirection="column" mb={6}>
                 <Button variant="secondary" mb={4}>
                   log in
                 </Button>

@@ -1,27 +1,28 @@
-import React, { FunctionComponent } from 'react';
-import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
+import React, { FunctionComponent } from 'react';
+import { Layout } from '../components/layout';
 import {
-  TeamSection,
   AchievementSection,
   CustomerSection,
   PartnerSection,
+  TeamSection,
   TryOutSection,
 } from '../components/sections';
+import SEO from '../components/SEO';
 
-const About: FunctionComponent<AboutProps> = ({ data }) => {
+const About: FunctionComponent<{ data: any }> = ({ data }) => {
   const { node } = data.allPrismicAbout.edges[0];
   const { title, subtitle, achievement_header } = node.data;
 
   return (
-    <>
+    <Layout>
       <SEO />
       <TeamSection title={title.text} subtitle={subtitle.text} />
       <AchievementSection title={achievement_header.text} />
       <CustomerSection title="" />
       <PartnerSection />
       <TryOutSection />
-    </>
+    </Layout>
   );
 };
 

@@ -4,7 +4,7 @@ on:
     branches:
       - '*'
 jobs:
-  lint-and-build:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -12,10 +12,13 @@ jobs:
         uses: stefanoeb/eslint-action@master
         with:
           args: . --ext .ts,.tsx
-      - name: build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
           registry-url: https://registry.npmjs.org/
-        with:
-          args: npx gatsby build
+      - run: npx yarn install
+      - run: npx gatsby build

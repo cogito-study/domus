@@ -59,13 +59,13 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
           backgroundColor="white"
         >
           <Flex alignItems="center">
-            <Link to="/" onClick={() => onMenuButtonClicked()}>
+            <Link to="/">
               <Box mx={7} my={3} width="90px">
                 <img src="/logos/logo.svg"></img>
               </Box>
             </Link>
             {Object.keys(pages).map((pageName, index) => (
-              <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
+              <Box key={index} height="22px" width="98px" textAlign="center" mr={[0, 0, 0, 1, 4]}>
                 <StyledGatsbyLink
                   to={pages[pageName]}
                   activeClassName="active"
@@ -80,9 +80,11 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
           </Flex>
           <Flex alignItems="center">
             <Anchor href="/login" mr={6} fontWeight={600}>
-              log in
+              <Button variant="tertiary">log in</Button>
             </Anchor>
-            <Button mr={6}>try out!</Button>
+            <Anchor href="https://cogito.study">
+              <Button mr={6}>try out!</Button>
+            </Anchor>
           </Flex>
         </NavbarContainerLarge>
       )}
@@ -127,10 +129,14 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
                 ))}
               </Flex>
               <Flex flexDirection="column" mb={6}>
-                <Button variant="secondary" mb={4}>
-                  log in
-                </Button>
-                <Button mb={6}>try out!</Button>
+                <Anchor href="https://cogito.study">
+                  <Button variant="secondary" mb={4}>
+                    log in
+                  </Button>
+                </Anchor>
+                <Anchor href="https://cogito.study">
+                  <Button mb={6}>try out!</Button>
+                </Anchor>
               </Flex>
             </OverlayMenu>
           )}

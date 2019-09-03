@@ -100,7 +100,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
             </Box>
           </Link>
           <Box mr={4} onClick={() => onMenuButtonClicked()}>
-            {!overlayMenuActive && <img src="/logos/menu.svg"></img>}
+            {!overlayMenuActive ? <img src="/logos/menu.svg" /> : <img src="/logos/close.svg" />}
           </Box>
           {overlayMenuActive && (
             <OverlayMenu

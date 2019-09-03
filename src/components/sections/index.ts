@@ -1,3 +1,4 @@
+export * from './contact.section';
 export * from './feature.section';
 export * from './use-case.section';
 export * from './hero.section';

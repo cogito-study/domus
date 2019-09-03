@@ -26,16 +26,18 @@ const NavbarContainerSmall = styled(Flex)`
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 2;
 `;
 
 const OverlayMenu = styled(Flex)`
   position: fixed;
-  top: 62px;
+  top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   width: 100vw;
   height: 100vh;
+  z-index: -1;
 `;
 
 export const NavBar: FunctionComponent = () => {
@@ -101,26 +103,25 @@ export const NavBar: FunctionComponent = () => {
             <OverlayMenu
               flexDirection="column"
               alignItems="center"
-              alignContent="space-between"
+              justifyContent="space-between"
               backgroundColor="white"
             >
-              <Flex flexDirection="column" flexGrow={2} justifyContent="center">
+              <Flex flexDirection="column" justifyContent="center" flexGrow={1} alignContent="center">
                 {Object.keys(pages).map((pageName, index) => (
-                  <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
+                  <Box key={index} mb={5} textAlign="center">
                     <StyledGatsbyLink
                       to={pages[pageName]}
                       activeClassName="active"
-                      color={'accent.normal'}
-                      hoverColor="grey.dark.4"
+                      color="accent.normal"
+                      hoverColor="accent.dark"
                       fontWeight="bold"
-                      mb={5}
                     >
                       {pageName}
                     </StyledGatsbyLink>
                   </Box>
                 ))}
               </Flex>
-              <Flex flexDirection="column" style={{ position: 'fixed', bottom: 0 }}>
+              <Flex flexDirection="column">
                 <Button variant="secondary" mb={4}>
                   log in
                 </Button>

@@ -4,7 +4,7 @@ on:
     branches:
       - '*'
 jobs:
-  lint:
+  lint-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -12,9 +12,6 @@ jobs:
         uses: stefanoeb/eslint-action@master
         with:
           args: . --ext .ts,.tsx
-  build:
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:

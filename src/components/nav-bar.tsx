@@ -59,7 +59,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
           backgroundColor="white"
         >
           <Flex alignItems="center">
-            <Link to="/">
+            <Link to="/" onClick={() => onMenuButtonClicked()}>
               <Box mx={7} my={3} width="90px">
                 <img src="/logos/logo.svg"></img>
               </Box>

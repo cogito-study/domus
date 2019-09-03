@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Box, Flex, H1, Anchor } from '@cogito-study/alea';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
 
 export const ContactSection: FunctionComponent = () => {

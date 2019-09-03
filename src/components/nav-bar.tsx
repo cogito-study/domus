@@ -56,9 +56,9 @@ export const NavBar: FunctionComponent = () => {
         >
           <Flex alignItems="center">
             <Link to="/">
-              <Flex mx={7} my={3}>
+              <Box mx={7} my={3} width="90px">
                 <img src="/logos/logo.svg"></img>
-              </Flex>
+              </Box>
             </Link>
             {Object.keys(pages).map((pageName, index) => (
               <Box key={index} height="22px" width="98px" textAlign="center" mr={4}>
@@ -91,9 +91,9 @@ export const NavBar: FunctionComponent = () => {
           backgroundColor="white"
         >
           <Link to="/">
-            <Flex mx={8} my={3}>
+            <Box mx={8} my={3} width="90px">
               <img src="/logos/logo.svg"></img>
-            </Flex>
+            </Box>
           </Link>
           <Box mr={4} onClick={() => setOverlayMenuActive(!overlayMenuActive)}>
             {!overlayMenuActive && <img src="/logos/menu.svg"></img>}
@@ -101,7 +101,7 @@ export const NavBar: FunctionComponent = () => {
           </Box>
           {overlayMenuActive && (
             <OverlayMenu flexDirection="column" alignItems="center" backgroundColor="white">
-              <Flex flexDirection="column" justifyContent="center" flexGrow={3} alignContent="center">
+              <Flex flexDirection="column" justifyContent="center" flexGrow={2} alignContent="center">
                 {Object.keys(pages).map((pageName, index) => (
                   <Box key={index} mb={5} textAlign="center">
                     <StyledGatsbyLink

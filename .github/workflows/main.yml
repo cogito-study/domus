@@ -13,6 +13,9 @@ jobs:
         with:
           args: . --ext .ts,.tsx
       - name: build
-        uses: nuxt/actions-yarn@master
+      - uses: actions/setup-node@v1
         with:
-          args: run build
+          node-version: 10
+          registry-url: https://registry.npmjs.org/
+        with:
+          args: npx gatsby build

@@ -129,7 +129,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
                 ))}
               </Flex>
               <Flex flexDirection="column" mb={6}>
-                <Anchor href="https://cogito.study">
+                <Anchor href="/login">
                   <Button variant="secondary" mb={4}>
                     log in
                   </Button>

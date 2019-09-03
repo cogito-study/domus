@@ -1,4 +1,3 @@
-// @ts-ignore
 import { themeGet } from '@styled-system/theme-get';
 import styled, { css, ThemeProps } from 'styled-components';
 import { Link, GatsbyLinkProps } from 'gatsby';

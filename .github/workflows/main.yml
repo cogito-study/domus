@@ -16,6 +16,11 @@ jobs:
         with:
           node-version: 10
           registry-url: https://registry.npmjs.org/
+      - run: npx yarn install
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://registry.npmjs.org/
       - run: npx gatsby build
         env:
           API_KEY: ${{ secrets.API_KEY }}

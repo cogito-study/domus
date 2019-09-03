@@ -100,13 +100,8 @@ export const NavBar: FunctionComponent = () => {
             {overlayMenuActive && <img src="/logos/close.svg"></img>}
           </Box>
           {overlayMenuActive && (
-            <OverlayMenu
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="space-between"
-              backgroundColor="white"
-            >
-              <Flex flexDirection="column" justifyContent="center" flexGrow={1} alignContent="center">
+            <OverlayMenu flexDirection="column" alignItems="center" backgroundColor="white">
+              <Flex flexDirection="column" justifyContent="center" flexGrow={3} alignContent="center">
                 {Object.keys(pages).map((pageName, index) => (
                   <Box key={index} mb={5} textAlign="center">
                     <StyledGatsbyLink
@@ -121,7 +116,7 @@ export const NavBar: FunctionComponent = () => {
                   </Box>
                 ))}
               </Flex>
-              <Flex flexDirection="column">
+              <Flex flexDirection="column" flexGrow={1}>
                 <Button variant="secondary" mb={4}>
                   log in
                 </Button>

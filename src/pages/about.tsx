@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from 'react';
-import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { graphql } from 'gatsby';
 import {

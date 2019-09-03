@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
-import { Layout } from '../components/layout';
 import {
   CustomerSection,
   FeatureSection,

@@ -22,3 +22,5 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npx yarn install
       - run: npx gatsby build
+        env:
+          API_KEY: ${{ secrets.API_KEY }}

@@ -120,6 +120,7 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
                       color="accent.normal"
                       hoverColor="accent.dark"
                       fontWeight="bold"
+                      onClick={() => onMenuButtonClicked()}
                     >
                       {pageName}
                     </StyledGatsbyLink>

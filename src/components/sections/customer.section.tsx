@@ -42,8 +42,14 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
             primary &&
             primary.name &&
             primary.icon && (
-              <Flex width={['110px', '110px', '110px', '140px']} flexDirection="column" mx={[5, 6]} alignItems="center">
-                <img width="100%" key={index} src={primary.icon.url}></img>
+              <Flex
+                key={index}
+                width={['110px', '110px', '110px', '140px']}
+                flexDirection="column"
+                mx={[5, 6]}
+                alignItems="center"
+              >
+                <img width="100%" src={primary.icon.url}></img>
                 <H4 key={index} color="grey.dark.1" textAlign="center">
                   {primary.name.text}
                 </H4>

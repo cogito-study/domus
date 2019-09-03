@@ -1,9 +1,9 @@
+import Image from 'gatsby-image';
 import { Box, Grid, H1, H2, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
 import { Container } from '../container';
+import styled from 'styled-components';
 
 const ProfileImage = styled(Image)`
   width: 100%;
@@ -16,7 +16,7 @@ interface TeamSectionProps {
 
 export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtitle }) => {
   const data = useStaticQuery(graphql`
-    query Team {
+    {
       allPrismicAboutBodyProfile {
         edges {
           node {
@@ -24,7 +24,7 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
               image {
                 localFile {
                   childImageSharp {
-                    fluid(fit: COVER, cropFocus: CENTER, maxHeight: 300) {
+                    fluid(maxHeight: 300) {
                       ...GatsbyImageSharpFluid
                     }
                   }
@@ -50,11 +50,11 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
     <Container>
       <H1 color="primary.dark">{title}</H1>
       <H2 color="grey.dark.3">{subtitle}</H2>
-      <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr']}>
+      <Grid gridGap={5} gridTemplateColumns="repeat(auto-fill, minmax(140px, 1fr))">
         {data.allPrismicAboutBodyProfile.edges.map(({ node: { primary } }, index) => (
           <Box key={index}>
-            <Box height={[140, 140, 140, 300]}>
-              <ProfileImage fluid={primary.image.localFile.childImageSharp.fluid} />
+            <Box height={['140px', '140px', '140px', '300px']}>
+              <ProfileImage fluid={primary.image.localFile.childImageSharp.fluid} alt={primary.image.alt} />
             </Box>
             <H3 mb={1} mt={2} color="primary.dark">
               {primary.name.text}

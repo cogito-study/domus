@@ -1,11 +1,11 @@
 require('dotenv').config({
-  path: `.env`
-})
+  path: `.env`,
+});
 
-const prismicLinkResolver = require('./src/gatsby/linkResolver')
-const config = require('./config')
+const prismicLinkResolver = require('./src/gatsby/linkResolver');
+const config = require('./config');
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
 
 module.exports = {
   pathPrefix: config.pathPrefix,
@@ -21,7 +21,7 @@ module.exports = {
     ogLanguage: config.ogLanguage,
     author: config.author,
     twitter: config.userTwitter,
-    facebook: config.ogSiteName
+    facebook: config.ogSiteName,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -30,8 +30,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: config.googleAnalyticsID
-      }
+        trackingId: config.googleAnalyticsID,
+      },
     },
     {
       resolve: 'gatsby-source-prismic',
@@ -39,8 +39,15 @@ module.exports = {
         repositoryName: 'domus',
         accessToken: `${process.env.API_KEY}`,
         // Get the correct URLs in blog posts
-        linkResolver: () => prismicLinkResolver
-      }
+        linkResolver: () => prismicLinkResolver,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `templates`,
+        path: `${__dirname}/src/templates/`,
+      },
     },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -55,9 +62,9 @@ module.exports = {
         background_color: config.backgroundColor,
         theme_color: config.themeColor,
         display: 'standalone',
-        icon: 'src/favicon.png'
-      }
+        icon: 'src/favicon.png',
+      },
     },
-    'gatsby-plugin-offline'
-  ]
-}
+    'gatsby-plugin-offline',
+  ],
+};

@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
                        no-repeat,
                        no-repeat;
 
-    overflow: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) => (overlayMenuActive ? 'hidden' : 'unset')};
+    position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) => (overlayMenuActive ? 'fixed' : 'static')};
   }
   @media only screen and (max-width: ${theme.breakpoints[0]}) {
     body {

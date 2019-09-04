@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Box, H3, H2, Paragraph } from '@cogito-study/alea';
+import { Box, H3, H2, Paragraph, Flex } from '@cogito-study/alea';
 
 interface BlogPostSliceProps {
   slices: any[];
@@ -7,7 +7,7 @@ interface BlogPostSliceProps {
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
   return (
-    <>
+    <Flex mx={3} flexDirection="column" backgroundColor="grey.light.4" minHeight="80vh">
       {slices.map(({ primary, slice_type }) => {
         switch (slice_type) {
           case 'header_1':
@@ -38,6 +38,6 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
             return null;
         }
       })}
-    </>
+    </Flex>
   );
 };

@@ -1,11 +1,12 @@
 {
   "version": 2,
   "name": "domus",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@now/static-build",
-      "config": { "distDir": "public" }
+  "build": {
+    "src": "package.json",
+    "use": "@now/static-build",
+    "config": { "distDir": "public" },
+    "env": {
+      "API_KEY": "@prismic-api"
     }
-  ]
+  }
 }

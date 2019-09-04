@@ -13,6 +13,9 @@ export const FooterSection = () => {
               title {
                 text
               }
+              blog_post {
+                slug
+              }
             }
           }
         }
@@ -84,7 +87,7 @@ export const FooterSection = () => {
           <Flex flexDirection="column">
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
               <Box my={2} key={index}>
-                <Anchor href="/" fontWeight="semibold">
+                <Anchor href={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
                   {primary.title.text}
                 </Anchor>
               </Box>

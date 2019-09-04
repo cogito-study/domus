@@ -58,7 +58,7 @@ const GlobalStyles = createGlobalStyle`
                          no-repeat;
     }
   }
-  
+
   ${reset}
 `;
 

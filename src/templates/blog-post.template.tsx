@@ -11,8 +11,8 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
     <Layout>
       <Container>
         <Flex justifyContent="center">
-          <Box maxWidth="500px">
-            <H1 mb={6} mt={9} color="primary.dark">
+          <Box maxWidth="500px" backgroundColor="grey.light.4">
+            <H1 mx={2} mb={4} mt={10} color="primary.dark">
               {data.prismicBlogPost.data.title.text}
             </H1>
             <BlogPostSlices slices={data.prismicBlogPost.data.body} />

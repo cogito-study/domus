@@ -1,0 +1,25 @@
+name: lint-and-build
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: lint
+        uses: stefanoeb/eslint-action@master
+        with:
+          args: . --ext .ts,.tsx
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npx yarn install
+      - run: npx gatsby build
+        env:
+          API_KEY: ${{ secrets.API_KEY }}

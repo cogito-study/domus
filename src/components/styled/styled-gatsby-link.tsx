@@ -2,14 +2,19 @@ import { themeGet } from '@styled-system/theme-get';
 import styled, { css, ThemeProps } from 'styled-components';
 import { Link, GatsbyLinkProps } from 'gatsby';
 import { Theme, theme } from '@cogito-study/alea';
-import { compose, color, space, typography } from 'styled-system';
+import { compose, ColorProps, color, SpaceProps, space, TypographyProps, typography } from 'styled-system';
 
 interface Props {
   color?: string;
   hoverColor?: string;
 }
 
-type StyledGatsbyLinkProps = Props & ThemeProps<Theme> & GatsbyLinkProps<any>;
+type StyledGatsbyLinkProps = Props &
+  ThemeProps<Theme> &
+  ColorProps &
+  SpaceProps &
+  TypographyProps &
+  GatsbyLinkProps<any>;
 
 const styledProps = compose(
   color,

@@ -10,12 +10,11 @@
     "dev": "gatsby develop -o",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "generate": "graphql-codegen",
     "lint": "eslint . --ext .ts,.tsx --ignore-path .eslintignore",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write content/**/*.yaml",
     "type-check": "tsc --noEmit",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "now-build": "yarn run build"
   },
   "dependencies": {
     "@cogito-study/alea": "^0.1.10",

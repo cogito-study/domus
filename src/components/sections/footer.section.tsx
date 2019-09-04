@@ -1,8 +1,7 @@
 import { Flex, Box, H2, Anchor } from '@cogito-study/alea';
 import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
-import { backgroundColor } from 'styled-system';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`

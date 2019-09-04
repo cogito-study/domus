@@ -7,7 +7,6 @@ interface RelatedBlogPostSlicesProps {
 }
 
 export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps> = ({ slices }) => {
-  console.log(slices);
   return (
     <Flex mt={9} flexDirection={['column', 'column', 'row', 'row']}>
       {slices.map(({ primary, slice_type }) => {

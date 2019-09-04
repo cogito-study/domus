@@ -111,7 +111,6 @@ export const FooterSection = () => {
             <Box my={2}>
               <Anchor href={`mailto:${data.allPrismicContact.edges[0].node.data.e_mail.text}`} fontWeight="semibold">
                 {data.allPrismicContact.edges[0].node.data.e_mail.text}
-                {console.log(data.allPrismicContact.edges[0].node.data.e_mail.text)}
               </Anchor>
             </Box>
             <Box my={2}>

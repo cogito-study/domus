@@ -2,6 +2,7 @@ import { Flex, Box, H2, Anchor } from '@cogito-study/alea';
 import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { Container } from '../container';
+import { backgroundColor } from 'styled-system';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`
@@ -47,7 +48,7 @@ export const FooterSection = () => {
     }
   `);
   return (
-    <>
+    <Flex flexDirection="column" backgroundColor="white">
       <Flex justifyContent="center" my={7} mx={[5, 0]} flexDirection={['column', 'row']}>
         <Box width="210px" mx={4}>
           <H2 color="grey.normal">Cogito</H2>
@@ -166,6 +167,6 @@ export const FooterSection = () => {
           </Flex>
         </Container>
       </Box>
-    </>
+    </Flex>
   );
 };

@@ -51,9 +51,11 @@ export const FooterSection = () => {
   `);
   return (
     <Flex flexDirection="column" backgroundColor="white">
-      <Flex justifyContent="center" my={7} mx={[5, 0]} flexDirection={['column', 'row']}>
+      <Flex justifyContent="center" mt={6} mb={7} mx={[5, 0]} flexDirection={['column', 'row']}>
         <Box width="210px" mx={4}>
-          <H2 color="grey.normal">Cogito</H2>
+          <H2 mt={6} mb={3} color="grey.normal">
+            Cogito
+          </H2>
           <Flex flexDirection="column">
             <Box my={2}>
               <Anchor href="/" fontWeight="semibold">
@@ -83,7 +85,9 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 color="grey.normal">Features</H2>
+          <H2 mt={6} mb={3} color="grey.normal">
+            Features
+          </H2>
           <Flex flexDirection="column">
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
               <Box my={2} key={index}>
@@ -95,7 +99,9 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 color="grey.normal">Contact</H2>
+          <H2 mt={6} mb={3} color="grey.normal">
+            Contact
+          </H2>
           <Flex flexDirection="column">
             <Box my={2}>
               <Anchor href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`} fontWeight="semibold">

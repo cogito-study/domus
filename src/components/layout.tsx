@@ -2,11 +2,8 @@ import { Box, theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
-<<<<<<< HEAD
 import { NavBar } from './nav-bar';
-=======
 import { FooterSection } from './sections/footer.section';
->>>>>>> Add footer
 
 const GlobalStyles = createGlobalStyle`
   *::before,

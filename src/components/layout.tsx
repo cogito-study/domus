@@ -2,7 +2,10 @@ import { Box, theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
+<<<<<<< HEAD
 import { NavBar } from './nav-bar';
+=======
+>>>>>>> 76a09108fc5bc68c8945de539c587383eed34426
 import { FooterSection } from './sections/footer.section';
 
 const GlobalStyles = createGlobalStyle`

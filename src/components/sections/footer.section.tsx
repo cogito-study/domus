@@ -2,6 +2,7 @@ import { Flex, Box, H2, Anchor } from '@cogito-study/alea';
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
+import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`
@@ -58,29 +59,29 @@ export const FooterSection = () => {
           </H2>
           <Flex flexDirection="column">
             <Box my={2}>
-              <Anchor href="/" fontWeight="semibold">
+              <StyledGatsbyLink to="/" fontWeight="semibold">
                 product
-              </Anchor>
+              </StyledGatsbyLink>
             </Box>
             <Box my={2}>
-              <Anchor href="/blog" fontWeight="semibold">
+              <StyledGatsbyLink to="/blog" fontWeight="semibold">
                 blog
-              </Anchor>
+              </StyledGatsbyLink>
             </Box>
             <Box my={2}>
-              <Anchor href="/pricing" fontWeight="semibold">
+              <StyledGatsbyLink to="/pricing" fontWeight="semibold">
                 pricing
-              </Anchor>
+              </StyledGatsbyLink>
             </Box>
             <Box my={2}>
-              <Anchor href="/about" fontWeight="semibold">
+              <StyledGatsbyLink to="/about" fontWeight="semibold">
                 about us
-              </Anchor>
+              </StyledGatsbyLink>
             </Box>
             <Box my={2}>
-              <Anchor href="/contact" fontWeight="semibold">
+              <StyledGatsbyLink to="/contact" fontWeight="semibold">
                 contact
-              </Anchor>
+              </StyledGatsbyLink>
             </Box>
           </Flex>
         </Box>
@@ -91,9 +92,9 @@ export const FooterSection = () => {
           <Flex flexDirection="column">
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
               <Box my={2} key={index}>
-                <Anchor href={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
+                <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
                   {primary.title.text}
-                </Anchor>
+                </StyledGatsbyLink>
               </Box>
             ))}
           </Flex>

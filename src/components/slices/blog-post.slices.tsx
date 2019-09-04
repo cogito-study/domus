@@ -7,7 +7,7 @@ interface BlogPostSliceProps {
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
   return (
-    <Flex px={2} flexDirection="column" backgroundColor="grey.light.4" minHeight="80vh">
+    <Flex mx={3} flexDirection="column" backgroundColor="grey.light.4" minHeight="80vh">
       {slices.map(({ primary, slice_type }) => {
         switch (slice_type) {
           case 'header_1':

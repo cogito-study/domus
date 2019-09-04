@@ -1,7 +1,6 @@
 import { Box, Flex, H1 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { Container } from '../components/container';
 import { Layout } from '../components/layout';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
@@ -9,17 +8,15 @@ import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.sl
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
-      <Container>
-        <Flex justifyContent="center">
-          <Box maxWidth="500px" backgroundColor="grey.light.4">
-            <H1 mx={2} mb={4} mt={10} color="primary.dark">
-              {data.prismicBlogPost.data.title.text}
-            </H1>
-            <BlogPostSlices slices={data.prismicBlogPost.data.body} />
-            <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
-          </Box>
-        </Flex>
-      </Container>
+      <Flex justifyContent="center">
+        <Box width="100%" maxWidth="500px" backgroundColor="grey.light.4">
+          <H1 mx={3} mb={4} mt={10} color="primary.dark">
+            {data.prismicBlogPost.data.title.text}
+          </H1>
+          <BlogPostSlices slices={data.prismicBlogPost.data.body} />
+          <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
+        </Box>
+      </Flex>
     </Layout>
   );
 };

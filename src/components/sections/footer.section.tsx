@@ -56,7 +56,7 @@ export const FooterSection = () => {
   `);
   return (
     <Flex flexDirection="column" backgroundColor="white">
-      <Flex justifyContent="center" mt={6} mb={7} mx={[5, 0]} flexDirection={['column', 'row']}>
+      <Flex justifyContent="center" mt={6} mb={8} mx={[5, 0]} flexDirection={['column', 'row']}>
         <Box width="210px" mx={4}>
           <H2 mt={6} mb={3} color="grey.normal">
             Cogito
@@ -67,7 +67,7 @@ export const FooterSection = () => {
                 product
               </StyledGatsbyLink>
             </Box>
-            <Box my={2}>
+            {/*<Box my={2}>
               <StyledGatsbyLink to="/blog" fontWeight="semibold">
                 blog
               </StyledGatsbyLink>
@@ -77,6 +77,7 @@ export const FooterSection = () => {
                 pricing
               </StyledGatsbyLink>
             </Box>
+            */}
             <Box my={2}>
               <StyledGatsbyLink to="/about" fontWeight="semibold">
                 about us

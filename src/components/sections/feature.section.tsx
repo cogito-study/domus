@@ -1,5 +1,5 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 
 export const FeatureSection = () => {
@@ -15,6 +15,9 @@ export const FeatureSection = () => {
               }
               title {
                 text
+              }
+              blog_post {
+                slug
               }
               description {
                 text
@@ -58,9 +61,11 @@ export const FeatureSection = () => {
               </H3>
             )}
             {primary && primary.description && <Paragraph color="grey.dark.3">{primary.description.text}</Paragraph>}
-            <Button variant="secondary" maxWidth="150px" mt={4}>
-              learn more
-            </Button>
+            <Link to={'blog/' + primary.blog_post.slug}>
+              <Button variant="secondary" maxWidth="150px" mt={4}>
+                learn more
+              </Button>
+            </Link>
           </Flex>
         </Flex>
       ))}

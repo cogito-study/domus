@@ -6,8 +6,8 @@ import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 
 const pages: Record<string, string> = {
   PRODUCT: '/',
-  BLOG: '/blog',
-  PRICING: '/pricing',
+  //BLOG: '/blog',
+  //PRICING: '/pricing',
   'ABOUT US': '/about',
   CONTACT: '/contact',
 };
@@ -129,14 +129,14 @@ export const NavBar: FunctionComponent<NavBarProps> = ({ onMenuButtonClicked, ov
                 ))}
               </Flex>
               <Flex flexDirection="column" mb={6}>
-                <Anchor href="/login">
+                <Link to="/login">
                   <Button variant="secondary" mb={4}>
                     log in
                   </Button>
-                </Anchor>
-                <Anchor href="https://cogito.study">
+                </Link>
+                <Link to="/">
                   <Button mb={6}>try out!</Button>
-                </Anchor>
+                </Link>
               </Flex>
             </OverlayMenu>
           )}

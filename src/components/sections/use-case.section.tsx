@@ -1,5 +1,5 @@
 import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 
 export const UseCaseSection = () => {
@@ -18,6 +18,9 @@ export const UseCaseSection = () => {
               icon {
                 url
                 alt
+              }
+              blog_post {
+                slug
               }
             }
           }
@@ -73,9 +76,11 @@ export const UseCaseSection = () => {
                   </Paragraph>
                 )}
               </Flex>
-              <Button variant="secondary" maxWidth="150px" mt={4}>
-                learn more
-              </Button>
+              <Link to={'blog/' + primary.blog_post.slug}>
+                <Button variant="secondary" maxWidth="150px" mt={4}>
+                  learn more
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         ))}

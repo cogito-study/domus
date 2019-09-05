@@ -16,6 +16,7 @@ const NavbarContainerLarge = styled(Flex)`
   position: fixed;
   top: 0;
   width: 98%;
+  z-index: 2;
 
   .active {
     color: ${theme.colors.primary.normal};

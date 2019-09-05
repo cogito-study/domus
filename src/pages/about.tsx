@@ -12,7 +12,7 @@ const About: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <Container>
+      <Container mt={10}>
         <TeamSection title={title.text} subtitle={subtitle.text} />
         <AchievementSection title={achievement_header.text} />
         <CustomerSection title="" />

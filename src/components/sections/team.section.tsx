@@ -1,8 +1,7 @@
-import Image from 'gatsby-image';
 import { Box, Grid, H1, H2, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
-import { Container } from '../container';
 import styled from 'styled-components';
 
 const ProfileImage = styled(Image)`
@@ -47,7 +46,7 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
   if (!data.allPrismicAboutBodyProfile) return null;
 
   return (
-    <Container>
+    <>
       <H1 color="primary.dark">{title}</H1>
       <H2 color="grey.dark.3">{subtitle}</H2>
       <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr']}>
@@ -65,6 +64,6 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
           </Box>
         ))}
       </Grid>
-    </Container>
+    </>
   );
 };

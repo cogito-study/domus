@@ -1,7 +1,6 @@
 import { Box, Flex, H2, H3, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { Container } from '../container';
 
 interface AchievementSectionProps {
   title: string;
@@ -33,7 +32,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
   if (!data.allPrismicAboutBodyAchievements) return null;
 
   return (
-    <Container>
+    <>
       <H2 color="grey.dark.3" mt={9} mb={7}>
         {title}
       </H2>
@@ -54,6 +53,6 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
           )}
         </Flex>
       ))}
-    </Container>
+    </>
   );
 };

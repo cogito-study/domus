@@ -1,4 +1,4 @@
-import { Anchor, Box, Button, Flex, theme, useMinimumScreenSize } from '@cogito-study/alea';
+import { Anchor, Box, Button, Flex, theme } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';

@@ -1,7 +1,6 @@
-import React, { FunctionComponent } from 'react';
-import { Box, Flex, H1, Anchor } from '@cogito-study/alea';
+import { Anchor, Box, Flex, H1 } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Container } from '../container';
+import React, { FunctionComponent } from 'react';
 
 export const ContactSection: FunctionComponent = () => {
   const data = useStaticQuery<any>(graphql`
@@ -36,7 +35,7 @@ export const ContactSection: FunctionComponent = () => {
     }
   `);
   return (
-    <Container flexDirection="column" alignItems="center">
+    <Flex flexDirection="column" alignItems="center">
       <Flex mt={10} mb={8} justifyContent="center">
         <Flex
           alignItems="center"
@@ -84,6 +83,6 @@ export const ContactSection: FunctionComponent = () => {
           </Flex>
         </Flex>
       </Flex>
-    </Container>
+    </Flex>
   );
 };

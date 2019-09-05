@@ -58,7 +58,7 @@ const style = ({
   }
 `;
 
-export const StyledGatsbyLink = styled(Link)`
+export const StyledGatsbyLink = styled(Link)<StyledGatsbyLinkProps>`
   ${style}
   ${styledProps}
 `;

@@ -36,23 +36,24 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
       <H2 color="grey.dark.3" mt={9} mb={7}>
         {title}
       </H2>
-      {data.allPrismicAboutBodyAchievements.edges.map(({ node: { primary } }, index) => (
-        <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index}>
-          <Box order={[2, 0]} maxWidth="600px">
-            <H3 color="grey.dark.2" mt={0} mb={5}>
-              {primary.name.text}
-            </H3>
-            <Paragraph color="grey.dark.2" mt={0} paragraphSize="medium">
-              {primary.description.text}
-            </Paragraph>
-          </Box>
-          {primary.icon.url && (
-            <Box order={[1, 0]} ml={[0, 9]} width="180px" height="180px">
-              <img src={primary.icon.url} />
+      {data.allPrismicAboutBodyAchievements.edges.map((achievement: any, index: any) => {
+        const { name, description, icon } = achievement.node.primary;
+        return (
+          <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index}>
+            <Box order={[2, 0]} maxWidth="600px">
+              <H3 color="grey.dark.2" mt={0} mb={5}>
+                {name.text}
+              </H3>
+              <Paragraph color="grey.dark.2" mt={0} paragraphSize="medium">
+                {description.text}
+              </Paragraph>
             </Box>
-          )}
-        </Flex>
-      ))}
+            <Box order={[1, 0]} ml={[0, 9]} width="180px" height="180px">
+              <img src={icon.url} />
+            </Box>
+          </Flex>
+        );
+      })}
     </>
   );
 };

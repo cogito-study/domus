@@ -36,6 +36,7 @@ export const UseCaseSection = () => {
       <Flex flexWrap="wrap" width={['100%', '70%', '750px', '100%']} justifyContent="center">
         {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
           const { icon, title, description, blog_post } = useCase.node.primary;
+
           return (
             <Flex
               backgroundColor="white"

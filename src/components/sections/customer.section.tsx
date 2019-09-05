@@ -1,6 +1,6 @@
+import { Box, Flex, H2, H4 } from '@cogito-study/alea';
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { Flex, Box, H2, H4 } from '@cogito-study/alea';
-import { useStaticQuery, graphql } from 'gatsby';
 
 interface CustomerSectionProps {
   title: string;
@@ -37,25 +37,24 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
         </H2>
       </Box>
       <Flex flexDirection={['row']} justifyContent="center" alignItems="center">
-        {data.allPrismicHomeBodyCustomer.edges.map(
-          ({ node: { primary } }, index) =>
-            primary &&
-            primary.name &&
-            primary.icon && (
-              <Flex
-                key={index}
-                width={['110px', '110px', '110px', '140px']}
-                flexDirection="column"
-                mx={[5, 6]}
-                alignItems="center"
-              >
-                <img width="100%" src={primary.icon.url}></img>
-                <H4 key={index} color="grey.dark.1" textAlign="center">
-                  {primary.name.text}
-                </H4>
-              </Flex>
-            ),
-        )}
+        {data.allPrismicHomeBodyCustomer.edges.map((customer: any, index: number) => {
+          const { name, icon } = customer.node.primary;
+
+          return (
+            <Flex
+              key={index}
+              width={['110px', '110px', '110px', '140px']}
+              flexDirection="column"
+              mx={[5, 6]}
+              alignItems="center"
+            >
+              <img width="100%" src={icon.url}></img>
+              <H4 key={index} color="grey.dark.1" textAlign="center">
+                {name.text}
+              </H4>
+            </Flex>
+          );
+        })}
       </Flex>
     </Flex>
   );

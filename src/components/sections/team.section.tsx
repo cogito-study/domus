@@ -50,10 +50,10 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
     <Container>
       <H1 color="primary.dark">{title}</H1>
       <H2 color="grey.dark.3">{subtitle}</H2>
-      <Grid gridGap={5} gridTemplateColumns="repeat(auto-fill, minmax(250px, 1fr))">
+      <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr']}>
         {data.allPrismicAboutBodyProfile.edges.map(({ node: { primary } }, index) => (
           <Box key={index}>
-            <Box>
+            <Box height={[140, 190, 190, 300]}>
               <ProfileImage fluid={primary.image.localFile.childImageSharp.fluid} alt={primary.image.alt} />
             </Box>
             <H3 mb={1} mt={2} color="primary.dark">

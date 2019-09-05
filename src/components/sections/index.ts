@@ -1,5 +1,6 @@
 export * from './contact.section';
 export * from './feature.section';
+export * from './footer.section';
 export * from './use-case.section';
 export * from './hero.section';
 export * from './customer.section';

@@ -1,13 +1,8 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { Container } from '../components/container';
 import { Layout } from '../components/layout';
-import {
-  AchievementSection,
-  CustomerSection,
-  PartnerSection,
-  TeamSection,
-  TryOutSection,
-} from '../components/sections';
+import { AchievementSection, CustomerSection, TeamSection } from '../components/sections';
 import SEO from '../components/SEO';
 
 const About: FunctionComponent<{ data: any }> = ({ data }) => {
@@ -17,11 +12,11 @@ const About: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <TeamSection title={title.text} subtitle={subtitle.text} />
-      <AchievementSection title={achievement_header.text} />
-      <CustomerSection title="" />
-      <PartnerSection />
-      <TryOutSection />
+      <Container>
+        <TeamSection title={title.text} subtitle={subtitle.text} />
+        <AchievementSection title={achievement_header.text} />
+        <CustomerSection title="" />
+      </Container>
     </Layout>
   );
 };

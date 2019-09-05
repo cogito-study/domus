@@ -3,7 +3,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from '../styles/reset';
 import { NavBar } from './nav-bar';
-import { FooterSection } from './sections/footer.section';
+import { PartnerSection, TryOutSection, FooterSection } from './sections';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -73,6 +73,8 @@ export const Layout: FunctionComponent = ({ children }) => {
           onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
         />
         <Box>{children}</Box>
+        <PartnerSection />
+        <TryOutSection />
         <FooterSection />
       </>
     </ThemeProvider>

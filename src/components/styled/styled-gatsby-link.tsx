@@ -5,7 +5,6 @@ import { Theme, theme } from '@cogito-study/alea';
 import { compose, ColorProps, color, SpaceProps, space, TypographyProps, typography } from 'styled-system';
 
 interface Props {
-  color?: string;
   hoverColor?: string;
 }
 
@@ -22,38 +21,35 @@ const styledProps = compose(
   typography,
 );
 
-const style = ({
-  theme: {
-    colors: { accent, grey },
-  },
-  color,
-  hoverColor,
-}: StyledGatsbyLinkProps) => css`
-  color: ${grey.light['2']};
+const style = () => css`
+  color: ${({ theme }: StyledGatsbyLinkProps) => theme.colors.grey.light[2]};
   text-decoration: none;
   cursor: not-allowed;
 
   :link,
   :visited {
-    color: ${({ color }: StyledGatsbyLinkProps) => themeGet(`colors.${color}`, accent.normal)};
+    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) =>
+      themeGet(`colors.${color}`, colors.accent.normal)};
     text-decoration: none;
     cursor: pointer;
   }
 
   :hover {
-    color: ${({ to }: StyledGatsbyLinkProps) =>
-      !to ? grey.light['2'] : themeGet(`colors.${hoverColor}`, accent.dark)};
+    color: ${({ to, hoverColor, theme: { colors } }: StyledGatsbyLinkProps) =>
+      !to ? colors.grey.light['2'] : themeGet(`colors.${hoverColor}`, colors.accent.dark)};
     text-decoration: none;
   }
 
   :focus {
-    color: ${({ to }: StyledGatsbyLinkProps) => (!to ? grey.light['2'] : themeGet(`colors.${color}`, accent.normal))};
+    color: ${({ to, color, theme: { colors } }: StyledGatsbyLinkProps) =>
+      !to ? colors.grey.light['2'] : themeGet(`colors.${color}`, colors.accent.normal)};
     text-decoration: underline;
     outline: none;
   }
 
   :active {
-    color: ${({ to }: StyledGatsbyLinkProps) => (!to ? grey.light['2'] : themeGet(`colors.${color}`, accent.normal))};
+    color: ${({ to, color, theme: { colors } }: StyledGatsbyLinkProps) =>
+      !to ? colors.grey.light['2'] : themeGet(`colors.${color}`, colors.accent.normal)};
     text-decoration: none;
   }
 `;

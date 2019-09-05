@@ -1,5 +1,6 @@
 import { Box, Flex, H2, H4 } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
+import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
 
 interface CustomerSectionProps {
@@ -17,8 +18,14 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
                 text
               }
               icon {
-                url
                 alt
+                localFile {
+                  childImageSharp {
+                    fixed(width: 110, height: 110) {
+                      ...GatsbyImageSharpFixed
+                    }
+                  }
+                }
               }
             }
           }
@@ -48,7 +55,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
               mx={[5, 6]}
               alignItems="center"
             >
-              <img width="100%" src={icon.url}></img>
+              <Image fixed={icon.localFile.childImageSharp.fixed} alt={icon.alt} />
               <H4 key={index} color="grey.dark.1" textAlign="center">
                 {name.text}
               </H4>

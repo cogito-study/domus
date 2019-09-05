@@ -17,14 +17,14 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
   popupTitle,
   popupText,
 }) => {
-  const [buttonClicked, setButton] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(false);
   return (
     <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
       <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
-        <Box>
+        <Box ml={[0, 0, 3]} mr={[0, 0, 6]}>
           <H1 color="primary.dark">{motto}</H1>
         </Box>
-        <Flex flexDirection="column" mt={[0, 0, 0, 4]}>
+        <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
           <Box>
             <H4 color="grey.dark.3">{description}</H4>
             {!buttonClicked && (
@@ -40,7 +40,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
                   mt={[2, 0]}
                   maxWidth="280px"
                   onClick={() => {
-                    setButton((buttonClicked) => !buttonClicked);
+                    setButtonClicked((buttonClicked) => !buttonClicked);
                   }}
                 >
                   try out!

@@ -17,7 +17,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
   popupTitle,
   popupText,
 }) => {
-  var [buttonClicked, setButton] = useState(false);
+  let [buttonClicked, setButton] = useState(false);
   return (
     <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
       <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>

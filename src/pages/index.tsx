@@ -16,13 +16,19 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
   if (!data.allPrismicHome) return undefined;
 
   const { node } = data.allPrismicHome.edges[0];
-  const { motto, subtitle, description, customers_heading } = node.data;
+  const { motto, subtitle, description, customers_heading, popup_text, popup_title } = node.data;
 
   return (
     <Layout>
       <SEO />
       <Container>
-        <HeroSection motto={motto.text} subtitle={subtitle.text} description={description.text} />
+        <HeroSection
+          motto={motto.text}
+          subtitle={subtitle.text}
+          description={description.text}
+          popupTitle={popup_title.text}
+          popupText={popup_text.text}
+        />
         <UseCaseSection />
         <FeatureSection />
         {/* <H3 my={[7, 9]} color="grey.dark.2" textAlign="center">
@@ -56,6 +62,12 @@ export const query = graphql`
               text
             }
             motto {
+              text
+            }
+            popup_text {
+              text
+            }
+            popup_title {
               text
             }
           }

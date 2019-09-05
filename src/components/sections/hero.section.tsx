@@ -6,9 +6,17 @@ interface HeroSectionProps {
   motto: string;
   description: string;
   subtitle: string;
+  popupTitle: string;
+  popupText: string;
 }
 
-export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, subtitle }) => {
+export const HeroSection: FunctionComponent<HeroSectionProps> = ({
+  motto,
+  description,
+  subtitle,
+  popupTitle,
+  popupText,
+}) => {
   var [buttonClicked, setButton] = useState(false);
   return (
     <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
@@ -20,8 +28,9 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
           <Box>
             <H4 color="grey.dark.3">{description}</H4>
             {!buttonClicked && (
-              <Flex flexDirection={['column', 'row']}>
+              <Flex flexDirection={['column', 'row']} height={['168px', '102px']}>
                 <TextInput
+                  width="262px"
                   placeholder="Enter your e-mail"
                   help='By clicking "try out!" your agree to our Privacy Policy.'
                   icon={<EmailIcon />}
@@ -38,7 +47,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, descri
                 </Button>
               </Flex>
             )}
-            {buttonClicked && <TryoutFeedback></TryoutFeedback>}
+            {buttonClicked && <TryoutFeedback title={popupTitle} text={popupText}></TryoutFeedback>}
           </Box>
         </Flex>
       </Flex>

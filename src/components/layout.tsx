@@ -73,8 +73,8 @@ export const Layout: FunctionComponent = ({ children }) => {
           onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
         />
         <Box>{children}</Box>
-        <PartnerSection />
         <TryOutSection />
+        <PartnerSection />
         <FooterSection />
       </>
     </ThemeProvider>

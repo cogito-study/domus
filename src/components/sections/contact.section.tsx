@@ -1,6 +1,7 @@
 import { Anchor, Box, Flex, H1 } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { Container } from '../container';
 
 export const ContactSection: FunctionComponent = () => {
   const data = useStaticQuery<any>(graphql`
@@ -35,23 +36,23 @@ export const ContactSection: FunctionComponent = () => {
     }
   `);
   return (
-    <Flex flexDirection="column" alignItems="center">
-      <Flex mt={10} mb={8} justifyContent="center">
+    <Container>
+      <Flex width="100%" mt={10} mb={9} alignItems="center" justifyContent="center" borderColor="primary.light">
         <Flex
-          alignItems="center"
+          alignItems="start"
           justifyContent="center"
           flexDirection="column"
-          border={3}
           py={7}
-          borderColor="primary.light"
           width={['100%', '100%', '100%', '600px']}
+          border={3}
+          borderColor="accent.light"
           backgroundColor="white"
         >
-          <Flex alignItems="center" justifyContent="center" flexDirection="column" mx={4}>
-            <H1 color="primary.dark" mt={0} mb={6}>
-              Contact
+          <Flex alignItems="start" flexDirection="column" mx={4} ml={[5, 7]}>
+            <H1 color="primary.dark" mt={0} mb={[5, 6]}>
+              Contact us
             </H1>
-            <Flex flexDirection="column" alignItems="center" mb={6}>
+            <Flex flexDirection="column" alignItems="start" mb={6}>
               <Box my={2}>
                 <Anchor href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`} fontWeight="semibold">
                   {data.allPrismicContact.nodes[0].data.e_mail.text}
@@ -71,18 +72,18 @@ export const ContactSection: FunctionComponent = () => {
                 </Anchor>
               </Box>
             </Flex>
-          </Flex>
-          <Flex mt={4}>
-            {data.allPrismicContactBodySocialMedia.nodes.map(({ primary }, index) => (
-              <Box key={index} mx={2}>
-                <Anchor href={primary.url.url}>
-                  <img src={primary.icon.url} />
-                </Anchor>
-              </Box>
-            ))}
+            <Flex flexDirection="row" justifyContent="start">
+              {data.allPrismicContactBodySocialMedia.nodes.map(({ primary }, index) => (
+                <Box key={index} mt={[0, 3]} mr={[5, 6]}>
+                  <Anchor href={primary.url.url}>
+                    <img src={primary.icon.url} />
+                  </Anchor>
+                </Box>
+              ))}
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </Container>
   );
 };

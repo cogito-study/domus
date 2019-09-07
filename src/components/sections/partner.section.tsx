@@ -28,14 +28,14 @@ export const PartnerSection = () => {
 
   if (!data.allPrismicHomeBodyPartner) return null;
   return (
-    <Flex justifyContent="center" py={4} backgroundColor="white">
+    <Flex justifyContent="center" py={5} backgroundColor="accent.light">
       <Flex width={['300px', '100%']} justifyContent="center" flexWrap="wrap">
         {data.allPrismicHomeBodyPartner.edges.map((partner: any, index: number) => {
           const { link, logo, name } = partner.node.primary;
 
           return (
-            <Anchor key={index} href={link.url} mx={4}>
-              <Box width={['110px', '100px', '150px']}>
+            <Anchor key={index} href={link.url} mx={6}>
+              <Box width={['110px', '100px', '110px']}>
                 <img width="100%" src={logo.url} alt={name.text}></img>
               </Box>
             </Anchor>

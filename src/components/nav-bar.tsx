@@ -6,8 +6,8 @@ import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 
 const pages: Record<string, string> = {
   PRODUCT: '/',
-  BLOG: '/blog',
-  PRICING: '/pricing',
+  //BLOG: '/blog',
+  //PRICING: '/pricing',
   'ABOUT US': '/about',
   CONTACT: '/contact',
 };

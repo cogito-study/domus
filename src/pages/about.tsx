@@ -6,16 +6,16 @@ import { AchievementSection, CustomerSection, TeamSection } from '../components/
 import SEO from '../components/SEO';
 
 const About: FunctionComponent<{ data: any }> = ({ data }) => {
-  const { node } = data.allPrismicAbout.edges[0];
-  const { title, subtitle, achievement_header } = node.data;
-
   return (
     <Layout>
       <SEO />
       <Container mt={10}>
-        <TeamSection title={title.text} subtitle={subtitle.text} />
-        <AchievementSection title={achievement_header.text} />
-        <CustomerSection title="" />
+        <TeamSection
+          title={data.allPrismicAbout.edges[0].node.data.title.text}
+          subtitle={data.allPrismicAbout.edges[0].node.data.subtitle.text}
+        />
+        <AchievementSection title={data.allPrismicAbout.edges[0].node.data.achievement_header.text} />
+        <CustomerSection title={data.allPrismicHome.edges[0].node.data.customers_heading.text} />
       </Container>
     </Layout>
   );
@@ -35,6 +35,18 @@ export const query = graphql`
               text
             }
             achievement_header {
+              text
+            }
+          }
+        }
+      }
+    }
+    allPrismicHome {
+      edges {
+        node {
+          lang
+          data {
+            customers_heading {
               text
             }
           }

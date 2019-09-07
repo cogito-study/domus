@@ -56,7 +56,6 @@ export const FooterSection = () => {
       }
     }
   `);
-  console.log(TermsAndConditions);
   return (
     <Flex flexDirection="column" backgroundColor="white">
       <Flex justifyContent="center" mt={6} mb={9} mx={[5, 0]} flexDirection={['column', 'row']}>

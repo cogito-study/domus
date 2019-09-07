@@ -63,7 +63,10 @@ export const TryOutSection = () => {
               <Flex mt={2} flexDirection={['column', 'row']}>
                 <EmailInput
                   popupTitle={'Thank you for your interest!'}
+                  popupTitleColor="white"
                   popupText={'We’ll contact you as soon as Cogito is ready to use'}
+                  popupTextColor="primary.light"
+                  popupBackgroundColor="primary.dark"
                 />
               </Flex>
             </Flex>

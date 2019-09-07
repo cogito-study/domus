@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useState } from 'react';
-import { Box, Button, H1, Flex, H4, TextInput, EmailIcon } from '@cogito-study/alea';
-import { TryoutFeedback } from '../tryout-feedback';
+import React, { FunctionComponent } from 'react';
+import { Box, H1, Flex, H4 } from '@cogito-study/alea';
+import { EmailInput } from '../email-input';
 
 interface HeroSectionProps {
   motto: string;
@@ -17,7 +17,6 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
   popupTitle,
   popupText,
 }) => {
-  const [buttonClicked, setButtonClicked] = useState(false);
   return (
     <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
       <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
@@ -27,27 +26,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
         <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
           <Box>
             <H4 color="grey.dark.3">{description}</H4>
-            {!buttonClicked && (
-              <Flex flexDirection={['column', 'row']} height={['168px', '102px']}>
-                <TextInput
-                  width="262px"
-                  placeholder="Enter your e-mail"
-                  help='By clicking "try out!" your agree to our Privacy Policy.'
-                  icon={<EmailIcon />}
-                />
-                <Button
-                  ml={[0, 4]}
-                  mt={[2, 0]}
-                  maxWidth="280px"
-                  onClick={() => {
-                    setButtonClicked((buttonClicked) => !buttonClicked);
-                  }}
-                >
-                  try out!
-                </Button>
-              </Flex>
-            )}
-            {buttonClicked && <TryoutFeedback title={popupTitle} text={popupText}></TryoutFeedback>}
+            <EmailInput popupTitle={popupTitle} popupText={popupText} />
           </Box>
         </Flex>
       </Flex>

@@ -1,19 +1,12 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
-import {
-  CustomerSection,
-  FeatureSection,
-  HeroSection,
-  PartnerSection,
-  TryOutSection,
-  UseCaseSection,
-} from '../components/sections';
+import { CustomerSection, FeatureSection, HeroSection, UseCaseSection } from '../components/sections';
 import SEO from '../components/SEO';
 import { Layout } from '../components/layout';
 
 const Index: FunctionComponent<{ data: any }> = ({ data }) => {
-  if (!data.allPrismicHome) return undefined;
+  if (!data.allPrismicHome) return null;
 
   const { node } = data.allPrismicHome.edges[0];
   const { motto, subtitle, description, customers_heading, popup_text, popup_title } = node.data;
@@ -36,8 +29,6 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
           </H3>*/}
         <CustomerSection title={customers_heading.text} />
       </Container>
-      <PartnerSection />
-      <TryOutSection />
     </Layout>
   );
 };

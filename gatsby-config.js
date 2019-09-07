@@ -2,7 +2,6 @@ require('dotenv').config({
   path: `.env`,
 });
 
-const prismicLinkResolver = require('./src/gatsby/linkResolver');
 const config = require('./config');
 
 const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
@@ -38,8 +37,6 @@ module.exports = {
       options: {
         repositoryName: 'domus',
         accessToken: `${process.env.API_KEY}`,
-        // Get the correct URLs in blog posts
-        linkResolver: () => prismicLinkResolver,
       },
     },
     {

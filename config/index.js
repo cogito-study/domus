@@ -14,7 +14,7 @@ module.exports = {
   // siteFBAppID: '123456789', // Facebook App ID - Optional
   userTwitter: '@cogitostudy', // Twitter Username
   ogSiteName: 'cogito', // Facebook Site Name
-  ogLanguage: 'en_UK', // og:language
+  ogLanguage: 'en_US', // og:language
   googleAnalyticsID: 'UA-XXXXXX-X',
 
   // Manifest and Progress color

@@ -4,10 +4,19 @@ import Email from '../../static/logos/email.svg';
 
 interface FeedbackProps {
   title: string;
+  titleColor: string;
   text: string;
+  textColor: string;
+  backgroundColor: string;
 }
 
-export const TryoutFeedback: FunctionComponent<FeedbackProps> = ({ title, text }) => {
+export const TryoutFeedback: FunctionComponent<FeedbackProps> = ({
+  title,
+  titleColor,
+  text,
+  textColor,
+  backgroundColor,
+}) => {
   return (
     <Flex
       width={['264px', '394px']}
@@ -17,16 +26,16 @@ export const TryoutFeedback: FunctionComponent<FeedbackProps> = ({ title, text }
       alignItems={['start', 'center']}
       justifyContent="center"
       borderColor="accent.normal"
-      bg="grey.light.4"
+      bg={backgroundColor}
     >
       <Box ml={3} mr={4}>
         <img src={Email} />
       </Box>
       <Flex alignItems="start" flexDirection="column" mr={3} ml={[4, 0]} mb={[4, 0]}>
-        <H4 color="grey.dark.3" mt={0} mb={2}>
+        <H4 color={titleColor} mt={0} mb={2}>
           {title}
         </H4>
-        <Paragraph lineHeight="1.3" color="grey.light.1">
+        <Paragraph lineHeight="1.3" color={textColor}>
           {text}
         </Paragraph>
       </Flex>

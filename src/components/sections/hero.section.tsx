@@ -26,7 +26,13 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
         <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
           <Box>
             <H4 color="grey.dark.3">{description}</H4>
-            <EmailInput popupTitle={popupTitle} popupText={popupText} />
+            <EmailInput
+              popupTitle={popupTitle}
+              popupTitleColor="grey.dark.3"
+              popupText={popupText}
+              popupTextColor="grey.light.2"
+              popupBackgroundColor="white"
+            />
           </Box>
         </Flex>
       </Flex>

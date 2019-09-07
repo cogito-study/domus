@@ -5,9 +5,18 @@ import { TryoutFeedback } from './tryout-feedback';
 interface InputProps {
   popupTitle: string;
   popupText: string;
+  popupTitleColor: string;
+  popupTextColor: string;
+  popupBackgroundColor: string;
 }
 
-export const EmailInput: FunctionComponent<InputProps> = ({ popupTitle, popupText }) => {
+export const EmailInput: FunctionComponent<InputProps> = ({
+  popupTitle,
+  popupTitleColor,
+  popupText,
+  popupTextColor,
+  popupBackgroundColor,
+}) => {
   const [buttonClicked, setButtonClicked] = useState(false);
   return (
     <Flex>
@@ -31,7 +40,15 @@ export const EmailInput: FunctionComponent<InputProps> = ({ popupTitle, popupTex
           </Button>
         </Flex>
       )}
-      {buttonClicked && <TryoutFeedback title={popupTitle} text={popupText}></TryoutFeedback>}
+      {buttonClicked && (
+        <TryoutFeedback
+          title={popupTitle}
+          titleColor={popupTitleColor}
+          text={popupText}
+          textColor={popupTextColor}
+          backgroundColor={popupBackgroundColor}
+        ></TryoutFeedback>
+      )}
     </Flex>
   );
 };

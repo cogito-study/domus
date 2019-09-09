@@ -6,6 +6,21 @@ import { EmailInput } from '../email-input';
 export const TryOutSection = () => {
   const data = useStaticQuery(graphql`
     query TryOut {
+      allPrismicHome {
+        edges {
+          node {
+            lang
+            data {
+              popup_text {
+                text
+              }
+              popup_title {
+                text
+              }
+            }
+          }
+        }
+      }
       allPrismicHomeBodyTryOut {
         edges {
           node {
@@ -60,17 +75,23 @@ export const TryOutSection = () => {
               <Paragraph mb={3} color="grey.light.4">
                 {subtitle.text}
               </Paragraph>
-              <Flex mt={2} flexDirection={['column', 'row']}>
-                <EmailInput
-                  popup={{
-                    title: 'Thank you for your interest!',
-                    titleColor: 'white',
-                    text: 'We’ll contact you as soon as Cogito is ready to use',
-                    textColor: 'primary.light',
-                    backgroundColor: 'primary.dark',
-                  }}
-                />
-              </Flex>
+              {data.allPrismicHome.edges.map((tryOutPopup: any, index: number) => {
+                const { popup_text, popup_title } = tryOutPopup.node.data;
+                return (
+                  <Flex mt={2} flexDirection={['column', 'row']}>
+                    <EmailInput
+                      key={index}
+                      popup={{
+                        title: popup_title.text,
+                        titleColor: 'white',
+                        text: popup_text.text,
+                        textColor: 'primary.light',
+                        backgroundColor: 'primary.dark',
+                      }}
+                    />
+                  </Flex>
+                );
+              })}
             </Flex>
           </Flex>
         );

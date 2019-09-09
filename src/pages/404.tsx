@@ -7,16 +7,16 @@ import SEO from '../components/SEO';
 import { Container } from '../components/container';
 import travolta from '../../static/travolta.gif';
 
-const Contact: FunctionComponent = () => {
+const Notfound: FunctionComponent = () => {
   return (
     <Layout>
+      <SEO />
       <Container
         alignItems="center"
         justifyContent="center"
         flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'row']}
         mt={10}
       >
-        <SEO />
         <Flex width={['250px', '250px', '350px', '550px']} height={['250px', '250px', '350px', '550px']}>
           <img src={travolta} width="100%" height="100%"></img>
         </Flex>
@@ -41,4 +41,4 @@ const Contact: FunctionComponent = () => {
   );
 };
 
-export default Contact;
+export default Notfound;

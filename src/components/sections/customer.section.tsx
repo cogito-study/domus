@@ -51,16 +51,10 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
           const { name, icon, url } = customer.node.primary;
 
           return (
-            <Anchor href={url.text} target="_blank">
-              <Flex
-                key={index}
-                width={['110px', '110px', '110px', '140px']}
-                flexDirection="column"
-                mx={[5, 6]}
-                alignItems="center"
-              >
+            <Anchor key={index} href={url.text} target="_blank">
+              <Flex width={['110px', '110px', '110px', '140px']} flexDirection="column" mx={[5, 6]} alignItems="center">
                 <Image fixed={icon.localFile.childImageSharp.fixed} alt={icon.alt} />
-                <H4 key={index} color="grey.dark.1" textAlign="center">
+                <H4 color="grey.dark.1" textAlign="center">
                   {name.text}
                 </H4>
               </Flex>

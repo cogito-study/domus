@@ -19,7 +19,7 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
               help={
                 <Box>
                   <Paragraph paragraphSize="small" marginTop="8px" color="grey.light.1">
-                    By clicking "try out!" your agree to our{' '}
+                    {'By clicking "try out!" your agree to our'}
                     <Anchor fontSize="10px" marginTop="8px" href={PrivacyPolicy}>
                       Privacy Policy
                     </Anchor>

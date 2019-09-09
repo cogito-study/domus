@@ -74,10 +74,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie"
+    "url": "https://github.com/cogito-study/domus"
   },
   "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie/issues"
+    "url": "https://github.com/cogito-study/domus/issues"
   },
   "husky": {
     "hooks": {

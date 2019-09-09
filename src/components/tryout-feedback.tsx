@@ -2,20 +2,18 @@ import { Flex, H4, Paragraph, Box } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
 import Email from '../../static/logos/email.svg';
 
-interface FeedbackProps {
-  title: string;
-  titleColor: string;
-  text: string;
-  textColor: string;
-  backgroundColor: string;
+export interface TryoutFeedbackProps {
+  popup: {
+    title: string;
+    titleColor: string;
+    text: string;
+    textColor: string;
+    backgroundColor: string;
+  };
 }
 
-export const TryoutFeedback: FunctionComponent<FeedbackProps> = ({
-  title,
-  titleColor,
-  text,
-  textColor,
-  backgroundColor,
+export const TryoutFeedback: FunctionComponent<TryoutFeedbackProps> = ({
+  popup: { title, titleColor, text, textColor, backgroundColor },
 }) => {
   return (
     <Flex

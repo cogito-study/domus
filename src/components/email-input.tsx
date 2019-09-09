@@ -1,22 +1,8 @@
 import { Button, Flex, TextInput, EmailIcon } from '@cogito-study/alea';
 import React, { FunctionComponent, useState, ChangeEvent } from 'react';
-import { TryoutFeedback } from './tryout-feedback';
+import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
 
-interface InputProps {
-  popupTitle: string;
-  popupText: string;
-  popupTitleColor: string;
-  popupTextColor: string;
-  popupBackgroundColor: string;
-}
-
-export const EmailInput: FunctionComponent<InputProps> = ({
-  popupTitle,
-  popupTitleColor,
-  popupText,
-  popupTextColor,
-  popupBackgroundColor,
-}) => {
+export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [value, setValue] = useState('');
@@ -33,11 +19,7 @@ export const EmailInput: FunctionComponent<InputProps> = ({
             icon={<EmailIcon />}
             value={value || ''}
             name="email"
-            onChange={(event: ChangeEvent<HTMLInputElement>) => {
-              const target = event.target;
-              const value = target.value;
-              setValue(() => value);
-            }}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
           />
           <Button
             ml={[0, 4]}
@@ -45,12 +27,12 @@ export const EmailInput: FunctionComponent<InputProps> = ({
             maxWidth="280px"
             onClick={() => {
               if (!value) {
-                setErrorMessage(() => 'Email address is required!');
+                setErrorMessage('Email address is required!');
               } else if (!/\S+@\S+\.\S+/.test(value)) {
-                setErrorMessage(() => 'Email address is invalid!');
+                setErrorMessage('Email address is invalid!');
               } else {
-                setButtonClicked(() => true);
-                setErrorMessage(() => '');
+                setButtonClicked(true);
+                setErrorMessage('');
               }
             }}
           >
@@ -58,15 +40,7 @@ export const EmailInput: FunctionComponent<InputProps> = ({
           </Button>
         </Flex>
       )}
-      {buttonClicked && (
-        <TryoutFeedback
-          title={popupTitle}
-          titleColor={popupTitleColor}
-          text={popupText}
-          textColor={popupTextColor}
-          backgroundColor={popupBackgroundColor}
-        ></TryoutFeedback>
-      )}
+      {buttonClicked && <TryoutFeedback {...props} />}
     </Flex>
   );
 };

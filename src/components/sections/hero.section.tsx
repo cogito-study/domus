@@ -27,11 +27,13 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
           <Box>
             <H4 color="grey.dark.3">{description}</H4>
             <EmailInput
-              popupTitle={popupTitle}
-              popupTitleColor="grey.dark.3"
-              popupText={popupText}
-              popupTextColor="grey.light.2"
-              popupBackgroundColor="white"
+              popup={{
+                title: popupTitle,
+                titleColor: 'grey.dark.3',
+                text: popupText,
+                textColor: 'grey.light.2',
+                backgroundColor: 'white',
+              }}
             />
           </Box>
         </Flex>

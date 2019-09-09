@@ -1,5 +1,5 @@
 import { Button, Flex, TextInput, EmailIcon } from '@cogito-study/alea';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState, ChangeEvent } from 'react';
 import { TryoutFeedback } from './tryout-feedback';
 
 interface InputProps {
@@ -18,6 +18,9 @@ export const EmailInput: FunctionComponent<InputProps> = ({
   popupBackgroundColor,
 }) => {
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [value, setValue] = useState('');
+
   return (
     <Flex>
       {!buttonClicked && (
@@ -26,14 +29,29 @@ export const EmailInput: FunctionComponent<InputProps> = ({
             width="262px"
             placeholder="Enter your e-mail"
             help='By clicking "try out!" your agree to our Privacy Policy.'
+            error={errorMessage}
             icon={<EmailIcon />}
+            value={value || ''}
+            name="email"
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
+              const target = event.target;
+              const value = target.value;
+              setValue(() => value);
+            }}
           />
           <Button
             ml={[0, 4]}
             mt={[2, 0]}
             maxWidth="280px"
             onClick={() => {
-              setButtonClicked((buttonClicked) => !buttonClicked);
+              if (!value) {
+                setErrorMessage(() => 'Email address is required!');
+              } else if (!/\S+@\S+\.\S+/.test(value)) {
+                setErrorMessage(() => 'Email address is invalid!');
+              } else {
+                setButtonClicked(() => true);
+                setErrorMessage(() => '');
+              }
             }}
           >
             try out!

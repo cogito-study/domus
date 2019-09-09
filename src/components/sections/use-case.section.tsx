@@ -1,4 +1,4 @@
-import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
+import { Flex, H3, Paragraph, Button, Box, Anchor } from '@cogito-study/alea';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 
@@ -87,9 +87,11 @@ export const UseCaseSection = () => {
           );
         })}
       </Flex>
-      <Button variant="primary" maxWidth="150px" mt={4}>
-        try out!
-      </Button>
+      <Anchor href="/#tryout">
+        <Button variant="primary" maxWidth="150px" mt={4}>
+          try out!
+        </Button>
+      </Anchor>
     </Flex>
   );
 };

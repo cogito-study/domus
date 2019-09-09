@@ -105,8 +105,10 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
               log in
             </Button>
           </Anchor>
-          <Anchor href="https://cogito.study">
-            <Button mb={6}>try out!</Button>
+          <Anchor href="/#tryout">
+            <Button mb={6} onClick={() => onMenuButtonClicked()}>
+              try out!
+            </Button>
           </Anchor>
         </Flex>
       </OverlayMenu>
@@ -147,7 +149,7 @@ const DesktopNavBar = () => (
       <Anchor href="/login" mr={6} fontWeight={600}>
         <Button variant="tertiary">log in</Button>
       </Anchor>
-      <Anchor href="https://cogito.study">
+      <Anchor href="/#tryout">
         <Button mr={6}>try out!</Button>
       </Anchor>
     </Flex>

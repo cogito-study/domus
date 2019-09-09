@@ -40,7 +40,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
   if (!data.allPrismicHomeBodyCustomer) return null;
 
   return (
-    <Flex my={7} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']}>
+    <Flex my={7} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']} id="tryout">
       <Box maxWidth={['260px', '360px']}>
         <H2 color="grey.dark.1" mb={[6, 8]}>
           {title}

@@ -20,7 +20,7 @@ const NavbarContainerLarge = styled(Flex)`
   z-index: 2;
 
   .active {
-    color: ${theme.colors.primary.normal};
+    color: ${theme.colors.accent.light};
   }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {
@@ -34,6 +34,10 @@ const NavbarContainerSmall = styled(Flex)`
   top: 0;
   width: 100%;
   z-index: 2;
+
+  .active {
+    color: ${theme.colors.accent.light};
+  }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {
     display: none;
@@ -85,8 +89,8 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
               <StyledGatsbyLink
                 to={pages[pageName]}
                 activeClassName="active"
-                color="accent.normal"
-                hoverColor="accent.dark"
+                color="grey.dark.1"
+                hoverColor="grey.dark.4"
                 fontWeight="bold"
                 onClick={() => onMenuButtonClicked()}
               >

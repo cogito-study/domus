@@ -99,7 +99,7 @@ export const FooterSection = () => {
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
               <Box my={2} key={index}>
                 <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
-                  {primary.title.text}
+                  {primary.title.text.toLowerCase()}
                 </StyledGatsbyLink>
               </Box>
             ))}

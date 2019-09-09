@@ -33,6 +33,8 @@
     "gatsby-source-prismic": "^2.3.0-alpha.3",
     "gatsby-transformer-sharp": "^2.2.13",
     "graphql": "^14.5.4",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
     "polished": "^3.4.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -72,9 +74,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie"
+    "url": "https://github.com/cogito-study/domus"
   },
   "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-starter-portfolio-jodie/issues"
+    "url": "https://github.com/cogito-study/domus/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.tsx": [
+      "stylelint --fix",
+      "git add"
+    ]
   }
 }

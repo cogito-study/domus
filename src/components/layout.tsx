@@ -42,18 +42,15 @@ const GlobalStyles = createGlobalStyle`
 
     position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) => (overlayMenuActive ? 'fixed' : 'static')};
   }
-  @media only screen and (max-width: ${theme.breakpoints[0]}) {
+  @media only screen and (max-width: ${theme.breakpoints[1]}) {
     body {
-      background-image: url('/background/pattern.svg'),
-                        url('/background/top-right.svg'),
+      background-image: url('/background/top-right.svg'),
                         url('/background/bottom-right.svg'),
-                        url('/background/bottom-left.svg');
-      background-position: left,
-                           right 100px,
+                        url('/background/bottom-left-mobile.svg');
+      background-position: right 100px,
                            right 1200px,
                            left 2000px;
-      background-repeat: repeat-y,
-                         no-repeat,
+      background-repeat: no-repeat,
                          no-repeat,
                          no-repeat;
     }

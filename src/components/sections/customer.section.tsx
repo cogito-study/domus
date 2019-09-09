@@ -1,4 +1,4 @@
-import { Box, Flex, H2, H4 } from '@cogito-study/alea';
+import { Box, Flex, H2, H4, Anchor } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
@@ -27,6 +27,9 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
                   }
                 }
               }
+              url {
+                text
+              }
             }
           }
         }
@@ -43,23 +46,25 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
           {title}
         </H2>
       </Box>
-      <Flex flexDirection={['row']} justifyContent="center" alignItems="center">
+      <Flex flexDirection={['row']} justifyContent="center" alignItems="start">
         {data.allPrismicHomeBodyCustomer.edges.map((customer: any, index: number) => {
-          const { name, icon } = customer.node.primary;
+          const { name, icon, url } = customer.node.primary;
 
           return (
-            <Flex
-              key={index}
-              width={['110px', '110px', '110px', '140px']}
-              flexDirection="column"
-              mx={[5, 6]}
-              alignItems="center"
-            >
-              <Image fixed={icon.localFile.childImageSharp.fixed} alt={icon.alt} />
-              <H4 key={index} color="grey.dark.1" textAlign="center">
-                {name.text}
-              </H4>
-            </Flex>
+            <Anchor href={url.text} target="_blank">
+              <Flex
+                key={index}
+                width={['110px', '110px', '110px', '140px']}
+                flexDirection="column"
+                mx={[5, 6]}
+                alignItems="center"
+              >
+                <Image fixed={icon.localFile.childImageSharp.fixed} alt={icon.alt} />
+                <H4 key={index} color="grey.dark.1" textAlign="center">
+                  {name.text}
+                </H4>
+              </Flex>
+            </Anchor>
           );
         })}
       </Flex>

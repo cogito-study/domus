@@ -3,6 +3,8 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
 import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
+import TermsAndConditions from '../../../static/documents/ASZF.pdf';
+import PrivacyPolicy from '../../../static/documents/Adatvedelem.pdf';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`
@@ -56,7 +58,7 @@ export const FooterSection = () => {
   `);
   return (
     <Flex flexDirection="column" backgroundColor="white">
-      <Flex justifyContent="center" mt={6} mb={7} mx={[5, 0]} flexDirection={['column', 'row']}>
+      <Flex justifyContent="center" mt={6} mb={9} mx={[5, 0]} flexDirection={['column', 'row']}>
         <Box width="210px" mx={4}>
           <H2 mt={6} mb={3} color="grey.normal">
             Cogito
@@ -67,7 +69,7 @@ export const FooterSection = () => {
                 product
               </StyledGatsbyLink>
             </Box>
-            <Box my={2}>
+            {/*<Box my={2}>
               <StyledGatsbyLink to="/blog" fontWeight="semibold">
                 blog
               </StyledGatsbyLink>
@@ -76,7 +78,7 @@ export const FooterSection = () => {
               <StyledGatsbyLink to="/pricing" fontWeight="semibold">
                 pricing
               </StyledGatsbyLink>
-            </Box>
+            </Box>*/}
             <Box my={2}>
               <StyledGatsbyLink to="/about" fontWeight="semibold">
                 about us
@@ -167,12 +169,12 @@ export const FooterSection = () => {
             </Flex>
             <Flex flexDirection="row" mt={[2, 2, 2, 0]} mb={[3, 3, 3, 0]}>
               <Box mr={4}>
-                <Anchor href="#" color="grey.normal">
+                <Anchor href={TermsAndConditions} color="grey.normal">
                   Terms and conditions
                 </Anchor>
               </Box>
               <Box ml={4}>
-                <Anchor href="#" color="grey.normal">
+                <Anchor href={PrivacyPolicy} color="grey.normal">
                   Privacy policy
                 </Anchor>
               </Box>

@@ -2,6 +2,7 @@ import { Button, Flex, TextInput, EmailIcon, Box, Paragraph, Anchor } from '@cog
 import React, { FunctionComponent, useState, ChangeEvent } from 'react';
 import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
 import PrivacyPolicy from '../../static/documents/Adatvedelem.pdf';
+import addToMailchimp from 'gatsby-plugin-mailchimp';
 
 export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -43,6 +44,7 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
                 } else if (!/\S+@\S+\.\S+/.test(value)) {
                   setErrorMessage('Email address is invalid!');
                 } else {
+                  addToMailchimp(value);
                   setButtonClicked(true);
                   setErrorMessage('');
                 }

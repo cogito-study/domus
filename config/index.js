@@ -16,6 +16,7 @@ module.exports = {
   ogSiteName: 'cogito', // Facebook Site Name
   ogLanguage: 'en_US', // og:language
   googleAnalyticsID: 'UA-XXXXXX-X',
+  mailchimpEndpoint: 'https://study.us19.list-manage.com/subscribe/post?u=ddbbe17bbc2b32abedaeb4c06&amp;id=6a76597695',
 
   // Manifest and Progress color
   themeColor: '#db7436',

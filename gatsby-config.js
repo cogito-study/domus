@@ -23,6 +23,12 @@ module.exports = {
     facebook: config.ogSiteName,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: config.mailchimpEndpoint,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',

@@ -8,5 +8,6 @@
     "env": {
       "API_KEY": "@prismic-api"
     }
-  }
+  },
+  "routes": [{ "handle": "filesystem" }, { "src": "/.*", "status": 404, "dest": "./src/pages/404.tsx" }]
 }

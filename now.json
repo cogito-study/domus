@@ -9,5 +9,9 @@
       "API_KEY": "@prismic-api"
     }
   },
-  "routes": [{ "handle": "filesystem" }, { "src": "/.*", "status": 404, "dest": "./src/pages/404.tsx" }]
+  "routes": [
+    { "src": "/(.*)", "dest": "/$1" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "status": 404, "dest": "/page-data/404" }
+  ]
 }

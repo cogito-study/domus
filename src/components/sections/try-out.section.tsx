@@ -78,9 +78,8 @@ export const TryOutSection = () => {
               {data.allPrismicHome.edges.map((tryOutPopup: any, index: number) => {
                 const { popup_text, popup_title } = tryOutPopup.node.data;
                 return (
-                  <Flex mt={2} flexDirection={['column', 'row']}>
+                  <Flex mt={2} flexDirection={['column', 'row']} key={index}>
                     <EmailInput
-                      key={index}
                       popup={{
                         title: popup_title.text,
                         titleColor: 'white',

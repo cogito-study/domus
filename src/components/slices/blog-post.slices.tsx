@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Box, H3, H2, Paragraph, Flex } from '@cogito-study/alea';
+import { H3, H2, Paragraph, Flex } from '@cogito-study/alea';
 
 interface BlogPostSliceProps {
   slices: any[];
@@ -32,9 +32,9 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
             );
           case 'image':
             return (
-              <Box my={7} key={index}>
+              <Flex my={7} justifyContent="center" key={index}>
                 <img src={primary.image.url} alt={primary.image.alt} />
-              </Box>
+              </Flex>
             );
           default:
             return null;

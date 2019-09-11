@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { H3, H2, Paragraph, Flex } from '@cogito-study/alea';
+import Image from 'gatsby-image';
 
 interface BlogPostSliceProps {
   slices: any[];
@@ -33,7 +34,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
           case 'image':
             return (
               <Flex my={7} justifyContent="center" key={index}>
-                <img src={primary.image.url} alt={primary.image.alt} />
+                <Image fluid={primary.image.localFile.childImageSharp.fluid} alt={primary.image.alt} />
               </Flex>
             );
           default:

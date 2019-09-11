@@ -23,7 +23,7 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
               image {
                 localFile {
                   childImageSharp {
-                    fluid(maxHeight: 300, cropFocus: CENTER, fit: COVER) {
+                    fluid(maxHeight: 190, maxWidth: 290) {
                       ...GatsbyImageSharpFluid
                     }
                   }

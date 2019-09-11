@@ -16,9 +16,6 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
   <Flex mt={8} mb={7} flexDirection={['column', 'column', 'row', 'row']}>
     {slices.map((slice: any, index: number) => {
       const { primary, slice_type } = slice;
-
-      console.log(primary);
-
       switch (slice_type) {
         case 'related_posts':
           return (

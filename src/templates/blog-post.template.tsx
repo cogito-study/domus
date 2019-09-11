@@ -8,14 +8,14 @@ import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.sl
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
-      <Flex justifyContent="center">
+      <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="grey.light.4">
           <H1 mx={3} mb={4} mt={10} color="primary.dark">
             {data.prismicBlogPost.data.title.text}
           </H1>
           <BlogPostSlices slices={data.prismicBlogPost.data.body} />
-          <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
         </Box>
+        <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
       </Flex>
     </Layout>
   );
@@ -62,7 +62,13 @@ export const query = graphql`
           ... on PrismicBlogPostBodyImage {
             primary {
               image {
-                url
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 580) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
                 alt
               }
             }
@@ -79,7 +85,13 @@ export const query = graphql`
                       text
                     }
                     hero_image {
-                      url
+                      localFile {
+                        childImageSharp {
+                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#D6E0F5") {
+                            ...GatsbyImageSharpFixed
+                          }
+                        }
+                      }
                       alt
                     }
                   }

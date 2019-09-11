@@ -1,10 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import { H3, H2, Paragraph, Flex } from '@cogito-study/alea';
 import Image from 'gatsby-image';
+import styled from 'styled-components';
 
 interface BlogPostSliceProps {
   slices: any[];
 }
+
+const ImageWithWidth = styled(Image)`
+  width: 100%;
+`;
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
   return (
@@ -34,7 +39,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
           case 'image':
             return (
               <Flex my={7} justifyContent="center" key={index}>
-                <Image fluid={primary.image.localFile.childImageSharp.fluid} alt={primary.image.alt} />
+                <ImageWithWidth fluid={primary.image.localFile.childImageSharp.fluid} alt={primary.image.alt} />
               </Flex>
             );
           default:

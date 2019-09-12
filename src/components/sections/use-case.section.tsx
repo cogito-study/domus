@@ -102,7 +102,7 @@ export const UseCaseSection = () => {
           try out!
         </Button>
       </Anchor>
-      <Background backgroundColor="primary.dark" display={['none', 'none', 'block']}></Background>
+      <Background backgroundColor="primary.dark" display={['none', 'none', 'block']} />
     </Flex>
   );
 };

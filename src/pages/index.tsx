@@ -22,8 +22,12 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
           popupTitle={popup_title.text}
           popupText={popup_text.text}
         />
-        <UseCaseSection />
+      </Container>
+      <UseCaseSection />
+
+      <Container>
         <FeatureSection />
+
         {/* <H3 my={[7, 9]} color="grey.dark.2" textAlign="center">
           {call_to_action.text}
           </H3>*/}

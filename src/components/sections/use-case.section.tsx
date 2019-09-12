@@ -1,6 +1,16 @@
 import { Flex, H3, Paragraph, Button, Box, Anchor } from '@cogito-study/alea';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
+
+const Background = styled(Flex)`
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 230px;
+  z-index: -1;
+`;
 
 export const UseCaseSection = () => {
   const data = useStaticQuery(graphql`
@@ -32,7 +42,7 @@ export const UseCaseSection = () => {
   if (!data.allPrismicHomeBodyUseCase) return null;
 
   return (
-    <Flex flexDirection="column" alignItems="center">
+    <Flex flexDirection="column" alignItems="center" justifyContent="flex-end">
       <Flex flexWrap="wrap" width={['100%', '70%', '750px', '100%']} justifyContent="center">
         {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
           const { icon, title, description, blog_post } = useCase.node.primary;
@@ -88,10 +98,11 @@ export const UseCaseSection = () => {
         })}
       </Flex>
       <Anchor href="/#tryout">
-        <Button variant="primary" maxWidth="150px" mt={4}>
+        <Button variant="primary" maxWidth="150px" mt={4} mb={6}>
           try out!
         </Button>
       </Anchor>
+      <Background backgroundColor="primary.dark" display={['none', 'none', 'block']} />
     </Flex>
   );
 };

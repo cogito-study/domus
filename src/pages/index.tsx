@@ -28,7 +28,7 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
       <Container>
         <FeatureSection />
 
-        {/* <H3 my={[7, 9]} color="grey.dark.2" textAlign="center">
+        {/* <H3 my={[7, 9]} color="neutral.7" textAlign="center">
           {call_to_action.text}
           </H3>*/}
         <CustomerSection title={customers_heading.text} />

@@ -42,7 +42,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
   return (
     <Flex my={7} alignItems="center" justifyContent="center" flexDirection={['column', 'column', 'row']} id="tryout">
       <Box maxWidth={['260px', '360px']}>
-        <H2 color="grey.dark.1" mb={[6, 8]}>
+        <H2 color="primary.8" mb={[6, 8]}>
           {title}
         </H2>
       </Box>
@@ -54,7 +54,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
             <Anchor key={index} href={url.text} target="_blank">
               <Flex width={['110px', '110px', '110px', '140px']} flexDirection="column" mx={[5, 6]} alignItems="center">
                 <Image fixed={icon.localFile.childImageSharp.fixed} alt={icon.alt} />
-                <H4 color="grey.dark.1" textAlign="center">
+                <H4 color="neutral.9" textAlign="center">
                   {name.text}
                 </H4>
               </Flex>

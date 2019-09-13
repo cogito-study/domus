@@ -47,8 +47,8 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
 
   return (
     <>
-      <H1 color="primary.dark">{title}</H1>
-      <H2 color="grey.dark.3">{subtitle}</H2>
+      <H1 color="primary.8">{title}</H1>
+      <H2 color="neutral.8">{subtitle}</H2>
       <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr']}>
         {data.allPrismicAboutBodyProfile.edges.map((profile: any, index: number) => {
           const { image, name, position } = profile.node.primary;
@@ -58,10 +58,10 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
               <Box height={[140, 190, 190, 300]}>
                 <ProfileImage fluid={image.localFile.childImageSharp.fluid} alt={image.alt} />
               </Box>
-              <H3 mb={1} mt={2} color="primary.dark">
+              <H3 mb={1} mt={2} color="primary.8">
                 {name.text}
               </H3>
-              <Paragraph mb={6} mt={0} color="grey.normal">
+              <Paragraph mb={6} mt={0} color="neutral.5">
                 {position.text}
               </Paragraph>
             </Box>

@@ -58,10 +58,10 @@ export const FeatureSection = () => {
               ml={index % 2 == 1 ? [0] : [0, 0, 0, 9]}
               mt={[4, 6, 7, 0]}
             >
-              <H3 my={3} color="grey.dark.3">
+              <H3 my={3} color="primary.8">
                 {title.text}
               </H3>
-              <Paragraph color="grey.dark.3">{description.text}</Paragraph>
+              <Paragraph color="neutral.8">{description.text}</Paragraph>
               <Link to={`/blog/${blog_post.slug}`}>
                 <Button variant="secondary" maxWidth="150px" mt={4}>
                   learn more

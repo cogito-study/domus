@@ -60,7 +60,7 @@ export const FooterSection = () => {
     <Flex flexDirection="column" backgroundColor="white">
       <Flex justifyContent="center" mt={6} mb={9} mx={[5, 0]} flexDirection={['column', 'row']}>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="grey.normal">
+          <H2 mt={6} mb={3} color="neutral.8">
             Cogito
           </H2>
           <Flex flexDirection="column">
@@ -92,7 +92,7 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="grey.normal">
+          <H2 mt={6} mb={3} color="neutral.8">
             Features
           </H2>
           <Flex flexDirection="column">
@@ -106,7 +106,7 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="grey.normal">
+          <H2 mt={6} mb={3} color="neutral.8">
             Contact
           </H2>
           <Flex flexDirection="column">
@@ -131,7 +131,7 @@ export const FooterSection = () => {
           </Flex>
         </Box>
       </Flex>
-      <Box bg="grey.light.4">
+      <Box bg="neutral.0">
         <Container>
           <Flex
             flexDirection={['column', 'column', 'column', 'row']}
@@ -151,17 +151,17 @@ export const FooterSection = () => {
               </Flex>
               {/*<Flex flexDirection="row">
                 <Box mx={2}>
-                  <Anchor href="#" color="grey.dark.3">
+                  <Anchor href="#" color="neutral.8">
                     English
                   </Anchor>
                 </Box>
                 <Box mx={2}>
-                  <Anchor href="#" color="grey.normal">
+                  <Anchor href="#" color="neutral.5">
                     Hungarian
                   </Anchor>
                 </Box>
                 <Box mx={2}>
-                  <Anchor href="#" color="grey.normal">
+                  <Anchor href="#" color="neutral.5">
                     Romanian
                   </Anchor>
                 </Box>
@@ -169,12 +169,12 @@ export const FooterSection = () => {
             </Flex>
             <Flex flexDirection="row" mt={[2, 2, 2, 0]} mb={[3, 3, 3, 0]}>
               <Box mr={4}>
-                <Anchor href={TermsAndConditions} color="grey.normal">
+                <Anchor href={TermsAndConditions} color="neutral.5">
                   Terms and conditions
                 </Anchor>
               </Box>
               <Box ml={4}>
-                <Anchor href={PrivacyPolicy} color="grey.normal">
+                <Anchor href={PrivacyPolicy} color="neutral.5">
                   Privacy policy
                 </Anchor>
               </Box>

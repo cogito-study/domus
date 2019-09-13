@@ -28,7 +28,7 @@ export const PartnerSection = () => {
 
   if (!data.allPrismicHomeBodyPartner) return null;
   return (
-    <Flex justifyContent="center" py={5} backgroundColor="accent.light">
+    <Flex justifyContent="center" py={5} backgroundColor="accent.5">
       <Flex width={['300px', '100%']} justifyContent="center" flexWrap="wrap">
         {data.allPrismicHomeBodyPartner.edges.map((partner: any, index: number) => {
           const { link, logo, name } = partner.node.primary;

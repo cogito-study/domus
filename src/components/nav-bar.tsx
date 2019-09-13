@@ -20,7 +20,7 @@ const NavbarContainerLarge = styled(Flex)`
   z-index: 2;
 
   .active {
-    color: ${theme.colors.accent.light};
+    color: ${theme.colors.accent[6]};
   }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {
@@ -36,7 +36,7 @@ const NavbarContainerSmall = styled(Flex)`
   z-index: 2;
 
   .active {
-    color: ${theme.colors.accent.light};
+    color: ${theme.colors.accent[6]};
   }
 
   @media screen and (min-width: ${theme.breakpoints[2]}) {
@@ -64,7 +64,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
     alignItems="center"
     justifyContent="space-between"
     borderBottom="1px solid"
-    borderColor="primary.light"
+    borderColor="primary.1"
     backgroundColor="white"
   >
     <Link to="/">
@@ -89,8 +89,8 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
               <StyledGatsbyLink
                 to={pages[pageName]}
                 activeClassName="active"
-                color="grey.dark.1"
-                hoverColor="grey.dark.4"
+                color="neutral.6"
+                hoverColor="neutral.8"
                 fontWeight="bold"
                 onClick={() => onMenuButtonClicked()}
               >
@@ -121,7 +121,7 @@ const DesktopNavBar = () => (
     alignItems="center"
     justifyContent="space-between"
     border={1}
-    borderColor="primary.light"
+    borderColor="primary.1"
     mt={3}
     backgroundColor="white"
   >
@@ -136,8 +136,8 @@ const DesktopNavBar = () => (
           <StyledGatsbyLink
             to={pages[pageName]}
             activeClassName="active"
-            color="grey.dark.1"
-            hoverColor="grey.dark.4"
+            color="neutral.6"
+            hoverColor="neutral.8"
             fontWeight="bold"
           >
             {pageName}

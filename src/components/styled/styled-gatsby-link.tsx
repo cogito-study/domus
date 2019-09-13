@@ -22,34 +22,33 @@ const styledProps = compose(
 );
 
 const style = () => css`
-  color: ${({ theme }: StyledGatsbyLinkProps) => theme.colors.grey.light[2]};
+  color: ${({ theme }: StyledGatsbyLinkProps) => theme.colors.neutral[4]};
   text-decoration: none;
   cursor: not-allowed;
 
   :link,
   :visited {
-    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) =>
-      themeGet(`colors.${color}`, colors.accent.normal)};
+    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) => themeGet(`colors.${color}`, colors.accent[5])};
     text-decoration: none;
     cursor: pointer;
   }
 
   :hover {
     color: ${({ to, hoverColor, theme: { colors } }: StyledGatsbyLinkProps) =>
-      !to ? colors.grey.light['2'] : themeGet(`colors.${hoverColor}`, colors.accent.dark)};
+      !to ? colors.neutral[4] : themeGet(`colors.${hoverColor}`, colors.accent[8])};
     text-decoration: none;
   }
 
   :focus {
     color: ${({ to, color, theme: { colors } }: StyledGatsbyLinkProps) =>
-      !to ? colors.grey.light['2'] : themeGet(`colors.${color}`, colors.accent.normal)};
+      !to ? colors.neutral[4] : themeGet(`colors.${color}`, colors.accent[5])};
     text-decoration: underline;
     outline: none;
   }
 
   :active {
     color: ${({ to, color, theme: { colors } }: StyledGatsbyLinkProps) =>
-      !to ? colors.grey.light['2'] : themeGet(`colors.${color}`, colors.accent.normal)};
+      !to ? colors.neutral[4] : themeGet(`colors.${color}`, colors.accent[5])};
     text-decoration: none;
   }
 `;

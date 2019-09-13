@@ -23,7 +23,7 @@ export const TryoutFeedback: FunctionComponent<TryoutFeedbackProps> = ({
       flexDirection={['column', 'row']}
       alignItems={['start', 'center']}
       justifyContent="center"
-      borderColor="accent.normal"
+      borderColor="accent.5"
       bg={backgroundColor}
     >
       <Box ml={3} mr={4}>

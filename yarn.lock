@@ -819,10 +819,10 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@cogito-study/alea@^0.1.10":
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.1.10.tgz#faf79e1da372c030b9f097d445c2e864de4302ca"
-  integrity sha512-TgVzoQQ9kUiYMe87YiSZJqGKY3Bq1BZsahTEByDmmjL9dRKs/wvChc2mhV8ooqMfiuGHA5s0M2Wlt/fE3EfO7g==
+"@cogito-study/alea@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@cogito-study/alea/-/alea-0.2.0.tgz#cb86391da747385ef3b66269a8b633b9bdb81ced"
+  integrity sha512-2RA3a9Z6M/E5dyNVKJJIUFQxP6ykdUSM48e/noo2h34xeADbZJj1IDfUwzAb/Vd+QRZmPGDEgXEodwAp+KyDsA==
   dependencies:
     "@styled-system/theme-get" "5.1.1"
     "@types/styled-components" "4.1.18"
@@ -830,7 +830,7 @@
     react "16.9.0"
     react-dom "16.9.0"
     react-scripts "3.1.1"
-    react-use "^11.3.2"
+    react-use "^12.0.0"
     styled-components "4.3.2"
     styled-system "5.1.1"
     typeface-nunito-sans "0.0.72"
@@ -13319,16 +13319,17 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-use@^11.3.2:
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-11.3.2.tgz#037fc5d25e89f00068cfa3d981f3aa7c6755a4ad"
-  integrity sha512-dTM7Hj5gP2VCjMbv42b0YF5QdD8PeOaNA+dGrGKbqWhwq2Gq4IDPvh6XYPL1jDRBztpKwcktTamdK1PTjrUpgw==
+react-use@^12.0.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-12.2.0.tgz#9e669ae591f7e3b4b323870e7ff0724f6f69710e"
+  integrity sha512-jawCKYQcWDqwA/LMjAEfost6YQnQ6wYtSt1iPWd92Q48OdRAjFqs/GDgZsSzZBl8KsZodJxwr5pCpDn7uxtDZg==
   dependencies:
     "@types/react-wait" "^0.3.0"
     copy-to-clipboard "^3.1.0"
     nano-css "^5.1.0"
     react-fast-compare "^2.0.4"
     react-wait "^0.3.0"
+    resize-observer-polyfill "^1.5.1"
     screenfull "^4.1.0"
     set-harmonic-interval "^1.0.0"
     throttle-debounce "^2.0.1"
@@ -13804,6 +13805,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

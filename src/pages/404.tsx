@@ -22,10 +22,10 @@ const Notfound: FunctionComponent = () => {
         </Flex>
         <Flex ml={5} mb={7} flexDirection="column" alignItems="start" justifyContent="center">
           <Flex maxWidth="550px" flexDirection="column" mb={6}>
-            <H1 mt={0} mb={0} color="grey.dark.2" fontSize={['50px', '90px']}>
+            <H1 mt={0} mb={0} color="neutral.6" fontSize={['50px', '90px']}>
               Error 404
             </H1>
-            <H2 color="grey.light.1">We can’t seem to find the page you’re looking for</H2>
+            <H2 color="neutral.4">We can’t seem to find the page you’re looking for</H2>
           </Flex>
           <Flex>
             <Link to="/">

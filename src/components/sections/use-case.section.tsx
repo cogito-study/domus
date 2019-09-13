@@ -61,14 +61,14 @@ export const UseCaseSection = () => {
               alignItems="start"
               justifyContent="space-between"
               border={2}
-              borderColor="primary.dark"
+              borderColor="primary.8"
             >
               <Flex flexDirection={['row', 'row', 'column']} alignItems={['center', 'center', 'start']}>
                 <Box minWidth="90px" width={['90px', '90px', '90px', '110px']}>
                   <img alt={icon.alt} src={icon.url} width="100%" />
                 </Box>
                 <Flex height={'56px'} alignItems="center">
-                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.dark">
+                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.8">
                     {title.text}
                   </H3>
                 </Flex>
@@ -81,7 +81,7 @@ export const UseCaseSection = () => {
                 justifyContent="space-between"
               >
                 <Flex flexDirection="column">
-                  <Paragraph my={2} color="grey.dark.3">
+                  <Paragraph my={2} color="neutral.8">
                     {description.text}
                   </Paragraph>
                 </Flex>
@@ -102,7 +102,7 @@ export const UseCaseSection = () => {
           try out!
         </Button>
       </Anchor>
-      <Background backgroundColor="primary.dark" display={['none', 'none', 'block']} />
+      <Background backgroundColor="primary.8" display={['none', 'none', 'block']} />
     </Flex>
   );
 };

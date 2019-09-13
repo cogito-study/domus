@@ -37,7 +37,7 @@ export const ContactSection: FunctionComponent = () => {
   `);
   return (
     <Container>
-      <Flex width="100%" mt={10} mb={9} alignItems="center" justifyContent="center" borderColor="primary.light">
+      <Flex width="100%" mt={10} mb={9} alignItems="center" justifyContent="center">
         <Flex
           alignItems="start"
           justifyContent="center"
@@ -45,11 +45,11 @@ export const ContactSection: FunctionComponent = () => {
           py={7}
           width={['100%', '100%', '100%', '600px']}
           border={3}
-          borderColor="accent.light"
+          borderColor="primary.1"
           backgroundColor="white"
         >
           <Flex alignItems="start" flexDirection="column" mx={4} ml={[5, 7]}>
-            <H1 color="primary.dark" mt={0} mb={[5, 6]}>
+            <H1 color="primary.8" mt={0} mb={[5, 6]}>
               Contact us
             </H1>
             <Flex flexDirection="column" alignItems="start" mb={6}>

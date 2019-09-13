@@ -48,7 +48,7 @@ export const TryOutSection = () => {
   if (!data.allPrismicHomeBodyTryOut) return null;
 
   return (
-    <Flex bg="primary.dark">
+    <Flex bg="primary.8">
       {data.allPrismicHomeBodyTryOut.edges.map((tryOut: any, index: number) => {
         const { image, image_description, subtitle, title } = tryOut.node.primary;
 
@@ -64,15 +64,15 @@ export const TryOutSection = () => {
             <Flex flexDirection="column" maxWidth="300px" mb={[7, 7, 7, 0]} mr={[0, 0, 0, 8]}>
               <img src={image.url} alt={image.alt || ''} />
 
-              <Paragraph my={1} color="grey.light.4" textAlign="center" mt={3}>
+              <Paragraph my={1} color="neutral.1" textAlign="center" mt={3}>
                 {image_description.text}
               </Paragraph>
             </Flex>
             <Flex flexDirection="column" maxWidth="420px" mx={3}>
-              <H2 my={2} color="grey.light.4">
+              <H2 my={2} color="neutral.1">
                 {title.text}
               </H2>
-              <Paragraph mb={3} color="grey.light.4">
+              <Paragraph mb={3} color="neutral.1">
                 {subtitle.text}
               </Paragraph>
               {data.allPrismicHome.edges.map((tryOutPopup: any, index: number) => {
@@ -84,8 +84,8 @@ export const TryOutSection = () => {
                         title: popup_title.text,
                         titleColor: 'white',
                         text: popup_text.text,
-                        textColor: 'primary.light',
-                        backgroundColor: 'primary.dark',
+                        textColor: 'neutral.1',
+                        backgroundColor: 'primary.8',
                       }}
                     />
                   </Flex>

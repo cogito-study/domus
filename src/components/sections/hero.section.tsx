@@ -21,17 +21,17 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
     <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
       <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
         <Box ml={[0, 0, 3]} mr={[0, 0, 6]}>
-          <H1 color="primary.dark">{motto}</H1>
+          <H1 color="primary.8">{motto}</H1>
         </Box>
         <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
           <Box>
-            <H4 color="grey.dark.3">{description}</H4>
+            <H4 color="neutral.8">{description}</H4>
             <EmailInput
               popup={{
                 title: popupTitle,
-                titleColor: 'grey.dark.3',
+                titleColor: 'neutral.8',
                 text: popupText,
-                textColor: 'grey.light.2',
+                textColor: 'neutral.4',
                 backgroundColor: 'white',
               }}
             />
@@ -39,7 +39,7 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
         </Flex>
       </Flex>
       <Box maxWidth="600px">
-        <H4 mt={10} textAlign="center" color="grey.dark.2">
+        <H4 mt={10} textAlign="center" color="neutral.7">
           {subtitle}
         </H4>
       </Box>

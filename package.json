@@ -17,7 +17,7 @@
     "now-build": "yarn run build"
   },
   "dependencies": {
-    "@cogito-study/alea": "^0.1.10",
+    "@cogito-study/alea": "^0.2.0",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.15.3",
     "gatsby-image": "^2.2.16",

@@ -39,7 +39,7 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({ description
         alignItems={['start', 'start', 'center']}
         justifyContent="center"
       >
-        <Paragraph color="grey.normal">{descriptionText}</Paragraph>
+        <Paragraph color="neutral.4">{descriptionText}</Paragraph>
         <Button mt={[3, 3, 0]} ml={[0, 0, 6]} width={['100%', '120px']} onClick={() => hideCookieBanner()}>
           {buttonText}
         </Button>

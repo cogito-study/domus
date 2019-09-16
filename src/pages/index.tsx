@@ -4,6 +4,8 @@ import { Container } from '../components/container';
 import { CustomerSection, FeatureSection, HeroSection, UseCaseSection } from '../components/sections';
 import SEO from '../components/SEO';
 import { Layout } from '../components/layout';
+import { CookieBanner } from '../components/cookie-banner';
+import Cookies from 'js-cookie';
 
 const Index: FunctionComponent<{ data: any }> = ({ data }) => {
   if (!data.allPrismicHome) return null;
@@ -33,6 +35,14 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
           </H3>*/}
         <CustomerSection title={customers_heading.text} />
       </Container>
+      {Cookies.get('CogitoCookie') ? (
+        undefined
+      ) : (
+        <CookieBanner
+          descriptionText="We use cookies and other tracking technologies to improve your browsing experience on our site, show
+          personalized content, analyze site traffic, and understand where our audience is coming from."
+        />
+      )}
     </Layout>
   );
 };

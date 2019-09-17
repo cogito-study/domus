@@ -12,7 +12,7 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
 
   const cookieNode = data.allPrismicHomeBodyCookie.edges[0].node;
   const { node } = data.allPrismicHome.edges[0];
-  const { motto, subtitle, description, customers_heading, popup_text, popup_title } = node.data;
+  const { motto, description, customers_heading, popup_text, popup_title } = node.data;
 
   return (
     <Layout>
@@ -20,7 +20,6 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
       <Container>
         <HeroSection
           motto={motto.text}
-          subtitle={subtitle.text}
           description={description.text}
           popupTitle={popup_title.text}
           popupText={popup_text.text}

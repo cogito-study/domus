@@ -1,4 +1,4 @@
-import { Box, Flex, H2, H3, Paragraph } from '@cogito-study/alea';
+import { Box, Flex, H2, H3, Paragraph, Anchor } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 
@@ -26,20 +26,39 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
           }
         }
       }
+      allPrismicContactBodySocialMedia {
+        edges {
+          node {
+            primary {
+              url {
+                url
+              }
+              icon {
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `);
 
   if (!data.allPrismicAboutBodyAchievements) return null;
 
   return (
-    <>
+    <Flex flexDirection="column" px={[0, 4, 4, 4, 0]}>
       <H2 color="neutral.8" mt={9} mb={7}>
         {title}
       </H2>
       {data.allPrismicAboutBodyAchievements.edges.map((achievement: any, index: any) => {
         const { name, description, icon } = achievement.node.primary;
         return (
-          <Flex flexDirection={['column', 'row']} alignItems="center" mb={7} key={index}>
+          <Flex
+            flexDirection={['column', 'column', 'row']}
+            alignItems={['start', 'start', 'center']}
+            mb={6}
+            key={index}
+          >
             <Box order={[2, 0]} maxWidth="600px">
               <H3 color="neutral.7" mt={0} mb={5}>
                 {name.text}
@@ -48,12 +67,23 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
                 {description.text}
               </Paragraph>
             </Box>
-            <Box order={[1, 0]} ml={[0, 9]} width="180px" height="180px">
-              <img src={icon.url} />
-            </Box>
+            {icon.url && (
+              <Box order={[1, 0]} ml={[0, 0, 9]} width="180px" height="180px">
+                <img src={icon.url} />
+              </Box>
+            )}
           </Flex>
         );
       })}
-    </>
+      <Flex mr={[0, 0, 0, 8]} mb={7} mt={0}>
+        {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
+          <Box key={index} mx={2}>
+            <Anchor href={node.primary.url.url}>
+              <img src={node.primary.icon.url} />
+            </Anchor>
+          </Box>
+        ))}
+      </Flex>
+    </Flex>
   );
 };

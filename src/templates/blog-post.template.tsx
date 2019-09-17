@@ -9,8 +9,8 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
-        <Box width="100%" maxWidth="580px" backgroundColor="grey.light.4">
-          <H1 mx={3} mb={4} mt={10} color="primary.dark">
+        <Box width="100%" maxWidth="580px" backgroundColor="neutral.0">
+          <H1 mx={3} mb={4} mt={10} color="primary.8">
             {data.prismicBlogPost.data.title.text}
           </H1>
           <BlogPostSlices slices={data.prismicBlogPost.data.body} />

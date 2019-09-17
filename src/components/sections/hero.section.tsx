@@ -5,20 +5,13 @@ import { EmailInput } from '../email-input';
 interface HeroSectionProps {
   motto: string;
   description: string;
-  subtitle: string;
   popupTitle: string;
   popupText: string;
 }
 
-export const HeroSection: FunctionComponent<HeroSectionProps> = ({
-  motto,
-  description,
-  subtitle,
-  popupTitle,
-  popupText,
-}) => {
+export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, popupTitle, popupText }) => {
   return (
-    <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 5]} mx={[0, 0, 0, 6]}>
+    <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 10]} mx={[0, 0, 0, 6]}>
       <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
         <Box ml={[0, 0, 3]} mr={[0, 0, 6]}>
           <H1 color="primary.8">{motto}</H1>
@@ -38,11 +31,6 @@ export const HeroSection: FunctionComponent<HeroSectionProps> = ({
           </Box>
         </Flex>
       </Flex>
-      <Box maxWidth="600px">
-        <H4 mt={10} textAlign="center" color="neutral.7">
-          {subtitle}
-        </H4>
-      </Box>
     </Flex>
   );
 };

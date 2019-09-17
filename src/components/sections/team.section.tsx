@@ -47,8 +47,12 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
 
   return (
     <>
-      <H1 color="primary.8">{title}</H1>
-      <H2 color="neutral.8">{subtitle}</H2>
+      <H1 color="primary.8" mb={0}>
+        {title}
+      </H1>
+      <H2 color="neutral.8" mt={4} mb={7}>
+        {subtitle}
+      </H2>
       <Grid gridGap={5} gridTemplateColumns={['1fr 1fr', '1fr 1fr 1fr']}>
         {data.allPrismicAboutBodyProfile.edges.map((profile: any, index: number) => {
           const { image, name, position } = profile.node.primary;

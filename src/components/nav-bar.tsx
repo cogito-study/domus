@@ -68,7 +68,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
     backgroundColor="white"
   >
     <Link to="/">
-      <Box mx={8} my={3} width="90px">
+      <Box mx={[4, 4, 4, 8]} my={3} width="90px">
         <img src="/logos/logo.svg"></img>
       </Box>
     </Link>
@@ -90,8 +90,8 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                 to={pages[pageName]}
                 activeClassName="active"
                 color="neutral.6"
-                hoverColor="neutral.8"
-                fontWeight="bold"
+                hoverColor="accent.8"
+                fontWeight="600"
                 onClick={() => onMenuButtonClicked()}
               >
                 {pageName}
@@ -137,8 +137,8 @@ const DesktopNavBar = () => (
             to={pages[pageName]}
             activeClassName="active"
             color="neutral.6"
-            hoverColor="neutral.8"
-            fontWeight="bold"
+            hoverColor="accent.8"
+            fontWeight="600"
           >
             {pageName}
           </StyledGatsbyLink>

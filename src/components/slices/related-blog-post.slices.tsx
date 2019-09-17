@@ -22,7 +22,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
             <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} key={index}>
               <Box mx={24} maxWidth="300px">
                 <FlexWithShadow
-                  backgroundColor="#D6E0F5"
+                  backgroundColor="information.1"
                   width="300px"
                   height="200px"
                   justifyContent="center"
@@ -33,7 +33,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                     alt={primary.blog_post.document[0].data.hero_image.alt}
                   />
                 </FlexWithShadow>
-                <H4 color="grey.dark.2" mt={4} key={index}>
+                <H4 color="accent.6" mt={4} key={index}>
                   {primary.blog_post.document[0].data.title.text}
                 </H4>
               </Box>

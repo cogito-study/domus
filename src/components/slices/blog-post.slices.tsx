@@ -13,26 +13,26 @@ const ImageWithWidth = styled(Image)`
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
   return (
-    <Flex mx={3} flexDirection="column" backgroundColor="grey.light.4" minHeight="80vh">
+    <Flex mx={3} flexDirection="column" backgroundColor="neutral.0" minHeight="80vh">
       {slices.map((slice: any, index: number) => {
         const { primary, slice_type } = slice;
 
         switch (slice_type) {
           case 'header_1':
             return (
-              <H2 color="primary.dark" mt={5} mb={4} key={index}>
+              <H2 color="primary.8" mt={5} mb={4} key={index}>
                 {primary.text.text}
               </H2>
             );
           case 'header_2':
             return (
-              <H3 color="primary.dark" mt={5} mb={4} key={index}>
+              <H3 color="primary.8" mt={5} mb={4} key={index}>
                 {primary.text.text}
               </H3>
             );
           case 'text':
             return (
-              <Paragraph color="grey.dark.3" my={4} key={index}>
+              <Paragraph color="neutral.8" my={4} key={index}>
                 {primary.text.text}
               </Paragraph>
             );

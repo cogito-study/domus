@@ -22,13 +22,13 @@ const styledProps = compose(
 );
 
 const style = () => css`
-  color: ${({ theme }: StyledGatsbyLinkProps) => theme.colors.neutral[4]};
+  color: ${({ theme }: StyledGatsbyLinkProps) => theme.colors.neutral[5]};
   text-decoration: none;
   cursor: not-allowed;
 
   :link,
   :visited {
-    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) => themeGet(`colors.${color}`, colors.accent[5])};
+    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) => themeGet(`colors.${color}`, colors.accent[6])};
     text-decoration: none;
     cursor: pointer;
   }

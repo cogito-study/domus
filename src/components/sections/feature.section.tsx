@@ -1,4 +1,4 @@
-import { Flex, H3, Paragraph, Button, Box } from '@cogito-study/alea';
+import { Flex, H2, Paragraph, Button, Box } from '@cogito-study/alea';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 
@@ -58,9 +58,9 @@ export const FeatureSection = () => {
               ml={index % 2 == 1 ? [0] : [0, 0, 0, 9]}
               mt={[4, 6, 7, 0]}
             >
-              <H3 my={3} color="primary.8">
+              <H2 my={3} color="primary.8">
                 {title.text}
-              </H3>
+              </H2>
               <Paragraph color="neutral.8">{description.text}</Paragraph>
               <Link to={`/blog/${blog_post.slug}`}>
                 <Button variant="secondary" maxWidth="150px" mt={4}>

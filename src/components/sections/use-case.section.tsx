@@ -43,7 +43,7 @@ export const UseCaseSection = () => {
 
   return (
     <Flex flexDirection="column" alignItems="center" justifyContent="flex-end">
-      <Flex flexWrap="wrap" width={['100%', '70%', '750px', '100%']} justifyContent="center">
+      <Flex flexWrap="wrap" width={['100%', '65%', '750px', '100%']} justifyContent="center">
         {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
           const { icon, title, description, blog_post } = useCase.node.primary;
 
@@ -53,31 +53,35 @@ export const UseCaseSection = () => {
               key={index}
               flexDirection="column"
               width={['100%', '100%', '210px', '260px']}
-              mx={[0, 2]}
-              my={3}
-              px={[2, 2, 2, 4]}
-              pb={[4, 4, 4, 6]}
-              pt={[2, 2, 2, 3]}
+              my={[4, 4, 6]}
+              mx={3}
               alignItems="start"
               justifyContent="space-between"
               border={2}
               borderColor="primary.8"
             >
-              <Flex flexDirection={['row', 'row', 'column']} alignItems={['center', 'center', 'start']}>
+              <Flex
+                mt={[6, 3, 3, 3]}
+                mb={[4, 1, 2, 2]}
+                mx={[2, 2, 0, 2]}
+                flexDirection={['row', 'row', 'column']}
+                alignItems={['center', 'center', 'start']}
+                justifyContent="center"
+              >
                 <Box minWidth="90px" width={['90px', '90px', '90px', '110px']}>
                   <img alt={icon.alt} src={icon.url} width="100%" />
                 </Box>
                 <Flex height={'56px'} alignItems="center">
-                  <H3 my={1} mx={[2, 2, 2, 4]} color="primary.8">
+                  <H3 my={1} mx={[3, 3, 3, 4]} color="primary.8">
                     {title.text}
                   </H3>
                 </Flex>
               </Flex>
               <Flex
                 mt={1}
-                px={[2, 2, 2, 4]}
+                mx={[5, 5, 3, 5]}
                 flexDirection="column"
-                height={['100%', '100%', '220px', '200px']}
+                height={['100%', '200px', '260px', '240px']}
                 justifyContent="space-between"
               >
                 <Flex flexDirection="column">
@@ -85,9 +89,9 @@ export const UseCaseSection = () => {
                     {description.text}
                   </Paragraph>
                 </Flex>
-                <Flex justifyContent="center">
+                <Flex justifyContent="center" mb={5} mt={[2, 2, 2, 4]}>
                   <Link to={`/blog/${blog_post.slug}`}>
-                    <Button variant="secondary" maxWidth="150px" mt={4}>
+                    <Button variant="secondary" maxWidth="150px">
                       learn more
                     </Button>
                   </Link>

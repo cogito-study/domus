@@ -34,7 +34,7 @@ export const PartnerSection = () => {
           const { link, logo, name } = partner.node.primary;
 
           return (
-            <Anchor key={index} href={link.url} mx={6}>
+            <Anchor key={index} href={link.url} mx={[2, 2, 6]}>
               <Box width={['110px', '100px', '110px']}>
                 <img width="100%" src={logo.url} alt={name.text}></img>
               </Box>

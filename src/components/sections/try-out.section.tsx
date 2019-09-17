@@ -68,7 +68,7 @@ export const TryOutSection = () => {
                 {image_description.text}
               </Paragraph>
             </Flex>
-            <Flex flexDirection="column" maxWidth="420px" mx={3}>
+            <Flex flexDirection="column" maxWidth={['300px', '420px']} mx={3}>
               <H2 my={2} color="neutral.1">
                 {title.text}
               </H2>

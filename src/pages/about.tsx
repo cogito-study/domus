@@ -9,7 +9,7 @@ const About: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
       <SEO />
-      <Container mt={10}>
+      <Container mt={[8, 8, 10]}>
         <TeamSection
           title={data.allPrismicAbout.edges[0].node.data.title.text}
           subtitle={data.allPrismicAbout.edges[0].node.data.subtitle.text}

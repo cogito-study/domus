@@ -13,7 +13,7 @@ const ImageWithWidth = styled(Image)`
 
 export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }) => {
   return (
-    <Flex mx={3} flexDirection="column" backgroundColor="neutral.0" minHeight="80vh">
+    <Flex mx={3} flexDirection="column" backgroundColor="transparent" minHeight="80vh">
       {slices.map((slice: any, index: number) => {
         const { primary, slice_type } = slice;
 
@@ -32,7 +32,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
             );
           case 'text':
             return (
-              <Paragraph color="neutral.8" my={4} key={index}>
+              <Paragraph color="neutral.8" my={4} key={index} lineHeight="1.9">
                 {primary.text.text}
               </Paragraph>
             );

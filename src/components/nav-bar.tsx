@@ -100,7 +100,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
           ))}
         </Flex>
         <Flex flexDirection="column" mb={6}>
-          <Anchor href="/login">
+          <Anchor href="https://app.cogito.study">
             <Button variant="secondary" mb={4}>
               log in
             </Button>
@@ -146,7 +146,7 @@ const DesktopNavBar = () => (
       ))}
     </Flex>
     <Flex alignItems="center">
-      <Anchor href="/login" mr={6} fontWeight={600}>
+      <Anchor href="https://app.cogito.study" mr={6} fontWeight={600}>
         <Button variant="tertiary">log in</Button>
       </Anchor>
       <Anchor href="/#tryout">

@@ -1,23 +1,8 @@
-import { Box, Grid, H1, H2, H3, Paragraph, Flex } from '@cogito-study/alea';
+import { Grid, H1, H2, Flex } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
+import { TeamMember } from '../team-member';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-
-const ProfileImage = styled(Image)`
-  height: 100%;
-  object-fit: cover;
-  max-width: 300px;
-  max-height: 300px;
-`;
-
-const ImageContainer = styled(Box)`
-  display: block;
-  max-width: 300px;
-  max-height: 300px;
-
-  overflow: hidden;
-`;
 
 const StyledGrid = styled(Grid)`
   justify-items: start;
@@ -35,7 +20,7 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
         edges {
           node {
             primary {
-              image {
+              original_image {
                 localFile {
                   childImageSharp {
                     fluid(maxHeight: 600, quality: 90, cropFocus: CENTER, fit: COVER) {
@@ -44,6 +29,15 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
                   }
                 }
                 alt
+              }
+              hovered_image1 {
+                localFile {
+                  childImageSharp {
+                    fluid(maxHeight: 600, quality: 90, cropFocus: CENTER, fit: COVER) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
               }
               name {
                 text
@@ -75,20 +69,17 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
       </H2>
       <StyledGrid gridGap={[3, 3, 4, 5, 6]} gridTemplateColumns={['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']}>
         {data.allPrismicAboutBodyProfile.edges.map((profile: any, index: number) => {
-          const { image, name, position } = profile.node.primary;
+          const { original_image, hovered_image1, name, position } = profile.node.primary;
 
           return (
-            <Box width={[140, 200, 200, 260, 300]} key={index}>
-              <ImageContainer height={[140, 200, 200, 260, 300]} width={[140, 200, 200, 260, 300]}>
-                <ProfileImage fluid={image.localFile.childImageSharp.fluid} alt={image.alt} />
-              </ImageContainer>
-              <H3 fontSize={[15, 18, 18, 22]} mb={1} mt={2} color="primary.8">
-                {name.text}
-              </H3>
-              <Paragraph fontSize={[13, 16]} lineHeight={1.2} mb={6} mt={0} color="neutral.6">
-                {position.text}
-              </Paragraph>
-            </Box>
+            <TeamMember
+              original_image={original_image.localFile}
+              hovered_image1={hovered_image1.localFile}
+              name={name.text}
+              position={position.text}
+              key={index}
+              alt={original_image.alt}
+            />
           );
         })}
       </StyledGrid>

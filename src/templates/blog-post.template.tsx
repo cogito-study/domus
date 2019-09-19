@@ -87,7 +87,7 @@ export const query = graphql`
                     hero_image {
                       localFile {
                         childImageSharp {
-                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#D6E0F5") {
+                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
                             ...GatsbyImageSharpFixed
                           }
                         }

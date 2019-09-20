@@ -19,6 +19,6 @@ module.exports = {
   mailchimpEndpoint: 'https://study.us19.list-manage.com/subscribe/post?u=ddbbe17bbc2b32abedaeb4c06&amp;id=6a76597695',
 
   // Manifest and Progress color
-  themeColor: '#db7436',
-  backgroundColor: '#3b3c4f',
-}
+  themeColor: '#002B66',
+  backgroundColor: '#E5E5E5',
+};

@@ -7,7 +7,7 @@ import Twitter from './twitter';
 const defaultProps = {
   title: '',
   desc: '',
-  banner: '',
+  banner: '/og-image.png',
   pathname: '',
   node: {
     modifiedTime: '',
@@ -27,7 +27,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
           siteUrl
           defaultTitle: titleAlt
           defaultDescription: description
-          defaultBanner: logo
+          defaultBanner
           headline
           siteLanguage
           ogLanguage

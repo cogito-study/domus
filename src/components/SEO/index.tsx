@@ -7,7 +7,7 @@ import Twitter from './twitter';
 const defaultProps = {
   title: '',
   desc: '',
-  banner: '/og-image.png',
+  banner: '',
   pathname: '',
   node: {
     modifiedTime: '',
@@ -76,20 +76,20 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
     description: defaultDescription,
     name: defaultTitle,
     author: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: author,
     },
     copyrightHolder: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: author,
     },
     copyrightYear: '2019',
     creator: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: author,
     },
     publisher: {
-      '@type': 'Person',
+      '@type': 'Organization',
       name: author,
     },
     datePublished: '2019-03-10T10:30:00+01:00',
@@ -122,18 +122,10 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
     {
       '@type': 'ListItem',
       item: {
-        '@id': `${siteUrl}/projects`,
-        name: 'About',
+        '@id': `${siteUrl}/contact`,
+        name: 'Contact',
       },
       position: 3,
-    },
-    {
-      '@type': 'ListItem',
-      item: {
-        '@id': `${siteUrl}/instagram`,
-        name: 'About',
-      },
-      position: 4,
     },
   ];
 
@@ -144,16 +136,16 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
       '@context': 'http://schema.org',
       '@type': 'Article',
       author: {
-        '@type': 'Person',
+        '@type': 'Organization',
         name: author,
       },
       copyrightHolder: {
-        '@type': 'Person',
+        '@type': 'Organization',
         name: author,
       },
       copyrightYear: '2019',
       creator: {
-        '@type': 'Person',
+        '@type': 'Organization',
         name: author,
       },
       publisher: {
@@ -202,7 +194,6 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         <html lang={siteLanguage} />
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
-        <meta name="gatsby-starter" content="Gatsby Starter Portfolio Jodie" />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
         {!individual && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
         {individual && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}

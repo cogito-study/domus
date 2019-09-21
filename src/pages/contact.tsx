@@ -6,7 +6,7 @@ import { ContactSection } from '../components/sections';
 const Contact: FunctionComponent = () => {
   return (
     <Layout>
-      <SEO />
+      <SEO title="Contact | Cogito" />
       <ContactSection />
     </Layout>
   );

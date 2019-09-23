@@ -58,11 +58,7 @@ export const ContactSection: FunctionComponent = () => {
                   {data.allPrismicContact.nodes[0].data.e_mail.text}
                 </Anchor>
               </Box>
-              <Box my={2}>
-                <Anchor href={`tel:${data.allPrismicContact.nodes[0].data.phone_number.text}`} fontWeight="semibold">
-                  {data.allPrismicContact.nodes[0].data.phone_number.text}
-                </Anchor>
-              </Box>
+
               <Box my={2}>
                 <Anchor
                   href="https://www.google.com/maps/place/Cogito+Technologies+Ltd./@47.4995828,19.0565544,17z/data=!3m1!4b1!4m5!3m4!1s0x4741dd4808c49f37:0xd2d0d6ae69129e56!8m2!3d47.4995792!4d19.0587484"

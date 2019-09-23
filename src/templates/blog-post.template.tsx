@@ -4,10 +4,12 @@ import React, { FunctionComponent } from 'react';
 import { Layout } from '../components/layout';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
+import SEO from '../components/SEO';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
+      <SEO individual title={data.prismicBlogPost.data.title.text} />
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="transparent">
           <H1 mx={3} mb={4} mt={10} color="primary.8">
@@ -87,7 +89,7 @@ export const query = graphql`
                     hero_image {
                       localFile {
                         childImageSharp {
-                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#D6E0F5") {
+                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
                             ...GatsbyImageSharpFixed
                           }
                         }

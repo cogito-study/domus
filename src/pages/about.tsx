@@ -8,7 +8,7 @@ import SEO from '../components/SEO';
 const About: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Layout>
-      <SEO />
+      <SEO title="About | Cogito" />
       <Container mt={[8, 8, 10]}>
         <TeamSection
           title={data.allPrismicAbout.edges[0].node.data.title.text}

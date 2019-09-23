@@ -22,7 +22,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
             <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} key={index}>
               <Box mx={24} maxWidth="300px">
                 <FlexWithShadow
-                  backgroundColor="information.1"
+                  backgroundColor="accent.1"
                   width="300px"
                   height="200px"
                   justifyContent="center"

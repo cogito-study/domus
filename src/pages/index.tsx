@@ -3,7 +3,6 @@ import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { CustomerSection, FeatureSection, HeroSection, UseCaseSection } from '../components/sections';
 import SEO from '../components/SEO';
-import { Layout } from '../components/layout';
 import { CookieBanner } from '../components/cookie-banner';
 import Cookies from 'js-cookie';
 
@@ -16,7 +15,7 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
   const { motto, description, customers_heading, popup_text, popup_title } = node.data;
 
   return (
-    <Layout>
+    <>
       <SEO />
       <Container>
         <HeroSection
@@ -44,7 +43,7 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
           buttonText={cookieNode.primary.button_title.text}
         />
       )}
-    </Layout>
+    </>
   );
 };
 

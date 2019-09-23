@@ -42,7 +42,7 @@ const style = () => css`
   :focus {
     color: ${({ to, color, theme: { colors } }: StyledGatsbyLinkProps) =>
       !to ? colors.neutral[4] : themeGet(`colors.${color}`, colors.accent[5])};
-    text-decoration: underline;
+    text-decoration: none;
     outline: none;
   }
 

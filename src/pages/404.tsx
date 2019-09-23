@@ -2,14 +2,13 @@ import React, { FunctionComponent } from 'react';
 import { Flex, H1, H2, Button } from '@cogito-study/alea';
 import { Link } from 'gatsby';
 
-import { Layout } from '../components/layout';
 import SEO from '../components/SEO';
 import { Container } from '../components/container';
 import travolta from '../../static/travolta.gif';
 
 const Notfound: FunctionComponent = () => {
   return (
-    <Layout>
+    <>
       <SEO />
       <Container
         alignItems="center"
@@ -37,7 +36,7 @@ const Notfound: FunctionComponent = () => {
           </Flex>
         </Flex>
       </Container>
-    </Layout>
+    </>
   );
 };
 

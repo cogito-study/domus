@@ -1,14 +1,13 @@
 import { Box, Flex, H1 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { Layout } from '../components/layout';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import SEO from '../components/SEO';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
-    <Layout>
+    <>
       <SEO individual title={data.prismicBlogPost.data.title.text} />
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="transparent">
@@ -19,7 +18,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
         </Box>
         <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
       </Flex>
-    </Layout>
+    </>
   );
 };
 

@@ -59,7 +59,7 @@ const GlobalStyles = createGlobalStyle`
   ${reset}
 `;
 
-export const Layout: FunctionComponent = ({ children }) => {
+const Layout: FunctionComponent = ({ children }) => {
   const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <ThemeProvider theme={theme}>
@@ -77,3 +77,5 @@ export const Layout: FunctionComponent = ({ children }) => {
     </ThemeProvider>
   );
 };
+
+export default Layout;

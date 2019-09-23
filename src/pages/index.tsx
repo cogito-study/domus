@@ -5,6 +5,7 @@ import { CustomerSection, FeatureSection, HeroSection, UseCaseSection } from '..
 import SEO from '../components/SEO';
 import { Layout } from '../components/layout';
 import { CookieBanner } from '../components/cookie-banner';
+import Cookies from 'js-cookie';
 
 const Index: FunctionComponent<{ data: any }> = ({ data }) => {
   if (!data.allPrismicHome) return null;
@@ -35,10 +36,14 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
           </H3>*/}
         <CustomerSection title={customers_heading.text} />
       </Container>
-      <CookieBanner
-        descriptionText={cookieNode.primary.description_text.text}
-        buttonText={cookieNode.primary.button_title.text}
-      />
+      {Cookies.get('CogitoCookie') ? (
+        undefined
+      ) : (
+        <CookieBanner
+          descriptionText={cookieNode.primary.description_text.text}
+          buttonText={cookieNode.primary.button_title.text}
+        />
+      )}
     </Layout>
   );
 };

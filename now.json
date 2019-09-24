@@ -7,7 +7,7 @@
     "config": { "distDir": "public" },
     "env": {
       "API_KEY": "@prismic-api",
-      "GOOGLE_ANALYTICS_ID": ""
+      "GOOGLE_ANALYTICS_ID": "@oogle-analytics-id"
     }
   },
   "routes": [

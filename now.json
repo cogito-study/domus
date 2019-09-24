@@ -6,7 +6,8 @@
     "use": "@now/static-build",
     "config": { "distDir": "public" },
     "env": {
-      "API_KEY": "@prismic-api"
+      "API_KEY": "@prismic-api",
+      "GOOGLE_ANALYTICS_ID": ""
     }
   },
   "routes": [

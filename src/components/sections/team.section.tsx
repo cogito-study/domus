@@ -1,8 +1,8 @@
-import { Grid, H1, H2, Flex } from '@cogito-study/alea';
+import { Grid, H1, H2, Flex } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import { TeamMember } from '../team-member';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const StyledGrid = styled(Grid)`
   justify-items: start;

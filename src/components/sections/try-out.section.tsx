@@ -1,4 +1,4 @@
-import { Flex, H2, Paragraph } from '@cogito-study/alea';
+import { Flex, H2, Paragraph } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { EmailInput } from '../email-input';

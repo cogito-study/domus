@@ -1,4 +1,4 @@
-import { Button, Flex, TextInput, EmailIcon, Box, Paragraph, Anchor } from '@cogito-study/alea';
+import { Button, Flex, TextInput, EmailIcon, Box, Paragraph, Anchor } from '@chakra-ui/core';
 import React, { FunctionComponent, useState, ChangeEvent } from 'react';
 import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
 import PrivacyPolicy from '../../static/documents/Adatvedelem.pdf';

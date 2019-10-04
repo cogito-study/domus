@@ -1,4 +1,4 @@
-import { Flex, H4, Paragraph, Box } from '@cogito-study/alea';
+import { Flex, H4, Paragraph, Box } from '@chakra-ui/core';
 import React, { FunctionComponent } from 'react';
 import Email from '../../static/logos/email.svg';
 

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { H3, H2, Paragraph, Flex } from '@cogito-study/alea';
+import { H3, H2, Paragraph, Flex } from '@chakra-ui/core';
 import Image from 'gatsby-image';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 interface BlogPostSliceProps {
   slices: any[];

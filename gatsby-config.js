@@ -33,7 +33,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+    `gatsby-plugin-emotion`,
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-google-analytics',

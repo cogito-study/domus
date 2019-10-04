@@ -1,7 +1,7 @@
-import { Box, Flex, H4 } from '@cogito-study/alea';
+import { Box, Flex, H4 } from '@chakra-ui/core';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
 
 interface RelatedBlogPostSlicesProps {

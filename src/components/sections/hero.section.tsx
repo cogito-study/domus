@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Box, H1, Flex, H4 } from '@cogito-study/alea';
+import { Box, H1, Flex, H4 } from '@chakra-ui/core';
 import { EmailInput } from '../email-input';
 
 interface HeroSectionProps {

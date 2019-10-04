@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Flex, H1, H2, Button } from '@cogito-study/alea';
+import { Flex, H1, H2, Button } from '@chakra-ui/core';
 import { Link } from 'gatsby';
 
 import SEO from '../components/SEO';

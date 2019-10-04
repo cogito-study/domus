@@ -1,4 +1,4 @@
-import { Box, Flex, H1 } from '@cogito-study/alea';
+import { Box, Flex, H1 } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';

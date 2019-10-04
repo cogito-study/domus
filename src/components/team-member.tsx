@@ -1,9 +1,9 @@
-import { Box, H3, Paragraph } from '@cogito-study/alea';
+import { Box, H3, Paragraph } from '@chakra-ui/core';
 import Image from 'gatsby-image';
 import { ChildImageSharp } from '../types';
 import React, { FunctionComponent, useState } from 'react';
 
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const ProfileImage = styled(Image)`
   height: 100%;

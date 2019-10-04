@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from '@emotion/core';
 
 const reset = css`
   button,
@@ -130,6 +130,6 @@ const reset = css`
   textarea {
     touch-action: manipulation;
   }
-`
+`;
 
-export default reset
+export default reset;

@@ -1,6 +1,6 @@
-import { Anchor, Box, Button, Flex, theme } from '@cogito-study/alea';
+import { Anchor, Box, Button, Flex, theme } from '@chakra-ui/core';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 

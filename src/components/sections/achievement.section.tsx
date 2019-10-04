@@ -1,4 +1,4 @@
-import { Box, Flex, H2, H3, Paragraph, Anchor } from '@cogito-study/alea';
+import { Box, Flex, Heading, Text, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 
@@ -47,9 +47,9 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
 
   return (
     <Flex flexDirection="column" px={[0, 4, 4, 4, 0]}>
-      <H2 color="neutral.8" mt={9} mb={7}>
+      <Heading as="h2" color="neutral.8" mt={9} mb={7}>
         {title}
-      </H2>
+      </Heading>
       {data.allPrismicAboutBodyAchievements.edges.map((achievement: any, index: any) => {
         const { name, description, icon } = achievement.node.primary;
         return (
@@ -60,12 +60,12 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
             key={index}
           >
             <Box order={[2, 0]} maxWidth="600px">
-              <H3 color="neutral.7" mt={0} mb={5}>
+              <Heading as="h3" color="neutral.7" mt={0} mb={5}>
                 {name.text}
-              </H3>
-              <Paragraph color="neutral.7" mt={0} paragraphSize="medium">
+              </Heading>
+              <Text color="neutral.7" mt={0}>
                 {description.text}
-              </Paragraph>
+              </Text>
             </Box>
             {icon.url && (
               <Box order={[1, 0]} ml={[0, 0, 9]} width="180px" height="180px">
@@ -78,9 +78,9 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
       <Flex mr={[0, 0, 0, 8]} mb={7} mt={0}>
         {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
           <Box key={index} mx={2}>
-            <Anchor href={node.primary.url.url}>
+            <Link href={node.primary.url.url}>
               <img src={node.primary.icon.url} />
-            </Anchor>
+            </Link>
           </Box>
         ))}
       </Flex>

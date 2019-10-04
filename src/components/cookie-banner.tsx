@@ -1,7 +1,7 @@
-import { Button, Flex, FlexProps, Paragraph } from '@cogito-study/alea';
+import { Button, Flex, FlexProps, Paragraph } from '@chakra-ui/core';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent, useState } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 type AbsoluteContainerProps = FlexProps & { isVisible: boolean };
 

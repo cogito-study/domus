@@ -1,7 +1,7 @@
-import { Flex, H3, Paragraph, Button, Box, Anchor } from '@cogito-study/alea';
+import { Flex, H3, Paragraph, Button, Box, Anchor } from '@chakra-ui/core';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Background = styled(Flex)`
   position: absolute;

@@ -1,4 +1,4 @@
-import { Anchor, Flex, Box } from '@cogito-study/alea';
+import { Anchor, Flex, Box } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 

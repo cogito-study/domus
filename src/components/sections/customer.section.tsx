@@ -1,4 +1,4 @@
-import { Box, Flex, H2, H4, Anchor } from '@cogito-study/alea';
+import { Box, Flex, H2, H4, Anchor } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';

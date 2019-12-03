@@ -1,9 +1,10 @@
+import { ThemeProvider as ChakraProvider } from '@chakra-ui/core';
 import { Box, theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import reset from '../styles/reset';
+import { chakraTheme } from '../theme/chakra';
 import { NavBar } from './nav-bar';
-import { PartnerSection, TryOutSection, FooterSection } from './sections';
+import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
 const GlobalStyles = createGlobalStyle`
   *::before,
@@ -55,25 +56,25 @@ const GlobalStyles = createGlobalStyle`
                          no-repeat;
     }
   }
-
-  ${reset}
 `;
 
 const Layout: FunctionComponent = ({ children }) => {
   const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyles overlayMenuActive={overlayMenuActive} />
-        <NavBar
-          overlayMenuActive={overlayMenuActive}
-          onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
-        />
-        <Box>{children}</Box>
-        <TryOutSection />
-        <PartnerSection />
-        <FooterSection />
-      </>
+      <ChakraProvider theme={chakraTheme}>
+        <>
+          <GlobalStyles overlayMenuActive={overlayMenuActive} />
+          <NavBar
+            overlayMenuActive={overlayMenuActive}
+            onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
+          />
+          <Box>{children}</Box>
+          <TryOutSection />
+          <PartnerSection />
+          <FooterSection />
+        </>
+      </ChakraProvider>
     </ThemeProvider>
   );
 };

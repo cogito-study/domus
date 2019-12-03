@@ -34,7 +34,7 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
                 <Input
                   type="email"
                   name="email"
-                  placeholder="Enter your e-mail asd"
+                  placeholder="Enter your e-mail"
                   value={value || ''}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
                   bg="white"

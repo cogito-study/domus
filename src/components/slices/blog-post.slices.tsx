@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from 'react';
-import { H3, H2, Paragraph, Flex } from '@cogito-study/alea';
+import { Flex, H2, H3, Paragraph } from '@cogito-study/alea';
 import Image from 'gatsby-image';
+import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 interface BlogPostSliceProps {
@@ -16,6 +16,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
     <Flex mx={3} flexDirection="column" backgroundColor="transparent" minHeight="80vh">
       {slices.map((slice: any, index: number) => {
         const { primary, slice_type } = slice;
+        console.log(primary);
 
         switch (slice_type) {
           case 'header_1':
@@ -32,9 +33,13 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
             );
           case 'text':
             return (
-              <Paragraph color="neutral.8" my={4} key={index} lineHeight="1.9">
-                {primary.text.text}
-              </Paragraph>
+              <Paragraph
+                color="neutral.8"
+                my={4}
+                key={index}
+                lineHeight="1.9"
+                dangerouslySetInnerHTML={{ __html: primary.text.html }}
+              />
             );
           case 'image':
             return (

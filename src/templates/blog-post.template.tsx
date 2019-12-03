@@ -1,9 +1,9 @@
 import { Box, Flex, H1 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import SEO from '../components/SEO';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
-import SEO from '../components/SEO';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
@@ -55,7 +55,7 @@ export const query = graphql`
           ... on PrismicBlogPostBodyText {
             primary {
               text {
-                text
+                html
               }
             }
             slice_type

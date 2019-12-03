@@ -33,9 +33,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-chakra-ui',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-chakra-ui',
+      options: {
+        isUsingColorMode: false,
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

@@ -16,7 +16,6 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
     <Flex mx={3} flexDirection="column" backgroundColor="transparent" minHeight="80vh">
       {slices.map((slice: any, index: number) => {
         const { primary, slice_type } = slice;
-        console.log(primary);
 
         switch (slice_type) {
           case 'header_1':

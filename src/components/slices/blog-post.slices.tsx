@@ -1,7 +1,14 @@
-import { Flex, H2, H3, Paragraph } from '@cogito-study/alea';
+import { Flex, H2, H3, Paragraph, theme } from '@cogito-study/alea';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+
+const StyledParagraph = styled(Paragraph)`
+  a {
+    color: ${theme.colors.accent[6]};
+    text-decoration: underline;
+  }
+`;
 
 interface BlogPostSliceProps {
   slices: any[];
@@ -32,7 +39,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
             );
           case 'text':
             return (
-              <Paragraph
+              <StyledParagraph
                 color="neutral.8"
                 my={4}
                 key={index}

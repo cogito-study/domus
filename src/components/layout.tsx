@@ -56,11 +56,6 @@ const GlobalStyles = createGlobalStyle`
                          no-repeat;
     }
   }
-
-  a {
-    color: ${theme.colors.accent[6]};
-    text-decoration: underline;
-  }
 `;
 
 const Layout: FunctionComponent = ({ children }) => {

@@ -25,25 +25,26 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
     <Flex>
       <form onSubmit={(e) => e.preventDefault()}>
         {!buttonClicked && (
-          <Flex flexDirection={['column', 'row']} height={['168px', '102px']}>
+          <Flex flexDirection={['column', 'row']} height={['168px', '102px']} mt={2}>
             <FormControl w={262}>
               <InputGroup h={10}>
                 <InputLeftElement>
-                  <Icon as={FiMail} size="24px" mt={1} color="grey.400" />
+                  <Icon as={FiMail} size="24px" color="grey.400" />
                 </InputLeftElement>
                 <Input
                   type="email"
                   name="email"
-                  placeholder="Enter your e-mail"
+                  placeholder="Enter your e-mail asd"
                   value={value || ''}
                   onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
                   bg="white"
+                  color="grey.800"
                   fontFamily="body"
-                  color="grey.300"
                   borderRadius={0}
                   borderColor="grey.500"
                   fontSize="sm"
                   _hover={{ borderColor: 'grey.200' }}
+                  _placeholder={{ color: 'grey.300' }}
                 />
               </InputGroup>
               <FormErrorMessage>{errorMessage}</FormErrorMessage>
@@ -58,7 +59,6 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
               ml={[0, 4]}
               mt={[2, 0]}
               maxWidth="280px"
-              height={44}
               onClick={() => {
                 if (!value) {
                   setErrorMessage('Email address is required!');

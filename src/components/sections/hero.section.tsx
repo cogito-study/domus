@@ -1,5 +1,5 @@
+import { Box, Flex, H1, H4 } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
-import { Box, H1, Flex, H4 } from '@cogito-study/alea';
 import { EmailInput } from '../email-input';
 
 interface HeroSectionProps {

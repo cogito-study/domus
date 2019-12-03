@@ -1,8 +1,20 @@
-import { Button, Flex, TextInput, EmailIcon, Box, Paragraph, Anchor } from '@cogito-study/alea';
-import React, { FunctionComponent, useState, ChangeEvent } from 'react';
-import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
-import PrivacyPolicy from '../../static/documents/Adatvedelem.pdf';
+import {
+  Flex,
+  FormControl,
+  FormErrorMessage,
+  FormHelperText,
+  Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Link,
+} from '@chakra-ui/core';
+import { Button } from '@cogito-study/alea';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
+import React, { ChangeEvent, FunctionComponent, useState } from 'react';
+import { FiMail } from 'react-icons/fi';
+import PrivacyPolicy from '../../static/documents/Adatvedelem.pdf';
+import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
 
 export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -14,30 +26,39 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
       <form onSubmit={(e) => e.preventDefault()}>
         {!buttonClicked && (
           <Flex flexDirection={['column', 'row']} height={['168px', '102px']}>
-            <TextInput
-              width="262px"
-              placeholder="Enter your e-mail"
-              help={
-                <Box>
-                  <Paragraph paragraphSize="small" marginTop="8px" color="neutral.4">
-                    {'By clicking "try out!" your agree to our '}
-                    <Anchor fontSize="10px" marginTop="8px" href={PrivacyPolicy}>
-                      Privacy Policy
-                    </Anchor>
-                    .
-                  </Paragraph>
-                </Box>
-              }
-              error={errorMessage}
-              icon={<EmailIcon />}
-              value={value || ''}
-              name="email"
-              onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
-            />
+            <FormControl w={262}>
+              <InputGroup h={10}>
+                <InputLeftElement>
+                  <Icon as={FiMail} size="24px" mt={1} color="grey.400" />
+                </InputLeftElement>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your e-mail"
+                  value={value || ''}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+                  bg="white"
+                  fontFamily="body"
+                  color="grey.300"
+                  borderRadius={0}
+                  borderColor="grey.500"
+                  fontSize="sm"
+                  _hover={{ borderColor: 'grey.200' }}
+                />
+              </InputGroup>
+              <FormErrorMessage>{errorMessage}</FormErrorMessage>
+              <FormHelperText id="email-helper-text" mt={2} color="grey.400" fontSize={12}>
+                {`By clicking "try out!" your agree to our`}
+                <Link fontSize={12} href={PrivacyPolicy} ml={1} color="teal.500">
+                  Privacy Policy.
+                </Link>
+              </FormHelperText>
+            </FormControl>
             <Button
               ml={[0, 4]}
               mt={[2, 0]}
               maxWidth="280px"
+              height={44}
               onClick={() => {
                 if (!value) {
                   setErrorMessage('Email address is required!');

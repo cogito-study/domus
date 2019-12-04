@@ -1,12 +1,19 @@
-import { Flex, H2, H3, Paragraph, theme } from '@cogito-study/alea';
+import { Flex, H2, H3, theme } from '@cogito-study/alea';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-const StyledParagraph = styled(Paragraph)`
+const Paragraph = styled.div`
   a {
     color: ${theme.colors.accent[6]};
     text-decoration: underline;
+  }
+  p {
+    font-family: 'Nunito Sans', Helvetica, serif;
+    color: ${theme.colors.neutral[8]};
+    line-height: 1.9;
+    margin: 16px 0;
+    font-size: 16px;
   }
 `;
 
@@ -38,15 +45,7 @@ export const BlogPostSlices: FunctionComponent<BlogPostSliceProps> = ({ slices }
               </H3>
             );
           case 'text':
-            return (
-              <StyledParagraph
-                color="neutral.8"
-                my={4}
-                key={index}
-                lineHeight="1.9"
-                dangerouslySetInnerHTML={{ __html: primary.text.html }}
-              />
-            );
+            return <Paragraph dangerouslySetInnerHTML={{ __html: primary.text.html }} />;
           case 'image':
             return (
               <Flex my={7} justifyContent="center" key={index}>

@@ -1,14 +1,16 @@
-import { Box, Flex, H1 } from '@cogito-study/alea';
+import { Flex, H1 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
 import { BlogPostSlices } from '../components/slices/blog-post.slices';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
+import { Box } from '@chakra-ui/core';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <>
       <SEO individual title={data.prismicBlogPost.data.title.text} />
+      <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35}></Box>
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="transparent">
           <H1 mx={3} mb={4} mt={10} color="primary.8">

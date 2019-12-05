@@ -14,6 +14,7 @@ const Paragraph = styled.div`
     line-height: 1.9;
     margin: 16px 0;
     font-size: 16px;
+    font-weight: 600;
   }
 `;
 

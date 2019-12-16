@@ -1,5 +1,6 @@
-import { Flex, H3, Paragraph, Button, Box, Anchor } from '@cogito-study/alea';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Button, Link } from '@chakra-ui/core';
+import { Box, Flex, H3, Paragraph } from '@cogito-study/alea';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -90,22 +91,22 @@ export const UseCaseSection = () => {
                   </Paragraph>
                 </Flex>
                 <Flex justifyContent="center" mb={5} mt={[2, 2, 2, 4]}>
-                  <Link to={`/blog/${blog_post.slug}`}>
-                    <Button variant="secondary" maxWidth="150px">
+                  <GatsbyLink to={`/blog/${blog_post.slug}`}>
+                    <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
                       learn more
                     </Button>
-                  </Link>
+                  </GatsbyLink>
                 </Flex>
               </Flex>
             </Flex>
           );
         })}
       </Flex>
-      <Anchor href="/#tryout">
-        <Button variant="primary" maxWidth="150px" mt={4} mb={6}>
-          try out!
+      <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+        <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0} w="200px" my={6}>
+          try out
         </Button>
-      </Anchor>
+      </Link>
       <Background backgroundColor="primary.8" display={['none', 'none', 'block']} />
     </Flex>
   );

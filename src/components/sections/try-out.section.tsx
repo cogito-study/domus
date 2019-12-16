@@ -1,7 +1,7 @@
+import { Button, Link } from '@chakra-ui/core';
 import { Flex, H2, Paragraph } from '@cogito-study/alea';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { EmailInput } from '../email-input';
 
 export const TryOutSection = () => {
   const data = useStaticQuery(graphql`
@@ -55,7 +55,7 @@ export const TryOutSection = () => {
         return (
           <Flex
             width="100%"
-            flexDirection={['column', 'column', 'column', 'row']}
+            flexDirection={['column', 'column', 'row', 'row']}
             my={7}
             justifyContent="center"
             alignItems="center"
@@ -68,29 +68,24 @@ export const TryOutSection = () => {
                 {image_description.text}
               </Paragraph>
             </Flex>
-            <Flex flexDirection="column" maxWidth={['300px', '420px']} mx={3}>
+            <Flex
+              flexDirection="column"
+              alignItems={['center', 'center', 'start']}
+              textAlign={['center', 'center', 'start']}
+              maxWidth={['300px', '420px']}
+              mx={3}
+            >
               <H2 my={2} color="neutral.1">
                 {title.text}
               </H2>
               <Paragraph mb={3} color="neutral.1">
                 {subtitle.text}
               </Paragraph>
-              {data.allPrismicHome.edges.map((tryOutPopup: any, index: number) => {
-                const { popup_text, popup_title } = tryOutPopup.node.data;
-                return (
-                  <Flex mt={2} flexDirection={['column', 'row']} key={index}>
-                    <EmailInput
-                      popup={{
-                        title: popup_title.text,
-                        titleColor: 'white',
-                        text: popup_text.text,
-                        textColor: 'neutral.1',
-                        backgroundColor: 'primary.8',
-                      }}
-                    />
-                  </Flex>
-                );
-              })}
+              <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+                <Button variant="solid" variantColor="teal" color="blue.800" w="200px" borderRadius={0}>
+                  try out!
+                </Button>
+              </Link>
             </Flex>
           </Flex>
         );

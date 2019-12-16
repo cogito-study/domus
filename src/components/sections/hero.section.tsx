@@ -1,6 +1,6 @@
+import { Button, Link } from '@chakra-ui/core';
 import { Box, Flex, H1, H4 } from '@cogito-study/alea';
 import React, { FunctionComponent } from 'react';
-import { EmailInput } from '../email-input';
 
 interface HeroSectionProps {
   motto: string;
@@ -9,27 +9,21 @@ interface HeroSectionProps {
   popupText: string;
 }
 
-export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, popupTitle, popupText }) => {
+export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description }) => {
   return (
-    <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 10]} mx={[0, 0, 0, 6]}>
-      <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
-        <Box ml={[0, 0, 3]} mr={[0, 0, 6]}>
+    <Flex flexDirection="column" alignItems="center" mt={7} pt={[7, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
+      <Flex flexDirection="column" justifyContent="center" maxWidth="830px" minHeight="350px">
+        <Box mr={[0, 0, 6]}>
           <H1 color="primary.8">{motto}</H1>
+          <H4 mt={3} color="neutral.8">
+            {description}
+          </H4>
         </Box>
-        <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
-          <Box>
-            <H4 color="neutral.8">{description}</H4>
-            <EmailInput
-              popup={{
-                title: popupTitle,
-                titleColor: 'neutral.8',
-                text: popupText,
-                textColor: 'neutral.4',
-                backgroundColor: 'white',
-              }}
-            />
-          </Box>
-        </Flex>
+        <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+          <Button variant="solid" mt={[4, 4, 4, 8]} variantColor="teal" color="blue.800" borderRadius={0} w="200px">
+            try out
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   );

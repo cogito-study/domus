@@ -1,7 +1,8 @@
-import { Anchor, Box, Button, Flex, theme } from '@cogito-study/alea';
+import { Button, Link } from '@chakra-ui/core';
+import { Box, Flex, theme } from '@cogito-study/alea';
+import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 
 const pages: Record<string, string> = {
@@ -67,11 +68,11 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
     borderColor="primary.1"
     backgroundColor="white"
   >
-    <Link to="/">
+    <GatsbyLink to="/">
       <Box mx={[4, 4, 4, 8]} my={3} width="90px">
         <img src="/logos/logo.svg"></img>
       </Box>
-    </Link>
+    </GatsbyLink>
     <Box mr={4} onClick={() => onMenuButtonClicked()}>
       {!overlayMenuActive ? <img src="/logos/menu.svg" /> : <img src="/logos/close.svg" />}
     </Box>
@@ -99,17 +100,17 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
             </Box>
           ))}
         </Flex>
-        <Flex flexDirection="column" mb={6}>
-          <Anchor href="https://app.cogito.study">
-            <Button variant="secondary" mb={4}>
+        <Flex flexDirection="column" alignItems="center" mb={6}>
+          <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+            <Button variant="solid" variantColor="teal" color="blue.800" w="200px" borderRadius={0} mb={4}>
+              try out
+            </Button>
+          </Link>
+          <Link href="https://app.cogito.study">
+            <Button variant="ghost" variantColor="blue" w="200px" borderRadius={0}>
               log in
             </Button>
-          </Anchor>
-          <Anchor href="/#tryout">
-            <Button mb={6} onClick={() => onMenuButtonClicked()}>
-              try out!
-            </Button>
-          </Anchor>
+          </Link>
         </Flex>
       </OverlayMenu>
     )}
@@ -126,11 +127,11 @@ const DesktopNavBar = () => (
     backgroundColor="white"
   >
     <Flex alignItems="center">
-      <Link to="/">
+      <GatsbyLink to="/">
         <Box mx={7} my={3} width="90px">
           <img src="/logos/logo.svg"></img>
         </Box>
-      </Link>
+      </GatsbyLink>
       {Object.keys(pages).map((pageName, index) => (
         <Box key={index} height="22px" width="98px" textAlign="center" mr={[0, 0, 0, 1, 4]}>
           <StyledGatsbyLink
@@ -145,13 +146,17 @@ const DesktopNavBar = () => (
         </Box>
       ))}
     </Flex>
-    <Flex alignItems="center">
-      <Anchor href="https://app.cogito.study" mr={6} fontWeight={600}>
-        <Button variant="tertiary">log in</Button>
-      </Anchor>
-      <Anchor href="/#tryout">
-        <Button mr={6}>try out!</Button>
-      </Anchor>
+    <Flex justifyContent="center">
+      <a href="https://app.cogito.study">
+        <Button variant="ghost" color="blue.800" w="110px" borderRadius={0} mr={4}>
+          log in
+        </Button>
+      </a>
+      <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+        <Button variant="solid" variantColor="teal" w="110px" color="blue.800" borderRadius={0} mr={8}>
+          try out
+        </Button>
+      </Link>
     </Flex>
   </NavbarContainerLarge>
 );

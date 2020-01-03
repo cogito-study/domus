@@ -1,10 +1,8 @@
-import { Flex, Box, H2, Anchor } from '@cogito-study/alea';
+import { Anchor, Box, Flex, H2 } from '@cogito-study/alea';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
 import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
-import TermsAndConditions from '../../../static/documents/ASZF.pdf';
-import PrivacyPolicy from '../../../static/documents/Adatvedelem.pdf';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`
@@ -165,14 +163,10 @@ export const FooterSection = () => {
             </Flex>
             <Flex flexDirection="row" mt={[2, 2, 2, 0]} mb={[3, 3, 3, 0]}>
               <Box mr={4}>
-                <Anchor href={TermsAndConditions} color="neutral.5">
-                  Terms and conditions
-                </Anchor>
+                <Link to="/terms-conditions">Terms and conditions</Link>
               </Box>
               <Box ml={4}>
-                <Anchor href={PrivacyPolicy} color="neutral.5">
-                  Privacy policy
-                </Anchor>
+                <Link to="/privacy-policy">Privacy policy</Link>
               </Box>
             </Flex>
           </Flex>

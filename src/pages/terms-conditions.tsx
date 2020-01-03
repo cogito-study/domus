@@ -3,12 +3,12 @@ import React from 'react';
 import { Container } from '../components/container';
 import SEO from '../components/SEO';
 
-const PrivacyPolicy = ({ data }: any) => {
+const TermsConditions = ({ data }: any) => {
   return (
     <>
       <SEO />
       <Container mt={12}>
-        <div dangerouslySetInnerHTML={{ __html: data.prismicPrivacyPolicy.data.content.html }} />
+        <div dangerouslySetInnerHTML={{ __html: data.prismicTermsConditions.data.content.html }} />
       </Container>
     </>
   );
@@ -16,7 +16,7 @@ const PrivacyPolicy = ({ data }: any) => {
 
 export const query = graphql`
   query {
-    prismicPrivacyPolicy {
+    prismicTermsConditions {
       data {
         content {
           html
@@ -26,4 +26,4 @@ export const query = graphql`
   }
 `;
 
-export default PrivacyPolicy;
+export default TermsConditions;

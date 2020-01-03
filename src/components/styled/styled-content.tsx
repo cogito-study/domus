@@ -24,7 +24,7 @@ export const StyledContent = styled.div(
       margin-bottom: ${space[4]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
-      font-size: ${fontSizes['lg']};
+      font-size: 20px;
       font-weight: 700;
       color: ${colors.blue[800]};
       line-height: 1.2;
@@ -40,7 +40,7 @@ export const StyledContent = styled.div(
       }
 
       h2 {
-        font-size: ${fontSizes['xl']};
+        font-size: ${fontSizes['lg']};
       }
     }
   `,

@@ -1,6 +1,5 @@
-import { Button, Link } from '@chakra-ui/core';
-import { Box, Flex, H1, H4 } from '@cogito-study/alea';
-import React, { FunctionComponent } from 'react';
+import { Box, Button, Flex, Heading, Link } from '@chakra-ui/core';
+import React from 'react';
 
 interface HeroSectionProps {
   motto: string;
@@ -9,18 +8,34 @@ interface HeroSectionProps {
   popupText: string;
 }
 
-export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description }) => {
+export const HeroSection = ({ motto, description }: HeroSectionProps) => {
   return (
-    <Flex flexDirection="column" alignItems="center" mt={7} pt={[7, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
-      <Flex flexDirection="column" justifyContent="center" maxWidth="830px" minHeight="350px">
+    <Flex direction="column" alignItems="center" mt={8} pt={[8, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
+      <Flex direction="column" justify="center" maxW={830} minH={350}>
         <Box mr={[0, 0, 6]}>
-          <H1 color="primary.8">{motto}</H1>
-          <H4 mt={3} color="neutral.8">
+          <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="blue.800">
+            {motto}
+          </Heading>
+          <Heading
+            as="h3"
+            fontSize={['md', 'md', 'md', 'lg']}
+            mt={4}
+            color="grey.800"
+            fontWeight="semibold"
+            lineHeight="base"
+          >
             {description}
-          </H4>
+          </Heading>
         </Box>
         <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-          <Button variant="solid" mt={[4, 4, 4, 8]} variantColor="teal" color="blue.800" borderRadius={0} w="200px">
+          <Button
+            variant="solid"
+            mt={[5, 5, 5, 8]}
+            variantColor="teal"
+            color="blue.800"
+            borderRadius={0}
+            w={200}
+          >
             try out
           </Button>
         </Link>

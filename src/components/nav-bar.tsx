@@ -1,9 +1,6 @@
-import { Button, Link } from '@chakra-ui/core';
-import { Box, Flex, theme } from '@cogito-study/alea';
+import { Box, Button, Flex, Image, Link, PseudoBox, useTheme } from '@chakra-ui/core';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
-import { StyledGatsbyLink } from './styled/styled-gatsby-link';
 
 const pages: Record<string, string> = {
   PRODUCT: '/',
@@ -13,153 +10,174 @@ const pages: Record<string, string> = {
   CONTACT: '/contact',
 };
 
-const NavbarContainerLarge = styled(Flex)`
-  display: none;
-  position: fixed;
-  top: 0;
-  width: 98%;
-  z-index: 2;
-
-  .active {
-    color: ${theme.colors.accent[6]};
-  }
-
-  @media screen and (min-width: ${theme.breakpoints[2]}) {
-    display: flex;
-  }
-`;
-
-const NavbarContainerSmall = styled(Flex)`
-  display: flex;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 2;
-
-  .active {
-    color: ${theme.colors.accent[6]};
-  }
-
-  @media screen and (min-width: ${theme.breakpoints[2]}) {
-    display: none;
-  }
-`;
-
-const OverlayMenu = styled(Flex)`
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-`;
 interface NavBarProps {
   overlayMenuActive: boolean;
   onMenuButtonClicked: () => void;
 }
 
-const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) => (
-  <NavbarContainerSmall
-    alignItems="center"
-    justifyContent="space-between"
-    borderBottom="1px solid"
-    borderColor="primary.1"
-    backgroundColor="white"
-  >
-    <GatsbyLink to="/">
-      <Box mx={[4, 4, 4, 8]} my={3} width="90px">
-        <img src="/logos/logo.svg"></img>
-      </Box>
-    </GatsbyLink>
-    <Box mr={4} onClick={() => onMenuButtonClicked()}>
-      {!overlayMenuActive ? <img src="/logos/menu.svg" /> : <img src="/logos/close.svg" />}
-    </Box>
-    {overlayMenuActive && (
-      <OverlayMenu
-        flexDirection="column"
-        alignItems="center"
-        backgroundColor="white"
-        justifyContent="space-around"
-        mt={6}
-      >
-        <Flex flexDirection="column" justifyContent="center" alignContent="center">
-          {Object.keys(pages).map((pageName, index) => (
-            <Box key={index} mb={5} textAlign="center">
-              <StyledGatsbyLink
-                to={pages[pageName]}
-                activeClassName="active"
-                color="neutral.6"
-                hoverColor="accent.8"
-                fontWeight="600"
-                onClick={() => onMenuButtonClicked()}
-              >
-                {pageName}
-              </StyledGatsbyLink>
-            </Box>
-          ))}
-        </Flex>
-        <Flex flexDirection="column" alignItems="center" mb={6}>
-          <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-            <Button variant="solid" variantColor="teal" color="blue.800" w="200px" borderRadius={0} mb={4}>
-              try out
-            </Button>
-          </Link>
-          <Link href="https://app.cogito.study">
-            <Button variant="ghost" variantColor="blue" w="200px" borderRadius={0}>
-              log in
-            </Button>
-          </Link>
-        </Flex>
-      </OverlayMenu>
-    )}
-  </NavbarContainerSmall>
-);
+const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) => {
+  const { colors } = useTheme();
 
-const DesktopNavBar = () => (
-  <NavbarContainerLarge
-    alignItems="center"
-    justifyContent="space-between"
-    border={1}
-    borderColor="primary.1"
-    mt={3}
-    backgroundColor="white"
-  >
-    <Flex alignItems="center">
+  return (
+    <Flex
+      position="fixed"
+      w="full"
+      display={['flex', 'flex', 'flex', 'none']}
+      top={0}
+      zIndex={2}
+      align="center"
+      justify="space-between"
+      borderBottom="1px solid"
+      borderColor="blue.100"
+      backgroundColor="white"
+    >
       <GatsbyLink to="/">
-        <Box mx={7} my={3} width="90px">
-          <img src="/logos/logo.svg"></img>
-        </Box>
+        <Image src="/logos/logo.svg" mx={[4, 4, 4, 8]} my={3} w="90px" />
       </GatsbyLink>
-      {Object.keys(pages).map((pageName, index) => (
-        <Box key={index} height="22px" width="98px" textAlign="center" mr={[0, 0, 0, 1, 4]}>
-          <StyledGatsbyLink
-            to={pages[pageName]}
-            activeClassName="active"
-            color="neutral.6"
-            hoverColor="accent.8"
-            fontWeight="600"
+      <Box mr={4} onClick={() => onMenuButtonClicked()}>
+        {!overlayMenuActive ? <img src="/logos/menu.svg" /> : <img src="/logos/close.svg" />}
+      </Box>
+      {overlayMenuActive && (
+        <Flex
+          position="fixed"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          w="100vw"
+          h="100vh"
+          zIndex={-1}
+          direction="column"
+          alignItems="center"
+          backgroundColor="white"
+          justify="space-around"
+          mt={6}
+        >
+          <Flex direction="column" justify="center" align="center">
+            {Object.keys(pages).map((pageName, index) => (
+              <PseudoBox
+                key={index}
+                textAlign="center"
+                mb={5}
+                color="grey.600"
+                fontFamily="heading"
+                fontWeight="semibold"
+                _hover={{ color: 'teal.800' }}
+                _active={{ color: 'teal.600' }}
+              >
+                <GatsbyLink
+                  to={pages[pageName]}
+                  activeStyle={{ color: colors.teal[600] }}
+                  onClick={() => onMenuButtonClicked()}
+                >
+                  {pageName}
+                </GatsbyLink>
+              </PseudoBox>
+            ))}
+          </Flex>
+          <Flex direction="column" alignItems="center" mb={6}>
+            <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+              <Button
+                fontFamily="heading"
+                variant="solid"
+                variantColor="teal"
+                color="blue.800"
+                w={200}
+                borderRadius={0}
+                mb={4}
+              >
+                try out
+              </Button>
+            </Link>
+            <Link href="https://app.cogito.study">
+              <Button
+                fontFamily="heading"
+                variant="ghost"
+                variantColor="blue"
+                color="blue.800"
+                w={200}
+                borderRadius={0}
+              >
+                log in
+              </Button>
+            </Link>
+          </Flex>
+        </Flex>
+      )}
+    </Flex>
+  );
+};
+
+const DesktopNavBar = () => {
+  const { colors } = useTheme();
+
+  return (
+    <Flex
+      display={['none', 'none', 'none', 'flex']}
+      position="fixed"
+      top={0}
+      w="98%"
+      zIndex={2}
+      align="center"
+      justify="space-between"
+      borderWidth={1}
+      borderColor="blue.100"
+      mt={3}
+      bg="white"
+    >
+      <Flex alignItems="center">
+        <GatsbyLink to="/">
+          <Image src="/logos/logo.svg" mx={8} my={3} width="90px" />
+        </GatsbyLink>
+        {Object.keys(pages).map((pageName, index) => (
+          <PseudoBox
+            key={index}
+            h={22}
+            w={98}
+            textAlign="center"
+            mr={[0, 0, 0, 1, 4]}
+            color="grey.600"
+            fontFamily="heading"
+            fontWeight="semibold"
+            _hover={{ color: 'teal.800' }}
+            _active={{ color: 'teal.600' }}
           >
-            {pageName}
-          </StyledGatsbyLink>
-        </Box>
-      ))}
+            <GatsbyLink to={pages[pageName]} activeStyle={{ color: colors.teal[600] }}>
+              {pageName}
+            </GatsbyLink>
+          </PseudoBox>
+        ))}
+      </Flex>
+      <Flex justify="center">
+        <a href="https://app.cogito.study">
+          <Button
+            fontFamily="heading"
+            variant="ghost"
+            color="blue.800"
+            w={110}
+            borderRadius={0}
+            mr={4}
+          >
+            log in
+          </Button>
+        </a>
+        <a href="https://app.cogito.study/register">
+          <Button
+            fontFamily="heading"
+            variant="solid"
+            variantColor="teal"
+            w={110}
+            color="blue.800"
+            borderRadius={0}
+            mr={8}
+          >
+            try out
+          </Button>
+        </a>
+      </Flex>
     </Flex>
-    <Flex justifyContent="center">
-      <a href="https://app.cogito.study">
-        <Button variant="ghost" color="blue.800" w="110px" borderRadius={0} mr={4}>
-          log in
-        </Button>
-      </a>
-      <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-        <Button variant="solid" variantColor="teal" w="110px" color="blue.800" borderRadius={0} mr={8}>
-          try out
-        </Button>
-      </Link>
-    </Flex>
-  </NavbarContainerLarge>
-);
+  );
+};
 
 export const NavBar: FunctionComponent<NavBarProps> = (props) => (
   <>

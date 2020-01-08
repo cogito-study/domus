@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
 import React from 'react';
 import { Container } from '../components/container';
@@ -8,7 +9,8 @@ const TermsConditions = ({ data }: any) => {
   return (
     <>
       <SEO title="Terms & Conditions" />
-      <Container mt={24}>
+      <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
+      <Container mt={24} maxWidth={750} py={60}>
         <StyledContent dangerouslySetInnerHTML={{ __html: data.prismicTermsConditions.data.content.html }} />
       </Container>
     </>
@@ -17,7 +19,7 @@ const TermsConditions = ({ data }: any) => {
 
 export const query = graphql`
   query {
-    prismicTermsConditions {
+    prismicTermsConditions(lang: { eq: "en-us" }) {
       data {
         content {
           html

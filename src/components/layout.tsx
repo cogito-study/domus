@@ -8,7 +8,7 @@ import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
 const GlobalStyles = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&display=swap&subset=cyrillic-ext,latin-ext');
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap&subset=latin-ext');
 
   *::before,
   *::after {
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: black;
-    font-family: 'Nunito', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
     background: ${theme.colors.neutral[0]};
     font-size: 18px;
     background-image: url('/background/pattern.svg'),

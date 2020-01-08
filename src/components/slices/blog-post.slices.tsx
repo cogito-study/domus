@@ -9,7 +9,7 @@ const Paragraph = styled.div`
     text-decoration: underline;
   }
   p {
-    font-family: 'Nunito', Helvetica, serif;
+    font-family: 'Nunito Sans', Helvetica, serif;
     color: ${theme.colors.neutral[8]};
     line-height: 1.9;
     margin: 16px 0;

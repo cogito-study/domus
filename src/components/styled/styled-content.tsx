@@ -13,6 +13,8 @@ export const StyledContent = styled.div(
 
     p {
       margin: ${space[3]} 0;
+      font-family: ${fonts.body};
+      font-weight: 600;
     }
 
     h1 {

@@ -1,7 +1,7 @@
-import { BoxProps, Flex } from '@cogito-study/alea';
-import React, { FunctionComponent } from 'react';
+import { Flex, FlexProps } from '@chakra-ui/core';
+import React, { FC } from 'react';
 
-export const Container: FunctionComponent<BoxProps> = ({ children, ...rest }) => {
+export const Container: FC<FlexProps> = ({ children, ...rest }) => {
   return (
     <Flex flexDirection="column" px={[4, 4, 0]} mx="auto" maxWidth={['100%', '640px', '640px', '1024px']} {...rest}>
       {children}

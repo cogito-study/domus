@@ -7,13 +7,13 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  Link,
+  PseudoBox,
 } from '@chakra-ui/core';
 import { Button } from '@cogito-study/alea';
+import { Link } from 'gatsby';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import React, { ChangeEvent, FunctionComponent, useState } from 'react';
 import { FiMail } from 'react-icons/fi';
-import PrivacyPolicy from '../../static/documents/Adatvedelem.pdf';
 import { TryoutFeedback, TryoutFeedbackProps } from './tryout-feedback';
 
 export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
@@ -50,9 +50,9 @@ export const EmailInput: FunctionComponent<TryoutFeedbackProps> = (props) => {
               <FormErrorMessage>{errorMessage}</FormErrorMessage>
               <FormHelperText id="email-helper-text" mt={2} color="grey.400" fontSize={12}>
                 {`By clicking "try out!" your agree to our`}
-                <Link fontSize={12} href={PrivacyPolicy} ml={1} color="teal.500">
-                  Privacy Policy.
-                </Link>
+                <PseudoBox fontSize={12} color="teal.500">
+                  <Link to="/privacy-policy">Privacy Policy.</Link>
+                </PseudoBox>
               </FormHelperText>
             </FormControl>
             <Button

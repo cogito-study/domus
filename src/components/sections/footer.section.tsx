@@ -1,10 +1,8 @@
-import { Flex, Box, H2, Anchor } from '@cogito-study/alea';
+import { Box, Flex, Heading, Link, PseudoBox } from '@chakra-ui/core';
+import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { Container } from '../container';
 import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
-import TermsAndConditions from '../../../static/documents/ASZF.pdf';
-import PrivacyPolicy from '../../../static/documents/Adatvedelem.pdf';
 
 export const FooterSection = () => {
   const data = useStaticQuery<any>(graphql`
@@ -57,13 +55,13 @@ export const FooterSection = () => {
     }
   `);
   return (
-    <Flex flexDirection="column" backgroundColor="white">
-      <Flex justifyContent="center" mt={6} mb={9} mx={[5, 0]} flexDirection={['column', 'row']}>
+    <Flex direction="column" bg="white">
+      <Flex justify="center" mt={6} mb={9} mx={[5, 0]} direction={['column', 'row']}>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="neutral.8">
+          <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
             Cogito
-          </H2>
-          <Flex flexDirection="column">
+          </Heading>
+          <Flex direction="column">
             <Box my={2}>
               <StyledGatsbyLink to="/" fontWeight="semibold">
                 product
@@ -92,10 +90,10 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="neutral.8">
+          <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
             Use cases
-          </H2>
-          <Flex flexDirection="column">
+          </Heading>
+          <Flex direction="column">
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
               <Box my={2} key={index}>
                 <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
@@ -106,23 +104,36 @@ export const FooterSection = () => {
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
-          <H2 mt={6} mb={3} color="neutral.8">
+          <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
             Contact
-          </H2>
-          <Flex flexDirection="column">
+          </Heading>
+          <Flex direction="column">
             <Box my={2}>
-              <Anchor href={`mailto:${data.allPrismicContact.edges[0].node.data.e_mail.text}`} fontWeight="semibold">
+              <Link
+                href={`mailto:${data.allPrismicContact.edges[0].node.data.e_mail.text}`}
+                fontWeight="semibold"
+                fontFamily="heading"
+                fontSize="sm"
+                color="teal.600"
+                textDecoration="none"
+                _hover={{ color: 'teal.800' }}
+              >
                 {data.allPrismicContact.edges[0].node.data.e_mail.text}
-              </Anchor>
+              </Link>
             </Box>
 
             <Box my={2}>
-              <Anchor
+              <Link
                 href="https://www.google.com/maps/place/Cogito+Technologies+Ltd./@47.4995828,19.0565544,17z/data=!3m1!4b1!4m5!3m4!1s0x4741dd4808c49f37:0xd2d0d6ae69129e56!8m2!3d47.4995792!4d19.0587484"
                 fontWeight="semibold"
+                fontFamily="heading"
+                fontSize="sm"
+                color="teal.600"
+                textDecoration="none"
+                _hover={{ color: 'teal.800' }}
               >
                 {data.allPrismicContact.edges[0].node.data.address.text}
-              </Anchor>
+              </Link>
             </Box>
           </Flex>
         </Box>
@@ -130,24 +141,24 @@ export const FooterSection = () => {
       <Box bg="neutral.0">
         <Container>
           <Flex
-            flexDirection={['column', 'column', 'column', 'row']}
-            justifyContent="space-between"
-            alignItems="center"
+            direction={['column', 'column', 'column', 'row']}
+            justify="space-between"
+            align="center"
             height={['auto', 'auto', 'auto', '70px']}
           >
-            <Flex alignItems="center" flexDirection={['column', 'column', 'column', 'row']}>
+            <Flex align="center" direction={['column', 'column', 'column', 'row']}>
               <Flex mr={[0, 0, 0, 8]} mb={[4, 4, 4, 0]} mt={[3, 3, 3, 0]}>
                 {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
                   <Box key={index} mx={2}>
-                    <Anchor href={node.primary.url.url}>
+                    <Link href={node.primary.url.url}>
                       <img src={node.primary.icon.url} />
-                    </Anchor>
+                    </Link>
                   </Box>
                 ))}
               </Flex>
-              {/*<Flex flexDirection="row">
+              {/*<Flex direction="row">
                 <Box mx={2}>
-                  <Anchor href="#" color="neutral.8">
+                  <Anchor href="#" color="grey.800">
                     English
                   </Anchor>
                 </Box>
@@ -163,17 +174,27 @@ export const FooterSection = () => {
                 </Box>
                 </Flex> */}
             </Flex>
-            <Flex flexDirection="row" mt={[2, 2, 2, 0]} mb={[3, 3, 3, 0]}>
-              <Box mr={4}>
-                <Anchor href={TermsAndConditions} color="neutral.5">
-                  Terms and conditions
-                </Anchor>
-              </Box>
-              <Box ml={4}>
-                <Anchor href={PrivacyPolicy} color="neutral.5">
-                  Privacy policy
-                </Anchor>
-              </Box>
+            <Flex direction="row" mt={[2, 2, 2, 0]} mb={[3, 3, 3, 0]}>
+              <PseudoBox
+                mr={4}
+                fontFamily="heading"
+                fontSize="sm"
+                color="grey.600"
+                textDecoration="none"
+                _hover={{ color: 'grey.800' }}
+              >
+                <GatsbyLink to="/terms-conditions">Terms and conditions</GatsbyLink>
+              </PseudoBox>
+              <PseudoBox
+                mr={4}
+                fontFamily="heading"
+                fontSize="sm"
+                color="grey.600"
+                textDecoration="none"
+                _hover={{ color: 'grey.800' }}
+              >
+                <GatsbyLink to="/privacy-policy">Privacy policy</GatsbyLink>
+              </PseudoBox>
             </Flex>
           </Flex>
         </Container>

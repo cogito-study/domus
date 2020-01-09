@@ -8,7 +8,7 @@ import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
 const GlobalStyles = createGlobalStyle`
 
-  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap&subset=latin-ext');
 
   *::before,
   *::after {

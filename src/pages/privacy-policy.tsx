@@ -11,8 +11,10 @@ const PrivacyPolicy = ({ data }: any) => {
     <>
       <SEO title="Privacy Policy" />
       <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
-      <Container mt={24} maxWidth={750} py={60}>
-        <StyledContent dangerouslySetInnerHTML={{ __html: data.prismicPrivacyPolicy.data.content.html }} />
+      <Container mt={[10, 16]} maxWidth={750} py={60}>
+        <StyledContent
+          dangerouslySetInnerHTML={{ __html: data.prismicPrivacyPolicy.data.content.html }}
+        />
       </Container>
     </>
   );

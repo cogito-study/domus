@@ -75,7 +75,7 @@ const Layout: FunctionComponent = ({ children }) => {
               setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
             }
           />
-          <Box mt={[9, 9, 10]}>{children}</Box>
+          <Box>{children}</Box>
           <TryOutSection />
           <PartnerSection />
           <FooterSection />

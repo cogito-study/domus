@@ -36,7 +36,7 @@ export const HeroSection = ({ motto, description }: HeroSectionProps) => {
             borderRadius={0}
             w={200}
           >
-            try out
+            register
           </Button>
         </Link>
       </Flex>

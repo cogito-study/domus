@@ -7,11 +7,12 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: lint
-        uses: stefanoeb/eslint-action@master
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          args: . --ext .ts,.tsx
+          node-version: 10
+      - run: npx yarn install
+      - run: npx eslint . --ext .ts,.tsx --ignore-path .eslintignore
   build:
     runs-on: ubuntu-latest
     steps:

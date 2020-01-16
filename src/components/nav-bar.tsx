@@ -86,7 +86,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                 borderRadius={0}
                 mb={4}
               >
-                try out
+                register
               </Button>
             </Link>
             <Link href="https://app.cogito.study">
@@ -171,7 +171,7 @@ const DesktopNavBar = () => {
             borderRadius={0}
             mr={8}
           >
-            try out
+            register
           </Button>
         </a>
       </Flex>

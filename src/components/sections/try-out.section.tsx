@@ -82,8 +82,14 @@ export const TryOutSection = () => {
                 {subtitle.text}
               </Paragraph>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-                <Button variant="solid" variantColor="teal" color="blue.800" w="200px" borderRadius={0}>
-                  try out!
+                <Button
+                  variant="solid"
+                  variantColor="teal"
+                  color="blue.800"
+                  w="200px"
+                  borderRadius={0}
+                >
+                  register
                 </Button>
               </Link>
             </Flex>

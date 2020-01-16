@@ -13,7 +13,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
       <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="transparent">
-          <H1 mx={3} mb={4} mt={10} color="primary.8">
+          <H1 mx={3} mb={4} mt={[9, 10]} color="primary.8">
             {data.prismicBlogPost.data.title.text}
           </H1>
           <BlogPostSlices slices={data.prismicBlogPost.data.body} />

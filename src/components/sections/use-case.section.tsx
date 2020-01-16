@@ -103,8 +103,15 @@ export const UseCaseSection = () => {
         })}
       </Flex>
       <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-        <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0} w="200px" my={6}>
-          try out
+        <Button
+          variant="solid"
+          variantColor="teal"
+          color="blue.800"
+          borderRadius={0}
+          w="200px"
+          my={6}
+        >
+          register
         </Button>
       </Link>
       <Background backgroundColor="primary.8" display={['none', 'none', 'block']} />

@@ -17,7 +17,7 @@
     "now-build": "yarn run build"
   },
   "dependencies": {
-    "@chakra-ui/core": "^0.5.0",
+    "@chakra-ui/core": "^0.5.2",
     "@cogito-study/alea": "^0.2.0",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",

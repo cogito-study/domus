@@ -1,6 +1,5 @@
-import { Box, Flex, H1, H4 } from '@cogito-study/alea';
-import React, { FunctionComponent } from 'react';
-import { EmailInput } from '../email-input';
+import { Box, Button, Flex, Heading, Link } from '@chakra-ui/core';
+import React from 'react';
 
 interface HeroSectionProps {
   motto: string;
@@ -9,27 +8,37 @@ interface HeroSectionProps {
   popupText: string;
 }
 
-export const HeroSection: FunctionComponent<HeroSectionProps> = ({ motto, description, popupTitle, popupText }) => {
+export const HeroSection = ({ motto, description }: HeroSectionProps) => {
   return (
-    <Flex flexDirection="column" alignItems="center" mt={[7, 10]} pt={7} mb={[2, 10]} mx={[0, 0, 0, 6]}>
-      <Flex flexDirection={['column', 'column', 'column', 'row']} mb={[3, 7]}>
-        <Box ml={[0, 0, 3]} mr={[0, 0, 6]}>
-          <H1 color="primary.8">{motto}</H1>
+    <Flex direction="column" alignItems="center" mt={8} pt={[8, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
+      <Flex direction="column" justify="center" maxW={830} minH={350}>
+        <Box mr={[0, 0, 6]}>
+          <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="blue.800">
+            {motto}
+          </Heading>
+          <Heading
+            as="h3"
+            fontSize={['md', 'md', 'md', 'lg']}
+            mt={4}
+            color="grey.800"
+            fontWeight="semibold"
+            lineHeight="base"
+          >
+            {description}
+          </Heading>
         </Box>
-        <Flex flexDirection="column" mt={[0, 0, 0, 4]} maxWidth="480px">
-          <Box>
-            <H4 color="neutral.8">{description}</H4>
-            <EmailInput
-              popup={{
-                title: popupTitle,
-                titleColor: 'neutral.8',
-                text: popupText,
-                textColor: 'neutral.4',
-                backgroundColor: 'white',
-              }}
-            />
-          </Box>
-        </Flex>
+        <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
+          <Button
+            variant="solid"
+            mt={[5, 5, 5, 8]}
+            variantColor="teal"
+            color="blue.800"
+            borderRadius={0}
+            w={200}
+          >
+            try out
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   );

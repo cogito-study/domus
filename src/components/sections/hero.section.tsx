@@ -10,8 +10,8 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ motto, description }: HeroSectionProps) => {
   return (
-    <Flex direction="column" alignItems="center" mt={8} pt={[8, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
-      <Flex direction="column" justify="center" maxW={830} minH={350}>
+    <Flex direction="column" alignItems="center" pt={[2, 10]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
+      <Flex mx={2} direction="column" justify="center" maxW={830} minH={350}>
         <Box mr={[0, 0, 6]}>
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="blue.800">
             {motto}

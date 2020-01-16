@@ -44,7 +44,8 @@ const GlobalStyles = createGlobalStyle`
                        no-repeat,
                        no-repeat;
 
-    position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) => (overlayMenuActive ? 'fixed' : 'static')};
+    position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) =>
+      overlayMenuActive ? 'fixed' : 'static'};
   }
   @media only screen and (max-width: ${theme.breakpoints[1]}) {
     body {
@@ -70,9 +71,11 @@ const Layout: FunctionComponent = ({ children }) => {
           <GlobalStyles overlayMenuActive={overlayMenuActive} />
           <NavBar
             overlayMenuActive={overlayMenuActive}
-            onMenuButtonClicked={() => setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)}
+            onMenuButtonClicked={() =>
+              setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
+            }
           />
-          <Box>{children}</Box>
+          <Box mt={[9, 9, 10]}>{children}</Box>
           <TryOutSection />
           <PartnerSection />
           <FooterSection />

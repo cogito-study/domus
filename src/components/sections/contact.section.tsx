@@ -48,7 +48,7 @@ export const ContactSection: FunctionComponent = () => {
           borderColor="blue.100"
           bg="#FFF"
         >
-          <Flex align="start" direction="column" mx={4} ml={[6, 8]}>
+          <Flex align="start" direction="column" mx={4} ml={[6, 6, 12]}>
             <Heading as="h1" color="blue.800" mt={0} mb={[6, 8]} fontSize={['xl', 'xl', '2xl']}>
               Contact us
             </Heading>

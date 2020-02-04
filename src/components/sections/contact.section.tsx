@@ -46,7 +46,7 @@ export const ContactSection: FunctionComponent = () => {
           w={['full', 'full', 'full', '600px']}
           borderWidth={4}
           borderColor="blue.100"
-          bg="white"
+          bg="#FFF"
         >
           <Flex align="start" direction="column" mx={4} ml={[6, 8]}>
             <Heading as="h1" color="blue.800" mt={0} mb={[6, 8]} fontSize={['xl', 'xl', '2xl']}>

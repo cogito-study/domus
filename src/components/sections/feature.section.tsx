@@ -76,17 +76,13 @@ export const FeatureSection = () => {
                 to={`/blog/${blog_post.slug}`}
               >
                 <Button
-                  maxW="150px"
-                  minW="120px"
                   mt={4}
-                  borderWidth="2px"
-                  bg="transparent"
+                  variantColor="teal"
+                  variant="outline"
                   color="blue.800"
                   borderColor="teal.500"
+                  borderWidth={2}
                   borderRadius={0}
-                  variantColor="teal.500"
-                  variant="solid"
-                  fontWeight={600}
                 >
                   learn more
                 </Button>

@@ -66,12 +66,12 @@ export const FeatureSection = () => {
               <Heading my={3} fontSize={['lg', 'lg', 'xl']} lineHeight="normal" color="blue.800">
                 {title.text}
               </Heading>
-              <Box color="grey.800" fontSize={'sm'} lineHeight="tall">
+              <Box color="grey.800" fontSize="sm" lineHeight="tall">
                 {description.text}
               </Box>
               <Link
                 style={{
-                  maxWidth: '150px',
+                  maxWidth: '130px',
                 }}
                 to={`/blog/${blog_post.slug}`}
               >
@@ -84,11 +84,8 @@ export const FeatureSection = () => {
                   color="blue.800"
                   borderColor="teal.500"
                   borderRadius={0}
-                  fontSize={'sm'}
-                  px={3}
-                  py={2}
-                  _focus={{ bg: 'teal.500' }}
-                  _hover={{ bg: 'teal.500' }}
+                  variantColor="teal.500"
+                  variant="outline"
                   fontWeight={600}
                 >
                   learn more

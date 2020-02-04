@@ -65,6 +65,7 @@ export const ContactSection: FunctionComponent = () => {
                   href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`}
                   fontWeight={600}
                   fontSize="sm"
+                  _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
                   {data.allPrismicContact.nodes[0].data.e_mail.text}
                 </Link>
@@ -76,6 +77,7 @@ export const ContactSection: FunctionComponent = () => {
                   href="https://www.google.com/maps/place/Cogito+Technologies+Ltd./@47.4995828,19.0565544,17z/data=!3m1!4b1!4m5!3m4!1s0x4741dd4808c49f37:0xd2d0d6ae69129e56!8m2!3d47.4995792!4d19.0587484"
                   fontWeight={600}
                   fontSize="sm"
+                  _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
                   {data.allPrismicContact.nodes[0].data.address.text}
                 </Link>

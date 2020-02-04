@@ -57,7 +57,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
           const { name, icon, url } = customer.node.primary;
 
           return (
-            <Link key={index} href={url.text} target="_blank">
+            <Link key={index} href={url.text} target="_blank" _hover={{ textDecoration: 'none' }}>
               <Flex
                 width={['110px', '110px', '110px', '140px']}
                 flexDirection="column"
@@ -72,6 +72,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
                   color="grey.900"
                   textAlign="center"
                   fontWeight={600}
+                  mt={1}
                 >
                   {name.text}
                 </Heading>

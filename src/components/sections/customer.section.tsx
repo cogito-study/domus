@@ -1,5 +1,4 @@
-import { Box, Flex, Heading } from '@chakra-ui/core';
-import { Anchor } from '@cogito-study/alea';
+import { Box, Flex, Heading, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
@@ -58,7 +57,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
           const { name, icon, url } = customer.node.primary;
 
           return (
-            <Anchor key={index} href={url.text} target="_blank">
+            <Link key={index} href={url.text} target="_blank">
               <Flex
                 width={['110px', '110px', '110px', '140px']}
                 flexDirection="column"
@@ -77,7 +76,7 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title
                   {name.text}
                 </Heading>
               </Flex>
-            </Anchor>
+            </Link>
           );
         })}
       </Flex>

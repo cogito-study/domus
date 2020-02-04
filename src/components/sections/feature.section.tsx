@@ -85,7 +85,7 @@ export const FeatureSection = () => {
                   borderColor="teal.500"
                   borderRadius={0}
                   variantColor="teal.500"
-                  variant="outline"
+                  variant="solid"
                   fontWeight={600}
                 >
                   learn more

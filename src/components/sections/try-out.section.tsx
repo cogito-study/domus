@@ -55,7 +55,7 @@ export const TryOutSection = () => {
           <Flex
             w="100%"
             direction={['column', 'column', 'row', 'row']}
-            my={7}
+            my={12}
             justify="center"
             align="center"
             key={index}
@@ -63,7 +63,14 @@ export const TryOutSection = () => {
             <Flex direction="column" maxW="300px" mb={[8, 8, 8, 0]} mr={[0, 0, 0, 8]}>
               <Image src={image.url} alt={image.alt || ''} />
 
-              <Text my={1} color="grey.100" textAlign="center" mt={3}>
+              <Text
+                my={1}
+                color="grey.100"
+                textAlign="center"
+                mt={3}
+                fontSize="sm"
+                lineHeight="normal"
+              >
                 {image_description.text}
               </Text>
             </Flex>
@@ -74,7 +81,7 @@ export const TryOutSection = () => {
               maxW={['300px', '420px']}
               mx={3}
             >
-              <Heading my={2} color="grey.100">
+              <Heading my={2} color="grey.100" fontSize="xl">
                 {title.text}
               </Heading>
               <Text mb={3} color="grey.100">

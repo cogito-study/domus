@@ -1,4 +1,4 @@
-import { Box, Flex, H2, H3, Paragraph, Anchor } from '@cogito-study/alea';
+import { Box, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 
@@ -46,41 +46,41 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
   if (!data.allPrismicAboutBodyAchievements) return null;
 
   return (
-    <Flex flexDirection="column" px={[0, 4, 4, 4, 0]}>
-      <H2 color="neutral.8" mt={9} mb={7}>
+    <Flex direction="column" px={[0, 4, 4, 4, 0]}>
+      <Heading color="grey.800" mt={32} mb={12} fontSize={['lg', 'lg', 'xl']}>
         {title}
-      </H2>
+      </Heading>
       {data.allPrismicAboutBodyAchievements.edges.map((achievement: any, index: any) => {
         const { name, description, icon } = achievement.node.primary;
         return (
           <Flex
-            flexDirection={['column', 'column', 'row']}
-            alignItems={['start', 'start', 'center']}
-            mb={6}
+            direction={['column', 'column', 'row']}
+            align={['start', 'start', 'center']}
+            mb={8}
             key={index}
           >
-            <Box order={[2, 0]} maxWidth="600px">
-              <H3 color="neutral.7" mt={0} mb={5}>
+            <Box order={[2, 0]} maxW="600px">
+              <Heading as="h3" fontSize={['md', 'md', 'lg']} color="grey.700" mt={0} mb={6}>
                 {name.text}
-              </H3>
-              <Paragraph color="neutral.7" mt={0} paragraphSize="medium">
+              </Heading>
+              <Text color="grey.700" mt={0} fontSize="sm">
                 {description.text}
-              </Paragraph>
+              </Text>
             </Box>
             {icon.url && (
-              <Box order={[1, 0]} ml={[0, 0, 9]} width="180px" height="180px">
-                <img src={icon.url} />
+              <Box order={[1, 0]} ml={[0, 0, 32]} w="180px" h="180px">
+                <Image src={icon.url} />
               </Box>
             )}
           </Flex>
         );
       })}
-      <Flex mr={[0, 0, 0, 8]} mb={7} mt={0}>
-        {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
+      <Flex mr={[0, 0, 0, 16]} mb={12} mt={0}>
+        {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index: number) => (
           <Box key={index} mx={2}>
-            <Anchor href={node.primary.url.url}>
-              <img src={node.primary.icon.url} />
-            </Anchor>
+            <Link href={node.primary.url.url}>
+              <Image src={node.primary.icon.url} />
+            </Link>
           </Box>
         ))}
       </Flex>

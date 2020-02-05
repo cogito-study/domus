@@ -1,4 +1,4 @@
-import { Anchor, Box, Flex, H1 } from '@cogito-study/alea';
+import { Box, Flex, Heading, Image, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../container';
@@ -37,46 +37,52 @@ export const ContactSection: FunctionComponent = () => {
   `);
   return (
     <Container>
-      <Flex width="100%" mt={10} mb={9} alignItems="center" justifyContent="center">
+      <Flex w="100%" mt={32} mb={24} align="center" justify="center">
         <Flex
-          alignItems="start"
-          justifyContent="center"
-          flexDirection="column"
-          py={7}
-          width={['100%', '100%', '100%', '600px']}
-          border={3}
-          borderColor="primary.1"
-          backgroundColor="white"
+          align="start"
+          justify="center"
+          direction="column"
+          py={12}
+          w={['full', 'full', 'full', '600px']}
+          borderWidth={4}
+          borderColor="blue.100"
+          bg="#FFF"
         >
-          <Flex alignItems="start" flexDirection="column" mx={4} ml={[5, 7]}>
-            <H1 color="primary.8" mt={0} mb={[5, 6]}>
+          <Flex align="start" direction="column" mx={4} ml={[6, 6, 12]}>
+            <Heading as="h1" color="blue.800" mt={0} mb={[6, 8]} fontSize={['xl', 'xl', '2xl']}>
               Contact us
-            </H1>
-            <Flex flexDirection="column" alignItems="start" mb={6}>
+            </Heading>
+            <Flex direction="column" align="start" mb={6}>
               <Box my={2}>
-                <Anchor
+                <Link
+                  color="teal.600"
                   href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`}
-                  fontWeight="semibold"
+                  fontWeight={600}
+                  fontSize="sm"
+                  _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
                   {data.allPrismicContact.nodes[0].data.e_mail.text}
-                </Anchor>
+                </Link>
               </Box>
 
               <Box my={2}>
-                <Anchor
+                <Link
+                  color="teal.600"
                   href="https://www.google.com/maps/place/Cogito+Technologies+Ltd./@47.4995828,19.0565544,17z/data=!3m1!4b1!4m5!3m4!1s0x4741dd4808c49f37:0xd2d0d6ae69129e56!8m2!3d47.4995792!4d19.0587484"
-                  fontWeight="semibold"
+                  fontWeight={600}
+                  fontSize="sm"
+                  _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
                   {data.allPrismicContact.nodes[0].data.address.text}
-                </Anchor>
+                </Link>
               </Box>
             </Flex>
-            <Flex flexDirection="row" justifyContent="start">
-              {data.allPrismicContactBodySocialMedia.nodes.map(({ primary }, index) => (
+            <Flex direction="row" justify="start">
+              {data.allPrismicContactBodySocialMedia.nodes.map(({ primary }, index: number) => (
                 <Box key={index} mt={[0, 3]} mr={[5, 6]}>
-                  <Anchor href={primary.url.url}>
-                    <img src={primary.icon.url} />
-                  </Anchor>
+                  <Link href={primary.url.url}>
+                    <Image src={primary.icon.url} />
+                  </Link>
                 </Box>
               ))}
             </Flex>

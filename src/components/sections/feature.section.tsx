@@ -1,5 +1,5 @@
-import { Flex, H2, Paragraph, Button, Box } from '@cogito-study/alea';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 export const FeatureSection = () => {
@@ -32,7 +32,11 @@ export const FeatureSection = () => {
   if (!data.allPrismicHomeBodyFeature) return null;
 
   return (
-    <Flex flexDirection="column" alignItems={['center', 'center', 'space-between']} mx={[4, 4, 0, 7]}>
+    <Flex
+      flexDirection="column"
+      alignItems={['center', 'center', 'space-between']}
+      mx={[4, 4, 0, 8]}
+    >
       {data.allPrismicHomeBodyFeature.edges.map((feature: any, index: number) => {
         const { image, title, description, blog_post } = feature.node.primary;
 
@@ -40,30 +44,46 @@ export const FeatureSection = () => {
           <Flex
             key={index}
             flexDirection={
-              index % 2 == 1 ? ['column', 'column', 'row-reverse', 'row-reverse'] : ['column', 'column', 'row', 'row']
+              index % 2 == 1
+                ? ['column', 'column', 'row-reverse', 'row-reverse']
+                : ['column', 'column', 'row', 'row']
             }
             alignItems={['center', 'center', 'space-between']}
             justifyContent={['center', 'center', 'space-between']}
-            my={[6, 8, 7]}
-            width={['100%', '70%', '100%', '100%']}
+            my={[6, 8, 12]}
+            w={['full', '70%', 'full']}
           >
-            {/* Width should be 300px on smaller screens and 400px on desktop on the image */}
-            <Box width={['300px', '300px', '300px', '400px']}>
-              <img alt={image.alt} src={image.url} width="100%" />
+            <Box w={['300px', '300px', '300px', '400px']}>
+              <Image alt={image.alt} src={image.url} w="100%" />
             </Box>
             <Flex
               flexDirection="column"
               justifyContent="center"
-              maxWidth={['100%', '100%', '300px', '470px']}
-              ml={index % 2 == 1 ? [0] : [0, 0, 0, 9]}
+              maxW={['full', 'full', '300px', '470px']}
+              ml={index % 2 == 1 ? 0 : [0, 0, 0, 24]}
               mt={[4, 6, 7, 0]}
             >
-              <H2 my={3} color="primary.8">
+              <Heading my={3} fontSize={['lg', 'lg', 'xl']} lineHeight="normal" color="blue.800">
                 {title.text}
-              </H2>
-              <Paragraph color="neutral.8">{description.text}</Paragraph>
-              <Link to={`/blog/${blog_post.slug}`}>
-                <Button variant="secondary" maxWidth="150px" mt={4}>
+              </Heading>
+              <Box color="grey.800" fontSize="sm" lineHeight="tall">
+                {description.text}
+              </Box>
+              <Link
+                style={{
+                  maxWidth: '130px',
+                }}
+                to={`/blog/${blog_post.slug}`}
+              >
+                <Button
+                  mt={4}
+                  variantColor="teal"
+                  variant="outline"
+                  color="blue.800"
+                  borderColor="teal.500"
+                  borderWidth={2}
+                  borderRadius={0}
+                >
                   learn more
                 </Button>
               </Link>

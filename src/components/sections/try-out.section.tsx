@@ -69,7 +69,7 @@ export const TryOutSection = () => {
                 textAlign="center"
                 mt={3}
                 fontSize="sm"
-                lineHeight="normal"
+                lineHeight="tall"
               >
                 {image_description.text}
               </Text>
@@ -81,10 +81,10 @@ export const TryOutSection = () => {
               maxW={['300px', '420px']}
               mx={3}
             >
-              <Heading my={2} color="grey.100" fontSize="xl">
+              <Heading my={2} color="grey.100" fontSize={['lg', 'xl']} lineHeight="normal">
                 {title.text}
               </Heading>
-              <Text mb={3} color="grey.100">
+              <Text mb={3} color="grey.100" fontSize={['sm', 'lg']}>
                 {subtitle.text}
               </Text>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>

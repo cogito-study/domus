@@ -58,8 +58,8 @@ const Notfound: FunctionComponent = () => {
                 borderRadius={0}
                 borderColor="teal.500"
                 borderWidth={2}
-                bg="white"
                 color="blue.800"
+                bg="fff"
                 fontSize="sm"
               >
                 contact us

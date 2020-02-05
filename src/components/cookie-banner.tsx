@@ -41,13 +41,13 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
     >
       <Flex
         mx={6}
-        mb={[6, 4]}
+        mb={[6, 3]}
         mt={3}
         direction={['column', 'column', 'row']}
         align={['start', 'start', 'center']}
         justify="center"
       >
-        <Text color="grey.400" fontSize={['sm']}>
+        <Text color="grey.400" fontSize="sm">
           {descriptionText}
         </Text>
         <Button
@@ -56,10 +56,8 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
           ml={[0, 0, 8]}
           w={['100%', '120px']}
           color="blue.800"
-          fontSize={['sm']}
           onClick={() => hideCookieBanner()}
           bg="teal.500"
-          _focus={{ border: '2px' }}
           variantColor="teal"
           borderRadius={0}
         >

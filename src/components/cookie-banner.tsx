@@ -1,5 +1,4 @@
-import { Button, Flex, Text } from '@chakra-ui/core';
-import { FlexProps } from '@cogito-study/alea';
+import { Button, Flex, FlexProps, Text } from '@chakra-ui/core';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';

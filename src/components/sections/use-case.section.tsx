@@ -57,7 +57,7 @@ export const UseCaseSection = () => {
               mx={3}
               align="start"
               justify="space-between"
-              border="2px"
+              borderWidth={2}
               borderColor="blue.800"
             >
               <Flex

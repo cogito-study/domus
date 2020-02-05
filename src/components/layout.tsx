@@ -1,5 +1,5 @@
-import { ThemeProvider as ChakraProvider } from '@chakra-ui/core';
-import { Box, theme, ThemeProvider } from '@cogito-study/alea';
+import { Box, ThemeProvider as ChakraProvider } from '@chakra-ui/core';
+import { theme, ThemeProvider } from '@cogito-study/alea';
 import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { chakraTheme } from '../theme/chakra';

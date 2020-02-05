@@ -1,5 +1,4 @@
-import { Button, Link } from '@chakra-ui/core';
-import { Flex, H2, Paragraph } from '@cogito-study/alea';
+import { Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
@@ -48,39 +47,46 @@ export const TryOutSection = () => {
   if (!data.allPrismicHomeBodyTryOut) return null;
 
   return (
-    <Flex bg="primary.8">
+    <Flex bg="blue.800">
       {data.allPrismicHomeBodyTryOut.edges.map((tryOut: any, index: number) => {
         const { image, image_description, subtitle, title } = tryOut.node.primary;
 
         return (
           <Flex
-            width="100%"
-            flexDirection={['column', 'column', 'row', 'row']}
-            my={7}
-            justifyContent="center"
-            alignItems="center"
+            w="100%"
+            direction={['column', 'column', 'row', 'row']}
+            my={12}
+            justify="center"
+            align="center"
             key={index}
           >
-            <Flex flexDirection="column" maxWidth="300px" mb={[7, 7, 7, 0]} mr={[0, 0, 0, 8]}>
-              <img src={image.url} alt={image.alt || ''} />
+            <Flex direction="column" maxW="300px" mb={[8, 8, 8, 0]} mr={[0, 0, 0, 8]}>
+              <Image src={image.url} alt={image.alt || ''} />
 
-              <Paragraph my={1} color="neutral.1" textAlign="center" mt={3}>
+              <Text
+                my={1}
+                color="grey.100"
+                textAlign="center"
+                mt={3}
+                fontSize="sm"
+                lineHeight="tall"
+              >
                 {image_description.text}
-              </Paragraph>
+              </Text>
             </Flex>
             <Flex
-              flexDirection="column"
-              alignItems={['center', 'center', 'start']}
+              direction="column"
+              align={['center', 'center', 'start']}
               textAlign={['center', 'center', 'start']}
-              maxWidth={['300px', '420px']}
+              maxW={['300px', '420px']}
               mx={3}
             >
-              <H2 my={2} color="neutral.1">
+              <Heading my={2} color="grey.100" fontSize={['lg', 'xl']} lineHeight="normal">
                 {title.text}
-              </H2>
-              <Paragraph mb={3} color="neutral.1">
+              </Heading>
+              <Text mb={3} color="grey.100" fontSize={['sm', 'lg']}>
                 {subtitle.text}
-              </Paragraph>
+              </Text>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
                 <Button
                   variant="solid"

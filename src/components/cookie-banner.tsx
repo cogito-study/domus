@@ -1,4 +1,5 @@
-import { Button, Flex, FlexProps, Paragraph } from '@cogito-study/alea';
+import { Button, Flex, Text } from '@chakra-ui/core';
+import { FlexProps } from '@cogito-study/alea';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent, useState } from 'react';
 import styled from 'styled-components';
@@ -21,7 +22,10 @@ interface CookieBannerProps {
   buttonText: string;
 }
 
-export const CookieBanner: FunctionComponent<CookieBannerProps> = ({ descriptionText, buttonText }) => {
+export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
+  descriptionText,
+  buttonText,
+}) => {
   const cookie = Cookies.get(CookieKey);
   const [isVisible, setIsVisible] = useState(cookie ? false : true);
   const hideCookieBanner = () => {
@@ -30,17 +34,36 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({ description
   };
 
   return (
-    <AbsoluteContainer isVisible={isVisible} backgroundColor="white" justifyContent="center" alignItems="center">
+    <AbsoluteContainer
+      isVisible={isVisible}
+      backgroundColor="white"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Flex
-        mx={5}
-        mb={[5, 3]}
+        mx={6}
+        mb={[6, 4]}
         mt={3}
-        flexDirection={['column', 'column', 'row']}
-        alignItems={['start', 'start', 'center']}
-        justifyContent="center"
+        direction={['column', 'column', 'row']}
+        align={['start', 'start', 'center']}
+        justify="center"
       >
-        <Paragraph color="neutral.4">{descriptionText}</Paragraph>
-        <Button mt={[3, 3, 0]} ml={[0, 0, 6]} width={['100%', '120px']} onClick={() => hideCookieBanner()}>
+        <Text color="grey.400" fontSize={['sm']}>
+          {descriptionText}
+        </Text>
+        <Button
+          px={3}
+          mt={[4, 4, 0]}
+          ml={[0, 0, 8]}
+          w={['100%', '120px']}
+          color="blue.800"
+          fontSize={['sm']}
+          onClick={() => hideCookieBanner()}
+          bg="teal.500"
+          _focus={{ border: '2px' }}
+          variantColor="teal"
+          borderRadius={0}
+        >
           {buttonText}
         </Button>
       </Flex>

@@ -1,41 +1,73 @@
-import React, { FunctionComponent } from 'react';
-import { Flex, H1, H2, Button } from '@cogito-study/alea';
+import { Button, Flex, Heading, Image } from '@chakra-ui/core';
 import { Link } from 'gatsby';
-
-import SEO from '../components/SEO';
-import { Container } from '../components/container';
+import React, { FunctionComponent } from 'react';
 import travolta from '../../static/travolta.gif';
+import SEO from '../components/SEO';
 
 const Notfound: FunctionComponent = () => {
   return (
     <>
       <SEO />
-      <Container
-        alignItems="center"
-        justifyContent="center"
-        flexDirection={['column-reverse', 'column-reverse', 'column-reverse', 'row']}
+      <Flex
+        align="center"
+        justify="center"
+        direction={['column-reverse', 'column-reverse', 'column-reverse', 'row']}
         mt={10}
       >
-        <Flex width={['250px', '250px', '350px', '550px']} height={['250px', '250px', '350px', '550px']}>
-          <img src={travolta} width="100%" height="100%"></img>
+        <Flex w={['250px', '250px', '350px', '550px']} h={['250px', '250px', '350px', '550px']}>
+          <Image src={travolta} w="100%" h="100%"></Image>
         </Flex>
-        <Flex ml={5} mb={7} flexDirection="column" alignItems="start" justifyContent="center">
-          <Flex maxWidth="550px" flexDirection="column" mb={6}>
-            <H1 mt={0} mb={0} color="neutral.6" fontSize={['50px', '90px']}>
+        <Flex
+          ml={5}
+          mb={8}
+          mt={['10', '10', '10', '0']}
+          direction="column"
+          align="start"
+          justify="center"
+        >
+          <Flex maxW="550px" direction="column" mb={6}>
+            <Heading
+              as="h1"
+              mt={0}
+              mb={0}
+              color="grey.600"
+              lineHeight="normal"
+              fontSize={['50px', '90px']}
+            >
               Error 404
-            </H1>
-            <H2 color="neutral.4">We can’t seem to find the page you’re looking for</H2>
+            </Heading>
+            <Heading lineHeight="normal" color="grey.400" fontSize={['lg', 'xl']}>
+              We can’t seem to find the page you’re looking for
+            </Heading>
           </Flex>
           <Flex>
             <Link to="/">
-              <Button mr={4}>back to home</Button>
+              <Button
+                borderRadius={0}
+                variantColor="teal"
+                bg="teal.500"
+                color="blue.800"
+                mr={4}
+                fontSize="sm"
+              >
+                back to home
+              </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="secondary">contact us</Button>
+              <Button
+                borderRadius={0}
+                borderColor="teal.500"
+                borderWidth={2}
+                bg="white"
+                color="blue.800"
+                fontSize="sm"
+              >
+                contact us
+              </Button>
             </Link>
           </Flex>
         </Flex>
-      </Container>
+      </Flex>
     </>
   );
 };

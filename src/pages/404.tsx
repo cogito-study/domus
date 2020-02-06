@@ -15,7 +15,7 @@ const Notfound: FunctionComponent = () => {
         mt={10}
       >
         <Flex w={['250px', '250px', '350px', '550px']} h={['250px', '250px', '350px', '550px']}>
-          <Image src={travolta} w="100%" h="100%"></Image>
+          <Image src={travolta} w="100%" h="100%" />
         </Flex>
         <Flex
           ml={5}

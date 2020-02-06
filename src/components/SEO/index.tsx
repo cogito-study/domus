@@ -56,7 +56,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
   } = site;
 
   const seo = {
-    title: title || defaultTitle,
+    title: `${title} | cogito` || `${defaultTitle} | cogito`,
     description: desc || defaultDescription,
     image: `${siteUrl}${banner || defaultBanner}`,
     url: `${siteUrl}${pathname || ''}`,
@@ -196,7 +196,9 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         <meta name="image" content={seo.image} />
         <meta charset="utf-8" />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
-        {!individual && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
+        {!individual && (
+          <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>
+        )}
         {individual && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>

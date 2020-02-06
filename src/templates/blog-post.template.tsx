@@ -3,20 +3,26 @@ import { Flex, H1 } from '@cogito-study/alea';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
-import { BlogPostSlices } from '../components/slices/blog-post.slices';
+import { StyledContent } from '../components/styled/styled-content';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <>
-      <SEO individual title={data.prismicBlogPost.data.title.text} />
+      <SEO
+        individual
+        title={`${data.prismicBlogPost.data.title.text.toLowerCase()} | blog`}
+        banner={data.prismicBlogPost.data.hero_image.url}
+      />
       <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <Box width="100%" maxWidth="580px" backgroundColor="transparent">
           <H1 mx={3} mb={4} mt={[9, 10]} color="primary.8">
             {data.prismicBlogPost.data.title.text}
           </H1>
-          <BlogPostSlices slices={data.prismicBlogPost.data.body} />
+          <StyledContent
+            dangerouslySetInnerHTML={{ __html: data.prismicBlogPost.data.content.html }}
+          />
         </Box>
         <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
       </Flex>
@@ -37,46 +43,10 @@ export const query = graphql`
         hero_image {
           url
         }
+        content {
+          html
+        }
         body {
-          ... on PrismicBlogPostBodyHeader1 {
-            primary {
-              text {
-                text
-              }
-            }
-            slice_type
-          }
-          ... on PrismicBlogPostBodyHeader2 {
-            primary {
-              text {
-                text
-              }
-            }
-            slice_type
-          }
-          ... on PrismicBlogPostBodyText {
-            primary {
-              text {
-                html
-              }
-            }
-            slice_type
-          }
-          ... on PrismicBlogPostBodyImage {
-            primary {
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 580) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-                alt
-              }
-            }
-            slice_type
-          }
           ... on PrismicBlogPostBodyRelatedPosts {
             slice_type
             primary {

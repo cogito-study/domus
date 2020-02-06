@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 const Contact: FunctionComponent = () => {
   return (
     <>
-      <SEO title="Contact | Cogito" />
+      <SEO title="contact" />
       <ContactSection />
     </>
   );

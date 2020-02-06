@@ -52,8 +52,8 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
         </Text>
         <Button
           px={3}
-          mt={[4, 4, 0]}
-          ml={[0, 0, 8]}
+          mt={[3, 3, 0]}
+          ml={[0, 0, 6]}
           w={['100%', '120px']}
           color="blue.800"
           onClick={() => hideCookieBanner()}

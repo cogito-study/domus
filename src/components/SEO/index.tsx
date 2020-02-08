@@ -27,6 +27,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
           siteUrl
           defaultTitle: titleAlt
           defaultDescription: description
+          banner
           defaultBanner
           headline
           siteLanguage

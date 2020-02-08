@@ -12,7 +12,7 @@ export const StyledContent = styled.div(
     color: ${colors.grey[800]};
 
     p {
-      margin: ${space[3]} 0;
+      margin: ${space[8]} 0;
       font-family: ${fonts.body};
       font-weight: 600;
     }
@@ -30,7 +30,17 @@ export const StyledContent = styled.div(
       margin-bottom: ${space[4]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
-      font-size: 20px;
+      font-size: ${fontSizes['xl']};
+      font-weight: 700;
+      color: ${colors.blue[800]};
+      line-height: 1.2;
+    }
+
+    h3 {
+      margin-bottom: ${space[4]};
+      margin-top: ${space[8]};
+      font-family: ${fonts.heading};
+      font-size: ${fontSizes['lg']};
       font-weight: 700;
       color: ${colors.blue[800]};
       line-height: 1.2;
@@ -58,6 +68,7 @@ export const StyledContent = styled.div(
     a {
       color: ${colors.teal[600]};
       font-weight: 600;
+      text-decoration: underline;
     }
 
     a:hover {

@@ -154,7 +154,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${defaultBanner}`,
+          url: `${siteUrl}${banner || defaultBanner}`,
         },
       },
       datePublished: node ? node.birthTime : '2019-03-10T10:30:00+01:00',

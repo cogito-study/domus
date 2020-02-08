@@ -8,17 +8,16 @@ export const StyledContent = styled.div(
     font-weight: 600;
     line-height: 1.8;
     font-size: ${sizes[4]};
-    margin-bottom: ${space[10]};
     color: ${colors.grey[800]};
 
     p {
-      margin: ${space[8]} 0;
+      margin-bottom: ${space[8]};
       font-family: ${fonts.body};
       font-weight: 600;
     }
 
     h1 {
-      margin-bottom: ${space[5]};
+      margin-bottom: ${space[8]};
       font-family: ${fonts.heading};
       font-size: ${fontSizes['3xl']};
       font-weight: bold;
@@ -27,7 +26,7 @@ export const StyledContent = styled.div(
     }
 
     h2 {
-      margin-bottom: ${space[4]};
+      margin-bottom: ${space[2]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
       font-size: ${fontSizes['xl']};
@@ -37,7 +36,7 @@ export const StyledContent = styled.div(
     }
 
     h3 {
-      margin-bottom: ${space[4]};
+      margin-bottom: ${space[2]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
       font-size: ${fontSizes['lg']};

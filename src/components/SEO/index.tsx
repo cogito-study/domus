@@ -59,7 +59,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
   const seo = {
     title: `${title} | cogito` || `${defaultTitle} | cogito`,
     description: desc || defaultDescription,
-    image: `${siteUrl}${banner || defaultBanner}`,
+    image: banner || `${siteUrl}${defaultBanner}`,
     url: `${siteUrl}${pathname || ''}`,
   };
 
@@ -154,7 +154,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${banner || defaultBanner}`,
+          url: banner || `${siteUrl}${defaultBanner}`,
         },
       },
       datePublished: node ? node.birthTime : '2019-03-10T10:30:00+01:00',

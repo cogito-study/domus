@@ -12,7 +12,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
       <SEO
         individual
         title={`${data.prismicBlogPost.data.title.text.toLowerCase()} | blog`}
-        banner={data.prismicBlogPost.data.hero_image.url}
+        banner={data.prismicBlogPost.data.hero_image.localFile.publicURL}
       />
       <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
@@ -41,7 +41,9 @@ export const query = graphql`
           text
         }
         hero_image {
-          url
+          localFile {
+            publicURL
+          }
         }
         content {
           html

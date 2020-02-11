@@ -2,7 +2,15 @@ import { themeGet } from '@styled-system/theme-get';
 import styled, { css, ThemeProps } from 'styled-components';
 import { Link, GatsbyLinkProps } from 'gatsby';
 import { Theme, theme } from '@cogito-study/alea';
-import { compose, ColorProps, color, SpaceProps, space, TypographyProps, typography } from 'styled-system';
+import {
+  compose,
+  ColorProps,
+  color,
+  SpaceProps,
+  space,
+  TypographyProps,
+  typography,
+} from 'styled-system';
 
 interface Props {
   hoverColor?: string;
@@ -28,7 +36,8 @@ const style = () => css`
 
   :link,
   :visited {
-    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) => themeGet(`colors.${color}`, colors.accent[6])};
+    color: ${({ color, theme: { colors } }: StyledGatsbyLinkProps) =>
+      themeGet(`colors.${color}`, colors.accent[6])};
     text-decoration: none;
     cursor: pointer;
   }

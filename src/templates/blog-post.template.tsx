@@ -1,5 +1,4 @@
-import { Box } from '@chakra-ui/core';
-import { Flex, H1 } from '@cogito-study/alea';
+import { Box, Flex, Heading } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
@@ -14,12 +13,19 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
         title={`${data.prismicBlogPost.data.title.text.toLowerCase()} | blog`}
         banner={data.prismicBlogPost.data.hero_image.url}
       />
-      <Box position="fixed" h="100vh" w="100vw" backgroundColor="#fff" zIndex={-1} opacity={0.35} />
-      <Flex justifyContent="center" flexDirection="column" alignItems="center">
-        <Box width="100%" maxWidth="580px" backgroundColor="transparent">
-          <H1 mx={3} mb={4} mt={[9, 10]} color="primary.8">
+      <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />
+      <Flex justify="center" direction="column" align="center" mb={6}>
+        <Box mt={[24, 32]} width="100%" maxW="580px" bg="transparent">
+          <Heading
+            as="h1"
+            mx={3}
+            mb={4}
+            fontSize={['xl', '2xl']}
+            color="blue.800"
+            lineHeight="normal"
+          >
             {data.prismicBlogPost.data.title.text}
-          </H1>
+          </Heading>
           <StyledContent
             dangerouslySetInnerHTML={{ __html: data.prismicBlogPost.data.content.html }}
           />

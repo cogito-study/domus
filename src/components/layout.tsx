@@ -1,8 +1,7 @@
-import { Box, ThemeProvider as ChakraProvider } from '@chakra-ui/core';
-import { theme, ThemeProvider } from '@cogito-study/alea';
+import { Box, ThemeProvider, CSSReset } from '@chakra-ui/core';
 import React, { FunctionComponent, useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { chakraTheme } from '../theme/chakra';
+import { theme } from '../theme/chakra';
 import { NavBar } from './nav-bar';
 import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
@@ -26,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     color: black;
     font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    background: ${theme.colors.neutral[0]};
+    background: ${theme.colors.grey[50]};
     font-size: 18px;
     background-image: url('/background/pattern.svg'),
                       url('/background/top-left.svg'),
@@ -66,21 +65,20 @@ const Layout: FunctionComponent = ({ children }) => {
   const [overlayMenuActive, setOverlayMenuActive] = useState(false);
   return (
     <ThemeProvider theme={theme}>
-      <ChakraProvider theme={chakraTheme}>
-        <>
-          <GlobalStyles overlayMenuActive={overlayMenuActive} />
-          <NavBar
-            overlayMenuActive={overlayMenuActive}
-            onMenuButtonClicked={() =>
-              setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
-            }
-          />
-          <Box>{children}</Box>
-          <TryOutSection />
-          <PartnerSection />
-          <FooterSection />
-        </>
-      </ChakraProvider>
+      <>
+        <CSSReset />
+        <GlobalStyles overlayMenuActive={overlayMenuActive} />
+        <NavBar
+          overlayMenuActive={overlayMenuActive}
+          onMenuButtonClicked={() =>
+            setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
+          }
+        />
+        <Box>{children}</Box>
+        <TryOutSection />
+        <PartnerSection />
+        <FooterSection />
+      </>
     </ThemeProvider>
   );
 };

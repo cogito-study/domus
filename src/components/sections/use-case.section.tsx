@@ -1,5 +1,4 @@
-import { Button, Link } from '@chakra-ui/core';
-import { Box, Flex, H3, Paragraph } from '@cogito-study/alea';
+import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
@@ -43,54 +42,61 @@ export const UseCaseSection = () => {
   if (!data.allPrismicHomeBodyUseCase) return null;
 
   return (
-    <Flex flexDirection="column" alignItems="center" justifyContent="flex-end">
-      <Flex flexWrap="wrap" width={['100%', '65%', '750px', '100%']} justifyContent="center">
+    <Flex direction="column" align="center" justify="flex-end">
+      <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
         {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
           const { icon, title, description, blog_post } = useCase.node.primary;
 
           return (
             <Flex
-              backgroundColor="white"
+              bg="white"
               key={index}
-              flexDirection="column"
-              width={['100%', '100%', '210px', '260px']}
+              direction="column"
+              w={['100%', '100%', '210px', '260px']}
               my={[4, 4, 6]}
               mx={3}
-              alignItems="start"
-              justifyContent="space-between"
-              border={2}
-              borderColor="primary.8"
+              align="start"
+              justify="space-between"
+              borderWidth={2}
+              borderColor="blue.800"
             >
               <Flex
                 mt={[6, 3, 3, 3]}
                 mb={[4, 1, 2, 2]}
                 mx={[2, 2, 0, 2]}
-                flexDirection={['row', 'row', 'column']}
-                alignItems={['center', 'center', 'start']}
-                justifyContent="center"
+                direction={['row', 'row', 'column']}
+                align={['center', 'center', 'start']}
+                justify="center"
               >
-                <Box minWidth="90px" width={['90px', '90px', '90px', '110px']}>
-                  <img alt={icon.alt} src={icon.url} width="100%" />
+                <Box minW="90px" w={['90px', '90px', '90px', '110px']}>
+                  <Image alt={icon.alt} src={icon.url} width="100%" />
                 </Box>
-                <Flex height={'56px'} alignItems="center">
-                  <H3 my={1} mx={[3, 3, 3, 4]} color="primary.8">
+                <Flex h={'56px'} align="center">
+                  <Heading
+                    as="h3"
+                    my={1}
+                    mx={[3, 3, 3, 4]}
+                    color="blue.800"
+                    fontSize={['md', 'lg']}
+                    lineHeight="normal"
+                  >
                     {title.text}
-                  </H3>
+                  </Heading>
                 </Flex>
               </Flex>
               <Flex
                 mt={1}
                 mx={[5, 5, 3, 5]}
-                flexDirection="column"
-                height={['100%', '200px', '260px', '240px']}
-                justifyContent="space-between"
+                direction="column"
+                h={['100%', '200px', '260px', '240px']}
+                justify="space-between"
               >
-                <Flex flexDirection="column">
-                  <Paragraph my={2} color="neutral.8">
+                <Flex direction="column">
+                  <Text my={2} color="grey.800" fontSize="sm">
                     {description.text}
-                  </Paragraph>
+                  </Text>
                 </Flex>
-                <Flex justifyContent="center" mb={5} mt={[2, 2, 2, 4]}>
+                <Flex justify="center" mb={5} mt={[2, 2, 2, 4]}>
                   <GatsbyLink to={`/blog/${blog_post.slug}`}>
                     <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
                       learn more
@@ -114,7 +120,7 @@ export const UseCaseSection = () => {
           register
         </Button>
       </Link>
-      <Background backgroundColor="primary.8" display={['none', 'none', 'block']} />
+      <Background bg="blue.800" />
     </Flex>
   );
 };

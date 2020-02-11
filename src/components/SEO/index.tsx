@@ -27,6 +27,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
           siteUrl
           defaultTitle: titleAlt
           defaultDescription: description
+          banner
           defaultBanner
           headline
           siteLanguage
@@ -56,9 +57,9 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
   } = site;
 
   const seo = {
-    title: title || defaultTitle,
+    title: `${title} | cogito` || `${defaultTitle} | cogito`,
     description: desc || defaultDescription,
-    image: `${siteUrl}${banner || defaultBanner}`,
+    image: banner || `${siteUrl}${defaultBanner}`,
     url: `${siteUrl}${pathname || ''}`,
   };
 
@@ -153,7 +154,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         name: author,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}${defaultBanner}`,
+          url: banner || `${siteUrl}${defaultBanner}`,
         },
       },
       datePublished: node ? node.birthTime : '2019-03-10T10:30:00+01:00',
@@ -196,7 +197,9 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
         <meta name="image" content={seo.image} />
         <meta charset="utf-8" />
         {/* Insert schema.org data conditionally (webpage/article) + everytime (breadcrumbs) */}
-        {!individual && <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>}
+        {!individual && (
+          <script type="application/ld+json">{JSON.stringify(schemaOrgWebPage)}</script>
+        )}
         {individual && <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>}
         <script type="application/ld+json">{JSON.stringify(breadcrumb)}</script>
       </Helmet>

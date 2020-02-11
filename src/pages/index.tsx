@@ -1,7 +1,12 @@
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
-import { CustomerSection, FeatureSection, HeroSection, UseCaseSection } from '../components/sections';
+import {
+  CustomerSection,
+  FeatureSection,
+  HeroSection,
+  UseCaseSection,
+} from '../components/sections';
 import SEO from '../components/SEO';
 import { CookieBanner } from '../components/cookie-banner';
 import Cookies from 'js-cookie';
@@ -16,7 +21,7 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
 
   return (
     <>
-      <SEO />
+      <SEO title="home" />
       <Container>
         <HeroSection
           motto={motto.text}

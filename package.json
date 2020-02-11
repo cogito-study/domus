@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@chakra-ui/core": "^0.5.0",
-    "@cogito-study/alea": "^0.2.0",
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "@styled-system/theme-get": "^5.1.2",
     "babel-plugin-styled-components": "^1.10.6",
     "emotion-theming": "^10.0.19",
     "gatsby": "^2.18.6",

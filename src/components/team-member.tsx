@@ -1,9 +1,8 @@
-import { Box, H3, Paragraph } from '@cogito-study/alea';
+import { Box, Heading, Text } from '@chakra-ui/core';
 import Image from 'gatsby-image';
-import { ChildImageSharp } from '../types';
 import React, { FunctionComponent, useState } from 'react';
-
 import styled from 'styled-components';
+import { ChildImageSharp } from '../types';
 
 const ProfileImage = styled(Image)`
   height: 100%;
@@ -38,26 +37,28 @@ export const TeamMember: FunctionComponent<TeamMemberProps> = ({
   const [hovered, setHovered] = useState(false);
 
   return (
-    <Box width={[140, 200, 200, 260, 300]}>
+    <Box w={[140, 200, 200, 260, 300]}>
       <ImageContainer
-        height={[140, 200, 200, 260, 300]}
-        width={[140, 200, 200, 260, 300]}
+        h={[140, 200, 200, 260, 300]}
+        w={[140, 200, 200, 260, 300]}
         onTouchStart={() => setHovered((hovered) => !hovered)}
         onTouchEndCapture={() => setHovered((hovered) => !hovered)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         <ProfileImage
-          fluid={hovered ? hovered_image1.childImageSharp.fluid : original_image.childImageSharp.fluid}
+          fluid={
+            hovered ? hovered_image1.childImageSharp.fluid : original_image.childImageSharp.fluid
+          }
           alt={alt}
         />
       </ImageContainer>
-      <H3 fontSize={[15, 18, 18, 22]} mb={1} mt={2} color="primary.8">
+      <Heading as="h3" fontSize={[15, 18, 18, 22]} mb={1} mt={2} color="blue.800">
         {name}
-      </H3>
-      <Paragraph fontSize={[13, 16]} lineHeight={1.2} mb={6} mt={0} color="neutral.6">
+      </Heading>
+      <Text fontSize={[13, 16]} lineHeight={1.2} mb={6} mt={0} color="grey.600">
         {position}
-      </Paragraph>
+      </Text>
     </Box>
   );
 };

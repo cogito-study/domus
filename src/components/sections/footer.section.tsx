@@ -1,11 +1,10 @@
-import { Box, Flex, Heading, Link, PseudoBox } from '@chakra-ui/core';
+import { Box, Flex, Heading, Link, LinkProps, PseudoBox } from '@chakra-ui/core';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Container } from '../container';
-import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
 
 export const FooterSection = () => {
-  const data = useStaticQuery<any>(graphql`
+  const data = useStaticQuery(graphql`
     query Features {
       allPrismicHomeBodyUseCase {
         edges {
@@ -54,6 +53,16 @@ export const FooterSection = () => {
       }
     }
   `);
+
+  const linkProps: LinkProps = {
+    fontWeight: 'semibold',
+    fontFamily: 'heading',
+    fontSize: 'sm',
+    color: 'teal.600',
+    textDecoration: 'none',
+    _hover: { color: 'teal.800' },
+  };
+
   return (
     <Flex direction="column" bg="white">
       <Flex justify="center" mt={6} mb={9} mx={[5, 0]} direction={['column', 'row']}>
@@ -62,31 +71,25 @@ export const FooterSection = () => {
             Cogito
           </Heading>
           <Flex direction="column">
-            <Box my={2}>
-              <StyledGatsbyLink to="/" fontWeight="semibold">
-                product
-              </StyledGatsbyLink>
-            </Box>
+            <Link {...linkProps} my={2}>
+              <GatsbyLink to="/">product</GatsbyLink>
+            </Link>
+            <Link {...linkProps} my={2}>
+              <GatsbyLink to="/">about us</GatsbyLink>
+            </Link>
+            <Link {...linkProps} my={2}>
+              <GatsbyLink to="/">contact</GatsbyLink>
+            </Link>
             {/*<Box my={2}>
-              <StyledGatsbyLink to="/blog" fontWeight="semibold">
+              <GatsbyLink to="/blog">
                 blog
-              </StyledGatsbyLink>
+              </GatsbyLink>
             </Box>
             <Box my={2}>
-              <StyledGatsbyLink to="/pricing" fontWeight="semibold">
+              <GatsbyLink to="/pricing">
                 pricing
-              </StyledGatsbyLink>
+              </GatsbyLink>
             </Box>*/}
-            <Box my={2}>
-              <StyledGatsbyLink to="/about" fontWeight="semibold">
-                about us
-              </StyledGatsbyLink>
-            </Box>
-            <Box my={2}>
-              <StyledGatsbyLink to="/contact" fontWeight="semibold">
-                contact
-              </StyledGatsbyLink>
-            </Box>
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
@@ -95,11 +98,11 @@ export const FooterSection = () => {
           </Heading>
           <Flex direction="column">
             {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
-              <Box my={2} key={index}>
-                <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} fontWeight="semibold">
+              <Link {...linkProps} my={2} key={index}>
+                <GatsbyLink to={`/blog/${primary.blog_post.slug}`}>
                   {primary.title.text.toLowerCase()}
-                </StyledGatsbyLink>
-              </Box>
+                </GatsbyLink>
+              </Link>
             ))}
           </Flex>
         </Box>
@@ -111,12 +114,7 @@ export const FooterSection = () => {
             <Box my={2}>
               <Link
                 href={`mailto:${data.allPrismicContact.edges[0].node.data.e_mail.text}`}
-                fontWeight="semibold"
-                fontFamily="heading"
-                fontSize="sm"
-                color="teal.600"
-                textDecoration="none"
-                _hover={{ color: 'teal.800' }}
+                {...linkProps}
               >
                 {data.allPrismicContact.edges[0].node.data.e_mail.text}
               </Link>
@@ -125,12 +123,7 @@ export const FooterSection = () => {
             <Box my={2}>
               <Link
                 href="https://www.google.com/maps/place/Cogito+Technologies+Ltd./@47.4995828,19.0565544,17z/data=!3m1!4b1!4m5!3m4!1s0x4741dd4808c49f37:0xd2d0d6ae69129e56!8m2!3d47.4995792!4d19.0587484"
-                fontWeight="semibold"
-                fontFamily="heading"
-                fontSize="sm"
-                color="teal.600"
-                textDecoration="none"
-                _hover={{ color: 'teal.800' }}
+                {...linkProps}
               >
                 {data.allPrismicContact.edges[0].node.data.address.text}
               </Link>

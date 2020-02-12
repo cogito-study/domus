@@ -1,8 +1,8 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
+import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
 
 interface RelatedBlogPostSlicesProps {
   slices: any[];
@@ -22,7 +22,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
       switch (slice_type) {
         case 'related_posts':
           return (
-            <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} key={index}>
+            <Link to={`/blog/${primary.blog_post.slug}`} key={index}>
               <Box mx={6} maxW="300px">
                 <FlexWithShadow
                   backgroundColor="teal.100"
@@ -50,7 +50,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                   {primary.blog_post.document[0].data.title.text}
                 </Heading>
               </Box>
-            </StyledGatsbyLink>
+            </Link>
           );
         default:
           return null;

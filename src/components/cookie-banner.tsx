@@ -1,7 +1,7 @@
 import { Button, Flex, FlexProps, Text } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent, useState } from 'react';
-import styled from 'styled-components';
 
 type AbsoluteContainerProps = FlexProps & { isVisible: boolean };
 

@@ -1,8 +1,8 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
 
 interface RelatedBlogPostSlicesProps {
   slices: any[];

@@ -1,7 +1,7 @@
 import { Flex, Grid, Heading } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
 import { TeamMember } from '../team-member';
 
 const StyledGrid = styled(Grid)`

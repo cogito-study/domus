@@ -1,4 +1,4 @@
 import styled, { CreateStyled } from '@emotion/styled';
-import { chakraTheme } from './chakra';
+import { theme } from '.';
 
-export default styled as CreateStyled<typeof chakraTheme>;
+export default styled as CreateStyled<typeof theme>;

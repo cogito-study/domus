@@ -32,8 +32,8 @@ module.exports = {
         endpoint: config.mailchimpEndpoint,
       },
     },
+    `gatsby-plugin-emotion`,
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-chakra-ui',

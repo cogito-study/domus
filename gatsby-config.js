@@ -38,6 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-chakra-ui',
       options: {
+        isResettingCSS: true,
         isUsingColorMode: false,
       },
     },
@@ -59,12 +60,6 @@ module.exports = {
       options: {
         name: `templates`,
         path: `${__dirname}/src/templates/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`${__dirname}/src/components/layout.tsx`),
       },
     },
     'gatsby-plugin-sharp',

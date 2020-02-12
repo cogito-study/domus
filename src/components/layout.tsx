@@ -1,8 +1,6 @@
 import { Box, CSSReset, ThemeProvider } from '@chakra-ui/core';
 import { css, Global } from '@emotion/core';
 import React, { FC, useState } from 'react';
-import 'typeface-nunito-sans';
-import 'typeface-raleway';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
 import { FooterSection, PartnerSection, TryOutSection } from './sections';
@@ -13,7 +11,8 @@ const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => 
   return (
     <Global
       styles={css`
-        /* @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap&subset=latin-ext'); */
+        @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap&subset=latin-ext');
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800&display=swap&subset=latin-ext');
 
         body {
           font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;

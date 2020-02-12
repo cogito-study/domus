@@ -2,17 +2,15 @@ import { Box, Flex, Heading } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
-import { StyledContent } from '../components/styled/styled-content';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
+import { StyledContent } from '../components/styled/styled-content';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
+  const { title, hero_image, content, body } = data.prismicBlogPost.data;
+
   return (
     <>
-      <SEO
-        individual
-        title={`${data.prismicBlogPost.data.title.text.toLowerCase()} | blog`}
-        banner={data.prismicBlogPost.data.hero_image.url}
-      />
+      <SEO individual title={`${title.text.toLowerCase()} | blog`} banner={hero_image.url} />
       <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />
       <Flex justify="center" direction="column" align="center" mb={6}>
         <Box mt={[24, 32]} width="100%" maxW="580px" bg="transparent">
@@ -24,13 +22,11 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
             color="blue.800"
             lineHeight="normal"
           >
-            {data.prismicBlogPost.data.title.text}
+            {title.text}
           </Heading>
-          <StyledContent
-            dangerouslySetInnerHTML={{ __html: data.prismicBlogPost.data.content.html }}
-          />
+          <StyledContent dangerouslySetInnerHTML={{ __html: content.html }} />
         </Box>
-        <RelatedBlogPostSlices slices={data.prismicBlogPost.data.body} />
+        {body && <RelatedBlogPostSlices slices={body} />}
       </Flex>
     </>
   );

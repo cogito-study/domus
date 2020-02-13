@@ -29,7 +29,7 @@ export const StyledContent = styled.div(
       margin-bottom: ${space[2]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
-      font-size: ${fontSizes['xl']};
+      font-size: ${fontSizes['lg']};
       font-weight: 700;
       color: ${colors.blue[800]};
       line-height: 1.2;
@@ -39,9 +39,9 @@ export const StyledContent = styled.div(
       margin-bottom: ${space[2]};
       margin-top: ${space[8]};
       font-family: ${fonts.heading};
-      font-size: ${fontSizes['lg']};
+      font-size: ${fontSizes['md']};
       font-weight: 700;
-      color: ${colors.blue[800]};
+      color: ${colors.grey[700]};
       line-height: 1.2;
     }
 
@@ -68,6 +68,7 @@ export const StyledContent = styled.div(
       color: ${colors.teal[600]};
       font-weight: 600;
       text-decoration: underline;
+      transition: all 250ms;
     }
 
     a:hover {
@@ -84,6 +85,10 @@ export const StyledContent = styled.div(
       }
 
       h2 {
+        font-size: ${fontSizes['xl']};
+      }
+
+      h3 {
         font-size: ${fontSizes['lg']};
       }
     }

@@ -75,10 +75,10 @@ export const FooterSection = () => {
               <GatsbyLink to="/">product</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">about us</GatsbyLink>
+              <GatsbyLink to="/about">about us</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">contact</GatsbyLink>
+              <GatsbyLink to="/contact">contact</GatsbyLink>
             </Link>
             {/*<Box my={2}>
               <GatsbyLink to="/blog">

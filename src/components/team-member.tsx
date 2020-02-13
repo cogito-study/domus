@@ -1,7 +1,7 @@
 import { Box, Heading, Text } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import Image from 'gatsby-image';
 import React, { FunctionComponent, useState } from 'react';
-import styled from 'styled-components';
 import { ChildImageSharp } from '../types';
 
 const ProfileImage = styled(Image)`

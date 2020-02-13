@@ -1,8 +1,8 @@
-import { Box, Flex, H4 } from '@cogito-study/alea';
+import { Box, Flex, Heading } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
-import { StyledGatsbyLink } from '../styled/styled-gatsby-link';
 
 interface RelatedBlogPostSlicesProps {
   slices: any[];
@@ -22,14 +22,14 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
       switch (slice_type) {
         case 'related_posts':
           return (
-            <StyledGatsbyLink to={`/blog/${primary.blog_post.slug}`} key={index}>
-              <Box mx={24} maxWidth="300px">
+            <Link to={`/blog/${primary.blog_post.slug}`} key={index}>
+              <Box mx={6} maxW="300px">
                 <FlexWithShadow
-                  backgroundColor="accent.1"
-                  width="300px"
-                  height="200px"
-                  justifyContent="center"
-                  alignItems="center"
+                  backgroundColor="teal.100"
+                  w="300px"
+                  h="200px"
+                  justify="center"
+                  align="center"
                 >
                   <Image
                     fixed={
@@ -38,11 +38,19 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                     alt={primary.blog_post.document[0].data.hero_image.alt}
                   />
                 </FlexWithShadow>
-                <H4 color="accent.6" mt={4} key={index}>
+                <Heading
+                  as="h4"
+                  color="teal.600"
+                  mt={4}
+                  fontWeight="semibold"
+                  lineHeight="normal"
+                  fontSize={['sm', 'md']}
+                  key={index}
+                >
                   {primary.blog_post.document[0].data.title.text}
-                </H4>
+                </Heading>
               </Box>
-            </StyledGatsbyLink>
+            </Link>
           );
         default:
           return null;

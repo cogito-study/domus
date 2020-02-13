@@ -1,86 +1,64 @@
-import { ThemeProvider as ChakraProvider } from '@chakra-ui/core';
-import { Box, theme, ThemeProvider } from '@cogito-study/alea';
-import React, { FunctionComponent, useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { chakraTheme } from '../theme/chakra';
+import { Box, CSSReset, ThemeProvider } from '@chakra-ui/core';
+import { css, Global } from '@emotion/core';
+import React, { FC, useState } from 'react';
+import { theme } from '../theme';
 import { NavBar } from './nav-bar';
 import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
-const GlobalStyles = createGlobalStyle`
+const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
+  const { breakpoints, colors } = theme;
 
-  @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800&display=swap&subset=latin-ext');
+  return (
+    <Global
+      styles={css`
+        @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600&display=swap&subset=latin-ext');
+        @import url('https://fonts.googleapis.com/css?family=Raleway:400,600,700,800&display=swap&subset=latin-ext');
 
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  html {
-    box-sizing: border-box;
-    border: 0;
-    margin: 0;
-  }
+        body {
+          font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+          background: ${colors.grey[50]};
+          font-size: 18px;
+          background-image: url('/background/pattern.svg'), url('/background/top-left.svg'),
+            url('/background/top-right.svg'), url('/background/bottom-right.svg'),
+            url('/background/bottom-left.svg');
+          background-position: left, left 100px, right 100px, right 1200px, left 2000px;
+          background-repeat: repeat-y, no-repeat, no-repeat, no-repeat, no-repeat;
 
-  body {
-    border: 0;
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-family: 'Nunito Sans', '-apple-system', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    background: ${theme.colors.neutral[0]};
-    font-size: 18px;
-    background-image: url('/background/pattern.svg'),
-                      url('/background/top-left.svg'),
-                      url('/background/top-right.svg'),
-                      url('/background/bottom-right.svg'),
-                      url('/background/bottom-left.svg');
-    background-position: left,
-                         left 100px,
-                         right 100px,
-                         right 1200px,
-                         left 2000px;
-    background-repeat: repeat-y,
-                       no-repeat,
-                       no-repeat,
-                       no-repeat,
-                       no-repeat;
+          position: ${overlayMenuActive ? 'fixed' : 'static'};
+        }
 
-    position: ${({ overlayMenuActive }: { overlayMenuActive: boolean }) =>
-      overlayMenuActive ? 'fixed' : 'static'};
-  }
-  @media only screen and (max-width: ${theme.breakpoints[1]}) {
-    body {
-      background-image: url('/background/top-right.svg'),
-                        url('/background/bottom-right.svg'),
-                        url('/background/bottom-left-mobile.svg');
-      background-position: right 100px,
-                           right 1200px,
-                           left 2000px;
-      background-repeat: no-repeat,
-                         no-repeat,
-                         no-repeat;
-    }
-  }
-`;
+        @media only screen and (max-width: ${breakpoints[1]}) {
+          body {
+            background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg'),
+              url('/background/bottom-left-mobile.svg');
+            background-position: right 100px, right 1200px, left 2000px;
+            background-repeat: no-repeat, no-repeat, no-repeat;
+          }
+        }
+      `}
+    />
+  );
+};
 
-const Layout: FunctionComponent = ({ children }) => {
+const Layout: FC = ({ children }) => {
   const [overlayMenuActive, setOverlayMenuActive] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
-      <ChakraProvider theme={chakraTheme}>
-        <>
-          <GlobalStyles overlayMenuActive={overlayMenuActive} />
-          <NavBar
-            overlayMenuActive={overlayMenuActive}
-            onMenuButtonClicked={() =>
-              setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
-            }
-          />
-          <Box>{children}</Box>
-          <TryOutSection />
-          <PartnerSection />
-          <FooterSection />
-        </>
-      </ChakraProvider>
+      <>
+        <CSSReset />
+        <GlobalStyles overlayMenuActive={overlayMenuActive} />
+        <NavBar
+          overlayMenuActive={overlayMenuActive}
+          onMenuButtonClicked={() =>
+            setOverlayMenuActive((isOverlayMenuOpen) => !isOverlayMenuOpen)
+          }
+        />
+        <Box>{children}</Box>
+        <TryOutSection />
+        <PartnerSection />
+        <FooterSection />
+      </>
     </ThemeProvider>
   );
 };

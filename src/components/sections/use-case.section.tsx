@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
+import styled from '@emotion/styled';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 
 const Background = styled(Flex)`
   position: absolute;

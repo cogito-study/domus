@@ -1,16 +1,16 @@
-import { theme } from '@chakra-ui/core';
+import { theme as baseTheme } from '@chakra-ui/core';
 
-export const chakraTheme = {
-  ...theme,
+export const theme = {
+  ...baseTheme,
   fonts: {
-    ...theme.fonts,
+    ...baseTheme.fonts,
     heading: `"Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     body: `"Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
     mono: `SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
   },
   breakpoints: ['432px', '576px', '900px', '1200px'],
   fontSizes: {
-    ...theme.fontSizes,
+    ...baseTheme.fontSizes,
     xs: '10px',
     sm: '16px',
     md: '18px',
@@ -19,7 +19,7 @@ export const chakraTheme = {
     '2xl': '44px',
   },
   lineHeights: {
-    ...theme.lineHeights,
+    ...baseTheme.lineHeights,
     shorter: '0.8',
     short: '0.9',
     none: '1',
@@ -29,7 +29,7 @@ export const chakraTheme = {
     taller: '1.625',
   },
   colors: {
-    ...theme.colors,
+    ...baseTheme.colors,
     white: '#FAFAFA',
     black: '#050505',
     blue: {

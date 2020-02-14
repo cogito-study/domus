@@ -1,4 +1,4 @@
-const website = require('.')
+const website = require('.');
 
 module.exports = {
   'en-us': {
@@ -18,6 +18,25 @@ module.exports = {
     recent: 'Recent',
     projects: 'projects',
     allCategories: 'All categories',
-    entries: 'entries'
-  }
-}
+    entries: 'entries',
+  },
+  hu: {
+    path: 'hu',
+    locale: 'hu',
+    siteLanguage: 'hu',
+    ogLang: 'hu_HU',
+    defaultTitle: website.title,
+    defaultTitleAlt: website.titleAlt,
+    defaultDescription: website.description,
+    headline: website.headline,
+    category: 'Category',
+    categories: 'Categories',
+    was: 'was',
+    were: 'were',
+    tagged: 'tagged with',
+    recent: 'Recent',
+    projects: 'projects',
+    allCategories: 'All categories',
+    entries: 'entries',
+  },
+};

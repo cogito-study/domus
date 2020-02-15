@@ -97,7 +97,7 @@ const SEO = ({ title, desc, banner, pathname, node, individual }: Props) => {
     dateModified: buildTime,
     image: {
       '@type': 'ImageObject',
-      url: `${siteUrl}${defaultBanner}`,
+      url: seo.image,
     },
   };
 

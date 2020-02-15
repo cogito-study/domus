@@ -3,10 +3,16 @@ import Helmet from 'react-helmet';
 
 const defaultProps = {
   name: '',
-  type: 'website',
+  type: '',
 };
 
-type Props = { url: string; title: string; desc: string; image: string; locale: string } & typeof defaultProps;
+type Props = {
+  url: string;
+  title: string;
+  desc: string;
+  image: string;
+  locale: string;
+} & typeof defaultProps;
 
 const Facebook = ({ url, title, desc, image, locale, name, type }: Props) => (
   <Helmet>

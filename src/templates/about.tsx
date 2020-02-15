@@ -22,7 +22,7 @@ const About: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
 };
 
 export const query = graphql`
-  query AboutQuery($lang: String!) {
+  query About($lang: String!) {
     prismicAbout(lang: { eq: $lang }) {
       data {
         title {

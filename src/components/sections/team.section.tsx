@@ -17,7 +17,6 @@ export const TeamSection: FunctionComponent<TeamSectionProps & { data: any }> = 
   subtitle,
   data,
 }) => {
-  console.log(data);
   return (
     <Flex
       direction="column"

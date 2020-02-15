@@ -3,10 +3,10 @@ import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 
 const pages: Record<string, string> = {
-  PRODUCT: '/',
+  PRODUCT: '/en',
   //BLOG: '/blog',
   //PRICING: '/pricing',
-  'ABOUT US': '/about',
+  'ABOUT US': 'en/about',
   CONTACT: '/contact',
 };
 

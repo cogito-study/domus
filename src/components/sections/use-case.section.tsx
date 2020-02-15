@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
-import React from 'react';
+import { Link as GatsbyLink } from 'gatsby';
+import React, { FunctionComponent } from 'react';
 
 const Background = styled(Flex)`
   position: absolute;
@@ -12,40 +12,12 @@ const Background = styled(Flex)`
   z-index: -1;
 `;
 
-export const UseCaseSection = () => {
-  const data = useStaticQuery(graphql`
-    query UseCase {
-      allPrismicHomeBodyUseCase {
-        edges {
-          node {
-            primary {
-              description {
-                text
-              }
-              title {
-                text
-              }
-              icon {
-                url
-                alt
-              }
-              blog_post {
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicHomeBodyUseCase) return null;
-
+export const UseCaseSection: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Flex direction="column" align="center" justify="flex-end">
       <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
-        {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
-          const { icon, title, description, blog_post } = useCase.node.primary;
+        {data.map((useCase: any, index: number) => {
+          const { icon, title, description, blog_post } = useCase.primary;
 
           return (
             <Flex

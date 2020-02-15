@@ -7,10 +7,25 @@ const {
 } = require('./src/utils/gatsby-node-helpers');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+  createRedirect({
+    fromPath: `/`,
+    toPath: `/en`,
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
   const path = require('path');
   const pages = await graphql(`
     {
+      allPrismicHome {
+        edges {
+          node {
+            alternate_languages {
+              lang
+            }
+          }
+        }
+      }
       allPrismicAbout {
         edges {
           node {
@@ -30,8 +45,18 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const template = path.resolve('./src/templates/blog-post.template.tsx');
-
+  pages.data.allPrismicHome.edges.forEach(({ node }) => {
+    const { alternate_languages } = node;
+    alternate_languages.forEach(({ lang }) => {
+      createPage({
+        path: `/${i18n[lang].path}`,
+        component: require.resolve(`./src/templates/index.tsx`),
+        context: {
+          lang,
+        },
+      });
+    });
+  });
   pages.data.allPrismicAbout.edges.forEach(({ node }) => {
     const { alternate_languages } = node;
     alternate_languages.forEach(({ lang }) => {
@@ -48,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
   pages.data.allPrismicBlogPost.edges.forEach((edge) => {
     createPage({
       path: `/blog/${edge.node.slugs[0]}`,
-      component: template,
+      component: require.resolve('./src/templates/blog-post.template.tsx'),
       context: {
         uid: edge.node.slugs[0],
       },

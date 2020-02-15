@@ -1,44 +1,16 @@
 import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import React from 'react';
+import { Link } from 'gatsby';
+import React, { FunctionComponent } from 'react';
 
-export const FeatureSection = () => {
-  const data = useStaticQuery(graphql`
-    query Feature {
-      allPrismicHomeBodyFeature {
-        edges {
-          node {
-            primary {
-              image {
-                url
-                alt
-              }
-              title {
-                text
-              }
-              description {
-                text
-              }
-              blog_post {
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicHomeBodyFeature) return null;
-
+export const FeatureSection: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <Flex
       flexDirection="column"
       alignItems={['center', 'center', 'space-between']}
       mx={[4, 4, 0, 8]}
     >
-      {data.allPrismicHomeBodyFeature.edges.map((feature: any, index: number) => {
-        const { image, title, description, blog_post } = feature.node.primary;
+      {data.map((feature: any, index: number) => {
+        const { image, title, description, blog_post } = feature.primary;
 
         return (
           <Flex

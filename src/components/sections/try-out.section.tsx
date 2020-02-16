@@ -1,10 +1,48 @@
 import { Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-export const TryOutSection = ({ data }) => {
+export const TryOutSection = ({ lang }) => {
+  const data = useStaticQuery(graphql`
+    query TryOut {
+      allPrismicHome {
+        edges {
+          node {
+            lang
+            data {
+              body {
+                ... on PrismicHomeBodyTryOut {
+                  slice_type
+                  primary {
+                    image {
+                      url
+                      alt
+                    }
+                    image_description {
+                      text
+                    }
+                    subtitle {
+                      text
+                    }
+                    title {
+                      text
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const slices = filteredData[0].node.data.body;
+  const tryoutSection = slices.filter((slice) => slice.slice_type === 'try_out');
   return (
     <Flex bg="blue.800">
-      {data.map((tryOut: any, index: number) => {
+      {tryoutSection.map((tryOut: any, index: number) => {
         const { image, image_description, subtitle, title } = tryOut.primary;
 
         return (

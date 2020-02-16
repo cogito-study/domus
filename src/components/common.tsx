@@ -1,9 +1,9 @@
 import React from 'react';
 import { TryOutSection, PartnerSection, FooterSection } from './sections';
 
-const Common = ({ tryout, partner }) => (
+const Common = ({ partner, lang }) => (
   <>
-    <TryOutSection data={tryout} />
+    <TryOutSection lang={lang} />
     <PartnerSection data={partner} />
     <FooterSection />
   </>

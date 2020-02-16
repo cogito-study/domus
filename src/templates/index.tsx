@@ -25,7 +25,7 @@ const Index: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
 
-  console.log(useCaseSection);
+  console.log(cookie);
   return (
     <>
       <SEO title="home" />
@@ -48,8 +48,8 @@ const Index: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
         undefined
       ) : (
         <CookieBanner
-          descriptionText={cookie.primary.description_text.text}
-          buttonText={cookie.primary.button_title.text}
+          descriptionText={cookie[0].primary.description_text.text}
+          buttonText={cookie[0].primary.button_title.text}
         />
       )}
     </>

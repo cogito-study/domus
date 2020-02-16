@@ -7,6 +7,7 @@ import {
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
+import Common from '../components/common';
 import SEO from '../components/SEO';
 import { CookieBanner } from '../components/cookie-banner';
 import Cookies from 'js-cookie';
@@ -17,6 +18,9 @@ const Index: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
   const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
   const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
+  const tryoutSection = slices.filter((slice) => slice.slice_type === 'try_out');
+  const partnerSection = slices.filter((slice) => slice.slice_type === 'partner');
+
   // const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
@@ -39,6 +43,7 @@ const Index: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
         <FeatureSection data={featureSection} />
         <CustomerSection title={customers_heading.text} data={customerSection} />
       </Container>
+      <Common tryout={tryoutSection} partner={partnerSection} />
       {Cookies.get('CogitoCookie') ? (
         undefined
       ) : (
@@ -132,6 +137,41 @@ export const query = graphql`
               }
               blog_post {
                 slug
+              }
+            }
+          }
+
+          ... on PrismicHomeBodyTryOut {
+            slice_type
+            primary {
+              image {
+                url
+                alt
+              }
+              image_description {
+                text
+              }
+              subtitle {
+                text
+              }
+              title {
+                text
+              }
+            }
+          }
+
+          ... on PrismicHomeBodyPartner {
+            slice_type
+            primary {
+              logo {
+                url
+                alt
+              }
+              link {
+                url
+              }
+              name {
+                text
               }
             }
           }

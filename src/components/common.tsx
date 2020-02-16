@@ -1,10 +1,10 @@
 import React from 'react';
 import { TryOutSection, PartnerSection, FooterSection } from './sections';
 
-const Common = ({ partner, lang }) => (
+const Common = ({ lang }) => (
   <>
     <TryOutSection lang={lang} />
-    <PartnerSection data={partner} />
+    <PartnerSection lang={lang} />
     <FooterSection />
   </>
 );

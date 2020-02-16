@@ -4,8 +4,12 @@ import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
+import Common from '../components/common';
 
-const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
+const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
+  data,
+  pageContext: { lang },
+}) => {
   const { title, hero_image, content, body } = data.prismicBlogPost.data;
 
   return (
@@ -28,6 +32,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
         </Box>
         {body && <RelatedBlogPostSlices slices={body} />}
       </Flex>
+      <Common lang={lang} />
     </>
   );
 };

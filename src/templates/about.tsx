@@ -3,8 +3,12 @@ import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { AchievementSection, TeamSection } from '../components/sections';
 import SEO from '../components/SEO';
+import Common from '../components/common';
 
-const About: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
+const About: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
+  data,
+  pageContext: { lang },
+}) => {
   const { title, subtitle, achievement_header } = data.prismicAbout.data;
   const slices = data.prismicAbout.data.body;
   const teamSection = slices.filter((slice) => slice.slice_type === 'profile');
@@ -13,10 +17,11 @@ const About: FunctionComponent<{ data: any; lang: any }> = ({ data, lang }) => {
   return (
     <>
       <SEO title="about" />
-      <Container pt={[16, 24]} lang={lang}>
+      <Container pt={[16, 24]}>
         <TeamSection title={title.text} subtitle={subtitle.text} data={teamSection} />
         <AchievementSection title={achievement_header.text} data={achievementSection} />
       </Container>
+      <Common lang={lang} />
     </>
   );
 };

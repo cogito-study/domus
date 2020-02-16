@@ -21,9 +21,6 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
   const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
-  const partnerSection = slices.filter((slice) => slice.slice_type === 'partner');
-
-  // const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
 
@@ -31,7 +28,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   return (
     <>
       <SEO title="home" />
-      <Container lang={lang}>
+      <Container>
         <HeroSection
           motto={motto.text}
           description={description.text}
@@ -45,7 +42,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
         <FeatureSection data={featureSection} />
         <CustomerSection title={customers_heading.text} data={customerSection} />
       </Container>
-      <Common lang={lang} partner={partnerSection} />
+      <Common lang={lang} />
       {Cookies.get('CogitoCookie') ? (
         undefined
       ) : (
@@ -143,21 +140,6 @@ export const query = graphql`
             }
           }
 
-          ... on PrismicHomeBodyPartner {
-            slice_type
-            primary {
-              logo {
-                url
-                alt
-              }
-              link {
-                url
-              }
-              name {
-                text
-              }
-            }
-          }
           ... on PrismicHomeBodyCookie {
             slice_type
             primary {

@@ -2,12 +2,10 @@ import { Button, Flex, Heading, Image } from '@chakra-ui/core';
 import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import travolta from '../../static/travolta.gif';
-import SEO from '../components/SEO';
 
 const Notfound: FunctionComponent = () => {
   return (
     <>
-      <SEO />
       <Flex
         align="center"
         justify="center"

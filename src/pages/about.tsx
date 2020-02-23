@@ -2,12 +2,10 @@ import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../components/container';
 import { AchievementSection, TeamSection } from '../components/sections';
-import SEO from '../components/SEO';
 
 const About: FunctionComponent<{ data: any }> = ({ data }) => {
   return (
     <>
-      <SEO title="about" />
       <Container pt={[16, 24]}>
         <TeamSection
           title={data.allPrismicAbout.edges[0].node.data.title.text}

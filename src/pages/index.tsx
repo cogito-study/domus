@@ -7,7 +7,6 @@ import {
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
-import SEO from '../components/SEO';
 import { CookieBanner } from '../components/cookie-banner';
 import Cookies from 'js-cookie';
 
@@ -21,7 +20,6 @@ const Index: FunctionComponent<{ data: any }> = ({ data }) => {
 
   return (
     <>
-      <SEO title="home" />
       <Container>
         <HeroSection
           motto={motto.text}

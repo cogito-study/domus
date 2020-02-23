@@ -26,6 +26,7 @@ module.exports = {
     facebook: config.ogSiteName,
   },
   plugins: [
+    'gatsby-plugin-next-seo',
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
@@ -33,7 +34,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-chakra-ui',

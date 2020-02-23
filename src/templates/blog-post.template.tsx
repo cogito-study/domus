@@ -7,14 +7,15 @@ import { ArticleJsonLd } from 'gatsby-plugin-next-seo';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   const { title, hero_image, content, body } = data.prismicBlogPost.data;
-  console.log(title);
+  console.log(hero_image);
   const description = content.text.slice(0, 50);
   return (
     <>
       <ArticleJsonLd
         url="https://cogito.study/blog"
+        title={`${title.text} | blog | cogito`}
         headline={title.text}
-        images={hero_image.url}
+        images={[hero_image.url]}
         datePublished="2015-02-05T08:00:00+08:00"
         dateModified="2015-02-05T09:00:00+08:00"
         authorName="Jane Blogs"

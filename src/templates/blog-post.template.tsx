@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
-import { ArticleJsonLd } from 'gatsby-plugin-next-seo';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   const { title, hero_image, content, body } = data.prismicBlogPost.data;
@@ -11,19 +11,26 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   const description = content.text.slice(0, 50);
   return (
     <>
-      <ArticleJsonLd
-        url="https://cogito.study/blog"
+      <GatsbySeo
         title={`${title.text} | blog | cogito`}
-        headline={title.text}
-        images={[hero_image.url]}
-        datePublished="2015-02-05T08:00:00+08:00"
-        dateModified="2015-02-05T09:00:00+08:00"
-        authorName="Jane Blogs"
-        publisherName="Ifiok Jr."
         description={description}
-        publisherLogo={hero_image.url}
-        overrides={{
-          '@type': 'BlogPosting', // set's this as a blog post.
+        canonical="https://cogito.study/blog"
+        openGraph={{
+          url: 'https://cogito.study/blog',
+          title: `${title.text} | blog | cogito`,
+          description: description,
+          images: [
+            {
+              url: hero_image.url,
+              alt: 'Og Image Alt',
+            },
+          ],
+          site_name: 'cogito - collaborative e-learning platform',
+        }}
+        twitter={{
+          handle: '@cogitostudy',
+          site: '@cogito.study',
+          cardType: 'summary_large_image',
         }}
       />
       <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />

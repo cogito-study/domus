@@ -3,29 +3,20 @@ import React, { FunctionComponent } from 'react';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   const { title, hero_image, content, body } = data.prismicBlogPost.data;
   const description = content.text.slice(0, 50);
-  const { site } = useStaticQuery(graphql`
-    query SEO {
-      site {
-        buildTime(formatString: "YYYY-MM-DD")
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
-  `);
+
   return (
     <>
       <GatsbySeo
         title={`${title.text} | blog | cogito`}
         description={description}
-        canonical={`${site.siteMetadata.siteUrl}/blog`}
+        canonical={`${data.site.siteMetadata.siteUrl}/blog`}
         openGraph={{
-          url: `${site.siteMetadata.siteUrl}/blog`,
+          url: `${data.site.siteMetadata.siteUrl}/blog`,
           title: `${title.text} | blog | cogito`,
           description: description,
           images: [
@@ -65,6 +56,12 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
 
 export const query = graphql`
   query PostBySlug($uid: String!) {
+    site {
+      buildTime(formatString: "YYYY-MM-DD")
+      siteMetadata {
+        siteUrl
+      }
+    }
     prismicBlogPost(slugs: { eq: $uid }) {
       data {
         content {

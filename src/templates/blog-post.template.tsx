@@ -1,22 +1,31 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
-import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
   const { title, hero_image, content, body } = data.prismicBlogPost.data;
-  console.log(hero_image);
   const description = content.text.slice(0, 50);
+  const { site } = useStaticQuery(graphql`
+    query SEO {
+      site {
+        buildTime(formatString: "YYYY-MM-DD")
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `);
   return (
     <>
       <GatsbySeo
         title={`${title.text} | blog | cogito`}
         description={description}
-        canonical="https://cogito.study/blog"
+        canonical={`${site.siteMetadata.siteUrl}/blog`}
         openGraph={{
-          url: 'https://cogito.study/blog',
+          url: `${site.siteMetadata.siteUrl}/blog`,
           title: `${title.text} | blog | cogito`,
           description: description,
           images: [

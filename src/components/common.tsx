@@ -5,7 +5,7 @@ const Common = ({ lang }) => (
   <>
     <TryOutSection lang={lang} />
     <PartnerSection lang={lang} />
-    <FooterSection />
+    <FooterSection lang={lang} />
   </>
 );
 

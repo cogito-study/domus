@@ -3,18 +3,26 @@ import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Container } from '../container';
 
-export const FooterSection = () => {
+export const FooterSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
     query Features {
-      allPrismicHomeBodyUseCase {
+      allPrismicHome {
         edges {
           node {
-            primary {
-              title {
-                text
-              }
-              blog_post {
-                slug
+            lang
+            data {
+              body {
+                ... on PrismicHomeBodyUseCase {
+                  slice_type
+                  primary {
+                    title {
+                      text
+                    }
+                    blog_post {
+                      slug
+                    }
+                  }
+                }
               }
             }
           }
@@ -53,6 +61,12 @@ export const FooterSection = () => {
       }
     }
   `);
+
+  if (!data.allPrismicHome) return null;
+  const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const slices = filteredData[0].node.data.body;
+  const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
+  console.log(useCaseSection);
 
   const linkProps: LinkProps = {
     fontWeight: 'semibold',
@@ -97,13 +111,14 @@ export const FooterSection = () => {
             Use cases
           </Heading>
           <Flex direction="column">
-            {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
-              <Link {...linkProps} my={2} key={index}>
-                <GatsbyLink to={`/blog/${primary.blog_post.slug}`}>
-                  {primary.title.text.toLowerCase()}
-                </GatsbyLink>
-              </Link>
-            ))}
+            {useCaseSection.map((useCase: any, index: number) => {
+              const { blog_post, title } = useCase.primary;
+              return (
+                <Link {...linkProps} my={2} key={index}>
+                  <GatsbyLink to={`/blog/${blog_post.slug}`}>{title.text.toLowerCase()}</GatsbyLink>
+                </Link>
+              );
+            })}
           </Flex>
         </Box>
         <Box width="210px" mx={4}>

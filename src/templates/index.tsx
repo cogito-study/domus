@@ -30,16 +30,17 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
       <SEO title="home" />
       <Container>
         <HeroSection
+          lang={lang}
           motto={motto.text}
           description={description.text}
           popupTitle={popup_title.text}
           popupText={popup_text.text}
         />
       </Container>
-      <UseCaseSection data={useCaseSection} />
+      <UseCaseSection data={useCaseSection} lang={lang} />
 
       <Container>
-        <FeatureSection data={featureSection} />
+        <FeatureSection data={featureSection} lang={lang} />
         <CustomerSection title={customers_heading.text} data={customerSection} />
       </Container>
       <Common lang={lang} />

@@ -1,6 +1,7 @@
 import { Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import i18n from '../../../config/i18n.js';
 
 export const TryOutSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
@@ -89,7 +90,7 @@ export const TryOutSection = ({ lang }) => {
                   w="200px"
                   borderRadius={0}
                 >
-                  register
+                  {i18n[lang].buttons.register}
                 </Button>
               </Link>
             </Flex>

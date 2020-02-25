@@ -1,8 +1,9 @@
 import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
 import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
-export const FeatureSection: FunctionComponent<{ data: any }> = ({ data }) => {
+export const FeatureSection: FunctionComponent<{ data: any; lang: string }> = ({ data, lang }) => {
   return (
     <Flex
       flexDirection="column"
@@ -56,7 +57,7 @@ export const FeatureSection: FunctionComponent<{ data: any }> = ({ data }) => {
                   borderWidth={2}
                   borderRadius={0}
                 >
-                  learn more
+                  {i18n[lang].buttons.more}
                 </Button>
               </Link>
             </Flex>

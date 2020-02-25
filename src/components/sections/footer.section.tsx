@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Link, LinkProps, PseudoBox } from '@chakra-ui/core'
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Container } from '../container';
+import i18n from '../../../config/i18n.js';
 
 export const FooterSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
@@ -86,13 +87,13 @@ export const FooterSection = ({ lang }) => {
           </Heading>
           <Flex direction="column">
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">product</GatsbyLink>
+              <GatsbyLink to="/">{i18n[lang].pages.product}</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/about">about us</GatsbyLink>
+              <GatsbyLink to={`${lang}/about`}>{i18n[lang].pages.about}</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/contact">contact</GatsbyLink>
+              <GatsbyLink to={`${lang}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
             {/*<Box my={2}>
               <GatsbyLink to="/blog">
@@ -108,7 +109,9 @@ export const FooterSection = ({ lang }) => {
         </Box>
         <Box width="210px" mx={4}>
           <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
-            Use cases
+            {`${i18n[lang].sections.usecase.charAt(0).toUpperCase()}${i18n[
+              lang
+            ].sections.usecase.slice(1)}`}
           </Heading>
           <Flex direction="column">
             {useCaseSection.map((useCase: any, index: number) => {
@@ -123,7 +126,9 @@ export const FooterSection = ({ lang }) => {
         </Box>
         <Box width="210px" mx={4}>
           <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
-            Contact
+            {`${i18n[lang].pages.contact.charAt(0).toUpperCase()}${i18n[lang].pages.contact.slice(
+              1,
+            )}`}
           </Heading>
           <Flex direction="column">
             <Box my={2}>

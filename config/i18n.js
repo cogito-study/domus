@@ -19,6 +19,19 @@ module.exports = {
     projects: 'projects',
     allCategories: 'All categories',
     entries: 'entries',
+    pages: {
+      product: 'product',
+      about: 'about us',
+      contact: 'contact',
+    },
+    sections: {
+      usecase: 'Use cases',
+    },
+    buttons: {
+      login: 'log in',
+      register: 'register',
+      more: 'learn more',
+    },
   },
   hu: {
     path: 'hu',
@@ -38,5 +51,18 @@ module.exports = {
     projects: 'projects',
     allCategories: 'All categories',
     entries: 'entries',
+    pages: {
+      product: 'a termékről',
+      about: 'rólunk',
+      contact: 'elérhetőség',
+    },
+    sections: {
+      usecase: 'Funkciók',
+    },
+    buttons: {
+      login: 'bejelentkezés',
+      register: 'regisztráció',
+      more: 'tudj meg többet',
+    },
   },
 };

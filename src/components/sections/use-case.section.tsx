@@ -2,6 +2,7 @@ import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
 const Background = styled(Flex)`
   position: absolute;
@@ -12,7 +13,7 @@ const Background = styled(Flex)`
   z-index: -1;
 `;
 
-export const UseCaseSection: FunctionComponent<{ data: any }> = ({ data }) => {
+export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({ data, lang }) => {
   return (
     <Flex direction="column" align="center" justify="flex-end">
       <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
@@ -71,7 +72,7 @@ export const UseCaseSection: FunctionComponent<{ data: any }> = ({ data }) => {
                 <Flex justify="center" mb={5} mt={[2, 2, 2, 4]}>
                   <GatsbyLink to={`/blog/${blog_post.slug}`}>
                     <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
-                      learn more
+                      {i18n[lang].buttons.more}
                     </Button>
                   </GatsbyLink>
                 </Flex>
@@ -89,7 +90,7 @@ export const UseCaseSection: FunctionComponent<{ data: any }> = ({ data }) => {
           w="200px"
           my={6}
         >
-          register
+          {i18n[lang].buttons.register}
         </Button>
       </Link>
       <Background bg="blue.800" />

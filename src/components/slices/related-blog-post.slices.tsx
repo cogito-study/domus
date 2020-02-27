@@ -3,8 +3,10 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
 interface RelatedBlogPostSlicesProps {
+  lang: string;
   slices: any[];
 }
 
@@ -15,6 +17,7 @@ const FlexWithShadow = styled(Flex)`
 
 export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps> = ({
   slices,
+  lang,
 }) => (
   <Flex mt={8} mb={7} flexDirection={['column', 'column', 'row', 'row']}>
     {slices.map((slice: any, index: number) => {
@@ -22,7 +25,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
       switch (slice_type) {
         case 'related_posts':
           return (
-            <Link to={`/blog/${primary.feature_description.slug}`} key={index}>
+            <Link to={`${i18n[lang]}/feature/${primary.feature_description.slug}`} key={index}>
               <Box mx={6} maxW="300px">
                 <FlexWithShadow
                   backgroundColor="teal.100"

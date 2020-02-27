@@ -6,7 +6,10 @@ import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.sl
 import { StyledContent } from '../components/styled/styled-content';
 import Common from '../components/common';
 
-const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
+const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
+  data,
+  pageContext: { lang },
+}) => {
   const { title, hero_image, content, body } = data.prismicFeatureDescription.data;
 
   return (
@@ -27,7 +30,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
           </Heading>
           <StyledContent dangerouslySetInnerHTML={{ __html: content.html }} />
         </Box>
-        {body && <RelatedBlogPostSlices slices={body} />}
+        {body && <RelatedBlogPostSlices slices={body} lang={lang} />}
       </Flex>
       <Common lang="en-us" />
     </>

@@ -118,7 +118,7 @@ export const FooterSection = ({ lang }) => {
               const { feature_description, title } = useCase.primary;
               return (
                 <Link {...linkProps} my={2} key={index}>
-                  <GatsbyLink to={`/blog/${feature_description.slug}`}>
+                  <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
                     {title.text.toLowerCase()}
                   </GatsbyLink>
                 </Link>

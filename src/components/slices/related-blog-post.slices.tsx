@@ -23,9 +23,9 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
     {slices.map((slice: any, index: number) => {
       const { primary, slice_type } = slice;
       switch (slice_type) {
-        case 'related_posts':
+        case 'feature_description':
           return (
-            <Link to={`${i18n[lang]}/feature/${primary.feature_description.slug}`} key={index}>
+            <Link to={`${i18n[lang].path}/feature/${primary.feature_description.slug}`} key={index}>
               <Box mx={6} maxW="300px">
                 <FlexWithShadow
                   backgroundColor="teal.100"

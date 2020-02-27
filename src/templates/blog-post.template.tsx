@@ -10,7 +10,10 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   data,
   pageContext: { lang },
 }) => {
-  const { title, hero_image, content, body } = data.prismicFeatureDescription.data;
+  const blogData = data.prismicFeatureDescription
+    ? data.prismicFeatureDescription.data
+    : data.prismicBlogPost.data;
+  const { title, hero_image, content, body } = blogData;
 
   return (
     <>
@@ -58,6 +61,49 @@ export const query = graphql`
             slice_type
             primary {
               feature_description {
+                slug
+                document {
+                  data {
+                    title {
+                      text
+                    }
+                    hero_image {
+                      localFile {
+                        childImageSharp {
+                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
+                            ...GatsbyImageSharpFixed
+                          }
+                        }
+                      }
+                      alt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    prismicBlogPost(slugs: { eq: $uid }) {
+      data {
+        content {
+          text
+        }
+        title {
+          text
+        }
+        hero_image {
+          url
+        }
+        content {
+          html
+        }
+        body {
+          ... on PrismicBlogPostBodyRelatedPosts {
+            slice_type
+            primary {
+              blog_post {
                 slug
                 document {
                   data {

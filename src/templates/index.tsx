@@ -116,7 +116,7 @@ export const query = graphql`
               description {
                 text
               }
-              blog_post {
+              feature_description {
                 slug
               }
             }
@@ -135,7 +135,7 @@ export const query = graphql`
                 url
                 alt
               }
-              blog_post {
+              feature_description {
                 slug
               }
             }

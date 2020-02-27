@@ -18,7 +18,7 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
     <Flex direction="column" align="center" justify="flex-end">
       <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
         {data.map((useCase: any, index: number) => {
-          const { icon, title, description, blog_post } = useCase.primary;
+          const { icon, title, description, feature_description } = useCase.primary;
 
           return (
             <Flex
@@ -70,7 +70,7 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
                   </Text>
                 </Flex>
                 <Flex justify="center" mb={5} mt={[2, 2, 2, 4]}>
-                  <GatsbyLink to={`/blog/${blog_post.slug}`}>
+                  <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
                     <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
                       {i18n[lang].buttons.more}
                     </Button>

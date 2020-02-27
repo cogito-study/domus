@@ -22,7 +22,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
       switch (slice_type) {
         case 'related_posts':
           return (
-            <Link to={`/blog/${primary.blog_post.slug}`} key={index}>
+            <Link to={`/blog/${primary.feature_description.slug}`} key={index}>
               <Box mx={6} maxW="300px">
                 <FlexWithShadow
                   backgroundColor="teal.100"
@@ -33,9 +33,10 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                 >
                   <Image
                     fixed={
-                      primary.blog_post.document[0].data.hero_image.localFile.childImageSharp.fixed
+                      primary.feature_description.document[0].data.hero_image.localFile
+                        .childImageSharp.fixed
                     }
-                    alt={primary.blog_post.document[0].data.hero_image.alt}
+                    alt={primary.feature_description.document[0].data.hero_image.alt}
                   />
                 </FlexWithShadow>
                 <Heading
@@ -47,7 +48,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                   fontSize={['sm', 'md']}
                   key={index}
                 >
-                  {primary.blog_post.document[0].data.title.text}
+                  {primary.feature_description.document[0].data.title.text}
                 </Heading>
               </Box>
             </Link>

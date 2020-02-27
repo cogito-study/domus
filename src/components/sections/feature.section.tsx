@@ -11,7 +11,7 @@ export const FeatureSection: FunctionComponent<{ data: any; lang: string }> = ({
       mx={[4, 4, 0, 8]}
     >
       {data.map((feature: any, index: number) => {
-        const { image, title, description, blog_post } = feature.primary;
+        const { image, title, description, feature_description } = feature.primary;
 
         return (
           <Flex
@@ -46,7 +46,7 @@ export const FeatureSection: FunctionComponent<{ data: any; lang: string }> = ({
                 style={{
                   maxWidth: '130px',
                 }}
-                to={`/blog/${blog_post.slug}`}
+                to={`${i18n[lang].path}/feature/${feature_description.slug}`}
               >
                 <Button
                   mt={4}

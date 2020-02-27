@@ -19,7 +19,7 @@ export const FooterSection = ({ lang }) => {
                     title {
                       text
                     }
-                    blog_post {
+                    feature_description {
                       slug
                     }
                   }
@@ -115,10 +115,12 @@ export const FooterSection = ({ lang }) => {
           </Heading>
           <Flex direction="column">
             {useCaseSection.map((useCase: any, index: number) => {
-              const { blog_post, title } = useCase.primary;
+              const { feature_description, title } = useCase.primary;
               return (
                 <Link {...linkProps} my={2} key={index}>
-                  <GatsbyLink to={`/blog/${blog_post.slug}`}>{title.text.toLowerCase()}</GatsbyLink>
+                  <GatsbyLink to={`/blog/${feature_description.slug}`}>
+                    {title.text.toLowerCase()}
+                  </GatsbyLink>
                 </Link>
               );
             })}

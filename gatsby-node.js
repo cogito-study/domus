@@ -35,10 +35,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allPrismicBlogPost {
+      allPrismicFeatureDescription {
         edges {
           node {
             slugs
+            lang
           }
         }
       }
@@ -70,13 +71,24 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  pages.data.allPrismicBlogPost.edges.forEach((edge) => {
+  pages.data.allPrismicFeatureDescription.edges.forEach(({ node }) => {
     createPage({
-      path: `/blog/${edge.node.slugs[0]}`,
+      path: `/${i18n[node.lang].path}/feature/${node.slugs[0]}`,
       component: require.resolve('./src/templates/blog-post.template.tsx'),
       context: {
-        uid: edge.node.slugs[0],
+        uid: node.slugs[0],
+        lang: node.lang,
       },
     });
   });
+
+  // pages.data.allPrismicBlogPost.edges.forEach((edge) => {
+  //   createPage({
+  //     path: `/blog/${edge.node.slugs[0]}`,
+  //     component: require.resolve('./src/templates/blog-post.template.tsx'),
+  //     context: {
+  //       uid: edge.node.slugs[0],
+  //     },
+  //   });
+  // });
 };

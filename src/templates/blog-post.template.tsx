@@ -6,11 +6,8 @@ import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.sl
 import { StyledContent } from '../components/styled/styled-content';
 import Common from '../components/common';
 
-const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
-  data,
-  pageContext: { lang },
-}) => {
-  const { title, hero_image, content, body } = data.prismicBlogPost.data;
+const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
+  const { title, hero_image, content, body } = data.prismicFeatureDescription.data;
 
   return (
     <>
@@ -32,14 +29,14 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang } }> 
         </Box>
         {body && <RelatedBlogPostSlices slices={body} />}
       </Flex>
-      <Common lang={lang} />
+      <Common lang="en-us" />
     </>
   );
 };
 
 export const query = graphql`
-  query PostBySlug($uid: String!) {
-    prismicBlogPost(slugs: { eq: $uid }) {
+  query PostBySlug($uid: String!, $lang: String!) {
+    prismicFeatureDescription(slugs: { eq: $uid }, lang: { eq: $lang }) {
       data {
         content {
           text
@@ -54,10 +51,10 @@ export const query = graphql`
           html
         }
         body {
-          ... on PrismicBlogPostBodyRelatedPosts {
+          ... on PrismicFeatureDescriptionBodyRelatedPosts {
             slice_type
             primary {
-              blog_post {
+              feature_description {
                 slug
                 document {
                   data {

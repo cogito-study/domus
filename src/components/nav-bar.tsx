@@ -145,6 +145,9 @@ const DesktopNavBar = () => {
       bg="white"
     >
       <Flex alignItems="center">
+        <GatsbyLink to={`/${languagePath()}`}>
+          <Image src="/logos/logo.svg" mx={[4, 4, 4, 8]} my={3} w="90px" />
+        </GatsbyLink>
         {Object.keys(translations.pages).map((key) => (
           <PseudoBox
             key={key}

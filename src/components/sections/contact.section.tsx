@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Image, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import { Container } from '../container';
 import i18n from '../../../config/i18n.js';
+import { Container } from '../container';
 
 export const ContactSection: FunctionComponent = ({ lang }) => {
   const data = useStaticQuery<any>(graphql`
@@ -47,7 +47,6 @@ export const ContactSection: FunctionComponent = ({ lang }) => {
   );
   const slices = filteredData[0].node.data.body;
   const socialSection = slices.filter((slice) => slice.slice_type === 'social_media');
-  console.log(socialSection);
 
   return (
     <Container>

@@ -1,16 +1,16 @@
 import { graphql } from 'gatsby';
+import Cookies from 'js-cookie';
 import React, { FunctionComponent } from 'react';
+import Common from '../components/common';
 import { Container } from '../components/container';
+import { CookieBanner } from '../components/cookie-banner';
 import {
   CustomerSection,
   FeatureSection,
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
-import Common from '../components/common';
 import SEO from '../components/SEO';
-import { CookieBanner } from '../components/cookie-banner';
-import Cookies from 'js-cookie';
 
 const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
@@ -23,8 +23,6 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
-
-  console.log(cookie);
   return (
     <>
       <SEO title="home" />

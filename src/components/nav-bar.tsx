@@ -3,69 +3,36 @@ import {
   Button,
   Flex,
   Image,
-  Link,
-  PseudoBox,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  PseudoBox,
   useTheme,
 } from '@chakra-ui/core';
-import { Link as GatsbyLink } from 'gatsby';
-import React, { FunctionComponent, useState } from 'react';
-import { useLocation } from 'react-router';
+import { Link as GatsbyLink, navigate } from 'gatsby';
+import React, { FunctionComponent } from 'react';
 import { FiGlobe } from 'react-icons/fi';
 import i18n from '../../config/i18n.js';
-
-const pagesEn: Record<string, string> = {
-  PRODUCT: '/en',
-  //BLOG: '/blog',
-  //PRICING: '/pricing',
-  'ABOUT US': 'en/about',
-  CONTACT: 'en/contact',
-};
-
-const pagesHu: Record<string, string> = {
-  'A TERMÉKRŐL': '/hu',
-  //BLOG: '/blog',
-  //PRICING: '/pricing',
-  RÓLUNK: 'hu/about',
-  KONTAKT: 'hu/contact',
-};
-
-const setPageHelper = (lang) => {
-  switch (lang) {
-    case 'en-us':
-      return pagesEn;
-    case 'hu':
-      return pagesHu;
-  }
-};
 
 interface NavBarProps {
   overlayMenuActive: boolean;
   onMenuButtonClicked: () => void;
 }
 
-// const pathname = location.pathname;
-// let lang = pathname.slice(1);
-// lang = lang.substring(0, lang.indexOf('/'));
-// lang === 'en' ? (lang = 'en-us') : null;
+const languagePath = () => window.location.pathname.split('/').filter(Boolean)[0];
+
+const locationToTranslations = () => {
+  const langPath = languagePath();
+  const langKey = langPath === 'en' ? 'en-us' : langPath === 'hu' ? 'hu' : langPath;
+  return i18n[langKey];
+};
 
 const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) => {
   const { colors } = useTheme();
 
-  const [pages, setPages] = useState(pagesEn);
-  const [lang, setLang] = useState('en-us');
-  console.log(useLocation());
-  const location = useLocation();
+  const translations = locationToTranslations();
 
-  const pathname = location.pathname;
-  setLang(pathname.slice(1));
-  setLang(lang.substring(0, lang.indexOf('/')));
-  setLang(lang === 'en' ? 'en-us' : '');
-
-  setPages(setPageHelper(lang));
   return (
     <Flex
       position="fixed"
@@ -102,53 +69,56 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
           mt={6}
         >
           <Flex direction="column" justify="center" align="center">
-            {Object.keys(pages).map((pageName, index) => (
+            {Object.keys(translations.pages).map((key) => (
               <PseudoBox
-                key={index}
+                key={key}
                 textAlign="center"
                 mb={5}
                 color="grey.600"
                 fontFamily="heading"
                 fontWeight="semibold"
+                textTransform="uppercase"
                 _hover={{ color: 'teal.800' }}
                 _active={{ color: 'teal.600' }}
               >
                 <GatsbyLink
-                  to={pages[pageName]}
+                  to={`/${languagePath()}/${key}`}
                   activeStyle={{ color: colors.teal[600] }}
                   onClick={() => onMenuButtonClicked()}
                 >
-                  {pageName}
+                  {translations.pages[key]}
                 </GatsbyLink>
               </PseudoBox>
             ))}
           </Flex>
           <Flex direction="column" alignItems="center" mb={6}>
-            <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-              <Button
-                fontFamily="heading"
-                variant="solid"
-                variantColor="teal"
-                color="blue.800"
-                w={200}
-                borderRadius={0}
-                mb={4}
-              >
-                {i18n[lang].buttons.register}
-              </Button>
-            </Link>
-            <Link href="https://app.cogito.study">
-              <Button
-                fontFamily="heading"
-                variant="ghost"
-                variantColor="blue"
-                color="blue.800"
-                w={200}
-                borderRadius={0}
-              >
-                {i18n[lang].buttons.login}
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              // @ts-ignore
+              href="https://app.cogito.study/register"
+              fontFamily="heading"
+              variant="solid"
+              variantColor="teal"
+              color="blue.800"
+              w={200}
+              borderRadius={0}
+              mb={4}
+            >
+              {translations.buttons.register}
+            </Button>
+            <Button
+              as="a"
+              // @ts-ignore
+              href="https://app.cogito.study"
+              fontFamily="heading"
+              variant="ghost"
+              variantColor="blue"
+              color="blue.800"
+              w={200}
+              borderRadius={0}
+            >
+              {translations.buttons.login}
+            </Button>
           </Flex>
         </Flex>
       )}
@@ -158,19 +128,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
 
 const DesktopNavBar = () => {
   const { colors } = useTheme();
-
-  const [pages, setPages] = useState(pagesEn);
-  const [lang, setLang] = useState('en-us');
-  const location = useLocation();
-  const pathname = location.pathname;
-  setLang(pathname.slice(1));
-  setLang(lang.substring(0, lang.indexOf('/')));
-  setLang(lang === 'en' ? 'en-us' : '');
-
-  setPages(setPageHelper(lang));
-
-  console.log(lang);
-  console.log(pages);
+  const translations = locationToTranslations();
 
   return (
     <Flex
@@ -187,9 +145,9 @@ const DesktopNavBar = () => {
       bg="white"
     >
       <Flex alignItems="center">
-        {Object.keys(pages).map((pageName, index) => (
+        {Object.keys(translations.pages).map((key) => (
           <PseudoBox
-            key={index}
+            key={key}
             h={22}
             textAlign="center"
             mr={[0, 0, 0, 1, 4]}
@@ -199,44 +157,52 @@ const DesktopNavBar = () => {
             _hover={{ color: 'teal.800' }}
             _active={{ color: 'teal.600' }}
           >
-            <GatsbyLink to={pages[pageName]} activeStyle={{ color: colors.teal[600] }}>
-              {pageName}
+            <GatsbyLink to={`/${languagePath()}/${key}`} activeStyle={{ color: colors.teal[600] }}>
+              {translations.pages[key]}
             </GatsbyLink>
           </PseudoBox>
         ))}
       </Flex>
       <Flex justify="center">
-        <a href="https://app.cogito.study">
-          <Button fontFamily="heading" variant="ghost" color="blue.800" borderRadius={0} mr={4}>
-            {/* {i18n[lang].buttons.login} */}
-          </Button>
-        </a>
-        <a href="https://app.cogito.study/register">
-          <Button
-            fontFamily="heading"
-            variant="solid"
-            variantColor="teal"
-            color="blue.800"
-            borderRadius={0}
-            mr={8}
-          >
-            {/* {i18n[lang].buttons.register} */}
-          </Button>
-        </a>
+        <Button
+          as="a"
+          //@ts-ignore
+          href="https://app.cogito.study"
+          fontFamily="heading"
+          variant="ghost"
+          color="blue.800"
+          borderRadius={0}
+          mr={4}
+        >
+          {translations.buttons.login}
+        </Button>
+        <Button
+          as="a"
+          //@ts-ignore
+          href="https://app.cogito.study/register"
+          fontFamily="heading"
+          variant="solid"
+          variantColor="teal"
+          color="blue.800"
+          borderRadius={0}
+          mr={8}
+        >
+          {translations.buttons.register}
+        </Button>
         <Menu>
           <MenuButton
             as={Button}
-            // @ts-nocheck
             //@ts-ignore
             leftIcon={FiGlobe}
             rightIcon="chevron-down"
             variant="ghost"
             variantColor="grey"
+            borderRadius={0}
             mr={4}
           />
-          <MenuList>
-            <MenuItem>English</MenuItem>
-            <MenuItem>Hungarian</MenuItem>
+          <MenuList borderRadius={0}>
+            <MenuItem onClick={() => navigate('/en')}>english 🇬🇧</MenuItem>
+            <MenuItem onClick={() => navigate('/hu')}>magyar 🇭🇺</MenuItem>
           </MenuList>
         </Menu>
       </Flex>

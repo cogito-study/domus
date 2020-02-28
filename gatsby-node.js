@@ -14,6 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
     redirectInBrowser: true,
     isPermanent: true,
   });
+
   const path = require('path');
   const pages = await graphql(`
     {

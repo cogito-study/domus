@@ -20,7 +20,6 @@ module.exports = {
     allCategories: 'All categories',
     entries: 'entries',
     pages: {
-      product: 'product',
       about: 'about us',
       contact: 'contact',
     },
@@ -53,7 +52,6 @@ module.exports = {
     allCategories: 'All categories',
     entries: 'entries',
     pages: {
-      product: 'a termékről',
       about: 'rólunk',
       contact: 'elérhetőség',
     },

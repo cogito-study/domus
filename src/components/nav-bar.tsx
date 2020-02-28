@@ -123,6 +123,35 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                 >
                   {locationToTranslations(location).buttons.login}
                 </Button>
+                <Flex direction="row" mt={16}>
+                  <PseudoBox
+                    mr={8}
+                    textAlign="center"
+                    color="grey.600"
+                    fontFamily="heading"
+                    fontWeight="semibold"
+                    textTransform="uppercase"
+                    _hover={{ color: 'teal.800' }}
+                    _active={{ color: 'teal.600' }}
+                  >
+                    <GatsbyLink to={'/en'} activeStyle={{ color: colors.teal[600] }}>
+                      english 🇬🇧
+                    </GatsbyLink>
+                  </PseudoBox>
+                  <PseudoBox
+                    textAlign="center"
+                    color="grey.600"
+                    fontFamily="heading"
+                    fontWeight="semibold"
+                    textTransform="uppercase"
+                    _hover={{ color: 'teal.800' }}
+                    _active={{ color: 'teal.600' }}
+                  >
+                    <GatsbyLink to={`/hu`} activeStyle={{ color: colors.teal[600] }}>
+                      magyar 🇭🇺
+                    </GatsbyLink>
+                  </PseudoBox>
+                </Flex>
               </Flex>
             </Flex>
           )}
@@ -158,7 +187,6 @@ const DesktopNavBar = () => {
             {Object.keys(locationToTranslations(location).pages).map((key) => (
               <PseudoBox
                 key={key}
-                h={22}
                 textAlign="center"
                 mr={[0, 0, 0, 1, 4]}
                 color="grey.600"
@@ -171,7 +199,7 @@ const DesktopNavBar = () => {
                   to={`/${languagePath(location)}/${key}`}
                   activeStyle={{ color: colors.teal[600] }}
                 >
-                  {locationToTranslations(location).pages[key]}
+                  {locationToTranslations(location).pages[key].toUpperCase()}
                 </GatsbyLink>
               </PseudoBox>
             ))}

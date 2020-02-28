@@ -46,7 +46,7 @@ const Notfound: FunctionComponent = () => {
                 back to home
               </Button>
             </Link>
-            <Link to="/contact">
+            <Link to="/en/contact">
               <Button
                 borderRadius={0}
                 variant="outline"

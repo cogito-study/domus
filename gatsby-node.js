@@ -114,7 +114,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   pages.data.allPrismicBlogPost.edges.forEach((edge) => {
     createPage({
-      path: `/blog/${edge.node.slugs[0]}`,
+      path: `en/blog/${edge.node.slugs[0]}`,
       component: require.resolve('./src/templates/blog-post.template.tsx'),
       context: {
         uid: edge.node.slugs[0],

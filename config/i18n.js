@@ -26,6 +26,7 @@ module.exports = {
     },
     sections: {
       usecase: 'Use cases',
+      contact: 'Contact us',
     },
     buttons: {
       login: 'log in',
@@ -58,6 +59,7 @@ module.exports = {
     },
     sections: {
       usecase: 'Funkciók',
+      contact: 'Kontakt',
     },
     buttons: {
       login: 'bejelentkezés',

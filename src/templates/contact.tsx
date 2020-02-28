@@ -7,7 +7,7 @@ const Contact: FunctionComponent<{ pageContext: { lang } }> = ({ pageContext: { 
   return (
     <>
       <SEO title="contact" />
-      <ContactSection />
+      <ContactSection lang={lang} />
       <Common lang={lang} />
     </>
   );

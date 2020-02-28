@@ -2,39 +2,53 @@ import { Box, Flex, Heading, Image, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { Container } from '../container';
+import i18n from '../../../config/i18n.js';
 
-export const ContactSection: FunctionComponent = () => {
+export const ContactSection: FunctionComponent = ({ lang }) => {
   const data = useStaticQuery<any>(graphql`
     query ContactInfos {
       allPrismicContact {
-        nodes {
-          data {
-            address {
-              text
-            }
-            e_mail {
-              text
-            }
-            phone_number {
-              text
-            }
-          }
-        }
-      }
-      allPrismicContactBodySocialMedia {
-        nodes {
-          primary {
-            url {
-              url
-            }
-            icon {
-              url
+        edges {
+          node {
+            lang
+            data {
+              address {
+                text
+              }
+              e_mail {
+                text
+              }
+              phone_number {
+                text
+              }
+              body {
+                ... on PrismicContactBodySocialMedia {
+                  slice_type
+                  primary {
+                    url {
+                      url
+                    }
+                    icon {
+                      url
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   `);
+
+  if (!data.allPrismicContact) return null;
+  const filteredData = data.allPrismicContact.edges.filter(
+    (filtered) => filtered.node.lang == lang,
+  );
+  const slices = filteredData[0].node.data.body;
+  const socialSection = slices.filter((slice) => slice.slice_type === 'social_media');
+  console.log(socialSection);
+
   return (
     <Container>
       <Flex w="100%" mt={32} mb={24} align="center" justify="center">
@@ -50,18 +64,18 @@ export const ContactSection: FunctionComponent = () => {
         >
           <Flex align="start" direction="column" mx={4} ml={[6, 6, 12]}>
             <Heading as="h1" color="blue.800" mt={0} mb={[6, 8]} fontSize={['xl', 'xl', '2xl']}>
-              Contact us
+              {i18n[lang].sections.contact}
             </Heading>
             <Flex direction="column" align="start" mb={6}>
               <Box my={2}>
                 <Link
                   color="teal.600"
-                  href={`mailto:${data.allPrismicContact.nodes[0].data.e_mail.text}`}
+                  href={`mailto:${data.allPrismicContact.edges[0].node.data.e_mail.text}`}
                   fontWeight={600}
                   fontSize="sm"
                   _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
-                  {data.allPrismicContact.nodes[0].data.e_mail.text}
+                  {data.allPrismicContact.edges[0].node.data.e_mail.text}
                 </Link>
               </Box>
 
@@ -73,12 +87,12 @@ export const ContactSection: FunctionComponent = () => {
                   fontSize="sm"
                   _hover={{ textDecoration: 'none', color: 'teal.800' }}
                 >
-                  {data.allPrismicContact.nodes[0].data.address.text}
+                  {data.allPrismicContact.edges[0].node.data.address.text}
                 </Link>
               </Box>
             </Flex>
             <Flex direction="row" justify="start">
-              {data.allPrismicContactBodySocialMedia.nodes.map(({ primary }, index: number) => (
+              {socialSection.map(({ primary }, index: number) => (
                 <Box key={index} mt={[0, 3]} mr={[5, 6]}>
                   <Link href={primary.url.url}>
                     <Image src={primary.icon.url} />

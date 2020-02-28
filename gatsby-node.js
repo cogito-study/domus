@@ -43,6 +43,15 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicContact {
+        edges {
+          node {
+            alternate_languages {
+              lang
+            }
+          }
+        }
+      }
       allPrismicBlogPost {
         edges {
           node {
@@ -71,6 +80,19 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/${i18n[lang].path}/about`,
         component: require.resolve(`./src/templates/about.tsx`),
+        context: {
+          lang,
+        },
+      });
+    });
+  });
+
+  pages.data.allPrismicContact.edges.forEach(({ node }) => {
+    const { alternate_languages } = node;
+    alternate_languages.forEach(({ lang }) => {
+      createPage({
+        path: `/${i18n[lang].path}/contact`,
+        component: require.resolve(`./src/templates/contact.tsx`),
         context: {
           lang,
         },

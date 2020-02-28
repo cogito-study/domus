@@ -32,6 +32,7 @@ export const FooterSection = ({ lang }) => {
       allPrismicContact {
         edges {
           node {
+            lang
             data {
               address {
                 text
@@ -42,19 +43,18 @@ export const FooterSection = ({ lang }) => {
               phone_number {
                 text
               }
-            }
-          }
-        }
-      }
-      allPrismicContactBodySocialMedia {
-        edges {
-          node {
-            primary {
-              url {
-                url
-              }
-              icon {
-                url
+              body {
+                ... on PrismicContactBodySocialMedia {
+                  slice_type
+                  primary {
+                    url {
+                      url
+                    }
+                    icon {
+                      url
+                    }
+                  }
+                }
               }
             }
           }
@@ -65,9 +65,15 @@ export const FooterSection = ({ lang }) => {
 
   if (!data.allPrismicHome) return null;
   const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const filteredContact = data.allPrismicContact.edges.filter(
+    (filtered) => filtered.node.lang == lang,
+  );
+
   const slices = filteredData[0].node.data.body;
   const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
-  console.log(useCaseSection);
+  const socialSection = filteredContact[0].node.data.body.filter(
+    (slice) => slice.slice_type === 'social_media',
+  );
 
   const linkProps: LinkProps = {
     fontWeight: 'semibold',
@@ -163,10 +169,10 @@ export const FooterSection = ({ lang }) => {
           >
             <Flex align="center" direction={['column', 'column', 'column', 'row']}>
               <Flex mr={[0, 0, 0, 8]} mb={[4, 4, 4, 0]} mt={[3, 3, 3, 0]}>
-                {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
+                {socialSection.map(({ primary }, index) => (
                   <Box key={index} mx={2}>
-                    <Link href={node.primary.url.url}>
-                      <img src={node.primary.icon.url} />
+                    <Link href={primary.url.url}>
+                      <img src={primary.icon.url} />
                     </Link>
                   </Box>
                 ))}

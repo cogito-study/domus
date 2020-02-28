@@ -7,7 +7,7 @@ const pages: Record<string, string> = {
   //BLOG: '/blog',
   //PRICING: '/pricing',
   'ABOUT US': 'en/about',
-  CONTACT: '/contact',
+  CONTACT: 'en/contact',
 };
 
 interface NavBarProps {

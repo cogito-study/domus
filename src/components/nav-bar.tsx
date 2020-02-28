@@ -12,15 +12,34 @@ import {
   useTheme,
 } from '@chakra-ui/core';
 import { Link as GatsbyLink } from 'gatsby';
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
+import { useLocation } from 'react-router';
 import { FiGlobe } from 'react-icons/fi';
+import i18n from '../../config/i18n.js';
 
-const pages: Record<string, string> = {
-  PRODUCT: '/',
+const pagesEn: Record<string, string> = {
+  PRODUCT: '/en',
   //BLOG: '/blog',
   //PRICING: '/pricing',
   'ABOUT US': 'en/about',
   CONTACT: 'en/contact',
+};
+
+const pagesHu: Record<string, string> = {
+  'A TERMÉKRŐL': '/hu',
+  //BLOG: '/blog',
+  //PRICING: '/pricing',
+  RÓLUNK: 'hu/about',
+  KONTAKT: 'hu/contact',
+};
+
+const setPageHelper = (lang) => {
+  switch (lang) {
+    case 'en-us':
+      return pagesEn;
+    case 'hu':
+      return pagesHu;
+  }
 };
 
 interface NavBarProps {
@@ -28,9 +47,25 @@ interface NavBarProps {
   onMenuButtonClicked: () => void;
 }
 
+// const pathname = location.pathname;
+// let lang = pathname.slice(1);
+// lang = lang.substring(0, lang.indexOf('/'));
+// lang === 'en' ? (lang = 'en-us') : null;
+
 const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) => {
   const { colors } = useTheme();
 
+  const [pages, setPages] = useState(pagesEn);
+  const [lang, setLang] = useState('en-us');
+  console.log(useLocation());
+  const location = useLocation();
+
+  const pathname = location.pathname;
+  setLang(pathname.slice(1));
+  setLang(lang.substring(0, lang.indexOf('/')));
+  setLang(lang === 'en' ? 'en-us' : '');
+
+  setPages(setPageHelper(lang));
   return (
     <Flex
       position="fixed"
@@ -99,7 +134,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                 borderRadius={0}
                 mb={4}
               >
-                register
+                {i18n[lang].buttons.register}
               </Button>
             </Link>
             <Link href="https://app.cogito.study">
@@ -111,7 +146,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                 w={200}
                 borderRadius={0}
               >
-                log in
+                {i18n[lang].buttons.login}
               </Button>
             </Link>
           </Flex>
@@ -123,6 +158,19 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
 
 const DesktopNavBar = () => {
   const { colors } = useTheme();
+
+  const [pages, setPages] = useState(pagesEn);
+  const [lang, setLang] = useState('en-us');
+  const location = useLocation();
+  const pathname = location.pathname;
+  setLang(pathname.slice(1));
+  setLang(lang.substring(0, lang.indexOf('/')));
+  setLang(lang === 'en' ? 'en-us' : '');
+
+  setPages(setPageHelper(lang));
+
+  console.log(lang);
+  console.log(pages);
 
   return (
     <Flex
@@ -139,14 +187,10 @@ const DesktopNavBar = () => {
       bg="white"
     >
       <Flex alignItems="center">
-        <GatsbyLink to="/">
-          <Image src="/logos/logo.svg" mx={8} my={3} width="90px" />
-        </GatsbyLink>
         {Object.keys(pages).map((pageName, index) => (
           <PseudoBox
             key={index}
             h={22}
-            w={98}
             textAlign="center"
             mr={[0, 0, 0, 1, 4]}
             color="grey.600"
@@ -163,15 +207,8 @@ const DesktopNavBar = () => {
       </Flex>
       <Flex justify="center">
         <a href="https://app.cogito.study">
-          <Button
-            fontFamily="heading"
-            variant="ghost"
-            color="blue.800"
-            w={110}
-            borderRadius={0}
-            mr={4}
-          >
-            log in
+          <Button fontFamily="heading" variant="ghost" color="blue.800" borderRadius={0} mr={4}>
+            {/* {i18n[lang].buttons.login} */}
           </Button>
         </a>
         <a href="https://app.cogito.study/register">
@@ -179,12 +216,11 @@ const DesktopNavBar = () => {
             fontFamily="heading"
             variant="solid"
             variantColor="teal"
-            w={110}
             color="blue.800"
             borderRadius={0}
             mr={8}
           >
-            register
+            {/* {i18n[lang].buttons.register} */}
           </Button>
         </a>
         <Menu>

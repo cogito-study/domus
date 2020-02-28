@@ -1,6 +1,19 @@
-import { Box, Button, Flex, Image, Link, PseudoBox, useTheme } from '@chakra-ui/core';
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Link,
+  PseudoBox,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  useTheme,
+} from '@chakra-ui/core';
 import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { FiGlobe } from 'react-icons/fi';
 
 const pages: Record<string, string> = {
   PRODUCT: '/',
@@ -174,6 +187,22 @@ const DesktopNavBar = () => {
             register
           </Button>
         </a>
+        <Menu>
+          <MenuButton
+            as={Button}
+            // @ts-nocheck
+            //@ts-ignore
+            leftIcon={FiGlobe}
+            rightIcon="chevron-down"
+            variant="ghost"
+            variantColor="grey"
+            mr={4}
+          />
+          <MenuList>
+            <MenuItem>English</MenuItem>
+            <MenuItem>Hungarian</MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
     </Flex>
   );

@@ -93,13 +93,10 @@ export const FooterSection = ({ lang }) => {
           </Heading>
           <Flex direction="column">
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">{i18n[lang].pages.product}</GatsbyLink>
+              <GatsbyLink to={`${i18n[lang].path}/about`}>{i18n[lang].pages.about}</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to={`${lang}/about`}>{i18n[lang].pages.about}</GatsbyLink>
-            </Link>
-            <Link {...linkProps} my={2}>
-              <GatsbyLink to={`${lang}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
+              <GatsbyLink to={`${i18n[lang].path}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
             {/*<Box my={2}>
               <GatsbyLink to="/blog">

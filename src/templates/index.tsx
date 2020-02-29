@@ -23,6 +23,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
+  console.log(lang);
   return (
     <>
       <SEO title="home" />

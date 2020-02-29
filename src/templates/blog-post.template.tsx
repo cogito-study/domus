@@ -1,7 +1,6 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
 import React, { FunctionComponent } from 'react';
-import SEO from '../components/SEO';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
 import Common from '../components/common';
@@ -18,9 +17,10 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
 
   return (
     <>
-      <SEO individual title={`${title.text.toLowerCase()} | blog`} banner={hero_image.url} />
-
       <GatsbySeo
+        title={title.text.toLowerCase()}
+        description={`${content.text.substring(0, 30)}...`}
+        canonical="https://cogito.study/blog"
         openGraph={{
           title: title.text.toLowerCase(),
           description: `${content.text.substring(0, 30)}...`,
@@ -28,8 +28,6 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
           images: [
             {
               url: hero_image.url,
-              width: 850,
-              height: 650,
             },
           ],
         }}

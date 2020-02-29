@@ -4,7 +4,7 @@ require('dotenv').config({
 
 const config = require('./config');
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/en' ? '' : config.pathPrefix;
 
 module.exports = {
   pathPrefix: config.pathPrefix,

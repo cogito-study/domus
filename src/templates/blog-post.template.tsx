@@ -4,9 +4,16 @@ import React, { FunctionComponent } from 'react';
 import SEO from '../components/SEO';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
+import Common from '../components/common';
 
-const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
-  const { title, hero_image, content, body } = data.prismicBlogPost.data;
+const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
+  data,
+  pageContext: { lang },
+}) => {
+  const blogData = data.prismicFeatureDescription
+    ? data.prismicFeatureDescription.data
+    : data.prismicBlogPost.data;
+  const { title, hero_image, content, body } = blogData;
 
   return (
     <>
@@ -26,14 +33,58 @@ const BlogPostTemplate: FunctionComponent<{ data: any }> = ({ data }) => {
           </Heading>
           <StyledContent dangerouslySetInnerHTML={{ __html: content.html }} />
         </Box>
-        {body && <RelatedBlogPostSlices slices={body} />}
+        {body && <RelatedBlogPostSlices slices={body} lang={lang} />}
       </Flex>
+      <Common lang="en-us" />
     </>
   );
 };
 
 export const query = graphql`
-  query PostBySlug($uid: String!) {
+  query PostBySlug($uid: String!, $lang: String!) {
+    prismicFeatureDescription(slugs: { eq: $uid }, lang: { eq: $lang }) {
+      data {
+        content {
+          text
+        }
+        title {
+          text
+        }
+        hero_image {
+          url
+        }
+        content {
+          html
+        }
+        body {
+          ... on PrismicFeatureDescriptionBodyRelatedPosts {
+            slice_type
+            primary {
+              feature_description {
+                slug
+                document {
+                  data {
+                    title {
+                      text
+                    }
+                    hero_image {
+                      localFile {
+                        childImageSharp {
+                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
+                            ...GatsbyImageSharpFixed
+                          }
+                        }
+                      }
+                      alt
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     prismicBlogPost(slugs: { eq: $uid }) {
       data {
         content {

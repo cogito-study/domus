@@ -1,31 +1,15 @@
 import { Box, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
-import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
 interface AchievementSectionProps {
   title: string;
+  data: any;
 }
 
-export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({ title }) => {
-  const data = useStaticQuery(graphql`
-    query Achievement {
-      allPrismicAboutBodyAchievements {
-        edges {
-          node {
-            primary {
-              name {
-                text
-              }
-              description {
-                text
-              }
-              icon {
-                url
-              }
-            }
-          }
-        }
-      }
+export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({ title, data }) => {
+  const staticData = useStaticQuery(graphql`
+    query AchievementContact {
       allPrismicContactBodySocialMedia {
         edges {
           node {
@@ -42,16 +26,13 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
       }
     }
   `);
-
-  if (!data.allPrismicAboutBodyAchievements) return null;
-
   return (
     <Flex direction="column" px={[0, 4, 4, 4, 0]}>
       <Heading color="grey.800" mt={32} mb={12} fontSize={['lg', 'lg', 'xl']}>
         {title}
       </Heading>
-      {data.allPrismicAboutBodyAchievements.edges.map((achievement: any, index: any) => {
-        const { name, description, icon } = achievement.node.primary;
+      {data.map((achievement: any, index: any) => {
+        const { name, description, icon } = achievement.primary;
         return (
           <Flex
             direction={['column', 'column', 'row']}
@@ -76,7 +57,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
         );
       })}
       <Flex mr={[0, 0, 0, 16]} mb={12} mt={0}>
-        {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index: number) => (
+        {staticData.allPrismicContactBodySocialMedia.edges.map(({ node }, index: number) => (
           <Box key={index} mx={2}>
             <Link href={node.primary.url.url}>
               <Image src={node.primary.icon.url} />

@@ -3,8 +3,10 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
 interface RelatedBlogPostSlicesProps {
+  lang: string;
   slices: any[];
 }
 
@@ -15,14 +17,15 @@ const FlexWithShadow = styled(Flex)`
 
 export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps> = ({
   slices,
+  lang,
 }) => (
   <Flex mt={8} mb={7} flexDirection={['column', 'column', 'row', 'row']}>
     {slices.map((slice: any, index: number) => {
       const { primary, slice_type } = slice;
       switch (slice_type) {
-        case 'related_posts':
+        case 'feature_description':
           return (
-            <Link to={`/blog/${primary.blog_post.slug}`} key={index}>
+            <Link to={`${i18n[lang].path}/feature/${primary.feature_description.slug}`} key={index}>
               <Box mx={6} maxW="300px">
                 <FlexWithShadow
                   backgroundColor="teal.100"
@@ -33,9 +36,10 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                 >
                   <Image
                     fixed={
-                      primary.blog_post.document[0].data.hero_image.localFile.childImageSharp.fixed
+                      primary.feature_description.document[0].data.hero_image.localFile
+                        .childImageSharp.fixed
                     }
-                    alt={primary.blog_post.document[0].data.hero_image.alt}
+                    alt={primary.feature_description.document[0].data.hero_image.alt}
                   />
                 </FlexWithShadow>
                 <Heading
@@ -47,7 +51,7 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
                   fontSize={['sm', 'md']}
                   key={index}
                 >
-                  {primary.blog_post.document[0].data.title.text}
+                  {primary.feature_description.document[0].data.title.text}
                 </Heading>
               </Box>
             </Link>

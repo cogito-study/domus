@@ -6,7 +6,6 @@ import SEO from '../components/SEO';
 import { StyledContent } from '../components/styled/styled-content';
 
 const PrivacyPolicy = ({ data }: any) => {
-  console.log(data);
   return (
     <>
       <SEO title="Privacy Policy" />

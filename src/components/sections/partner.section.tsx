@@ -2,22 +2,30 @@ import { Box, Flex, Image, Link } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
-export const PartnerSection = () => {
+export const PartnerSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
     query Partner {
-      allPrismicHomeBodyPartner {
+      allPrismicHome {
         edges {
           node {
-            primary {
-              logo {
-                url
-                alt
-              }
-              link {
-                url
-              }
-              name {
-                text
+            lang
+            data {
+              body {
+                ... on PrismicHomeBodyPartner {
+                  slice_type
+                  primary {
+                    logo {
+                      url
+                      alt
+                    }
+                    link {
+                      url
+                    }
+                    name {
+                      text
+                    }
+                  }
+                }
               }
             }
           }
@@ -26,12 +34,16 @@ export const PartnerSection = () => {
     }
   `);
 
-  if (!data.allPrismicHomeBodyPartner) return null;
+  if (!data.allPrismicHome) return null;
+  const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const slices = filteredData[0].node.data.body;
+  const partnerSection = slices.filter((slice) => slice.slice_type === 'partner');
+
   return (
     <Flex justify="center" py={5} bg="teal.500">
       <Flex w={['300px', 'full']} justify="center" wrap="wrap">
-        {data.allPrismicHomeBodyPartner.edges.map((partner: any, index: number) => {
-          const { link, logo, name } = partner.node.primary;
+        {partnerSection.map((partner: any, index: number) => {
+          const { link, logo, name } = partner.primary;
 
           return (
             <Link key={index} href={link.url} mx={[2, 2, 6]}>

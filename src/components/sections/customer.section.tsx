@@ -1,5 +1,4 @@
-import { Box, Flex, Heading, Link } from '@chakra-ui/core';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Flex, Heading, Link } from '@chakra-ui/core';
 import Image from 'gatsby-image';
 import React, { FunctionComponent } from 'react';
 
@@ -7,54 +6,30 @@ interface CustomerSectionProps {
   title: string;
 }
 
-export const CustomerSection: FunctionComponent<CustomerSectionProps> = ({ title }) => {
-  const data = useStaticQuery(graphql`
-    query Customer {
-      allPrismicHomeBodyCustomer {
-        edges {
-          node {
-            primary {
-              name {
-                text
-              }
-              icon {
-                alt
-                localFile {
-                  childImageSharp {
-                    fixed(width: 110, height: 110) {
-                      ...GatsbyImageSharpFixed
-                    }
-                  }
-                }
-              }
-              url {
-                text
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicHomeBodyCustomer) return null;
-
+export const CustomerSection: FunctionComponent<CustomerSectionProps & { data: any }> = ({
+  title,
+  data,
+}) => {
   return (
     <Flex
       my={12}
-      alignItems="center"
-      justifyContent="center"
-      flexDirection={['column', 'column', 'row']}
+      align="center"
+      justify="center"
+      direction={['column', 'column', 'row']}
       id="tryout"
     >
-      <Box maxW={['260px', '360px']}>
-        <Heading color="blue.800" fontSize="xl" lineHeight="normal" mb={[6, 16]}>
-          {title}
-        </Heading>
-      </Box>
-      <Flex flexDirection={['row']} justifyContent="center" alignItems="start">
-        {data.allPrismicHomeBodyCustomer.edges.map((customer: any, index: number) => {
-          const { name, icon, url } = customer.node.primary;
+      <Heading
+        maxW={['260px', '360px']}
+        color="blue.800"
+        fontSize="xl"
+        lineHeight="normal"
+        mb={[4, 6]}
+      >
+        {title}
+      </Heading>
+      <Flex direction="row" justify="center" align="start">
+        {data.map((customer: any, index: number) => {
+          const { name, icon, url } = customer.primary;
 
           return (
             <Link key={index} href={url.text} target="_blank" _hover={{ textDecoration: 'none' }}>

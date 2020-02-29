@@ -1,7 +1,8 @@
 import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
-import React from 'react';
+import { Link as GatsbyLink } from 'gatsby';
+import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
 const Background = styled(Flex)`
   position: absolute;
@@ -12,40 +13,12 @@ const Background = styled(Flex)`
   z-index: -1;
 `;
 
-export const UseCaseSection = () => {
-  const data = useStaticQuery(graphql`
-    query UseCase {
-      allPrismicHomeBodyUseCase {
-        edges {
-          node {
-            primary {
-              description {
-                text
-              }
-              title {
-                text
-              }
-              icon {
-                url
-                alt
-              }
-              blog_post {
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicHomeBodyUseCase) return null;
-
+export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({ data, lang }) => {
   return (
     <Flex direction="column" align="center" justify="flex-end">
       <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
-        {data.allPrismicHomeBodyUseCase.edges.map((useCase: any, index: number) => {
-          const { icon, title, description, blog_post } = useCase.node.primary;
+        {data.map((useCase: any, index: number) => {
+          const { icon, title, description, feature_description } = useCase.primary;
 
           return (
             <Flex
@@ -97,9 +70,9 @@ export const UseCaseSection = () => {
                   </Text>
                 </Flex>
                 <Flex justify="center" mb={5} mt={[2, 2, 2, 4]}>
-                  <GatsbyLink to={`/blog/${blog_post.slug}`}>
+                  <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
                     <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
-                      learn more
+                      {i18n[lang].buttons.more}
                     </Button>
                   </GatsbyLink>
                 </Flex>
@@ -117,7 +90,7 @@ export const UseCaseSection = () => {
           w="200px"
           my={6}
         >
-          register
+          {i18n[lang].buttons.register}
         </Button>
       </Link>
       <Background bg="blue.800" />

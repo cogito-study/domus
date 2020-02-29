@@ -2,19 +2,28 @@ import { Box, Flex, Heading, Link, LinkProps, PseudoBox } from '@chakra-ui/core'
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { Container } from '../container';
+import i18n from '../../../config/i18n.js';
 
-export const FooterSection = () => {
+export const FooterSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
     query Features {
-      allPrismicHomeBodyUseCase {
+      allPrismicHome {
         edges {
           node {
-            primary {
-              title {
-                text
-              }
-              blog_post {
-                slug
+            lang
+            data {
+              body {
+                ... on PrismicHomeBodyUseCase {
+                  slice_type
+                  primary {
+                    title {
+                      text
+                    }
+                    feature_description {
+                      slug
+                    }
+                  }
+                }
               }
             }
           }
@@ -23,6 +32,7 @@ export const FooterSection = () => {
       allPrismicContact {
         edges {
           node {
+            lang
             data {
               address {
                 text
@@ -33,19 +43,18 @@ export const FooterSection = () => {
               phone_number {
                 text
               }
-            }
-          }
-        }
-      }
-      allPrismicContactBodySocialMedia {
-        edges {
-          node {
-            primary {
-              url {
-                url
-              }
-              icon {
-                url
+              body {
+                ... on PrismicContactBodySocialMedia {
+                  slice_type
+                  primary {
+                    url {
+                      url
+                    }
+                    icon {
+                      url
+                    }
+                  }
+                }
               }
             }
           }
@@ -53,6 +62,18 @@ export const FooterSection = () => {
       }
     }
   `);
+
+  if (!data.allPrismicHome) return null;
+  const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const filteredContact = data.allPrismicContact.edges.filter(
+    (filtered) => filtered.node.lang == lang,
+  );
+
+  const slices = filteredData[0].node.data.body;
+  const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
+  const socialSection = filteredContact[0].node.data.body.filter(
+    (slice) => slice.slice_type === 'social_media',
+  );
 
   const linkProps: LinkProps = {
     fontWeight: 'semibold',
@@ -72,13 +93,13 @@ export const FooterSection = () => {
           </Heading>
           <Flex direction="column">
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">product</GatsbyLink>
+              <GatsbyLink to="/">{i18n[lang].pages.product}</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/about">about us</GatsbyLink>
+              <GatsbyLink to={`${lang}/about`}>{i18n[lang].pages.about}</GatsbyLink>
             </Link>
             <Link {...linkProps} my={2}>
-              <GatsbyLink to="/contact">contact</GatsbyLink>
+              <GatsbyLink to={`${lang}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
             {/*<Box my={2}>
               <GatsbyLink to="/blog">
@@ -94,21 +115,28 @@ export const FooterSection = () => {
         </Box>
         <Box width="210px" mx={4}>
           <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
-            Use cases
+            {`${i18n[lang].sections.usecase.charAt(0).toUpperCase()}${i18n[
+              lang
+            ].sections.usecase.slice(1)}`}
           </Heading>
           <Flex direction="column">
-            {data.allPrismicHomeBodyUseCase.edges.map(({ node: { primary } }, index) => (
-              <Link {...linkProps} my={2} key={index}>
-                <GatsbyLink to={`/blog/${primary.blog_post.slug}`}>
-                  {primary.title.text.toLowerCase()}
-                </GatsbyLink>
-              </Link>
-            ))}
+            {useCaseSection.map((useCase: any, index: number) => {
+              const { feature_description, title } = useCase.primary;
+              return (
+                <Link {...linkProps} my={2} key={index}>
+                  <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
+                    {title.text.toLowerCase()}
+                  </GatsbyLink>
+                </Link>
+              );
+            })}
           </Flex>
         </Box>
         <Box width="210px" mx={4}>
           <Heading as="h2" mt={6} mb={3} color="grey.800" fontSize={[24, 32]}>
-            Contact
+            {`${i18n[lang].pages.contact.charAt(0).toUpperCase()}${i18n[lang].pages.contact.slice(
+              1,
+            )}`}
           </Heading>
           <Flex direction="column">
             <Box my={2}>
@@ -141,10 +169,10 @@ export const FooterSection = () => {
           >
             <Flex align="center" direction={['column', 'column', 'column', 'row']}>
               <Flex mr={[0, 0, 0, 8]} mb={[4, 4, 4, 0]} mt={[3, 3, 3, 0]}>
-                {data.allPrismicContactBodySocialMedia.edges.map(({ node }, index) => (
+                {socialSection.map(({ primary }, index) => (
                   <Box key={index} mx={2}>
-                    <Link href={node.primary.url.url}>
-                      <img src={node.primary.icon.url} />
+                    <Link href={primary.url.url}>
+                      <img src={primary.icon.url} />
                     </Link>
                   </Box>
                 ))}

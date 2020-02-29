@@ -1,4 +1,4 @@
-const website = require('.')
+const website = require('.');
 
 module.exports = {
   'en-us': {
@@ -18,6 +18,51 @@ module.exports = {
     recent: 'Recent',
     projects: 'projects',
     allCategories: 'All categories',
-    entries: 'entries'
-  }
-}
+    entries: 'entries',
+    pages: {
+      about: 'about us',
+      contact: 'contact',
+    },
+    sections: {
+      usecase: 'Use cases',
+      contact: 'Contact us',
+    },
+    buttons: {
+      login: 'log in',
+      register: 'register',
+      more: 'learn more',
+    },
+  },
+  hu: {
+    path: 'hu',
+    locale: 'hu',
+    siteLanguage: 'hu',
+    ogLang: 'hu_HU',
+    defaultTitle: website.title,
+    defaultTitleAlt: website.titleAlt,
+    defaultDescription: website.description,
+    headline: website.headline,
+    category: 'Category',
+    categories: 'Categories',
+    was: 'was',
+    were: 'were',
+    tagged: 'tagged with',
+    recent: 'Recent',
+    projects: 'projects',
+    allCategories: 'All categories',
+    entries: 'entries',
+    pages: {
+      about: 'rólunk',
+      contact: 'elérhetőség',
+    },
+    sections: {
+      usecase: 'Funkciók',
+      contact: 'Kontakt',
+    },
+    buttons: {
+      login: 'bejelentkezés',
+      register: 'regisztráció',
+      more: 'tudj meg többet',
+    },
+  },
+};

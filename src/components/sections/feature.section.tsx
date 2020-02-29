@@ -1,44 +1,17 @@
 import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
-import { graphql, Link, useStaticQuery } from 'gatsby';
-import React from 'react';
+import { Link } from 'gatsby';
+import React, { FunctionComponent } from 'react';
+import i18n from '../../../config/i18n.js';
 
-export const FeatureSection = () => {
-  const data = useStaticQuery(graphql`
-    query Feature {
-      allPrismicHomeBodyFeature {
-        edges {
-          node {
-            primary {
-              image {
-                url
-                alt
-              }
-              title {
-                text
-              }
-              description {
-                text
-              }
-              blog_post {
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicHomeBodyFeature) return null;
-
+export const FeatureSection: FunctionComponent<{ data: any; lang: string }> = ({ data, lang }) => {
   return (
     <Flex
       flexDirection="column"
       alignItems={['center', 'center', 'space-between']}
       mx={[4, 4, 0, 8]}
     >
-      {data.allPrismicHomeBodyFeature.edges.map((feature: any, index: number) => {
-        const { image, title, description, blog_post } = feature.node.primary;
+      {data.map((feature: any, index: number) => {
+        const { image, title, description, feature_description } = feature.primary;
 
         return (
           <Flex
@@ -73,7 +46,7 @@ export const FeatureSection = () => {
                 style={{
                   maxWidth: '130px',
                 }}
-                to={`/blog/${blog_post.slug}`}
+                to={`${i18n[lang].path}/feature/${feature_description.slug}`}
               >
                 <Button
                   mt={4}
@@ -84,7 +57,7 @@ export const FeatureSection = () => {
                   borderWidth={2}
                   borderRadius={0}
                 >
-                  learn more
+                  {i18n[lang].buttons.more}
                 </Button>
               </Link>
             </Flex>

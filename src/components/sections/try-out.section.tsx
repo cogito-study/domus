@@ -1,8 +1,9 @@
 import { Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import i18n from '../../../config/i18n.js';
 
-export const TryOutSection = () => {
+export const TryOutSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
     query TryOut {
       allPrismicHome {
@@ -10,32 +11,25 @@ export const TryOutSection = () => {
           node {
             lang
             data {
-              popup_text {
-                text
-              }
-              popup_title {
-                text
-              }
-            }
-          }
-        }
-      }
-      allPrismicHomeBodyTryOut {
-        edges {
-          node {
-            primary {
-              image {
-                url
-                alt
-              }
-              image_description {
-                text
-              }
-              subtitle {
-                text
-              }
-              title {
-                text
+              body {
+                ... on PrismicHomeBodyTryOut {
+                  slice_type
+                  primary {
+                    image {
+                      url
+                      alt
+                    }
+                    image_description {
+                      text
+                    }
+                    subtitle {
+                      text
+                    }
+                    title {
+                      text
+                    }
+                  }
+                }
               }
             }
           }
@@ -44,12 +38,13 @@ export const TryOutSection = () => {
     }
   `);
 
-  if (!data.allPrismicHomeBodyTryOut) return null;
-
+  const filteredData = data.allPrismicHome.edges.filter((filtered) => filtered.node.lang == lang);
+  const slices = filteredData[0].node.data.body;
+  const tryoutSection = slices.filter((slice) => slice.slice_type === 'try_out');
   return (
     <Flex bg="blue.800">
-      {data.allPrismicHomeBodyTryOut.edges.map((tryOut: any, index: number) => {
-        const { image, image_description, subtitle, title } = tryOut.node.primary;
+      {tryoutSection.map((tryOut: any, index: number) => {
+        const { image, image_description, subtitle, title } = tryOut.primary;
 
         return (
           <Flex
@@ -95,7 +90,7 @@ export const TryOutSection = () => {
                   w="200px"
                   borderRadius={0}
                 >
-                  register
+                  {i18n[lang].buttons.register}
                 </Button>
               </Link>
             </Flex>

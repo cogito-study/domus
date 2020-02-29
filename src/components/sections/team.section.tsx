@@ -1,6 +1,5 @@
 import { Flex, Grid, Heading } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import { graphql, useStaticQuery } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { TeamMember } from '../team-member';
 
@@ -13,47 +12,11 @@ interface TeamSectionProps {
   subtitle: string;
 }
 
-export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtitle }) => {
-  const data = useStaticQuery(graphql`
-    {
-      allPrismicAboutBodyProfile {
-        edges {
-          node {
-            primary {
-              original_image {
-                localFile {
-                  childImageSharp {
-                    fluid(maxHeight: 600, quality: 90, cropFocus: CENTER, fit: COVER) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-                alt
-              }
-              hovered_image1 {
-                localFile {
-                  childImageSharp {
-                    fluid(maxHeight: 600, quality: 90, cropFocus: CENTER, fit: COVER) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-              name {
-                text
-              }
-              position {
-                text
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  if (!data.allPrismicAboutBodyProfile) return null;
-
+export const TeamSection: FunctionComponent<TeamSectionProps & { data: any }> = ({
+  title,
+  subtitle,
+  data,
+}) => {
   return (
     <Flex
       direction="column"
@@ -71,8 +34,8 @@ export const TeamSection: FunctionComponent<TeamSectionProps> = ({ title, subtit
         gridGap={[3, 3, 4, 5, 6]}
         gridTemplateColumns={['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']}
       >
-        {data.allPrismicAboutBodyProfile.edges.map((profile: any, index: number) => {
-          const { original_image, hovered_image1, name, position } = profile.node.primary;
+        {data.map((profile: any, index: number) => {
+          const { original_image, hovered_image1, name, position } = profile.primary;
 
           return (
             <TeamMember

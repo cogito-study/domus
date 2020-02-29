@@ -3,7 +3,6 @@ import { css, Global } from '@emotion/core';
 import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
-import { FooterSection, PartnerSection, TryOutSection } from './sections';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -55,9 +54,6 @@ const Layout: FC = ({ children }) => {
           }
         />
         <Box>{children}</Box>
-        <TryOutSection />
-        <PartnerSection />
-        <FooterSection />
       </>
     </ThemeProvider>
   );

@@ -1,14 +1,16 @@
 import { Box, Button, Flex, Heading, Link } from '@chakra-ui/core';
 import React from 'react';
+import i18n from '../../../config/i18n.js';
 
 interface HeroSectionProps {
+  lang: string;
   motto: string;
   description: string;
   popupTitle: string;
   popupText: string;
 }
 
-export const HeroSection = ({ motto, description }: HeroSectionProps) => {
+export const HeroSection = ({ motto, description, lang }: HeroSectionProps) => {
   return (
     <Flex direction="column" alignItems="center" pt={[16, 24]} mb={[2, 10]} mx={[0, 0, 0, 6]}>
       <Flex mx={2} direction="column" justify="center" maxW={830} minH={350}>
@@ -36,7 +38,7 @@ export const HeroSection = ({ motto, description }: HeroSectionProps) => {
             borderRadius={0}
             w={200}
           >
-            register
+            {i18n[lang].buttons.register}
           </Button>
         </Link>
       </Flex>

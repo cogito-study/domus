@@ -18,11 +18,11 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   return (
     <>
       <GatsbySeo
-        title={title.text.toLowerCase()}
+        title={`${title.text.toLowerCase()} | blog | cogito`}
         description={`${content.text.substring(0, 30)}...`}
         canonical="https://cogito.study/blog"
         openGraph={{
-          title: title.text.toLowerCase(),
+          title: `${title.text.toLowerCase()} | blog | cogito`,
           description: `${content.text.substring(0, 30)}...`,
           type: 'article',
           images: [

@@ -83,13 +83,7 @@ export const TryOutSection = ({ lang }) => {
                 {subtitle.text}
               </Text>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-                <Button
-                  variant="solid"
-                  variantColor="teal"
-                  color="blue.800"
-                  w="200px"
-                  borderRadius={0}
-                >
+                <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
                   {i18n[lang].buttons.register}
                 </Button>
               </Link>

@@ -47,19 +47,15 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
         align={['start', 'start', 'center']}
         justify="center"
       >
-        <Text color="grey.400" fontSize="sm">
+        <Text color="grey.400" fontSize="sm" mr={[0, 0, 6]}>
           {descriptionText}
         </Text>
         <Button
-          px={3}
-          mt={[3, 3, 0]}
-          ml={[0, 0, 6]}
-          w={['100%', '120px']}
-          color="blue.800"
-          onClick={() => hideCookieBanner()}
-          bg="teal.500"
+          variant="solid"
           variantColor="teal"
+          color="blue.800"
           borderRadius={0}
+          onClick={() => hideCookieBanner()}
         >
           {buttonText}
         </Button>

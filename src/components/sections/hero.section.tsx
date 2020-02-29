@@ -36,7 +36,6 @@ export const HeroSection = ({ motto, description, lang }: HeroSectionProps) => {
             variantColor="teal"
             color="blue.800"
             borderRadius={0}
-            w={200}
           >
             {i18n[lang].buttons.register}
           </Button>

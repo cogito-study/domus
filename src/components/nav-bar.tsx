@@ -104,7 +104,6 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                   variant="solid"
                   variantColor="teal"
                   color="blue.800"
-                  w={200}
                   borderRadius={0}
                   mb={4}
                 >
@@ -118,7 +117,6 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                   variant="ghost"
                   variantColor="blue"
                   color="blue.800"
-                  w={200}
                   borderRadius={0}
                 >
                   {locationToTranslations(location).buttons.login}

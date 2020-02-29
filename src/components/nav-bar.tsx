@@ -188,7 +188,7 @@ const DesktopNavBar = () => {
               <PseudoBox
                 key={key}
                 textAlign="center"
-                mr={[0, 0, 0, 1, 4]}
+                mr={[0, 0, 0, 4]}
                 color="grey.600"
                 fontFamily="heading"
                 fontWeight="semibold"

@@ -19,7 +19,7 @@ const About: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
       <SEO title="about" />
       <Container pt={[16, 24]}>
         <TeamSection title={title.text} subtitle={subtitle.text} data={teamSection} />
-        <AchievementSection title={achievement_header.text} data={achievementSection} />
+        <AchievementSection title={achievement_header.text} data={achievementSection} lang={lang} />
       </Container>
       <Common lang={lang} />
     </>

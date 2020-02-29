@@ -79,7 +79,7 @@ export const TryOutSection = ({ lang }) => {
               <Heading my={2} color="grey.100" fontSize={['lg', 'xl']} lineHeight="normal">
                 {title.text}
               </Heading>
-              <Text mb={3} color="grey.100" fontSize={['sm', 'lg']}>
+              <Text mb={3} color="grey.100" fontSize={['sm', 'md']}>
                 {subtitle.text}
               </Text>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>

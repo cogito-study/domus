@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Link, LinkProps, PseudoBox } from '@chakra-ui/core';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { Container } from '../container';
 import i18n from '../../../config/i18n.js';
+import { Container } from '../container';
 
 export const FooterSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
@@ -92,10 +92,10 @@ export const FooterSection = ({ lang }) => {
             Cogito
           </Heading>
           <Flex direction="column">
-            <Link {...linkProps} my={2}>
+            <Link as="div" {...linkProps} my={2}>
               <GatsbyLink to={`${i18n[lang].path}/about`}>{i18n[lang].pages.about}</GatsbyLink>
             </Link>
-            <Link {...linkProps} my={2}>
+            <Link as="div" {...linkProps} my={2}>
               <GatsbyLink to={`${i18n[lang].path}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
             {/*<Box my={2}>
@@ -120,7 +120,7 @@ export const FooterSection = ({ lang }) => {
             {useCaseSection.map((useCase: any, index: number) => {
               const { feature_description, title } = useCase.primary;
               return (
-                <Link {...linkProps} my={2} key={index}>
+                <Link as="div" {...linkProps} my={2} key={index}>
                   <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
                     {title.text.toLowerCase()}
                   </GatsbyLink>

@@ -65,6 +65,7 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
+    'gatsby-plugin-next-seo',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

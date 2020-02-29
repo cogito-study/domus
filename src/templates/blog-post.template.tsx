@@ -5,6 +5,7 @@ import SEO from '../components/SEO';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
 import Common from '../components/common';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 
 const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
   data,
@@ -18,6 +19,21 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   return (
     <>
       <SEO individual title={`${title.text.toLowerCase()} | blog`} banner={hero_image.url} />
+
+      <GatsbySeo
+        openGraph={{
+          title: title.text.toLowerCase(),
+          description: `${content.text.substring(0, 30)}...`,
+          type: 'article',
+          images: [
+            {
+              url: hero_image.url,
+              width: 850,
+              height: 650,
+            },
+          ],
+        }}
+      />
       <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />
       <Flex justify="center" direction="column" align="center" mb={6}>
         <Box mt={[24, 32]} width="100%" maxW="580px" bg="transparent">

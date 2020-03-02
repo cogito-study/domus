@@ -1,18 +1,6 @@
-import { Button, Flex, FlexProps, Text } from '@chakra-ui/core';
-import styled from '@emotion/styled';
+import { Button, Flex, Text } from '@chakra-ui/core';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent, useState } from 'react';
-
-type AbsoluteContainerProps = FlexProps & { isVisible: boolean };
-
-const AbsoluteContainer = styled(Flex)<AbsoluteContainerProps>`
-  z-index: 1;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: ${({ isVisible }: AbsoluteContainerProps) => (isVisible ? 'flex' : 'none')};
-`;
 
 const CookieKey = 'CogitoCookie';
 
@@ -33,33 +21,39 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
   };
 
   return (
-    <AbsoluteContainer
-      isVisible={isVisible}
+    <Flex
+      position="fixed"
+      bottom={0}
+      left={0}
+      right={0}
+      zIndex={1}
+      px={6}
+      pb={[6, 3]}
+      pt={3}
+      display={isVisible ? 'flex' : 'none'}
+      direction={['column', 'column', 'row']}
+      align={['start', 'start', 'center']}
+      justify="center"
       backgroundColor="white"
-      justifyContent="center"
-      alignItems="center"
+      borderWidth={1}
+      borderColor="blue.100"
     >
-      <Flex
-        mx={6}
-        mb={[6, 3]}
-        mt={3}
-        direction={['column', 'column', 'row']}
-        align={['start', 'start', 'center']}
-        justify="center"
+      <Text color="grey.400" fontSize="sm" mr={[0, 0, 6]}>
+        {descriptionText}
+      </Text>
+      <Button
+        mt={[3, 0]}
+        px={4}
+        size="sm"
+        minW="unset"
+        variantColor="teal"
+        leftIcon="check"
+        color="blue.800"
+        borderRadius={0}
+        onClick={() => hideCookieBanner()}
       >
-        <Text color="grey.400" fontSize="sm" mr={[0, 0, 6]}>
-          {descriptionText}
-        </Text>
-        <Button
-          variant="solid"
-          variantColor="teal"
-          color="blue.800"
-          borderRadius={0}
-          onClick={() => hideCookieBanner()}
-        >
-          {buttonText}
-        </Button>
-      </Flex>
-    </AbsoluteContainer>
+        {buttonText}
+      </Button>
+    </Flex>
   );
 };

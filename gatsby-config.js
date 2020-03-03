@@ -50,6 +50,8 @@ module.exports = {
         ],
         openGraph: {
           type: 'website',
+          description:
+          'Collaborative course management for reliable online materials and inspiration.'
           locale: 'en',
           site_name: 'cogito.study',
           images: [

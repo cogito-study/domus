@@ -13,6 +13,9 @@ const pathPrefix = config.pathPrefix === '/en' ? '' : config.pathPrefix;
 
 module.exports = {
   pathPrefix: config.pathPrefix,
+  siteMetadata: {
+    siteUrl: `https://cogito.study`,
+  },
   plugins: [
     `gatsby-plugin-emotion`,
     'gatsby-plugin-react-helmet',
@@ -51,7 +54,7 @@ module.exports = {
         openGraph: {
           type: 'website',
           description:
-          'Collaborative course management for reliable online materials and inspiration.'
+            'Collaborative course management for reliable online materials and inspiration.',
           locale: 'en',
           site_name: 'cogito.study',
           images: [

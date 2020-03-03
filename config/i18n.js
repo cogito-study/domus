@@ -1,15 +1,9 @@
-const website = require('.');
-
 module.exports = {
   'en-us': {
     path: 'en',
     locale: 'en-us',
     siteLanguage: 'en',
     ogLang: 'en_US',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: website.description,
-    headline: website.headline,
     category: 'Category',
     categories: 'Categories',
     was: 'was',
@@ -38,10 +32,6 @@ module.exports = {
     locale: 'hu',
     siteLanguage: 'hu',
     ogLang: 'hu_HU',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: website.description,
-    headline: website.headline,
     category: 'Category',
     categories: 'Categories',
     was: 'was',

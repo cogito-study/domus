@@ -26,7 +26,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   console.log(lang);
   return (
     <>
-      <GatsbySeo title="home" />
+      <GatsbySeo title="cogito" titleTemplate="%s" />
       <Container>
         <HeroSection
           lang={lang}

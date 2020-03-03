@@ -54,11 +54,11 @@ module.exports = {
           site_name: 'cogito.study',
           images: [
             {
-              url: '/images/og-image.png,
+              url: '/images/og-image.png',
               width: 1200,
               height: 1200,
-            }
-          ]
+            },
+          ],
         },
         twitter: {
           site: '@cogitostudy',
@@ -76,5 +76,16 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Cogito',
+        short_name: 'Cogito',
+        description:
+          'Collaborative course management for reliable online materials and inspiration.',
+        display: 'standalone',
+        icon: 'src/favicon.png',
+      },
+    },
   ],
 };

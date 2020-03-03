@@ -1,12 +1,13 @@
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
+import i18n from '../../config/i18n.js';
 import Common from '../components/common';
 import { ContactSection } from '../components/sections';
 
-const Contact: FunctionComponent<{ pageContext: { lang } }> = ({ pageContext: { lang } }) => {
+const Contact: FC<{ pageContext: { lang } }> = ({ pageContext: { lang } }) => {
   return (
     <>
-      <GatsbySeo title="contact" />
+      <GatsbySeo title={i18n[lang].pages.contact} />
       <ContactSection lang={lang} />
       <Common lang={lang} />
     </>

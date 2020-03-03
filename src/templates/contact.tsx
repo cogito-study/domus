@@ -1,12 +1,12 @@
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
-import { ContactSection } from '../components/sections';
-import SEO from '../components/SEO';
 import Common from '../components/common';
+import { ContactSection } from '../components/sections';
 
 const Contact: FunctionComponent<{ pageContext: { lang } }> = ({ pageContext: { lang } }) => {
   return (
     <>
-      <SEO title="contact" />
+      <GatsbySeo title="contact" />
       <ContactSection lang={lang} />
       <Common lang={lang} />
     </>

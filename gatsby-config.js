@@ -57,7 +57,6 @@ module.exports = {
               url: '/images/og-image.png,
               width: 1200,
               height: 1200,
-              alt: 'Og Image Alt',
             }
           ]
         },

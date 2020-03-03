@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent } from 'react';
 import Common from '../components/common';
@@ -10,7 +11,6 @@ import {
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
-import SEO from '../components/SEO';
 
 const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
@@ -26,7 +26,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   console.log(lang);
   return (
     <>
-      <SEO title="home" />
+      <GatsbySeo title="home" />
       <Container>
         <HeroSection
           lang={lang}

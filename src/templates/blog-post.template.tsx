@@ -1,10 +1,10 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
 import { graphql } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
+import Common from '../components/common';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
 import { StyledContent } from '../components/styled/styled-content';
-import Common from '../components/common';
-import { GatsbySeo } from 'gatsby-plugin-next-seo';
 
 const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
   data,
@@ -15,19 +15,24 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
     : data.prismicBlogPost.data;
   const { title, hero_image, content, body } = blogData;
 
+  const seoTitle = `${title.text.toLowerCase()} | blog`;
+  const seoDescription = `${content.text.substring(0, 40)}...`;
+
   return (
     <>
       <GatsbySeo
-        title={`${title.text.toLowerCase()} | blog | cogito`}
-        description={`${content.text.substring(0, 40)}...`}
+        title={seoTitle}
+        description={seoDescription}
         canonical="https://cogito.study/en/blog"
         openGraph={{
-          title: `${title.text.toLowerCase()} | blog | cogito`,
-          description: `${content.text.substring(0, 40)}...`,
+          title: `${seoTitle} | cogito`,
+          description: seoDescription,
           type: 'article',
           images: [
             {
               url: hero_image.url,
+              width: 800,
+              height: 600,
             },
           ],
         }}

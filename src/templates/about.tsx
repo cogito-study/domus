@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
+import Common from '../components/common';
 import { Container } from '../components/container';
 import { AchievementSection, TeamSection } from '../components/sections';
-import SEO from '../components/SEO';
-import Common from '../components/common';
 
 const About: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
@@ -16,7 +16,7 @@ const About: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
 
   return (
     <>
-      <SEO title="about" />
+      <GatsbySeo title="about" />
       <Container pt={[16, 24]}>
         <TeamSection title={title.text} subtitle={subtitle.text} data={teamSection} />
         <AchievementSection title={achievement_header.text} data={achievementSection} lang={lang} />

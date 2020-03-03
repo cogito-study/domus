@@ -18,7 +18,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   const { first_publication_date, last_publication_date } = blog;
 
   const seoTitle = `${title.text.toLowerCase()} | blog`;
-  const seoDescription = `${content.text.substring(0, 40)}...`;
+  const seoDescription = `${content.text.substring(0, 100)}...`;
 
   return (
     <Location>
@@ -27,7 +27,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
           <GatsbySeo
             title={seoTitle}
             description={seoDescription}
-            canonical="https://cogito.study/en/blog"
+            canonical={location.href}
             openGraph={{
               url: location.href,
               title: `${seoTitle} | cogito`,

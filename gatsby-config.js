@@ -22,9 +22,9 @@ module.exports = {
       options: {
         host: 'https://cogito.study',
         sitemap: 'https://cogito.study/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
-    }
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
     {
       resolve: 'gatsby-plugin-chakra-ui',
       options: {

@@ -26,7 +26,7 @@ module.exports = {
     buttons: {
       login: 'log in',
       register: 'register',
-      more: 'learn more',
+      more: 'find out more',
     },
   },
   hu: {

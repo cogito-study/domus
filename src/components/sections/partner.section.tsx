@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Link } from '@chakra-ui/core';
+import { Box, Flex, Image } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
@@ -46,11 +46,11 @@ export const PartnerSection = ({ lang }) => {
           const { link, logo, name } = partner.primary;
 
           return (
-            <Link key={index} href={link.url} rel="noopener" mx={[2, 2, 6]}>
-              <Box w={['110px', '100px', '110px']}>
+            <Box w={['110px', '100px', '110px']} mx={[2, 2, 6]} key={index}>
+              <a href={link.url} rel="noopener noreferrer" target="_blank">
                 <Image w="100%" src={logo.url} alt={name.text}></Image>
-              </Box>
-            </Link>
+              </a>
+            </Box>
           );
         })}
       </Flex>

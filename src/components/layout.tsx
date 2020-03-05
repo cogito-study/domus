@@ -3,6 +3,7 @@ import { css, Global } from '@emotion/core';
 import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
+import { Helmet } from 'react-helmet';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -44,6 +45,9 @@ const Layout: FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <Helmet>
+          <html lang="en" />
+        </Helmet>
         <CSSReset />
         <GlobalStyles overlayMenuActive={overlayMenuActive} />
         <NavBar

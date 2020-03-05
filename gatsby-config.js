@@ -18,6 +18,14 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://cogito.study',
+        sitemap: 'https://cogito.study/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    }
+    {
       resolve: 'gatsby-plugin-chakra-ui',
       options: {
         isResettingCSS: true,
@@ -82,11 +90,14 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Cogito',
-        short_name: 'Cogito',
+        short_name: 'Cogito - Collaborative e-learning platform',
         description:
           'Collaborative course management for reliable online materials and inspiration.',
         display: 'standalone',
         icon: 'src/favicon.png',
+        start_url: `/`,
+        background_color: `#F7FAFC`,
+        theme_color: `#002B66`,
       },
     },
   ],

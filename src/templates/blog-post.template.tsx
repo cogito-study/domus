@@ -16,7 +16,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
     : data.prismicBlogPost;
   const { title, hero_image, content, body } = blog.data;
   const { first_publication_date, last_publication_date } = blog;
-
+  console.log(blog);
   const seoTitle = `${title.text.toLowerCase()} | blog`;
   const seoDescription = `${content.text.substring(0, 100)}...`;
 
@@ -63,7 +63,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
             </Box>
             {body && <RelatedBlogPostSlices slices={body} lang={lang} />}
           </Flex>
-          <Common lang="en-us" />
+          <Common lang={lang || 'en-us'} />
         </>
       )}
     </Location>

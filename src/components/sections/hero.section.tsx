@@ -33,6 +33,7 @@ export const HeroSection = ({ motto, description, lang }: HeroSectionProps) => {
           <Button
             variant="solid"
             mt={[5, 5, 5, 8]}
+            px={16}
             variantColor="teal"
             color="blue.800"
             borderRadius={0}

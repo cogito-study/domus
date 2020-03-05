@@ -47,7 +47,7 @@ module.exports = {
     },
     sections: {
       usecase: 'Funkciók',
-      contact: 'Kontakt',
+      contact: 'Elérhetőség',
     },
     buttons: {
       login: 'bejelentkezés',

@@ -170,7 +170,7 @@ export const FooterSection = ({ lang }) => {
                 {socialSection.map(({ primary }, index) => (
                   <Box key={index} mx={2}>
                     <Link href={primary.url.url}>
-                      <img src={primary.icon.url} alt={icon.alt} />
+                      <img src={primary.icon.url} alt={primary.icon.alt} />
                     </Link>
                   </Box>
                 ))}

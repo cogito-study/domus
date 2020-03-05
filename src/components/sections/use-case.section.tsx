@@ -82,7 +82,14 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
         })}
       </Flex>
       <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-        <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0} my={6}>
+        <Button
+          variant="solid"
+          variantColor="teal"
+          color="blue.800"
+          borderRadius={0}
+          my={6}
+          px={16}
+        >
           {i18n[lang].buttons.register}
         </Button>
       </Link>

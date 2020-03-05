@@ -240,7 +240,7 @@ const DesktopNavBar = () => {
                 mr={4}
               />
               <MenuList borderRadius={0}>
-                <MenuItem onClick={() => navigate('/en')}>english 🇬🇧</MenuItem>
+                <MenuItem onClick={() => navigate('/')}>english 🇬🇧</MenuItem>
                 <MenuItem onClick={() => navigate('/hu')}>magyar 🇭🇺</MenuItem>
               </MenuList>
             </Menu>

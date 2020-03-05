@@ -7,13 +7,7 @@ const {
 } = require('./src/utils/gatsby-node-helpers');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
-  createRedirect({
-    fromPath: `/`,
-    toPath: `/en`,
-    redirectInBrowser: true,
-    isPermanent: true,
-  });
+  const { createPage } = actions;
 
   const path = require('path');
   const pages = await graphql(`
@@ -85,7 +79,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const { alternate_languages } = node;
     alternate_languages.forEach(({ lang }) => {
       createPage({
-        path: `/${i18n[lang].path}`,
+        path: lang === 'en-us' ? `/` : `/${i18n[lang].path}`,
         component: require.resolve(`./src/templates/index.tsx`),
         context: {
           lang,

@@ -5,20 +5,42 @@ import { graphql, useStaticQuery } from 'gatsby';
 interface AchievementSectionProps {
   title: string;
   data: any;
+  lang: string;
 }
 
-export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({ title, data }) => {
-  const staticData = useStaticQuery(graphql`
+export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
+  title,
+  data,
+  lang,
+}) => {
+  const contactData = useStaticQuery(graphql`
     query AchievementContact {
-      allPrismicContactBodySocialMedia {
+      allPrismicContact {
         edges {
           node {
-            primary {
-              url {
-                url
+            lang
+            data {
+              address {
+                text
               }
-              icon {
-                url
+              e_mail {
+                text
+              }
+              phone_number {
+                text
+              }
+              body {
+                ... on PrismicContactBodySocialMedia {
+                  slice_type
+                  primary {
+                    url {
+                      url
+                    }
+                    icon {
+                      url
+                    }
+                  }
+                }
               }
             }
           }
@@ -26,6 +48,13 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
       }
     }
   `);
+
+  const filteredContact = contactData.allPrismicContact.edges.filter(
+    (filtered) => filtered.node.lang == lang,
+  );
+  const socialSection = filteredContact[0].node.data.body.filter(
+    (slice) => slice.slice_type === 'social_media',
+  );
   return (
     <Flex direction="column" px={[0, 4, 4, 4, 0]}>
       <Heading color="grey.800" mt={32} mb={12} fontSize={['lg', 'lg', 'xl']}>
@@ -57,13 +86,16 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
         );
       })}
       <Flex mr={[0, 0, 0, 16]} mb={12} mt={0}>
-        {staticData.allPrismicContactBodySocialMedia.edges.map(({ node }, index: number) => (
-          <Box key={index} mx={2}>
-            <Link href={node.primary.url.url}>
-              <Image src={node.primary.icon.url} />
-            </Link>
-          </Box>
-        ))}
+        {socialSection.map((socialItem: any, index: number) => {
+          const { url, icon } = socialItem.primary;
+          return (
+            <Box key={index} mx={2}>
+              <Link href={url.url}>
+                <Image src={icon.url} />
+              </Link>
+            </Box>
+          );
+        })}
       </Flex>
     </Flex>
   );

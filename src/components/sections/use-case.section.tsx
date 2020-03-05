@@ -87,8 +87,8 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
           variantColor="teal"
           color="blue.800"
           borderRadius={0}
-          w="200px"
           my={6}
+          px={16}
         >
           {i18n[lang].buttons.register}
         </Button>

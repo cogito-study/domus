@@ -1,15 +1,9 @@
-const website = require('.');
-
 module.exports = {
   'en-us': {
     path: 'en',
     locale: 'en-us',
     siteLanguage: 'en',
     ogLang: 'en_US',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: website.description,
-    headline: website.headline,
     category: 'Category',
     categories: 'Categories',
     was: 'was',
@@ -26,6 +20,8 @@ module.exports = {
     sections: {
       usecase: 'Use cases',
       contact: 'Contact us',
+      privacy: 'Privacy policy',
+      terms: 'Terms & Conditions',
     },
     buttons: {
       login: 'log in',
@@ -38,10 +34,6 @@ module.exports = {
     locale: 'hu',
     siteLanguage: 'hu',
     ogLang: 'hu_HU',
-    defaultTitle: website.title,
-    defaultTitleAlt: website.titleAlt,
-    defaultDescription: website.description,
-    headline: website.headline,
     category: 'Category',
     categories: 'Categories',
     was: 'was',
@@ -57,7 +49,9 @@ module.exports = {
     },
     sections: {
       usecase: 'Funkciók',
-      contact: 'Kontakt',
+      contact: 'Elérhetőség',
+      privacy: 'Adatvédelmi szabályzat',
+      terms: 'Általános szerződési feltételek',
     },
     buttons: {
       login: 'bejelentkezés',

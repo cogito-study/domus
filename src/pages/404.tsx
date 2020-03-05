@@ -1,13 +1,13 @@
 import { Button, Flex, Heading, Image } from '@chakra-ui/core';
 import { Link } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
 import travolta from '../../static/travolta.gif';
-import SEO from '../components/SEO';
 
 const Notfound: FunctionComponent = () => {
   return (
     <>
-      <SEO />
+      <GatsbySeo />
       <Flex
         align="center"
         justify="center"

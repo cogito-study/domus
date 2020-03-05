@@ -1,8 +1,8 @@
 import { Box, Flex, Heading, Link, LinkProps, PseudoBox } from '@chakra-ui/core';
 import { graphql, Link as GatsbyLink, useStaticQuery } from 'gatsby';
 import React from 'react';
-import { Container } from '../container';
 import i18n from '../../../config/i18n.js';
+import { Container } from '../container';
 
 export const FooterSection = ({ lang }) => {
   const data = useStaticQuery(graphql`
@@ -92,14 +92,11 @@ export const FooterSection = ({ lang }) => {
             Cogito
           </Heading>
           <Flex direction="column">
-            <Link {...linkProps} my={2}>
-              <GatsbyLink to="/">{i18n[lang].pages.product}</GatsbyLink>
+            <Link as="div" {...linkProps} my={2}>
+              <GatsbyLink to={`${i18n[lang].path}/about`}>{i18n[lang].pages.about}</GatsbyLink>
             </Link>
-            <Link {...linkProps} my={2}>
-              <GatsbyLink to={`${lang}/about`}>{i18n[lang].pages.about}</GatsbyLink>
-            </Link>
-            <Link {...linkProps} my={2}>
-              <GatsbyLink to={`${lang}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
+            <Link as="div" {...linkProps} my={2}>
+              <GatsbyLink to={`${i18n[lang].path}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
             {/*<Box my={2}>
               <GatsbyLink to="/blog">
@@ -123,7 +120,7 @@ export const FooterSection = ({ lang }) => {
             {useCaseSection.map((useCase: any, index: number) => {
               const { feature_description, title } = useCase.primary;
               return (
-                <Link {...linkProps} my={2} key={index}>
+                <Link as="div" {...linkProps} my={2} key={index}>
                   <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
                     {title.text.toLowerCase()}
                   </GatsbyLink>
@@ -204,7 +201,9 @@ export const FooterSection = ({ lang }) => {
                 textDecoration="none"
                 _hover={{ color: 'grey.800' }}
               >
-                <GatsbyLink to="/terms-conditions">Terms and conditions</GatsbyLink>
+                <GatsbyLink to={`${i18n[lang].path}/terms-and-conditions`}>
+                  {i18n[lang].sections.terms}
+                </GatsbyLink>
               </PseudoBox>
               <PseudoBox
                 mr={4}
@@ -214,7 +213,9 @@ export const FooterSection = ({ lang }) => {
                 textDecoration="none"
                 _hover={{ color: 'grey.800' }}
               >
-                <GatsbyLink to="/privacy-policy">Privacy policy</GatsbyLink>
+                <GatsbyLink to={`${i18n[lang].path}/privacy-policy`}>
+                  {i18n[lang].sections.privacy}
+                </GatsbyLink>
               </PseudoBox>
             </Flex>
           </Flex>

@@ -2,36 +2,18 @@ require('dotenv').config({
   path: `.env`,
 });
 
-const config = require('./config');
-
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const config = {
+  siteHeadline: 'Make education a community, not just an institute!', // Headline for schema.org JSONLD
+  siteLogo: '/logos/logo.png', // Used for SEO and manifest
+  keywords:
+    'E-learning, Ecourse, Myelearning, Best education, Quality education, Social learning, Blended learning, Group learning, Study guide, Write a note, Sat exam, Gre exam, Collaboration, Collaborative, Collaboration platform, LMS, Learning Management System, Education platform, Teaching platform, Teaching, Education, Teaching strategies, Teach assist, Data management, Research management, Information management, Innovative education, Innovative learning, Future of education, Learning fast, Studying fast, How to study fast, Exam preparation, Free books, Free exam notes, Best exam notes, University notes, College notes, College education, Exam materials, Fun education, Easy learning, Learning styles, University social network, Reliable notes, Validated notes, Up to date books, Motivation to study, Reliable database, Engaging students, Case studies, Learning competition, Award-winning education, Group assignment, Curriculum, University, College, University books, College books, Study videos, Video education, Remote education',
+};
 
 module.exports = {
-  pathPrefix: config.pathPrefix,
   siteMetadata: {
-    siteUrl: config.siteUrl + pathPrefix,
-    pathPrefix,
-    title: config.siteTitle,
-    titleAlt: config.siteTitleAlt,
-    description: config.siteDescription,
-    logo: config.siteLogo,
-    headline: config.siteHeadline,
-    siteLanguage: config.siteLanguage,
-    ogLanguage: config.ogLanguage,
-    keywords: config.keywords,
-    banner: config.ogImage,
-    defaultBanner: config.ogImage,
-    author: config.author,
-    twitter: config.userTwitter,
-    facebook: config.ogSiteName,
+    siteUrl: `https://cogito.study`,
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-mailchimp',
-      options: {
-        endpoint: config.mailchimpEndpoint,
-      },
-    },
     `gatsby-plugin-emotion`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-typescript',
@@ -56,6 +38,37 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-next-seo',
+      options: {
+        url: 'https://cogito.study/',
+        titleTemplate: '%s | cogito',
+        description:
+          'Collaborative course management for reliable online materials and inspiration.',
+        languageAlternate: [
+          { hrefLang: 'en', href: 'https://cogito.study/en' },
+          { hrefLang: 'hu', href: 'https://cogito.study/hu' },
+        ],
+        openGraph: {
+          type: 'website',
+          description:
+            'Collaborative course management for reliable online materials and inspiration.',
+          locale: 'en',
+          site_name: 'cogito.study',
+          images: [
+            {
+              url: '/images/og-image.png',
+              width: 1200,
+              height: 1200,
+            },
+          ],
+        },
+        twitter: {
+          site: '@cogitostudy',
+          cardType: 'summary_large_image',
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `templates`,
@@ -65,16 +78,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-next-seo',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleShort,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: 'Cogito',
+        short_name: 'Cogito',
+        description:
+          'Collaborative course management for reliable online materials and inspiration.',
         display: 'standalone',
         icon: 'src/favicon.png',
       },

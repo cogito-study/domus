@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import Cookies from 'js-cookie';
 import React, { FunctionComponent } from 'react';
 import Common from '../components/common';
@@ -10,7 +11,6 @@ import {
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
-import SEO from '../components/SEO';
 
 const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
@@ -23,9 +23,10 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
+  console.log(lang);
   return (
     <>
-      <SEO title="home" />
+      <GatsbySeo title="cogito" titleTemplate="%s" openGraph={{ title: 'cogito' }} />
       <Container>
         <HeroSection
           lang={lang}

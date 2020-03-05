@@ -104,7 +104,6 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                   variant="solid"
                   variantColor="teal"
                   color="blue.800"
-                  w={200}
                   borderRadius={0}
                   mb={4}
                 >
@@ -118,7 +117,6 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                   variant="ghost"
                   variantColor="blue"
                   color="blue.800"
-                  w={200}
                   borderRadius={0}
                 >
                   {locationToTranslations(location).buttons.login}
@@ -188,7 +186,7 @@ const DesktopNavBar = () => {
               <PseudoBox
                 key={key}
                 textAlign="center"
-                mr={[0, 0, 0, 1, 4]}
+                mr={[0, 0, 0, 6]}
                 color="grey.600"
                 fontFamily="heading"
                 fontWeight="semibold"
@@ -242,7 +240,7 @@ const DesktopNavBar = () => {
                 mr={4}
               />
               <MenuList borderRadius={0}>
-                <MenuItem onClick={() => navigate('/en')}>english 🇬🇧</MenuItem>
+                <MenuItem onClick={() => navigate('/')}>english 🇬🇧</MenuItem>
                 <MenuItem onClick={() => navigate('/hu')}>magyar 🇭🇺</MenuItem>
               </MenuList>
             </Menu>

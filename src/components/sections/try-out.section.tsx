@@ -79,17 +79,11 @@ export const TryOutSection = ({ lang }) => {
               <Heading my={2} color="grey.100" fontSize={['lg', 'xl']} lineHeight="normal">
                 {title.text}
               </Heading>
-              <Text mb={3} color="grey.100" fontSize={['sm', 'lg']}>
+              <Text mb={3} color="grey.100" fontSize={['sm', 'md']}>
                 {subtitle.text}
               </Text>
               <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-                <Button
-                  variant="solid"
-                  variantColor="teal"
-                  color="blue.800"
-                  w="200px"
-                  borderRadius={0}
-                >
+                <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
                   {i18n[lang].buttons.register}
                 </Button>
               </Link>

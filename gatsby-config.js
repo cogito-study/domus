@@ -95,7 +95,7 @@ module.exports = {
           'Collaborative course management for reliable online materials and inspiration.',
         display: 'standalone',
         icon: 'src/favicon.png',
-        start_url: `/`,
+        start_url: `.`,
         background_color: `#F7FAFC`,
         theme_color: `#002B66`,
       },

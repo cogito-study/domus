@@ -20,6 +20,8 @@ module.exports = {
     sections: {
       usecase: 'Use cases',
       contact: 'Contact us',
+      privacy: 'Privacy policy',
+      terms: 'Terms & Conditions',
     },
     buttons: {
       login: 'log in',
@@ -48,6 +50,8 @@ module.exports = {
     sections: {
       usecase: 'Funkciók',
       contact: 'Elérhetőség',
+      privacy: 'Adatvédelmi szabályzat',
+      terms: 'Általános szerződési feltételek',
     },
     buttons: {
       login: 'bejelentkezés',

@@ -201,7 +201,9 @@ export const FooterSection = ({ lang }) => {
                 textDecoration="none"
                 _hover={{ color: 'grey.800' }}
               >
-                <GatsbyLink to="/terms-conditions">Terms and conditions</GatsbyLink>
+                <GatsbyLink to={`${i18n[lang].path}/terms-and-conditions`}>
+                  {i18n[lang].sections.terms}
+                </GatsbyLink>
               </PseudoBox>
               <PseudoBox
                 mr={4}
@@ -211,7 +213,9 @@ export const FooterSection = ({ lang }) => {
                 textDecoration="none"
                 _hover={{ color: 'grey.800' }}
               >
-                <GatsbyLink to="/privacy-policy">Privacy policy</GatsbyLink>
+                <GatsbyLink to={`${i18n[lang].path}/privacy-policy`}>
+                  {i18n[lang].sections.privacy}
+                </GatsbyLink>
               </PseudoBox>
             </Flex>
           </Flex>

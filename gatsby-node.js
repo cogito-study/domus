@@ -36,6 +36,24 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicPrivacyPolicy {
+        edges {
+          node {
+            alternate_languages {
+              lang
+            }
+          }
+        }
+      }
+      allPrismicTermsConditions {
+        edges {
+          node {
+            alternate_languages {
+              lang
+            }
+          }
+        }
+      }
       allPrismicFeatureDescription {
         edges {
           node {
@@ -81,6 +99,32 @@ exports.createPages = async ({ graphql, actions }) => {
       createPage({
         path: `/${i18n[lang].path}/about`,
         component: require.resolve(`./src/templates/about.tsx`),
+        context: {
+          lang,
+        },
+      });
+    });
+  });
+
+  pages.data.allPrismicPrivacyPolicy.edges.forEach(({ node }) => {
+    const { alternate_languages } = node;
+    alternate_languages.forEach(({ lang }) => {
+      createPage({
+        path: `/${i18n[lang].path}/privacy-policy`,
+        component: require.resolve(`./src/templates/privacy-policy.tsx`),
+        context: {
+          lang,
+        },
+      });
+    });
+  });
+
+  pages.data.allPrismicTermsConditions.edges.forEach(({ node }) => {
+    const { alternate_languages } = node;
+    alternate_languages.forEach(({ lang }) => {
+      createPage({
+        path: `/${i18n[lang].path}/terms-and-conditions`,
+        component: require.resolve(`./src/templates/terms-conditions.tsx`),
         context: {
           lang,
         },

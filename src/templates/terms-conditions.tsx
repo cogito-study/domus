@@ -5,15 +5,16 @@ import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React from 'react';
 import { Container } from '../components/container';
 import { StyledContent } from '../components/styled/styled-content';
+import i18n from '../../config/i18n.js';
 
-const PrivacyPolicy = ({ data }: any) => {
+const TermsConditions = ({ data, pageContext: { lang } }: any) => {
   return (
     <Location>
       {({ location }) => (
         <>
           <GatsbySeo
-            title="Privacy Policy"
-            openGraph={{ title: 'Privacy Policy | cogito', url: location.href }}
+            title={i18n[lang].pages.terms}
+            openGraph={{ title: `${i18n[lang].sections.terms} | cogito`, url: location.href }}
           />
           <Box
             position="fixed"
@@ -25,7 +26,7 @@ const PrivacyPolicy = ({ data }: any) => {
           />
           <Container mt={[10, 16]} maxWidth={750} py={60}>
             <StyledContent
-              dangerouslySetInnerHTML={{ __html: data.prismicPrivacyPolicy.data.content.html }}
+              dangerouslySetInnerHTML={{ __html: data.prismicTermsConditions.data.content.html }}
             />
           </Container>
         </>
@@ -35,8 +36,8 @@ const PrivacyPolicy = ({ data }: any) => {
 };
 
 export const query = graphql`
-  query {
-    prismicPrivacyPolicy(lang: { eq: "en-us" }) {
+  query Terms($lang: String!) {
+    prismicTermsConditions(lang: { eq: $lang }) {
       data {
         content {
           html
@@ -46,4 +47,4 @@ export const query = graphql`
   }
 `;
 
-export default PrivacyPolicy;
+export default TermsConditions;

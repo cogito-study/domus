@@ -47,12 +47,7 @@ export const PartnerSection = ({ lang }) => {
 
           return (
             <Box w={['110px', '100px', '110px']} mx={[2, 2, 6]} key={index}>
-              <a
-                // eslint-disable-next-line react/jsx-no-target-blank
-                target="_blank"
-                rel="noopener"
-                href={link.url}
-              >
+              <a target="_blank" rel="noreferrer noopener" href={link.url}>
                 <Image w="100%" src={logo.url} alt={name.text}></Image>
               </a>
             </Box>

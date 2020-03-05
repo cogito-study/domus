@@ -46,7 +46,7 @@ export const PartnerSection = ({ lang }) => {
           const { link, logo, name } = partner.primary;
 
           return (
-            <Link key={index} href={link.url} mx={[2, 2, 6]}>
+            <Link key={index} href={link.url} rel="noopener" mx={[2, 2, 6]}>
               <Box w={['110px', '100px', '110px']}>
                 <Image w="100%" src={logo.url} alt={name.text}></Image>
               </Box>

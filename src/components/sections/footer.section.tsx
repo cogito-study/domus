@@ -52,6 +52,7 @@ export const FooterSection = ({ lang }) => {
                     }
                     icon {
                       url
+                      alt
                     }
                   }
                 }
@@ -79,9 +80,9 @@ export const FooterSection = ({ lang }) => {
     fontWeight: 'semibold',
     fontFamily: 'heading',
     fontSize: 'sm',
-    color: 'teal.600',
+    color: 'grey.700',
     textDecoration: 'none',
-    _hover: { color: 'teal.800' },
+    _hover: { color: 'grey.800' },
   };
 
   return (
@@ -169,7 +170,7 @@ export const FooterSection = ({ lang }) => {
                 {socialSection.map(({ primary }, index) => (
                   <Box key={index} mx={2}>
                     <Link href={primary.url.url}>
-                      <img src={primary.icon.url} />
+                      <img src={primary.icon.url} alt={icon.alt} />
                     </Link>
                   </Box>
                 ))}

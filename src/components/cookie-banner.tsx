@@ -38,7 +38,7 @@ export const CookieBanner: FunctionComponent<CookieBannerProps> = ({
       borderWidth={1}
       borderColor="blue.100"
     >
-      <Text color="grey.400" fontSize="sm" mr={[0, 0, 6]}>
+      <Text color="grey.600" fontSize="sm" mr={[0, 0, 6]}>
         {descriptionText}
       </Text>
       <Button

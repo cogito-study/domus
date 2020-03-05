@@ -28,8 +28,7 @@ const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => 
 
         @media only screen and (max-width: ${breakpoints[1]}) {
           body {
-            background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg'),
-              url('/background/bottom-left-mobile.svg');
+            background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg');
             background-position: right 100px, right 1200px, left 2000px;
             background-repeat: no-repeat, no-repeat, no-repeat;
           }

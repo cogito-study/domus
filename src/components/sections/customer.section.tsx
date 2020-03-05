@@ -32,7 +32,13 @@ export const CustomerSection: FunctionComponent<CustomerSectionProps & { data: a
           const { name, icon, url } = customer.primary;
 
           return (
-            <Link key={index} href={url.text} target="_blank" _hover={{ textDecoration: 'none' }}>
+            <Link
+              key={index}
+              href={url.text}
+              target="_blank"
+              rel="noreferrer noopener"
+              _hover={{ textDecoration: 'none' }}
+            >
               <Flex
                 width={['110px', '110px', '110px', '140px']}
                 flexDirection="column"

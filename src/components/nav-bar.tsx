@@ -50,11 +50,15 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
           borderColor="blue.100"
           backgroundColor="white"
         >
-          <GatsbyLink to="/">
-            <Image src="/logos/logo.svg" mx={[4, 4, 4, 8]} my={3} w="90px" />
+          <GatsbyLink to={`/${languagePath(location) === 'en' ? '' : languagePath(location)}`}>
+            <Image src="/logos/logo.svg" alt="logo" mx={[4, 4, 4, 8]} my={3} w="90px" />
           </GatsbyLink>
           <Box mr={4} onClick={() => onMenuButtonClicked()}>
-            {!overlayMenuActive ? <img src="/logos/menu.svg" /> : <img src="/logos/close.svg" />}
+            {!overlayMenuActive ? (
+              <img src="/logos/menu.svg" alt="open menu" />
+            ) : (
+              <img src="/logos/close.svg" alt="close menu" />
+            )}
           </Box>
           {overlayMenuActive && (
             <Flex
@@ -179,8 +183,8 @@ const DesktopNavBar = () => {
           bg="white"
         >
           <Flex alignItems="center">
-            <GatsbyLink to={`/${languagePath(location)}`}>
-              <Image src="/logos/logo.svg" mx={[4, 4, 4, 8]} my={3} w="90px" />
+            <GatsbyLink to={`/${languagePath(location) === 'en' ? '' : languagePath(location)}`}>
+              <Image src="/logos/logo.svg" alt="logo" mx={[4, 4, 4, 8]} my={3} w="90px" />
             </GatsbyLink>
             {Object.keys(locationToTranslations(location).pages).map((key) => (
               <PseudoBox

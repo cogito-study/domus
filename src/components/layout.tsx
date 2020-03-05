@@ -3,6 +3,7 @@ import { css, Global } from '@emotion/core';
 import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
+import { Helmet } from 'react-helmet';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -28,8 +29,7 @@ const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => 
 
         @media only screen and (max-width: ${breakpoints[1]}) {
           body {
-            background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg'),
-              url('/background/bottom-left-mobile.svg');
+            background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg');
             background-position: right 100px, right 1200px, left 2000px;
             background-repeat: no-repeat, no-repeat, no-repeat;
           }
@@ -45,6 +45,9 @@ const Layout: FC = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <Helmet>
+          <html lang="en" />
+        </Helmet>
         <CSSReset />
         <GlobalStyles overlayMenuActive={overlayMenuActive} />
         <NavBar

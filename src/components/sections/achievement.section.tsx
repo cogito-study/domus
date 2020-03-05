@@ -38,6 +38,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
                     }
                     icon {
                       url
+                      alt
                     }
                   }
                 }
@@ -79,7 +80,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
             </Box>
             {icon.url && (
               <Box order={[1, 0]} ml={[0, 0, 32]} w="180px" h="180px">
-                <Image src={icon.url} />
+                <Image src={icon.url} alt={icon.alt} />
               </Box>
             )}
           </Flex>
@@ -91,7 +92,7 @@ export const AchievementSection: FunctionComponent<AchievementSectionProps> = ({
           return (
             <Box key={index} mx={2}>
               <Link href={url.url}>
-                <Image src={icon.url} />
+                <Image src={icon.url} alt={icon.alt} />
               </Link>
             </Box>
           );

@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 import React, { FunctionComponent } from 'react';
 import i18n from '../../../config/i18n.js';
@@ -86,21 +86,19 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
           );
         })}
       </Flex>
-      <Link _hover={{ textDecor: 'none' }}>
-        <Button
-          as="a"
-          //@ts-ignore
-          href="https://app.cogito.study/register"
-          variant="solid"
-          variantColor="teal"
-          color="blue.800"
-          borderRadius={0}
-          my={6}
-          px={16}
-        >
-          {i18n[lang].buttons.register}
-        </Button>
-      </Link>
+      <Button
+        as="a"
+        //@ts-ignore
+        href="https://app.cogito.study/register"
+        variant="solid"
+        variantColor="teal"
+        color="blue.800"
+        borderRadius={0}
+        my={6}
+        px={16}
+      >
+        {i18n[lang].buttons.register}
+      </Button>
       <Background bg="blue.800" />
     </Flex>
   );

@@ -1,5 +1,4 @@
 import { Button, Flex, Heading, Image } from '@chakra-ui/core';
-import { Link } from 'gatsby';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
 import travolta from '../../static/travolta.gif';
@@ -41,23 +40,30 @@ const Notfound: FunctionComponent = () => {
             </Heading>
           </Flex>
           <Flex>
-            <Link to="/">
-              <Button borderRadius={0} variantColor="teal" color="blue.800" mr={4}>
-                back to home
-              </Button>
-            </Link>
-            <Link to="/en/contact">
-              <Button
-                borderRadius={0}
-                variant="outline"
-                variantColor="teal"
-                borderColor="teal.500"
-                borderWidth={2}
-                color="blue.800"
-              >
-                contact us
-              </Button>
-            </Link>
+            <Button
+              as="a"
+              //@ts-ignore
+              href="/"
+              borderRadius={0}
+              variantColor="teal"
+              color="blue.800"
+              mr={4}
+            >
+              back to home
+            </Button>
+            <Button
+              as="a"
+              //@ts-ignore
+              href="/en/contact"
+              borderRadius={0}
+              variant="outline"
+              variantColor="teal"
+              borderColor="teal.500"
+              borderWidth={2}
+              color="blue.800"
+            >
+              contact us
+            </Button>
           </Flex>
         </Flex>
       </Flex>

@@ -64,7 +64,7 @@ module.exports = {
           site_name: 'cogito.study',
           images: [
             {
-              url: '/images/og-image.png',
+              url: 'https://cogito.study/images/og-image.png',
               width: 1200,
               height: 1200,
             },

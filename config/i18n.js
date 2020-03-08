@@ -16,6 +16,7 @@ module.exports = {
     pages: {
       about: 'about us',
       contact: 'contact',
+      blog: 'blog',
     },
     sections: {
       usecase: 'Use cases',

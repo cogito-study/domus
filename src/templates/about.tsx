@@ -24,9 +24,12 @@ const About: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
         <>
           <GatsbySeo
             title={seoTitle}
+            description="The team of Cogito consists of young, aspiring entrepreneurs with the vision to change the way we think about education."
             openGraph={{
               url: location.href,
-              title: `${seoTitle} | cogito`,
+              title: `${seoTitle} | cogito - Collaborative e-learning platform`,
+              description:
+                'The team of Cogito consists of young, aspiring entrepreneurs with the vision to change the way we think about education.',
             }}
           />
           <Container pt={[16, 24]}>
@@ -69,15 +72,6 @@ export const query = graphql`
                   }
                 }
                 alt
-              }
-              hovered_image1 {
-                localFile {
-                  childImageSharp {
-                    fluid(maxHeight: 600, quality: 90, cropFocus: CENTER, fit: COVER) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
               }
               name {
                 text

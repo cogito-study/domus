@@ -14,9 +14,12 @@ const Contact: FC<{ pageContext: { lang } }> = ({ pageContext: { lang } }) => {
         <>
           <GatsbySeo
             title={seoTitle}
+            description="Contact us for any further information regarding the future of education!"
             openGraph={{
               url: location.href,
-              title: `${seoTitle} | cogito`,
+              title: `${seoTitle} | cogito - Collaborative e-learning platform`,
+              description:
+                'Contact us for any further information regarding the future of education!',
             }}
           />
           <ContactSection lang={lang} />

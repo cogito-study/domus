@@ -49,17 +49,17 @@ module.exports = {
       resolve: 'gatsby-plugin-next-seo',
       options: {
         url: 'https://cogito.study/',
-        titleTemplate: '%s | cogito',
+        titleTemplate: '%s | cogito - Collaborative e-learning platform',
         description:
-          'Collaborative course management for reliable online materials and inspiration.',
+          'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
         languageAlternate: [
-          { hrefLang: 'en', href: 'https://cogito.study/en' },
+          { hrefLang: 'en', href: 'https://cogito.study/' },
           { hrefLang: 'hu', href: 'https://cogito.study/hu' },
         ],
         openGraph: {
           type: 'website',
           description:
-            'Collaborative course management for reliable online materials and inspiration.',
+            'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
           locale: 'en',
           site_name: 'cogito.study',
           images: [

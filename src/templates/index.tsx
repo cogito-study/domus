@@ -26,7 +26,11 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   console.log(lang);
   return (
     <>
-      <GatsbySeo title="cogito" titleTemplate="%s" openGraph={{ title: 'cogito' }} />
+      <GatsbySeo
+        title="cogito"
+        titleTemplate="%s"
+        openGraph={{ title: 'cogito - Collaborative e-learning platform' }}
+      />
       <Container>
         <HeroSection
           lang={lang}

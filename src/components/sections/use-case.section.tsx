@@ -72,7 +72,7 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
                   <Button
                     as="a"
                     //@ts-ignore
-                    herf={`${i18n[lang].path}/feature/${feature_description.slug}`}
+                    href={`${i18n[lang].path}/feature/${feature_description.slug}`}
                     variant="solid"
                     variantColor="teal"
                     color="blue.800"

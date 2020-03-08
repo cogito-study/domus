@@ -113,6 +113,14 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  createPage({
+    path: `en/blog`,
+    component: require.resolve(`./src/templates/blog.tsx`),
+    context: {
+      lang: 'en-us',
+    },
+  });
+
   pages.data.allPrismicTermsConditions.edges.forEach(({ node }) => {
     const { alternate_languages } = node;
     alternate_languages.forEach(({ lang }) => {

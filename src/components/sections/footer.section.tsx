@@ -99,6 +99,11 @@ export const FooterSection = ({ lang }) => {
             <Link as="div" {...linkProps} my={2}>
               <GatsbyLink to={`${i18n[lang].path}/contact`}>{i18n[lang].pages.contact}</GatsbyLink>
             </Link>
+            {i18n[lang].path === 'en' && (
+              <Link as="div" {...linkProps} my={2}>
+                <GatsbyLink to={`/en/blog`}>blog</GatsbyLink>
+              </Link>
+            )}
             {/*<Box my={2}>
               <GatsbyLink to="/blog">
                 blog

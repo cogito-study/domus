@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Link } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading } from '@chakra-ui/core';
 import React from 'react';
 import i18n from '../../../config/i18n.js';
 
@@ -29,18 +29,19 @@ export const HeroSection = ({ motto, description, lang }: HeroSectionProps) => {
             {description}
           </Heading>
         </Box>
-        <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-          <Button
-            variant="solid"
-            mt={[5, 5, 5, 8]}
-            px={16}
-            variantColor="teal"
-            color="blue.800"
-            borderRadius={0}
-          >
-            {i18n[lang].buttons.register}
-          </Button>
-        </Link>
+        <Button
+          as="a"
+          //@ts-ignore
+          href="https://app.cogito.study/register"
+          variant="solid"
+          mt={[5, 5, 5, 8]}
+          variantColor="teal"
+          color="blue.800"
+          borderRadius={0}
+          maxW={200}
+        >
+          {i18n[lang].buttons.register}
+        </Button>
       </Flex>
     </Flex>
   );

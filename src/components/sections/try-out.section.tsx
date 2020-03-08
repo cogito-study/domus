@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
+import { Button, Flex, Heading, Image, Text } from '@chakra-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import i18n from '../../../config/i18n.js';
@@ -82,11 +82,17 @@ export const TryOutSection = ({ lang }) => {
               <Text mb={3} color="grey.100" fontSize={['sm', 'md']}>
                 {subtitle.text}
               </Text>
-              <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-                <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
-                  {i18n[lang].buttons.register}
-                </Button>
-              </Link>
+              <Button
+                as="a"
+                href="https://app.cogito.study/register"
+                variant="solid"
+                variantColor="teal"
+                color="blue.800"
+                borderRadius={0}
+                px={16}
+              >
+                {i18n[lang].buttons.register}
+              </Button>
             </Flex>
           </Flex>
         );

@@ -1,6 +1,5 @@
-import { Box, Button, Flex, Heading, Image, Link, Text } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Image, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
-import { Link as GatsbyLink } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import i18n from '../../../config/i18n.js';
 
@@ -70,29 +69,36 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
                   </Text>
                 </Flex>
                 <Flex justify="center" mb={5} mt={[2, 2, 2, 4]}>
-                  <GatsbyLink to={`${i18n[lang].path}/feature/${feature_description.slug}`}>
-                    <Button variant="solid" variantColor="teal" color="blue.800" borderRadius={0}>
-                      {i18n[lang].buttons.more}
-                    </Button>
-                  </GatsbyLink>
+                  <Button
+                    as="a"
+                    //@ts-ignore
+                    herf={`${i18n[lang].path}/feature/${feature_description.slug}`}
+                    variant="solid"
+                    variantColor="teal"
+                    color="blue.800"
+                    borderRadius={0}
+                  >
+                    {i18n[lang].buttons.more}
+                  </Button>
                 </Flex>
               </Flex>
             </Flex>
           );
         })}
       </Flex>
-      <Link href="https://app.cogito.study/register" _hover={{ textDecor: 'none' }}>
-        <Button
-          variant="solid"
-          variantColor="teal"
-          color="blue.800"
-          borderRadius={0}
-          my={6}
-          px={16}
-        >
-          {i18n[lang].buttons.register}
-        </Button>
-      </Link>
+      <Button
+        as="a"
+        //@ts-ignore
+        href="https://app.cogito.study/register"
+        variant="solid"
+        variantColor="teal"
+        color="blue.800"
+        borderRadius={0}
+        my={6}
+        px={16}
+      >
+        {i18n[lang].buttons.register}
+      </Button>
       <Background bg="blue.800" />
     </Flex>
   );

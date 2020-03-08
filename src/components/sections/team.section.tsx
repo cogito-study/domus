@@ -35,12 +35,11 @@ export const TeamSection: FunctionComponent<TeamSectionProps & { data: any }> = 
         gridTemplateColumns={['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']}
       >
         {data.map((profile: any, index: number) => {
-          const { original_image, hovered_image1, name, position } = profile.primary;
+          const { original_image, name, position } = profile.primary;
 
           return (
             <TeamMember
               original_image={original_image.localFile}
-              hovered_image1={hovered_image1.localFile}
               name={name.text}
               position={position.text}
               key={index}

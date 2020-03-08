@@ -49,22 +49,29 @@ module.exports = {
       resolve: 'gatsby-plugin-next-seo',
       options: {
         url: 'https://cogito.study/',
-        titleTemplate: '%s | cogito',
+        sameAs: [
+          'http://www.facebook.com/cogito.study',
+          'http://instagram.com/cogito.study',
+          'https://www.linkedin.com/company/cogito-study/',
+          'https://twitter.com/cogitostudy',
+        ],
+        titleTemplate: '%s | cogito - Collaborative e-learning platform',
         description:
-          'Collaborative course management for reliable online materials and inspiration.',
+          'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
         languageAlternate: [
-          { hrefLang: 'en', href: 'https://cogito.study/en' },
+          { hrefLang: 'en', href: 'https://cogito.study/' },
           { hrefLang: 'hu', href: 'https://cogito.study/hu' },
         ],
         openGraph: {
+          url: 'https://cogito.study/',
           type: 'website',
           description:
-            'Collaborative course management for reliable online materials and inspiration.',
+            'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
           locale: 'en',
           site_name: 'cogito.study',
           images: [
             {
-              url: '/images/og-image.png',
+              url: 'https://cogito.study/images/og-image.png',
               width: 1200,
               height: 1200,
             },
@@ -92,7 +99,7 @@ module.exports = {
         name: 'Cogito',
         short_name: 'Cogito - Collaborative e-learning platform',
         description:
-          'Collaborative course management for reliable online materials and inspiration.',
+          'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
         display: 'standalone',
         icon: 'src/favicon.png',
         start_url: `.`,

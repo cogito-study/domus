@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
-import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import i18n from '../../../config/i18n.js';
 
@@ -42,24 +41,22 @@ export const FeatureSection: FunctionComponent<{ data: any; lang: string }> = ({
               <Box color="grey.800" fontSize="sm" lineHeight="tall">
                 {description.text}
               </Box>
-              <Link
-                style={{
-                  maxWidth: '130px',
-                }}
-                to={`${i18n[lang].path}/feature/${feature_description.slug}`}
+
+              <Button
+                as="a"
+                //@ts-ignore
+                href={`${i18n[lang].path}/feature/${feature_description.slug}`}
+                mt={4}
+                variantColor="teal"
+                variant="outline"
+                color="blue.800"
+                borderColor="teal.500"
+                borderWidth={2}
+                borderRadius={0}
+                maxW={200}
               >
-                <Button
-                  mt={4}
-                  variantColor="teal"
-                  variant="outline"
-                  color="blue.800"
-                  borderColor="teal.500"
-                  borderWidth={2}
-                  borderRadius={0}
-                >
-                  {i18n[lang].buttons.more}
-                </Button>
-              </Link>
+                {i18n[lang].buttons.more}
+              </Button>
             </Flex>
           </Flex>
         );

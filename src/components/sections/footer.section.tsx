@@ -80,7 +80,7 @@ export const FooterSection = ({ lang }) => {
     fontWeight: 'semibold',
     fontFamily: 'heading',
     fontSize: 'sm',
-    color: 'grey.700',
+    color: 'grey.600',
     textDecoration: 'none',
     _hover: { color: 'grey.800' },
   };

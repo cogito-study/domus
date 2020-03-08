@@ -6,7 +6,7 @@ const config = {
   siteHeadline: 'Make education a community, not just an institute!', // Headline for schema.org JSONLD
   siteLogo: '/logos/logo.png', // Used for SEO and manifest
   keywords:
-    'E-learning, Ecourse, Myelearning, Best education, Quality education, Social learning, Blended learning, Group learning, Study guide, Write a note, Sat exam, Gre exam, Collaboration, Collaborative, Collaboration platform, LMS, Learning Management System, Education platform, Teaching platform, Teaching, Education, Teaching strategies, Teach assist, Data management, Research management, Information management, Innovative education, Innovative learning, Future of education, Learning fast, Studying fast, How to study fast, Exam preparation, Free books, Free exam notes, Best exam notes, University notes, College notes, College education, Exam materials, Fun education, Easy learning, Learning styles, University social network, Reliable notes, Validated notes, Up to date books, Motivation to study, Reliable database, Engaging students, Case studies, Learning competition, Award-winning education, Group assignment, Curriculum, University, College, University books, College books, Study videos, Video education, Remote education',
+    'cogito, Collaborative, collaborative platform, collaborative e-learning platform, university, community, E-learning, Ecourse, Myelearning, Best education, Quality education, Social learning, Blended learning, Group learning, Study guide, Write a note, Sat exam, Gre exam, Collaboration, Collaboration platform, LMS, Learning Management System, Education platform, Teaching platform, Teaching, Education, Teaching strategies, Teach assist, Data management, Research management, Information management, Innovative education, Innovative learning, Future of education, Learning fast, Studying fast, How to study fast, Exam preparation, Free books, Free exam notes, Best exam notes, University notes, College notes, College education, Exam materials, Fun education, Easy learning, Learning styles, University social network, Reliable notes, Validated notes, Up to date books, Motivation to study, Reliable database, Engaging students, Case studies, Learning competition, Award-winning education, Group assignment, Curriculum, University, College, University books, College books, Study videos, Video education, Remote education',
 };
 
 module.exports = {
@@ -56,6 +56,7 @@ module.exports = {
           'https://twitter.com/cogitostudy',
         ],
         titleTemplate: '%s | cogito - Collaborative e-learning platform',
+        title: 'cogito - Collaborative e-learning platform',
         description:
           'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
         languageAlternate: [
@@ -65,6 +66,7 @@ module.exports = {
         openGraph: {
           url: 'https://cogito.study/',
           type: 'website',
+          title: 'cogito - Collaborative e-learning platform',
           description:
             'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
           locale: 'en',

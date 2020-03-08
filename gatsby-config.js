@@ -92,7 +92,7 @@ module.exports = {
         name: 'Cogito',
         short_name: 'Cogito - Collaborative e-learning platform',
         description:
-          'Collaborative course management for reliable online materials and inspiration.',
+          'Cogito is a collaborative platform for reliable university materials and a helping community of students.',
         display: 'standalone',
         icon: 'src/favicon.png',
         start_url: `.`,

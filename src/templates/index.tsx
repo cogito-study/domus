@@ -27,7 +27,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   return (
     <>
       <GatsbySeo
-        title="cogito"
+        title="cogito - Collaborative e-learning platform"
         titleTemplate="%s"
         openGraph={{ title: 'cogito - Collaborative e-learning platform' }}
       />

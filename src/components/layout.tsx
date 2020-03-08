@@ -4,7 +4,6 @@ import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
 import { Helmet } from 'react-helmet';
-import { SocialProfileJsonLd } from 'gatsby-plugin-next-seo';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -49,17 +48,6 @@ const Layout: FC = ({ children }) => {
         <Helmet>
           <html lang="en" />
         </Helmet>
-        <SocialProfileJsonLd
-          type="Company"
-          name="Cogito"
-          url="http://cogito.study"
-          sameAs={[
-            'http://www.facebook.com/cogito.study',
-            'http://instagram.com/cogito.study',
-            'https://www.linkedin.com/company/cogito-study/',
-            'https://twitter.com/cogitostudy',
-          ]}
-        />
         <CSSReset />
         <GlobalStyles overlayMenuActive={overlayMenuActive} />
         <NavBar

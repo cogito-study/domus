@@ -58,7 +58,7 @@ const Blog: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
               </Heading>
               <StyledGrid
                 gridGap={[3, 3, 4, 5, 6]}
-                gridTemplateColumns={['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']}
+                gridTemplateColumns={['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr']}
               >
                 {blogposts &&
                   blogposts.map((blogpost: any, index: number) => {

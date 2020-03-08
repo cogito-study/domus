@@ -20,7 +20,8 @@ const Blog: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
   console.log(blogposts);
 
   const seoTitle = `blog`;
-  const seoDescription = `Cogito blog`;
+  const seoDescription =
+    'Cogito is a collaborative platform for reliable university materials and a helping community of students.';
 
   return (
     <Location>

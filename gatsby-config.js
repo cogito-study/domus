@@ -65,7 +65,6 @@ module.exports = {
           { hrefLang: 'hu', href: 'https://cogito.study/hu' },
         ],
         openGraph: {
-          url: 'https://cogito.study/',
           type: 'website',
           title: 'cogito - Collaborative e-learning platform',
           description:
@@ -79,9 +78,6 @@ module.exports = {
               height: 1200,
             },
           ],
-        },
-        facebook: {
-          site: 'cogito.study',
         },
         twitter: {
           site: '@cogitostudy',

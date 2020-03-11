@@ -17,8 +17,6 @@ const Blog: FunctionComponent<{ data: any; pageContext: { lang: string } }> = ({
   pageContext: { lang },
 }) => {
   const blogposts = data.allPrismicBlogPost.edges;
-  console.log(blogposts);
-
   const seoTitle = `blog`;
   const seoDescription =
     'Cogito is a collaborative platform for reliable university materials and a helping community of students.';

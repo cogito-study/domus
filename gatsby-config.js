@@ -48,7 +48,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-next-seo',
       options: {
-        url: 'https://cogito.study/',
         sameAs: [
           'http://www.facebook.com/cogito.study',
           'http://instagram.com/cogito.study',
@@ -64,7 +63,6 @@ module.exports = {
           { hrefLang: 'hu', href: 'https://cogito.study/hu' },
         ],
         openGraph: {
-          url: 'https://cogito.study/',
           type: 'website',
           title: 'cogito - Collaborative e-learning platform',
           description:

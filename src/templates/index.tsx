@@ -11,6 +11,7 @@ import {
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
+import { Location } from '@reach/router';
 
 const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
@@ -23,39 +24,49 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
-  console.log(lang);
-  return (
-    <>
-      <GatsbySeo
-        title="cogito - Collaborative e-learning platform"
-        titleTemplate="%s"
-        openGraph={{ title: 'cogito - Collaborative e-learning platform' }}
-      />
-      <Container>
-        <HeroSection
-          lang={lang}
-          motto={motto.text}
-          description={description.text}
-          popupTitle={popup_title.text}
-          popupText={popup_text.text}
-        />
-      </Container>
-      <UseCaseSection data={useCaseSection} lang={lang} />
 
-      <Container>
-        <FeatureSection data={featureSection} lang={lang} />
-        <CustomerSection title={customers_heading.text} data={customerSection} />
-      </Container>
-      <Common lang={lang} />
-      {Cookies.get('CogitoCookie') ? (
-        undefined
-      ) : (
-        <CookieBanner
-          descriptionText={cookie[0].primary.description_text.text}
-          buttonText={cookie[0].primary.button_title.text}
-        />
-      )}
-    </>
+  return (
+    <Location>
+      {({ location }) => {
+        return (
+          <>
+            <GatsbySeo
+              title="cogito - Collaborative e-learning platform"
+              titleTemplate="%s"
+              canonical={location.href}
+              openGraph={{
+                title: 'cogito - Collaborative e-learning platform',
+                url: location.href,
+              }}
+            />
+            <Container>
+              <HeroSection
+                lang={lang}
+                motto={motto.text}
+                description={description.text}
+                popupTitle={popup_title.text}
+                popupText={popup_text.text}
+              />
+            </Container>
+            <UseCaseSection data={useCaseSection} lang={lang} />
+
+            <Container>
+              <FeatureSection data={featureSection} lang={lang} />
+              <CustomerSection title={customers_heading.text} data={customerSection} />
+            </Container>
+            <Common lang={lang} />
+            {Cookies.get('CogitoCookie') ? (
+              undefined
+            ) : (
+              <CookieBanner
+                descriptionText={cookie[0].primary.description_text.text}
+                buttonText={cookie[0].primary.button_title.text}
+              />
+            )}
+          </>
+        );
+      }}
+    </Location>
   );
 };
 

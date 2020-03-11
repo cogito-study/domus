@@ -49,6 +49,7 @@ module.exports = {
       resolve: 'gatsby-plugin-next-seo',
       options: {
         url: 'https://cogito.study/',
+        canonical: 'https://cogito.study/',
         sameAs: [
           'http://www.facebook.com/cogito.study',
           'http://instagram.com/cogito.study',
@@ -78,6 +79,9 @@ module.exports = {
               height: 1200,
             },
           ],
+        },
+        facebook: {
+          site: 'cogito.study',
         },
         twitter: {
           site: '@cogitostudy',

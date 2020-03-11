@@ -16,56 +16,56 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
     : data.prismicBlogPost;
   const { title, hero_image, content, body } = blog.data;
   const { first_publication_date, last_publication_date } = blog;
-  console.log(blog);
   const seoTitle = `${title.text.toLowerCase()} | blog`;
   const seoDescription = `${content.text.substring(0, 100)}...`;
-
   return (
     <Location>
-      {({ location }) => (
-        <>
-          <GatsbySeo
-            title={seoTitle}
-            description={seoDescription}
-            canonical={location.href}
-            openGraph={{
-              url: location.href,
-              title: `${seoTitle} | cogito`,
-              description: seoDescription,
-              type: 'article',
-              article: {
-                publishedTime: first_publication_date,
-                modifiedTime: last_publication_date,
-              },
-              images: [
-                {
-                  url: hero_image.url,
-                  width: 1000,
-                  height: 500,
+      {({ location }) => {
+        return (
+          <>
+            <GatsbySeo
+              title={seoTitle}
+              description={seoDescription}
+              canonical={location.href}
+              openGraph={{
+                url: location.href,
+                title: `${seoTitle} | cogito`,
+                description: seoDescription,
+                type: 'article',
+                article: {
+                  publishedTime: first_publication_date,
+                  modifiedTime: last_publication_date,
                 },
-              ],
-            }}
-          />
-          <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />
-          <Flex justify="center" direction="column" align="center" mb={6}>
-            <Box mt={[24, 32]} width="100%" maxW="580px" bg="transparent">
-              <Heading
-                as="h1"
-                mx={3}
-                mb={4}
-                fontSize={['xl', '2xl']}
-                color="blue.800"
-                lineHeight="normal"
-              >
-                {title.text}
-              </Heading>
-              <StyledContent dangerouslySetInnerHTML={{ __html: content.html }} />
-            </Box>
-            {body && <RelatedBlogPostSlices slices={body} lang={lang} />}
-          </Flex>
-          <Common lang={lang || 'en-us'} />
-        </>
-      )}
+                images: [
+                  {
+                    url: hero_image.url,
+                    width: 1000,
+                    height: 500,
+                  },
+                ],
+              }}
+            />
+            <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />
+            <Flex justify="center" direction="column" align="center" mb={6}>
+              <Box mt={[24, 32]} width="100%" maxW="580px" bg="transparent">
+                <Heading
+                  as="h1"
+                  mx={3}
+                  mb={4}
+                  fontSize={['xl', '2xl']}
+                  color="blue.800"
+                  lineHeight="normal"
+                >
+                  {title.text}
+                </Heading>
+                <StyledContent dangerouslySetInnerHTML={{ __html: content.html }} />
+              </Box>
+              {body && <RelatedBlogPostSlices slices={body} lang={lang} />}
+            </Flex>
+            <Common lang={lang || 'en-us'} />
+          </>
+        );
+      }}
     </Location>
   );
 };

@@ -21,7 +21,6 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   return (
     <Location>
       {({ location }) => {
-        console.log(location);
         return (
           <>
             <GatsbySeo

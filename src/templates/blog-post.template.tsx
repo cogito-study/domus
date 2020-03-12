@@ -14,10 +14,11 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   const blog = data.prismicFeatureDescription
     ? data.prismicFeatureDescription
     : data.prismicBlogPost;
-  const { title, hero_image, content, body } = blog.data;
+  const { title, hero_image, content, description, body } = blog.data;
   const { first_publication_date, last_publication_date } = blog;
-  const seoTitle = `${title.text.toLowerCase()} | blog`;
-  const seoDescription = `${content.text.substring(0, 100)}...`;
+
+  const seoTitle = `${title.text.trimEnd()} | blog`;
+
   return (
     <Location>
       {({ location }) => {
@@ -25,12 +26,12 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
           <>
             <GatsbySeo
               title={seoTitle}
-              description={seoDescription}
+              description={description}
               canonical={location.href}
               openGraph={{
                 url: location.href,
                 title: `${seoTitle} | cogito`,
-                description: seoDescription,
+                description: description,
                 type: 'article',
                 article: {
                   publishedTime: first_publication_date,
@@ -82,6 +83,7 @@ export const query = graphql`
         title {
           text
         }
+        description
         hero_image {
           url
         }
@@ -89,26 +91,23 @@ export const query = graphql`
           html
         }
         body {
-          ... on PrismicFeatureDescriptionBodyRelatedPosts {
-            slice_type
-            primary {
-              feature_description {
-                slug
-                document {
-                  data {
-                    title {
-                      text
-                    }
-                    hero_image {
-                      localFile {
-                        childImageSharp {
-                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
-                            ...GatsbyImageSharpFixed
-                          }
+          primary {
+            feature_description {
+              slug
+              document {
+                data {
+                  title {
+                    text
+                  }
+                  hero_image {
+                    localFile {
+                      childImageSharp {
+                        fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
+                          ...GatsbyImageSharpFixed
                         }
                       }
-                      alt
                     }
+                    alt
                   }
                 }
               }
@@ -127,6 +126,7 @@ export const query = graphql`
         title {
           text
         }
+        description
         hero_image {
           url
         }
@@ -134,26 +134,23 @@ export const query = graphql`
           html
         }
         body {
-          ... on PrismicBlogPostBodyRelatedPosts {
-            slice_type
-            primary {
-              blog_post {
-                slug
-                document {
-                  data {
-                    title {
-                      text
-                    }
-                    hero_image {
-                      localFile {
-                        childImageSharp {
-                          fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
-                            ...GatsbyImageSharpFixed
-                          }
+          primary {
+            blog_post {
+              slug
+              document {
+                data {
+                  title {
+                    text
+                  }
+                  hero_image {
+                    localFile {
+                      childImageSharp {
+                        fixed(height: 190, width: 290, fit: CONTAIN, background: "#CCFFF6") {
+                          ...GatsbyImageSharpFixed
                         }
                       }
-                      alt
                     }
+                    alt
                   }
                 }
               }

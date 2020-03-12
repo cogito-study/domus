@@ -17,7 +17,7 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
   const { title, hero_image, content, description, body } = blog.data;
   const { first_publication_date, last_publication_date } = blog;
 
-  const seoTitle = `${title.text.toLowerCase()} | blog`;
+  const seoTitle = `${title.text.trimEnd()} | blog`;
 
   return (
     <Location>

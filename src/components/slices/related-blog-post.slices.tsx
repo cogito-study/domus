@@ -14,40 +14,24 @@ export const RelatedBlogPostSlices: FunctionComponent<RelatedBlogPostSlicesProps
 }) => (
   <Flex mt={8} mb={7} flexDirection={['column', 'column', 'row', 'row']}>
     {slices.map((slice: any, index: number) => {
-      const { primary, slice_type } = slice;
-      switch (slice_type) {
-        case 'related_posts':
-          if (primary.blog_post) {
-            return (
-              <BlogPostThumbnail
-                mx={6}
-                link={`/en/blog/${primary.blog_post.slug}`}
-                key={index}
-                image={
-                  primary.blog_post.document[0].data.hero_image.localFile.childImageSharp.fixed
-                }
-                image_alt={primary.blog_post.document[0].data.hero_image.alt}
-                title={primary.blog_post.document[0].data.title.text}
-              />
-            );
-          } else if (primary.feature_description) {
-            return (
-              <BlogPostThumbnail
-                mx={6}
-                link={`/${i18n[lang].path}/feature/${primary.feature_description.slug}`}
-                key={index}
-                image={
-                  primary.feature_description.document[0].data.hero_image.localFile.childImageSharp
-                    .fixed
-                }
-                image_alt={primary.feature_description.document[0].data.hero_image.alt}
-                title={primary.feature_description.document[0].data.title.text}
-              />
-            );
-          }
-        default:
-          return null;
-      }
+      const isFeatureDescription = slice.primary.feature_description !== undefined;
+      const related = isFeatureDescription
+        ? slice.primary.feature_description
+        : slice.primary.blog_post;
+      const link = isFeatureDescription
+        ? `/${i18n[lang].path}/feature/${related.slug}`
+        : `/en/blog/${related.slug}`;
+
+      return (
+        <BlogPostThumbnail
+          mx={6}
+          link={link}
+          key={index}
+          image={related.document[0].data.hero_image.localFile.childImageSharp.fixed}
+          image_alt={related.document[0].data.hero_image.alt}
+          title={related.document[0].data.title.text}
+        />
+      );
     })}
   </Flex>
 );

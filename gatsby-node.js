@@ -114,7 +114,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   createPage({
-    path: `en/blog`,
+    path: `/en/blog`,
     component: require.resolve(`./src/templates/blog.tsx`),
     context: {
       lang: 'en-us',
@@ -168,10 +168,11 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
     createRedirect({
-      fromPath: `blog/${edge.node.slugs[0]}`,
-      toPath: `en/blog/${edge.node.slugs[0]}`,
+      fromPath: `/blog/${edge.node.slugs[0]}`,
+      toPath: `/en/blog/${edge.node.slugs[0]}`,
       redirectInBrowser: true,
       isPermanent: true,
+      statusCode: 200,
     });
   });
 };

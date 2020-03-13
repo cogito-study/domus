@@ -7,7 +7,7 @@ const {
 } = require('./src/utils/gatsby-node-helpers');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const path = require('path');
   const pages = await graphql(`
@@ -166,6 +166,12 @@ exports.createPages = async ({ graphql, actions }) => {
         uid: edge.node.slugs[0],
         lang: 'en-us',
       },
+    });
+    createRedirect({
+      fromPath: `blog/${edge.node.slugs[0]}`,
+      toPath: `en/blog/${edge.node.slugs[0]}`,
+      redirectInBrowser: true,
+      isPermanent: true,
     });
   });
 };

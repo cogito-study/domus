@@ -167,14 +167,6 @@ exports.createPages = async ({ graphql, actions }) => {
         lang: 'en-us',
       },
     });
-    createPage({
-      path: `/blog/${edge.node.slugs[0]}`,
-      component: require.resolve('./src/templates/blog-post.template.tsx'),
-      context: {
-        uid: edge.node.slugs[0],
-        lang: 'en-us',
-      },
-    });
     createRedirect({
       fromPath: `/blog/${edge.node.slugs[0]}`,
       toPath: `/en/blog/${edge.node.slugs[0]}`,

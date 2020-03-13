@@ -7,7 +7,7 @@ const {
 } = require('./src/utils/gatsby-node-helpers');
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   const path = require('path');
   const pages = await graphql(`
@@ -114,7 +114,7 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   createPage({
-    path: `en/blog`,
+    path: `/en/blog`,
     component: require.resolve(`./src/templates/blog.tsx`),
     context: {
       lang: 'en-us',
@@ -166,6 +166,21 @@ exports.createPages = async ({ graphql, actions }) => {
         uid: edge.node.slugs[0],
         lang: 'en-us',
       },
+    });
+    createPage({
+      path: `/blog/${edge.node.slugs[0]}`,
+      component: require.resolve('./src/templates/blog-post.template.tsx'),
+      context: {
+        uid: edge.node.slugs[0],
+        lang: 'en-us',
+      },
+    });
+    createRedirect({
+      fromPath: `/blog/${edge.node.slugs[0]}`,
+      toPath: `/en/blog/${edge.node.slugs[0]}`,
+      redirectInBrowser: true,
+      isPermanent: true,
+      statusCode: 200,
     });
   });
 };

@@ -136,7 +136,7 @@ const CompactNavBar = ({ overlayMenuActive, onMenuButtonClicked }: NavBarProps) 
                     _hover={{ color: 'teal.800' }}
                     _active={{ color: 'teal.600' }}
                   >
-                    <GatsbyLink to={'/en'} activeStyle={{ color: colors.teal[600] }}>
+                    <GatsbyLink to={'/'} activeStyle={{ color: colors.teal[600] }}>
                       english 🇬🇧
                     </GatsbyLink>
                   </PseudoBox>

@@ -32,6 +32,7 @@ const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => 
             background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg');
             background-position: right 100px, right 1200px, left 2000px;
             background-repeat: no-repeat, no-repeat, no-repeat;
+            overflow-x: hidden;
           }
         }
       `}

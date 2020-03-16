@@ -1,11 +1,6 @@
 import { Flex, Grid, Heading } from '@chakra-ui/core';
-import styled from '@emotion/styled';
 import React, { FunctionComponent } from 'react';
 import { TeamMember } from '../team-member';
-
-const StyledGrid = styled(Grid)`
-  justify-items: start;
-`;
 
 interface TeamSectionProps {
   title: string;
@@ -30,7 +25,8 @@ export const TeamSection: FunctionComponent<TeamSectionProps & { data: any }> = 
       <Heading color="grey.800" mt={4} mb={12} fontSize={['lg', 'lg', 'xl']}>
         {subtitle}
       </Heading>
-      <StyledGrid
+      <Grid
+        justifyItems="start"
         gridGap={[3, 3, 4, 5, 6]}
         gridTemplateColumns={['1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']}
       >
@@ -47,7 +43,7 @@ export const TeamSection: FunctionComponent<TeamSectionProps & { data: any }> = 
             />
           );
         })}
-      </StyledGrid>
+      </Grid>
     </Flex>
   );
 };

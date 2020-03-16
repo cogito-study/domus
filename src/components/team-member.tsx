@@ -9,14 +9,12 @@ const ProfileImage = styled(Image)`
   object-fit: cover;
   max-width: 300px;
   max-height: 300px;
-`;
+  filter: grayscale(100%);
+  transition: 0.2s ease-in-out;
 
-const ImageContainer = styled(Box)`
-  display: block;
-  max-width: 300px;
-  max-height: 300px;
-
-  overflow: hidden;
+  :hover {
+    filter: none;
+  }
 `;
 
 interface TeamMemberProps {
@@ -33,9 +31,16 @@ export const TeamMember: FunctionComponent<TeamMemberProps> = ({
   alt,
 }) => (
   <Box w={[140, 200, 200, 260, 300]}>
-    <ImageContainer h={[140, 200, 200, 260, 300]} w={[140, 200, 200, 260, 300]}>
+    <Box
+      h={[140, 200, 200, 260, 300]}
+      w={[140, 200, 200, 260, 300]}
+      maxW={300}
+      maxH={300}
+      overflow="hidden"
+      display="block"
+    >
       <ProfileImage fluid={original_image.childImageSharp.fluid} alt={alt} />
-    </ImageContainer>
+    </Box>
     <Heading as="h3" fontSize={[15, 18, 18, 22]} mb={1} mt={2} color="blue.800">
       {name}
     </Heading>

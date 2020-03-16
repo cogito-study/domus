@@ -4,8 +4,6 @@ import i18n from '../../../config/i18n.js';
 import phoneConversation from '../../../static/images/phoneConv.gif';
 import heroBg from '../../../static/background/hero-bg.svg';
 import styled from '@emotion/styled';
-import ScrollAnimation from 'react-animate-on-scroll';
-
 interface HeroSectionProps {
   lang: string;
   motto: string;
@@ -16,6 +14,7 @@ interface HeroSectionProps {
 
 const MessageBox = styled(Box)`
   border-radius: 5px;
+  margin: 5px;
 `;
 
 export const HeroSection = ({ lang }: HeroSectionProps) => {
@@ -31,18 +30,25 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
       <Box display={['none', 'none', 'initial']}>
         <Image src={phoneConversation} maxH="60vh" />
       </Box>
-      <Box display={['initial', 'initial', 'none']} mt={4}>
-        <ScrollAnimation animateIn="bounceInRight">
-          <MessageBox bg="blue.400" color="#fff" fontWeight="bold" borderRadius={8} px={4} py={4}>
-            Of course we do...
-          </MessageBox>
-        </ScrollAnimation>
+      <Box w="90%" display={['initial', 'initial', 'none']} mt={4}>
+        <MessageBox bg="grey.100" color="grey.900" fontWeight="bold" borderRadius={8} px={4} py={4}>
+          Of course we do...
+        </MessageBox>
+
+        <MessageBox bg="blue.400" color="#fff" fontWeight="bold" borderRadius={8} px={4} py={4}>
+          Of course we do...
+        </MessageBox>
       </Box>
 
       <Flex direction="column" justify="center" maxW={830} minH={350}>
-        <Box display={['none', 'none', 'initial']}>
-          <Image pos="absolute" zIndex={-1} ml={-8} src={heroBg} maxH="40vh" />
-        </Box>
+        <Image
+          pos="absolute"
+          display={['none', 'none', 'initial']}
+          zIndex={-1}
+          ml={-8}
+          src={heroBg}
+          maxH="40vh"
+        />
         <Box ml={[2, 2, 16]} mr={[2]}>
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="grey.900">
             In need of the best notes?

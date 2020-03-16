@@ -21,7 +21,7 @@ export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({
 
           return (
             <Flex
-              bg="white"
+              bg="#fff"
               key={index}
               direction="column"
               w={['100%', '100%', '210px', '260px']}

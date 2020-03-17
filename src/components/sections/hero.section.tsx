@@ -41,13 +41,13 @@ export const Message = ({
       x: 0,
       transition: {
         duration: 0.7,
-        delay: delayMultiplier * 0.8,
+        delay: delayMultiplier * 0.25, //TODO: update numbering when called this
       },
     }));
 
     toRight.start(() => ({
       opacity: 1,
-      x: 'calc(100vw - 70%)',
+      x: 'calc(100vw - 80%)',
       transition: {
         duration: 0.65,
         delay: delayMultiplier * 0.25,
@@ -60,7 +60,7 @@ export const Message = ({
       {type === 'sent' ? (
         <motion.div positionTransition initial={fromRight} animate={toRight}>
           <MessageBox
-            w="55%"
+            maxW={['65%', '55%']}
             bg="blue.400"
             color="#fff"
             fontWeight="bold"
@@ -74,7 +74,7 @@ export const Message = ({
       ) : (
         <motion.div positionTransition initial={fromLeft} animate={toLeft}>
           <MessageBox
-            maxW="60%"
+            maxW={['70%', '60%']}
             bg="grey.100"
             color="grey.900"
             fontWeight="bold"

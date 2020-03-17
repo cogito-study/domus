@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Image, BoxProps } from '@chakra-ui/core';
 import React, { useEffect } from 'react';
 import i18n from '../../../config/i18n.js';
 import phoneConversation from '../../../static/images/phoneConv.gif';
@@ -15,20 +15,20 @@ interface HeroSectionProps {
 }
 
 const MessageBox = styled(Box)`
-  border-radius: 10px;
+  border-radius: 15px;
   font-weight: bold;
-  margin-top: 8px;
 `;
 
 export const Message = ({
   type,
   message,
   delayMultiplier,
+  ...rest
 }: {
   delayMultiplier: number;
   type: 'sent' | 'received';
   message: string;
-}) => {
+} & BoxProps) => {
   const fromLeft = { opacity: 0, x: 'calc(100vw - 130%)' };
   const fromRight = { opacity: 0, x: 'calc(100vw + 30%)' };
 
@@ -63,10 +63,10 @@ export const Message = ({
             maxW={['65%', '55%']}
             bg="blue.400"
             color="#fff"
-            fontWeight="bold"
-            borderRadius={8}
             px={4}
             py={2}
+            mt={2}
+            {...rest}
           >
             {message}
           </MessageBox>
@@ -77,10 +77,10 @@ export const Message = ({
             maxW={['70%', '60%']}
             bg="grey.100"
             color="grey.900"
-            fontWeight="bold"
-            borderRadius={8}
             px={4}
             py={2}
+            mt={2}
+            {...rest}
           >
             {message}
           </MessageBox>
@@ -93,7 +93,7 @@ export const Message = ({
 export const HeroSection = ({ lang }: HeroSectionProps) => {
   return (
     <Flex
-      direction={['column', 'column', 'row']}
+      direction={['column-reverse', 'column-reverse', 'row']}
       alignItems="center"
       pt={[16, 24]}
       mb={[2, 10]}
@@ -103,13 +103,13 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
       <Box display={['none', 'none', 'initial']}>
         <Image src={phoneConversation} maxH="60vh" />
       </Box>
-      <Box w="90%" display={['initial', 'initial', 'none']} mt={8}>
+      <Box w="90%" display={['initial', 'initial', 'none']} mt={[24, 24, 'initial']}>
         <Message
           type="received"
           message="Hey man! Do we have some notes for tomorrow's exam?"
           delayMultiplier={1}
         />
-        <Message type="sent" message="Of course we do..." delayMultiplier={6} />
+        <Message type="sent" message="😅 Of course we do..." delayMultiplier={5} mt={8} />
         <Message type="sent" message="https://cogito.study" delayMultiplier={7} />
         {/* <Text
           textTransform="uppercase"
@@ -125,12 +125,13 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         <Message
           type="received"
           message="Saved my life! Beers on me next time! 🙌"
-          delayMultiplier={4}
+          delayMultiplier={11}
+          mt={8}
         />
         <Message
           type="received"
           message="Aaand also, does cogito have Corporate Finance notes too?"
-          delayMultiplier={5}
+          delayMultiplier={13}
         />
       </Box>
 
@@ -143,24 +144,30 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
           src={heroBg}
           maxH="40vh"
         />
-        <Flex direction="column" align={['center', 'center', 'start']} ml={[2, 2, 16]} mr={[2]}>
+        <Flex
+          direction="column"
+          align={['center', 'center', 'start']}
+          mt={[20, 20, 'initial']}
+          ml={[2, 2, 16]}
+          mr={[2]}
+          textAlign={['center', 'center', 'initial']}
+        >
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="grey.900">
-            In need of the best notes?
+            Looking for the best notes?
           </Heading>
           <Heading
             as="h2"
             mt={[4, 4, 1]}
             fontSize={['lg', 'lg', 'xl']}
             lineHeight="base"
-            color="blue.600"
+            color="blue.800"
           >
             We have everything you need!
           </Heading>
           <Heading
             as="h3"
-            fontSize="md"
-            mt={[4, 4, 8]}
-            maxW="60%"
+            fontSize="sm"
+            mt={[12, 12, 8]}
             color="grey.800"
             fontWeight="semibold"
             lineHeight="base"

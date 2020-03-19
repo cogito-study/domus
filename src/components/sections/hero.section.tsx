@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, BoxProps } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Image, Text, BoxProps } from '@chakra-ui/core';
 import React from 'react';
 import i18n from '../../../config/i18n.js';
 import heroBoxCorner from '../../../static/images/hero-box-corner.svg';
@@ -22,6 +22,8 @@ const messages = [
   { text: `Hey man! Do we have some notes for tomorrow's exam?`, type: 'received', delay: 500 },
   { text: `😅 Of course we do...`, type: 'sent', delay: 1100 },
   { text: `https://cogito.study`, type: 'sent', delay: 1400 },
+  { text: `NEXT DAY`, type: 'date', delay: 2000 },
+
   { text: `Saved my life! Beers on me next time! 🙌`, type: 'received', delay: 2000 },
   {
     text: `Aaand also, does cogito have Corporate Finance notes too?`,
@@ -39,41 +41,49 @@ export const Message = ({
   text: string;
   delay?: number;
 } & BoxProps) => {
-  return (
-    <>
-      {type === 'sent' ? (
-        <Reveal animation={Animation.SlideInRight} delay={delay}>
-          <Flex justify="flex-end">
-            <MessageBox
-              maxW={['65%', '55%', 220]}
-              bg="blue.400"
-              color="#fff"
-              px={4}
-              py={2}
-              {...rest}
-            >
-              {text}
-            </MessageBox>
-          </Flex>
-        </Reveal>
-      ) : (
-        <Reveal animation={Animation.SlideInLeft} delay={delay}>
-          <Flex justify="flex-start">
-            <MessageBox
-              maxW={['70%', '60%', 220]}
-              bg="grey.100"
-              color="grey.900"
-              px={4}
-              py={2}
-              {...rest}
-            >
-              {text}
-            </MessageBox>
-          </Flex>
-        </Reveal>
-      )}
-    </>
-  );
+  if (type === 'sent') {
+    return (
+      <Reveal animation={Animation.SlideInRight} delay={delay}>
+        <Flex justify="flex-end">
+          <MessageBox maxW={['65%', '55%', 220]} bg="blue.400" color="#fff" px={4} py={2} {...rest}>
+            {text}
+          </MessageBox>
+        </Flex>
+      </Reveal>
+    );
+  } else if (type === 'received') {
+    return (
+      <Reveal animation={Animation.SlideInLeft} delay={delay}>
+        <Flex justify="flex-start">
+          <MessageBox
+            maxW={['70%', '60%', 220]}
+            bg="grey.100"
+            color="grey.900"
+            px={4}
+            py={2}
+            {...rest}
+          >
+            {text}
+          </MessageBox>
+        </Flex>
+      </Reveal>
+    );
+  } else if (type === 'date') {
+    return (
+      <Reveal animation={Animation.FadeIn} delay={delay}>
+        <Text
+          textTransform="uppercase"
+          fontSize="sm"
+          fontWeight="bold"
+          mt={6}
+          textAlign="center"
+          color="grey.700"
+        >
+          {text}
+        </Text>
+      </Reveal>
+    );
+  } else return null;
 };
 
 export const HeroSection = ({ lang }: HeroSectionProps) => {
@@ -95,7 +105,6 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         bg={['initial', 'initial', '#fff']}
         h={['initial', 'initial', 600]}
         px={[6, 6, 4]}
-        m="0 auto"
         py={['initial', 'initial', 16]}
         minW={310}
         overflowX="hidden"
@@ -109,7 +118,13 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
                 type={type}
                 delay={delay}
                 key={i}
-                mt={i >= 1 && messages[i].type !== messages[i - 1].type ? 6 : 2}
+                mt={
+                  i >= 1 &&
+                  messages[i - 1].type === 'text' &&
+                  messages[i].type !== messages[i - 1].type
+                    ? 6
+                    : 2
+                }
               />
             );
           })}
@@ -122,7 +137,13 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
                 text={text}
                 type={type}
                 key={i}
-                mt={i >= 1 && messages[i].type !== messages[i - 1].type ? 6 : 2}
+                mt={
+                  i >= 1 &&
+                  messages[i - 1].type === 'text' &&
+                  messages[i].type !== messages[i - 1].type
+                    ? 6
+                    : 2
+                }
               />
             );
           })}

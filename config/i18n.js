@@ -72,7 +72,7 @@ module.exports = {
       hero: {
         messages: [
           {
-            text: `Haver mondd hogy van jegyzeted a holnap utáni vizsgára...`,
+            text: `Haver mondd hogy van jegyzeted a holnaputáni vizsgára...`,
             type: 'received',
             delay: 500,
           },

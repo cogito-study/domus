@@ -9,6 +9,7 @@ interface HeroSectionProps {
   lang: string;
   motto: string;
   description: string;
+  subtitle: string;
   popupTitle: string;
   popupText: string;
 }
@@ -18,19 +19,6 @@ const MessageBox = styled(Box)`
   font-weight: bold;
 `;
 
-const messages = [
-  { text: `Hey man! Do we have some notes for tomorrow's exam?`, type: 'received', delay: 500 },
-  { text: `😅 Of course we do...`, type: 'sent', delay: 1100 },
-  { text: `https://cogito.study`, type: 'sent', delay: 1400 },
-  { text: `NEXT DAY`, type: 'date', delay: 2000 },
-
-  { text: `Saved my life! Beers on me next time! 🙌`, type: 'received', delay: 2000 },
-  {
-    text: `Aaand also, does cogito have Corporate Finance notes too?`,
-    type: 'received',
-    delay: 2300,
-  },
-];
 export const Message = ({
   type,
   text,
@@ -106,7 +94,8 @@ export const Message = ({
   } else return null;
 };
 
-export const HeroSection = ({ lang }: HeroSectionProps) => {
+export const HeroSection = ({ lang, motto, subtitle, description }: HeroSectionProps) => {
+  const messages = i18n[lang].sections.hero.messages;
   return (
     <Flex
       direction={['column-reverse', 'column-reverse', 'row']}
@@ -194,7 +183,7 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
             zIndex={100}
           />
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="grey.900">
-            Looking for the best notes?
+            {motto}
           </Heading>
           <Heading
             as="h2"
@@ -203,7 +192,7 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
             lineHeight="base"
             color="blue.800"
           >
-            We have everything you need!
+            {subtitle}
           </Heading>
           <Heading
             as="h3"
@@ -213,7 +202,7 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
             fontWeight="semibold"
             lineHeight="base"
           >
-            Create, update and read notes easily together as students.
+            {description}
           </Heading>
           <Button
             as="a"

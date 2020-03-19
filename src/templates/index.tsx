@@ -19,7 +19,14 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
   pageContext: { lang },
 }) => {
-  const { motto, description, customers_heading, popup_text, popup_title } = data.prismicHome.data;
+  const {
+    motto,
+    description,
+    subtitle,
+    customers_heading,
+    popup_text,
+    popup_title,
+  } = data.prismicHome.data;
   const slices = data.prismicHome.data.body;
   const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
   const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
@@ -47,6 +54,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
                 lang={lang}
                 motto={motto.text}
                 description={description.text}
+                subtitle={subtitle.text}
                 popupTitle={popup_title.text}
                 popupText={popup_text.text}
               />

@@ -19,6 +19,25 @@ module.exports = {
       blog: 'blog',
     },
     sections: {
+      hero: {
+        messages: [
+          {
+            text: `Hey man! Do we have some notes for tomorrow's exam?`,
+            type: 'received',
+            delay: 500,
+          },
+          { text: `😅 Of course we do...`, type: 'sent', delay: 1100 },
+          { text: `https://cogito.study`, type: 'sent', delay: 1400 },
+          { text: `NEXT DAY`, type: 'date', delay: 2000 },
+
+          { text: `Saved my life! Beers on me next time! 🙌`, type: 'received', delay: 2000 },
+          {
+            text: `Aaand also, does cogito have Corporate Finance notes too?`,
+            type: 'received',
+            delay: 2300,
+          },
+        ],
+      },
       testimonials: 'Our users said...',
       usecase: 'Use cases',
       contact: 'Contact us',
@@ -50,6 +69,29 @@ module.exports = {
       contact: 'elérhetőség',
     },
     sections: {
+      hero: {
+        messages: [
+          {
+            text: `Haver mondd hogy van jegyzeted a holnap utáni vizsgára...`,
+            type: 'received',
+            delay: 500,
+          },
+          { text: `😅 Naná hogy van`, type: 'sent', delay: 1100 },
+          { text: `https://cogito.study`, type: 'sent', delay: 1400 },
+          { text: `MÁSNAP`, type: 'date', delay: 2000 },
+
+          {
+            text: `Sima ötös, el sem hiszem. Fussunk össze jövőhéten, a sört én állom! 🙌`,
+            type: 'received',
+            delay: 2000,
+          },
+          {
+            text: `Ha már itt tartunk.. 🙄 Válgazdból is vannak jegyzetek itt?`,
+            type: 'received',
+            delay: 2300,
+          },
+        ],
+      },
       testimonials: 'Felhasználóink mondták...',
       usecase: 'Funkciók',
       contact: 'Elérhetőség',

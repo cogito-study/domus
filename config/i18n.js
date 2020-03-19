@@ -19,6 +19,7 @@ module.exports = {
       blog: 'blog',
     },
     sections: {
+      testimonials: 'Our users said...',
       usecase: 'Use cases',
       contact: 'Contact us',
       privacy: 'Privacy policy',
@@ -49,6 +50,7 @@ module.exports = {
       contact: 'elérhetőség',
     },
     sections: {
+      testimonials: 'Felhasználóink mondták...',
       usecase: 'Funkciók',
       contact: 'Elérhetőség',
       privacy: 'Adatvédelmi szabályzat',

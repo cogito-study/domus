@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Text, BoxProps } from '@chakra-ui/core';
+import { Box, Button, Flex, Heading, Image, Text, Link, BoxProps } from '@chakra-ui/core';
 import React from 'react';
 import i18n from '../../../config/i18n.js';
 import heroBoxCorner from '../../../static/images/hero-box-corner.svg';
@@ -46,7 +46,17 @@ export const Message = ({
       <Reveal animation={Animation.SlideInRight} delay={delay}>
         <Flex justify="flex-end">
           <MessageBox maxW={['65%', '55%', 220]} bg="blue.400" color="#fff" px={4} py={2} {...rest}>
-            {text}
+            {text === 'https://cogito.study' ? (
+              <Link
+                href="https://app.cogito.study"
+                textDecoration="underline"
+                _hover={{ color: 'teal.200' }}
+              >
+                {text}
+              </Link>
+            ) : (
+              <Text fontSize={['md', 'md', 'sm']}>{text}</Text>
+            )}
           </MessageBox>
         </Flex>
       </Reveal>
@@ -63,7 +73,17 @@ export const Message = ({
             py={2}
             {...rest}
           >
-            {text}
+            {text === 'https://cogito.study' ? (
+              <Link
+                href="https://app.cogito.study"
+                textDecoration="underline"
+                _hover={{ color: 'teal.200' }}
+              >
+                {text}
+              </Link>
+            ) : (
+              <Text fontSize={['md', 'md', 'sm']}>{text}</Text>
+            )}
           </MessageBox>
         </Flex>
       </Reveal>
@@ -73,7 +93,7 @@ export const Message = ({
       <Reveal animation={Animation.FadeIn} delay={delay}>
         <Text
           textTransform="uppercase"
-          fontSize="sm"
+          fontSize={['md', 'md', 'sm']}
           fontWeight="bold"
           mt={6}
           textAlign="center"

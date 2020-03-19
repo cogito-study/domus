@@ -8,3 +8,4 @@ export * from './partner.section';
 export * from './try-out.section';
 export * from './achievement.section';
 export * from './team.section';
+export * from './testimonial.section';

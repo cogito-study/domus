@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
 import { Helmet } from 'react-helmet';
+import { RevealGlobalStyles } from 'react-genie';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -50,6 +51,7 @@ const Layout: FC = ({ children }) => {
           <html lang="en" />
         </Helmet>
         <CSSReset />
+        <RevealGlobalStyles />
         <GlobalStyles overlayMenuActive={overlayMenuActive} />
         <NavBar
           overlayMenuActive={overlayMenuActive}

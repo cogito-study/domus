@@ -3,8 +3,7 @@ import React from 'react';
 import i18n from '../../../config/i18n.js';
 import heroBoxCorner from '../../../static/images/hero-box-corner.svg';
 import styled from '@emotion/styled';
-import { OverPack } from 'rc-scroll-anim';
-import QueueAnim from 'rc-queue-anim';
+import { Reveal, Animation } from 'react-genie';
 
 interface HeroSectionProps {
   lang: string;
@@ -19,44 +18,59 @@ const MessageBox = styled(Box)`
   font-weight: bold;
 `;
 
+const messages = [
+  { text: `Hey man! Do we have some notes for tomorrow's exam?`, type: 'received', delay: 500 },
+  { text: `😅 Of course we do...`, type: 'sent', delay: 1100 },
+  { text: `https://cogito.study`, type: 'sent', delay: 1400 },
+  { text: `Saved my life! Beers on me next time! 🙌`, type: 'received', delay: 2000 },
+  {
+    text: `Aaand also, does cogito have Corporate Finance notes too?`,
+    type: 'received',
+    delay: 2300,
+  },
+];
 export const Message = ({
   type,
-  message,
+  text,
+  delay,
   ...rest
 }: {
   type: 'sent' | 'received';
-  message: string;
+  text: string;
+  delay?: number;
 } & BoxProps) => {
   return (
     <>
       {type === 'sent' ? (
-        <Flex justify="flex-end">
-          <MessageBox
-            maxW={['65%', '55%', 220]}
-            bg="blue.400"
-            color="#fff"
-            px={4}
-            py={2}
-            mt={2}
-            {...rest}
-          >
-            {message}
-          </MessageBox>
-        </Flex>
+        <Reveal animation={Animation.SlideInRight} delay={delay}>
+          <Flex justify="flex-end">
+            <MessageBox
+              maxW={['65%', '55%', 220]}
+              bg="blue.400"
+              color="#fff"
+              px={4}
+              py={2}
+              {...rest}
+            >
+              {text}
+            </MessageBox>
+          </Flex>
+        </Reveal>
       ) : (
-        <Flex justify="flex-start">
-          <MessageBox
-            maxW={['70%', '60%', 220]}
-            bg="grey.100"
-            color="grey.900"
-            px={4}
-            py={2}
-            mt={2}
-            {...rest}
-          >
-            {message}
-          </MessageBox>
-        </Flex>
+        <Reveal animation={Animation.SlideInLeft} delay={delay}>
+          <Flex justify="flex-start">
+            <MessageBox
+              maxW={['70%', '60%', 220]}
+              bg="grey.100"
+              color="grey.900"
+              px={4}
+              py={2}
+              {...rest}
+            >
+              {text}
+            </MessageBox>
+          </Flex>
+        </Reveal>
       )}
     </>
   );
@@ -69,9 +83,8 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
       alignItems="center"
       justifyContent="center"
       pt={[16, 24]}
-      mb={[2, 10]}
-      mx={[0, 0, 0, 6]}
-      minH="76vh"
+      mb={[2, 2, 10]}
+      mx={[0, 0, 6]}
     >
       <Box
         mt={[24, 24, 'initial']}
@@ -80,65 +93,42 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         borderRadius={[0, 0, 60]}
         zIndex={1}
         bg={['initial', 'initial', '#fff']}
-        h={650}
-        px={4}
+        h={['initial', 'initial', 600]}
+        px={[6, 6, 4]}
         m="0 auto"
-        py={16}
+        py={['initial', 'initial', 16]}
         minW={310}
+        overflowX="hidden"
       >
-        <OverPack
-          //@ts-ignore
-          always={false}
-          playScale={0.2}
-          height={640}
-        >
-          <QueueAnim delay={700} type={['left', 'right']}>
-            <Message
-              key="a"
-              type="received"
-              message="Hey man! Do we have some notes for tomorrow's exam?"
-            />
-          </QueueAnim>
-
-          <QueueAnim delay={1600} type={['right', 'left']}>
-            <Message key="b" type="sent" message="😅 Of course we do..." mt={8} />
-          </QueueAnim>
-
-          <QueueAnim delay={1900} type={['right', 'left']}>
-            <Message key="c" type="sent" message="https://cogito.study" />
-          </QueueAnim>
-
-          {/* <Text
-          textTransform="uppercase"
-          fontSize="sm"
-          fontWeight="bold"
-          mt={4}
-          mb={2}
-          textAlign="center"
-          color="grey.700"
-        >
-          NEXT DAY
-        </Text> */}
-          <QueueAnim delay={2700} type={['left', 'right']}>
-            <Message
-              key="d"
-              type="received"
-              message="Saved my life! Beers on me next time! 🙌"
-              mt={8}
-            />
-          </QueueAnim>
-
-          <QueueAnim delay={3100} type={['left', 'right']}>
-            <Message
-              key="e"
-              type="received"
-              message="Aaand also, does cogito have Corporate Finance notes too?"
-            />
-          </QueueAnim>
-        </OverPack>
+        <Box display={['none', 'none', 'initial']}>
+          {messages.map((message: any, i: number) => {
+            const { text, type, delay } = message;
+            return (
+              <Message
+                text={text}
+                type={type}
+                delay={delay}
+                key={i}
+                mt={i >= 1 && messages[i].type !== messages[i - 1].type ? 6 : 2}
+              />
+            );
+          })}
+        </Box>
+        <Box display={['initial', 'initial', 'none']}>
+          {messages.map((message: any, i: number) => {
+            const { text, type } = message;
+            return (
+              <Message
+                text={text}
+                type={type}
+                key={i}
+                mt={i >= 1 && messages[i].type !== messages[i - 1].type ? 6 : 2}
+              />
+            );
+          })}
+        </Box>
       </Box>
-
-      <Flex direction="column" justify="center" maxW={830} minH={350}>
+      <Flex direction="column" justify="center" maxW={830}>
         <Flex
           pos="relative"
           direction="column"

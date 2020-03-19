@@ -1,7 +1,7 @@
 import { Box, Flex, Heading } from '@chakra-ui/core';
 import { Location } from '@reach/router';
 import { graphql } from 'gatsby';
-import { ArticleJsonLd } from 'gatsby-plugin-next-seo';
+import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import React, { FunctionComponent } from 'react';
 import Common from '../components/common';
 import { RelatedBlogPostSlices } from '../components/slices/related-blog-post.slices';
@@ -24,18 +24,26 @@ const BlogPostTemplate: FunctionComponent<{ data: any; pageContext: { lang: stri
       {({ location }) => {
         return (
           <>
-            <ArticleJsonLd
-              url={location.href}
-              headline={`${seoTitle} | cogito`}
-              images={[hero_image.url]}
-              datePublished={first_publication_date}
-              dateModified={last_publication_date}
-              authorName="cogito"
-              publisherName="cogito"
-              publisherLogo="https://cogito.study/logos/logo.svg"
+            <GatsbySeo
+              title={seoTitle}
               description={description}
-              overrides={{
-                '@type': 'BlogPosting', // set's this as a blog post.
+              canonical={location.href}
+              openGraph={{
+                url: location.href,
+                title: `${seoTitle} | cogito`,
+                description: description,
+                type: 'article',
+                article: {
+                  publishedTime: first_publication_date,
+                  modifiedTime: last_publication_date,
+                },
+                images: [
+                  {
+                    url: hero_image.url,
+                    width: 1000,
+                    height: 500,
+                  },
+                ],
               }}
             />
             <Box position="fixed" h="100vh" w="100vw" bg="#fff" zIndex={-1} opacity={0.35} />

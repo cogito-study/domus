@@ -80,7 +80,7 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         borderRadius={[0, 0, 60]}
         zIndex={1}
         bg={['initial', 'initial', '#fff']}
-        h={[650, 650, '70vh']}
+        h={650}
         px={4}
         m="0 auto"
         py={16}

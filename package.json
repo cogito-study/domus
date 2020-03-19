@@ -43,6 +43,7 @@
     "js-cookie": "^2.2.1",
     "lint-staged": "^9.4.1",
     "rc-animate": "^2.10.3",
+    "rc-queue-anim": "^1.8.4",
     "rc-scroll-anim": "^2.7.4",
     "react": "^16.12.0",
     "react-animate-on-scroll": "^2.1.5",

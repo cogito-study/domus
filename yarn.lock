@@ -11159,6 +11159,16 @@ rc-animate@^2.10.3:
     rc-util "^4.15.3"
     react-lifecycles-compat "^3.0.4"
 
+rc-queue-anim@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/rc-queue-anim/-/rc-queue-anim-1.8.4.tgz#ce6a3f9ebc864bb88140aa38cdef0ce180247483"
+  integrity sha512-HBVwdTcxqDsjDm7dIja7l4gi0gbHxBzNNeWuz+Nfg+KAmNTMKc7Z7O/qCkUq4SHgUhpqYmOfvCh019iMc1NcVg==
+  dependencies:
+    babel-runtime "6.x"
+    prop-types "^15.6.0"
+    rc-tween-one "^2.5.0"
+    react-lifecycles-compat "^3.0.4"
+
 rc-scroll-anim@^2.7.4:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/rc-scroll-anim/-/rc-scroll-anim-2.7.4.tgz#d268528b0de1cf9fb5c1b4691f8235ab552424d2"
@@ -11171,7 +11181,7 @@ rc-scroll-anim@^2.7.4:
     react-lifecycles-compat "^3.0.4"
     tween-functions "1.x"
 
-rc-tween-one@^2.4.0:
+rc-tween-one@^2.4.0, rc-tween-one@^2.5.0:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/rc-tween-one/-/rc-tween-one-2.6.8.tgz#75edf141af491a28b18812dc419efa6b0238e2a7"
   integrity sha512-xb0gNGVq3LNMqT/VCvlEVlW4FQhvbe5LrcoMwGAn6LNcBZR6qzh3Ip8oIhx3iN4Lex2mKJ9HN9vopuxzSZRZGA==

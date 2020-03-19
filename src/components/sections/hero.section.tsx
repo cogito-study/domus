@@ -3,7 +3,8 @@ import React from 'react';
 import i18n from '../../../config/i18n.js';
 import heroBoxCorner from '../../../static/images/hero-box-corner.svg';
 import styled from '@emotion/styled';
-import { Parallax } from 'rc-scroll-anim';
+import { OverPack } from 'rc-scroll-anim';
+import QueueAnim from 'rc-queue-anim';
 
 interface HeroSectionProps {
   lang: string;
@@ -21,22 +22,17 @@ const MessageBox = styled(Box)`
 export const Message = ({
   type,
   message,
-  appearanceDelay,
   ...rest
 }: {
   type: 'sent' | 'received';
   message: string;
-  appearanceDelay?: number[];
 } & BoxProps) => {
   return (
     <>
       {type === 'sent' ? (
-        <Parallax
-          animation={{ playScale: appearanceDelay || [0.15, 0.25], x: 100, opacity: 1 }}
-          style={{ transform: 'translateX(800px)', opacity: 0 }}
-        >
+        <Flex justify="flex-end">
           <MessageBox
-            maxW={['65%', '55%', 200]}
+            maxW={['65%', '55%', 220]}
             bg="blue.400"
             color="#fff"
             px={4}
@@ -46,14 +42,11 @@ export const Message = ({
           >
             {message}
           </MessageBox>
-        </Parallax>
+        </Flex>
       ) : (
-        <Parallax
-          animation={{ playScale: appearanceDelay || [0.15, 0.25], x: 0, opacity: 1 }}
-          style={{ transform: 'translateX(-300px)', opacity: 0 }}
-        >
+        <Flex justify="flex-start">
           <MessageBox
-            maxW={['70%', '60%', 320]}
+            maxW={['70%', '60%', 220]}
             bg="grey.100"
             color="grey.900"
             px={4}
@@ -63,7 +56,7 @@ export const Message = ({
           >
             {message}
           </MessageBox>
-        </Parallax>
+        </Flex>
       )}
     </>
   );
@@ -87,22 +80,35 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         borderRadius={[0, 0, 60]}
         zIndex={1}
         bg={['initial', 'initial', '#fff']}
-        h="70vh"
-        style={{ overflowX: 'hidden' }}
+        h={[650, 650, '70vh']}
         px={4}
-        pr={8}
         m="0 auto"
         py={16}
-        justifyContent="center"
+        minW={310}
       >
-        <Message
-          type="received"
-          message="Hey man! Do we have some notes for tomorrow's exam?"
-          appearanceDelay={[0.03, 0.18]}
-        />
-        <Message type="sent" message="😅 Of course we do..." mt={8} />
-        <Message type="sent" message="https://cogito.study" />
-        {/* <Text
+        <OverPack
+          //@ts-ignore
+          always={false}
+          playScale={0.2}
+          height={640}
+        >
+          <QueueAnim delay={700} type={['left', 'right']}>
+            <Message
+              key="a"
+              type="received"
+              message="Hey man! Do we have some notes for tomorrow's exam?"
+            />
+          </QueueAnim>
+
+          <QueueAnim delay={1600} type={['right', 'left']}>
+            <Message key="b" type="sent" message="😅 Of course we do..." mt={8} />
+          </QueueAnim>
+
+          <QueueAnim delay={1900} type={['right', 'left']}>
+            <Message key="c" type="sent" message="https://cogito.study" />
+          </QueueAnim>
+
+          {/* <Text
           textTransform="uppercase"
           fontSize="sm"
           fontWeight="bold"
@@ -113,11 +119,23 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         >
           NEXT DAY
         </Text> */}
-        <Message type="received" message="Saved my life! Beers on me next time! 🙌" mt={8} />
-        <Message
-          type="received"
-          message="Aaand also, does cogito have Corporate Finance notes too?"
-        />
+          <QueueAnim delay={2700} type={['left', 'right']}>
+            <Message
+              key="d"
+              type="received"
+              message="Saved my life! Beers on me next time! 🙌"
+              mt={8}
+            />
+          </QueueAnim>
+
+          <QueueAnim delay={3100} type={['left', 'right']}>
+            <Message
+              key="e"
+              type="received"
+              message="Aaand also, does cogito have Corporate Finance notes too?"
+            />
+          </QueueAnim>
+        </OverPack>
       </Box>
 
       <Flex direction="column" justify="center" maxW={830} minH={350}>

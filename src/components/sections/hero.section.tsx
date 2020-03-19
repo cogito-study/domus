@@ -1,10 +1,9 @@
 import { Box, Button, Flex, Heading, Image, BoxProps } from '@chakra-ui/core';
-import React, { useEffect } from 'react';
+import React from 'react';
 import i18n from '../../../config/i18n.js';
-import phoneConversation from '../../../static/images/phoneConv.gif';
-import heroBg from '../../../static/background/hero-bg.svg';
+import heroBoxCorner from '../../../static/images/hero-box-corner.svg';
 import styled from '@emotion/styled';
-import { motion, useAnimation } from 'framer-motion';
+import { Parallax } from 'rc-scroll-anim';
 
 interface HeroSectionProps {
   lang: string;
@@ -22,45 +21,22 @@ const MessageBox = styled(Box)`
 export const Message = ({
   type,
   message,
-  delayMultiplier,
+  appearanceDelay,
   ...rest
 }: {
-  delayMultiplier: number;
   type: 'sent' | 'received';
   message: string;
+  appearanceDelay?: number[];
 } & BoxProps) => {
-  const fromLeft = { opacity: 0, x: 'calc(100vw - 130%)' };
-  const fromRight = { opacity: 0, x: 'calc(100vw + 30%)' };
-
-  const toRight = useAnimation();
-  const toLeft = useAnimation();
-
-  useEffect(() => {
-    toLeft.start(() => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.7,
-        delay: delayMultiplier * 0.25, //TODO: update numbering when called this
-      },
-    }));
-
-    toRight.start(() => ({
-      opacity: 1,
-      x: 'calc(100vw - 80%)',
-      transition: {
-        duration: 0.65,
-        delay: delayMultiplier * 0.25,
-      },
-    }));
-  });
-
   return (
     <>
       {type === 'sent' ? (
-        <motion.div positionTransition initial={fromRight} animate={toRight}>
+        <Parallax
+          animation={{ playScale: appearanceDelay || [0.15, 0.25], x: 100, opacity: 1 }}
+          style={{ transform: 'translateX(800px)', opacity: 0 }}
+        >
           <MessageBox
-            maxW={['65%', '55%']}
+            maxW={['65%', '55%', 200]}
             bg="blue.400"
             color="#fff"
             px={4}
@@ -70,11 +46,14 @@ export const Message = ({
           >
             {message}
           </MessageBox>
-        </motion.div>
+        </Parallax>
       ) : (
-        <motion.div positionTransition initial={fromLeft} animate={toLeft}>
+        <Parallax
+          animation={{ playScale: appearanceDelay || [0.15, 0.25], x: 0, opacity: 1 }}
+          style={{ transform: 'translateX(-300px)', opacity: 0 }}
+        >
           <MessageBox
-            maxW={['70%', '60%']}
+            maxW={['70%', '60%', 320]}
             bg="grey.100"
             color="grey.900"
             px={4}
@@ -84,7 +63,7 @@ export const Message = ({
           >
             {message}
           </MessageBox>
-        </motion.div>
+        </Parallax>
       )}
     </>
   );
@@ -95,22 +74,34 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
     <Flex
       direction={['column-reverse', 'column-reverse', 'row']}
       alignItems="center"
+      justifyContent="center"
       pt={[16, 24]}
       mb={[2, 10]}
       mx={[0, 0, 0, 6]}
       minH="76vh"
     >
-      <Box display={['none', 'none', 'initial']}>
-        <Image src={phoneConversation} maxH="60vh" />
-      </Box>
-      <Box w="90%" display={['initial', 'initial', 'none']} mt={[24, 24, 'initial']}>
+      <Box
+        mt={[24, 24, 'initial']}
+        borderWidth={[0, 0, 4]}
+        borderColor="blue.800"
+        borderRadius={[0, 0, 60]}
+        zIndex={1}
+        bg={['initial', 'initial', '#fff']}
+        h="70vh"
+        style={{ overflowX: 'hidden' }}
+        px={4}
+        pr={8}
+        m="0 auto"
+        py={16}
+        justifyContent="center"
+      >
         <Message
           type="received"
           message="Hey man! Do we have some notes for tomorrow's exam?"
-          delayMultiplier={1}
+          appearanceDelay={[0.03, 0.18]}
         />
-        <Message type="sent" message="😅 Of course we do..." delayMultiplier={5} mt={8} />
-        <Message type="sent" message="https://cogito.study" delayMultiplier={7} />
+        <Message type="sent" message="😅 Of course we do..." mt={8} />
+        <Message type="sent" message="https://cogito.study" />
         {/* <Text
           textTransform="uppercase"
           fontSize="sm"
@@ -122,36 +113,37 @@ export const HeroSection = ({ lang }: HeroSectionProps) => {
         >
           NEXT DAY
         </Text> */}
-        <Message
-          type="received"
-          message="Saved my life! Beers on me next time! 🙌"
-          delayMultiplier={11}
-          mt={8}
-        />
+        <Message type="received" message="Saved my life! Beers on me next time! 🙌" mt={8} />
         <Message
           type="received"
           message="Aaand also, does cogito have Corporate Finance notes too?"
-          delayMultiplier={13}
         />
       </Box>
 
       <Flex direction="column" justify="center" maxW={830} minH={350}>
-        <Image
-          pos="absolute"
-          display={['none', 'none', 'initial']}
-          zIndex={-1}
-          ml={-8}
-          src={heroBg}
-          maxH="40vh"
-        />
         <Flex
+          pos="relative"
           direction="column"
           align={['center', 'center', 'start']}
           mt={[20, 20, 'initial']}
-          ml={[2, 2, 16]}
+          ml={[2, 2, -20]}
           mr={[2]}
           textAlign={['center', 'center', 'initial']}
+          borderColor="blue.100"
+          borderWidth={[0, 0, 2]}
+          boxSizing="content-box"
+          bg={['initial', 'initial', '#fff']}
+          p={[4, 4, 16]}
+          pl={[4, 4, 32]}
         >
+          <Image
+            pos="absolute"
+            top={-2}
+            right={-2}
+            display={['none', 'none', 'initial']}
+            src={heroBoxCorner}
+            zIndex={100}
+          />
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="grey.900">
             Looking for the best notes?
           </Heading>

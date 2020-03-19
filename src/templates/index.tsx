@@ -39,7 +39,7 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
                 url: location.href,
               }}
             />
-            <Container>
+            <Container px={[0, 0, 'initial']}>
               <HeroSection
                 lang={lang}
                 motto={motto.text}

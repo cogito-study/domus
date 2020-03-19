@@ -1,10 +1,4 @@
 const i18n = require('./config/i18n');
-const {
-  replaceTrailing,
-  localizedSlug,
-  replaceBoth,
-  wrapper,
-} = require('./src/utils/gatsby-node-helpers');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -159,20 +153,19 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   pages.data.allPrismicBlogPost.edges.forEach((edge) => {
-    createPage({
-      path: `en/blog/${edge.node.slugs[0]}`,
-      component: require.resolve('./src/templates/blog-post.template.tsx'),
-      context: {
-        uid: edge.node.slugs[0],
-        lang: 'en-us',
-      },
-    });
     createRedirect({
       fromPath: `/blog/${edge.node.slugs[0]}`,
       toPath: `/en/blog/${edge.node.slugs[0]}`,
       redirectInBrowser: true,
       isPermanent: true,
-      statusCode: 200,
+    });
+    createPage({
+      path: `/en/blog/${edge.node.slugs[0]}`,
+      component: require.resolve('./src/templates/blog-post.template.tsx'),
+      context: {
+        uid: edge.node.slugs[0],
+        lang: 'en-us',
+      },
     });
   });
 };

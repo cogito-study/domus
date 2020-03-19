@@ -7,7 +7,7 @@ export const StyledContent = styled.div(
     font-family: ${fonts.body};
     font-weight: 600;
     line-height: 1.8;
-    font-size: ${sizes[4]};
+    font-size: ${sizes[5]};
     color: ${colors.grey[800]};
 
     p {

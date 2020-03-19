@@ -8,19 +8,29 @@ import { CookieBanner } from '../components/cookie-banner';
 import {
   CustomerSection,
   FeatureSection,
+  TestimonialSection,
   HeroSection,
   UseCaseSection,
 } from '../components/sections';
 import { Location } from '@reach/router';
+import i18n from '../../config/i18n.js';
 
 const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
   data,
   pageContext: { lang },
 }) => {
-  const { motto, description, customers_heading, popup_text, popup_title } = data.prismicHome.data;
+  const {
+    motto,
+    description,
+    subtitle,
+    customers_heading,
+    popup_text,
+    popup_title,
+  } = data.prismicHome.data;
   const slices = data.prismicHome.data.body;
   const useCaseSection = slices.filter((slice) => slice.slice_type === 'use_case');
   const featureSection = slices.filter((slice) => slice.slice_type === 'feature');
+  const testimonialSection = slices.filter((slice) => slice.slice_type === 'testimonial');
   const customerSection = slices.filter((slice) => slice.slice_type === 'customer');
 
   const cookie = slices.filter((slice) => slice.slice_type === 'cookie');
@@ -39,11 +49,12 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
                 url: location.href,
               }}
             />
-            <Container>
+            <Container px={[0, 0, 'initial']}>
               <HeroSection
                 lang={lang}
                 motto={motto.text}
                 description={description.text}
+                subtitle={subtitle.text}
                 popupTitle={popup_title.text}
                 popupText={popup_text.text}
               />
@@ -52,6 +63,10 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
 
             <Container>
               <FeatureSection data={featureSection} lang={lang} />
+              <TestimonialSection
+                title={i18n[lang].sections.testimonials}
+                data={testimonialSection}
+              />
               <CustomerSection title={customers_heading.text} data={customerSection} />
             </Container>
             <Common lang={lang} />
@@ -151,6 +166,21 @@ export const query = graphql`
               }
               feature_description {
                 slug
+              }
+            }
+          }
+
+          ... on PrismicHomeBodyTestimonial {
+            slice_type
+            primary {
+              name {
+                text
+              }
+              position {
+                text
+              }
+              testimonial {
+                text
               }
             }
           }

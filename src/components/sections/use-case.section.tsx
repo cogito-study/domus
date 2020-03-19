@@ -14,14 +14,14 @@ const Background = styled(Flex)`
 
 export const UseCaseSection: FunctionComponent<{ data: any; lang: string }> = ({ data, lang }) => {
   return (
-    <Flex direction="column" align="center" justify="flex-end">
+    <Flex direction="column" align="center" justify="flex-end" mt={[16, 16, 'initial']}>
       <Flex wrap="wrap" w={['100%', '65%', '750px', '100%']} justify="center">
         {data.map((useCase: any, index: number) => {
           const { icon, title, description, feature_description } = useCase.primary;
 
           return (
             <Flex
-              bg="white"
+              bg="#fff"
               key={index}
               direction="column"
               w={['100%', '100%', '210px', '260px']}

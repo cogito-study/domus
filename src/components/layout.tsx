@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import { theme } from '../theme';
 import { NavBar } from './nav-bar';
 import { Helmet } from 'react-helmet';
+import { RevealGlobalStyles } from 'react-genie';
 
 const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => {
   const { breakpoints, colors } = theme;
@@ -32,6 +33,7 @@ const GlobalStyles = ({ overlayMenuActive }: { overlayMenuActive: boolean }) => 
             background-image: url('/background/top-right.svg'), url('/background/bottom-right.svg');
             background-position: right 100px, right 1200px, left 2000px;
             background-repeat: no-repeat, no-repeat, no-repeat;
+            max-width: 100%;
           }
         }
       `}
@@ -49,6 +51,7 @@ const Layout: FC = ({ children }) => {
           <html lang="en" />
         </Helmet>
         <CSSReset />
+        <RevealGlobalStyles />
         <GlobalStyles overlayMenuActive={overlayMenuActive} />
         <NavBar
           overlayMenuActive={overlayMenuActive}

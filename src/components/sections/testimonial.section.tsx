@@ -1,10 +1,17 @@
-import { Avatar, Flex, Heading, Text } from '@chakra-ui/core';
+import { Avatar, Flex, Heading, Image, Text } from '@chakra-ui/core';
 import { Reveal, Animation } from 'react-genie';
 import React, { FunctionComponent } from 'react';
+import quote from '../../../static/images/icon-quote.svg';
 
 interface CustomerSectionProps {
   title: string;
 }
+
+const userPics = [
+  'https://randomuser.me/api/portraits/men/52.jpg',
+  'https://randomuser.me/api/portraits/women/90.jpg',
+  'https://randomuser.me/api/portraits/men/32.jpg',
+];
 
 export const TestimonialSection: FunctionComponent<CustomerSectionProps & { data: any }> = ({
   title,
@@ -27,6 +34,7 @@ export const TestimonialSection: FunctionComponent<CustomerSectionProps & { data
           return (
             <Reveal animation={Animation.FadeIn} key={index}>
               <Flex
+                pos="relative"
                 maxW={340}
                 my={[6, 6, 'initial']}
                 h={230}
@@ -39,12 +47,8 @@ export const TestimonialSection: FunctionComponent<CustomerSectionProps & { data
                 py={8}
                 px={6}
               >
-                <Avatar
-                  name="Dan Abrahmov"
-                  src="https://bit.ly/dan-abramov"
-                  showBorder
-                  borderColor="teal.600"
-                />
+                <Image src={quote} pos="absolute" top={0} left={0} />
+                <Avatar src={userPics[index]} showBorder borderColor="teal.600" />
                 <Heading
                   as="h4"
                   fontSize="md"
@@ -52,11 +56,11 @@ export const TestimonialSection: FunctionComponent<CustomerSectionProps & { data
                   color="blue.800"
                   textAlign="center"
                   fontWeight={600}
-                  mt={1}
+                  mt={2}
                 >
                   {name.text}
                 </Heading>
-                <Heading as="h5" fontSize="sm" color="grey.700" textAlign="center">
+                <Heading as="h5" fontSize="sm" color="grey.700" textAlign="center" mt={1}>
                   {position.text}
                 </Heading>
                 <Text

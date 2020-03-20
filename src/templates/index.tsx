@@ -59,14 +59,17 @@ const Index: FunctionComponent<{ data: any; pageContext: { lang } }> = ({
                 popupText={popup_text.text}
               />
             </Container>
-            <UseCaseSection data={useCaseSection} lang={lang} />
-
             <Container>
-              <FeatureSection data={featureSection} lang={lang} />
               <TestimonialSection
                 title={i18n[lang].sections.testimonials}
                 data={testimonialSection}
               />
+            </Container>
+            <UseCaseSection data={useCaseSection} lang={lang} />
+
+            <Container>
+              <FeatureSection data={featureSection} lang={lang} />
+
               <CustomerSection title={customers_heading.text} data={customerSection} />
             </Container>
             <Common lang={lang} />

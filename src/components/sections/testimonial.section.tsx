@@ -18,7 +18,7 @@ export const TestimonialSection: FunctionComponent<CustomerSectionProps & { data
   data,
 }) => {
   return (
-    <Flex my={12} align="center" justify="center" direction="column" id="testimonial">
+    <Flex my={8} align="center" justify="center" direction="column" id="testimonial">
       <Heading
         maxW={['260px', '360px']}
         color="blue.800"

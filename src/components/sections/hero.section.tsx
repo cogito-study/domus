@@ -180,7 +180,7 @@ export const HeroSection = ({ lang, motto, subtitle, description }: HeroSectionP
             right={-2}
             display={['none', 'none', 'initial']}
             src={heroBoxCorner}
-            zIndex={100}
+            zIndex={1}
           />
           <Heading as="h1" fontSize={['xl', 'xl', '3xl', '5xl']} lineHeight="base" color="grey.900">
             {motto}
